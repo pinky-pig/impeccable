@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impeccable：Anthropic frontend-design skill 的中文增强版</title>
-  <meta name="description" content="1 个技能、17 个命令、精选反模式，帮助你在 Cursor、Claude Code、Gemini CLI 与 Codex CLI 中做出更好的前端设计。">
+  <title>Impeccable Style 中文版：AI 编程工具设计技能站</title>
+  <meta name="description" content="Impeccable Style 中文版，收录 1 个核心技能、17 个设计命令与精选反模式，帮助你在 Cursor、Claude Code、Gemini CLI 与 Codex CLI 中做出更好的前端设计。">
   <meta name="theme-color" content="#1a1a1a">
 
   <!-- OpenGraph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Impeccable：面向 AI 编程工具的设计技能">
-  <meta property="og:description" content="1 个技能、17 个命令、精选反模式，帮助你在主流 AI 编程工具中做出更好的前端设计。">
+  <meta property="og:title" content="Impeccable Style 中文版">
+  <meta property="og:description" content="1 个核心技能、17 个设计命令与精选反模式，帮助你在主流 AI 编程工具中做出更好的前端设计。">
   <meta property="og:image" content="https://impeccable.style/og-image.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Impeccable：面向 AI 编程工具的设计技能">
-  <meta name="twitter:description" content="1 个技能、17 个命令、精选反模式，帮助你做出更好的前端设计。">
+  <meta name="twitter:title" content="Impeccable Style 中文版">
+  <meta name="twitter:description" content="1 个核心技能、17 个设计命令与精选反模式，帮助你做出更好的前端设计。">
   <meta name="twitter:image" content="https://impeccable.style/og-image.jpg">
 
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
@@ -186,6 +186,53 @@
         <p class="section-subtitle">一条命令，覆盖所有主流工具。</p>
       </div>
 
+      <div class="onboarding-guide" data-reveal data-onboarding-guide>
+        <div class="onboarding-guide-header">
+          <div>
+            <span class="onboarding-guide-eyebrow">初次上手</span>
+            <h3 class="onboarding-guide-title">先选你的路径，再安装</h3>
+          </div>
+          <button type="button" class="onboarding-guide-dismiss" data-onboarding-dismiss aria-label="关闭初次上手引导">关闭</button>
+        </div>
+
+        <p class="onboarding-guide-intro">你不需要先理解所有命令。先装进去，再用一两个高频命令试跑，最快能感受到价值。</p>
+
+        <div class="onboarding-provider-grid" role="list" aria-label="安装路径选择">
+          <button type="button" class="onboarding-provider-card is-active" data-onboarding-provider="universal" role="listitem">
+            <span class="onboarding-provider-kicker">推荐起点</span>
+            <strong>我用 Cursor / Codex / Gemini / Copilot / Kiro</strong>
+            <span>直接用通用安装命令，最省事。</span>
+          </button>
+          <button type="button" class="onboarding-provider-card" data-onboarding-provider="claude" role="listitem">
+            <span class="onboarding-provider-kicker">Claude Code</span>
+            <strong>我想走官方插件入口</strong>
+            <span>先加 marketplace，再到 Discover 安装。</span>
+          </button>
+          <button type="button" class="onboarding-provider-card" data-onboarding-provider="manual" role="listitem">
+            <span class="onboarding-provider-kicker">兜底方案</span>
+            <strong>我只想下载 ZIP 手动放置</strong>
+            <span>适合离线、受限环境或想看具体文件结构时。</span>
+          </button>
+        </div>
+
+        <div class="onboarding-guide-panel" aria-live="polite">
+          <div>
+            <span class="onboarding-guide-label">下一步</span>
+            <p class="onboarding-guide-summary" data-onboarding-summary>运行通用安装命令，Impeccable 会自动识别你的工具并写到正确目录。</p>
+          </div>
+          <div class="onboarding-guide-actions">
+            <button type="button" class="btn btn-primary btn-small" data-onboarding-jump>定位到这一项</button>
+            <a href="/cheatsheet" class="btn btn-secondary btn-small">先看速查表</a>
+          </div>
+        </div>
+
+        <ol class="onboarding-guide-steps">
+          <li><strong>安装</strong> 把技能和命令放进你的项目目录。</li>
+          <li><strong>验证</strong> 在工具里输入 <code>/</code>，确认能看到 <code>/audit</code>、<code>/polish</code> 等命令。</li>
+          <li><strong>试跑</strong> 先拿一个真实界面，分别试 <code>/polish</code> 或 <code>/clarify</code>，不要一次全上。</li>
+        </ol>
+      </div>
+
       <!-- Primary install: glass terminal style -->
       <div class="install-terminal" data-reveal>
         <div class="glass-terminal">
@@ -196,7 +243,7 @@
             <span class="terminal-title">install</span>
           </div>
           <div class="terminal-body">
-            <div class="install-terminal-row">
+            <div class="install-terminal-row" data-install-option="universal">
               <span class="install-terminal-label">全部工具</span>
               <div class="install-terminal-cmd">
                 <span class="terminal-prompt">$</span>
@@ -211,7 +258,7 @@
               <span class="install-terminal-note">自动识别你的 AI 工具，并安装到正确位置</span>
             </div>
             <div class="install-terminal-divider"></div>
-            <div class="install-terminal-row">
+            <div class="install-terminal-row" data-install-option="claude">
               <span class="install-terminal-label">Claude Code</span>
               <div class="install-terminal-cmd">
                 <span class="terminal-prompt">$</span>
@@ -226,7 +273,7 @@
               <span class="install-terminal-note">然后打开 <code>/plugin</code>，在 Discover 标签页中安装</span>
             </div>
             <div class="install-terminal-divider"></div>
-            <div class="install-terminal-row">
+            <div class="install-terminal-row" data-install-option="manual">
               <span class="install-terminal-label">手动安装</span>
               <div class="install-terminal-cmd install-terminal-cmd--download">
                 <button class="btn btn-secondary btn-small" data-bundle="universal" aria-label="下载通用 ZIP">
