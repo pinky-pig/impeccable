@@ -2078,6 +2078,189 @@ code {
   max-width: 60ch;
 }
 
+.onboarding-guide {
+  max-width: 900px;
+  margin: 0 auto var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.96)),
+    radial-gradient(circle at top right, var(--color-accent-dim), transparent 42%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 24px 80px -40px rgba(0, 0, 0, 0.22);
+}
+
+.onboarding-guide-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+}
+
+.onboarding-guide-eyebrow,
+.onboarding-guide-label,
+.onboarding-provider-kicker {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.onboarding-guide-eyebrow,
+.onboarding-guide-label {
+  color: var(--color-accent);
+}
+
+.onboarding-guide-title {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 500;
+  line-height: 0.95;
+  color: var(--color-ink);
+}
+
+.onboarding-guide-dismiss {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-ash);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.onboarding-guide-dismiss:hover {
+  color: var(--color-ink);
+}
+
+.onboarding-guide-dismiss:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.onboarding-guide-intro {
+  max-width: 56ch;
+  margin-top: var(--spacing-sm);
+  color: var(--color-charcoal);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.onboarding-provider-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+}
+
+.onboarding-provider-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: var(--spacing-md);
+  text-align: left;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  cursor: pointer;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
+}
+
+.onboarding-provider-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+.onboarding-provider-card.is-active {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), var(--color-accent-dim));
+  border-color: var(--color-accent);
+  box-shadow: 0 18px 40px -28px rgba(178, 22, 91, 0.5);
+}
+
+.onboarding-provider-card strong {
+  color: var(--color-ink);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.onboarding-provider-card span:last-child {
+  color: var(--color-ash);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.onboarding-provider-kicker {
+  color: var(--color-ash);
+}
+
+.onboarding-provider-card.is-active .onboarding-provider-kicker {
+  color: var(--color-accent);
+}
+
+.onboarding-guide-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.onboarding-guide-summary {
+  margin-top: 6px;
+  color: var(--color-charcoal);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.onboarding-guide-actions {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.onboarding-guide-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-sm);
+  margin: var(--spacing-lg) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: onboarding-step;
+}
+
+.onboarding-guide-steps li {
+  position: relative;
+  padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) calc(var(--spacing-md) + 28px);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  color: var(--color-charcoal);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  counter-increment: onboarding-step;
+}
+
+.onboarding-guide-steps li::before {
+  content: counter(onboarding-step);
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
 /* Install terminal (glass terminal style) */
 .install-terminal {
   max-width: 640px;
@@ -2099,6 +2282,16 @@ code {
   flex-direction: column;
   gap: 6px;
   padding: var(--spacing-md) var(--spacing-lg);
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.install-terminal-row--focused {
+  background: linear-gradient(90deg, var(--color-accent-dim), transparent 85%);
+  box-shadow: inset 3px 0 0 var(--color-accent);
+  transform: translateX(4px);
 }
 
 .install-terminal-label {
@@ -2290,6 +2483,11 @@ code {
   border-radius: 3px;
 }
 
+.btn-small {
+  padding: 0.7rem 1rem;
+  font-size: 0.8125rem;
+}
+
 .download-tip {
   font-size: 0.8125rem;
   color: var(--color-ash);
@@ -2304,6 +2502,32 @@ code {
 
 .download-tip a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .onboarding-guide {
+    padding: var(--spacing-md);
+    border-radius: 14px;
+  }
+
+  .onboarding-guide-header,
+  .onboarding-guide-panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .onboarding-provider-grid,
+  .onboarding-guide-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .onboarding-guide-actions {
+    width: 100%;
+  }
+
+  .onboarding-guide-actions .btn {
+    width: 100%;
+  }
 }
 
 

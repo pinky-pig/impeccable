@@ -12,6 +12,23 @@ import { initAnchorScroll, initHashTracking } from "./js/utils/scroll.js";
 // ============================================
 
 let allCommands = [];
+const INSTALL_ONBOARDING_DISMISSED_KEY = "impeccable-install-onboarding-dismissed";
+const INSTALL_ONBOARDING_SELECTED_KEY = "impeccable-install-onboarding-selection";
+
+const INSTALL_ONBOARDING_COPY = {
+	universal: {
+		summary: "运行通用安装命令，Impeccable 会自动识别你的工具并写到正确目录。",
+		target: "universal",
+	},
+	claude: {
+		summary: "先把插件加入 Claude Code marketplace，再到 Discover 标签页完成安装。",
+		target: "claude",
+	},
+	manual: {
+		summary: "下载通用 ZIP，解压到项目根目录，适合受限环境或你想手动检查目录结构时。",
+		target: "manual",
+	},
+};
 
 // ============================================
 // CONTENT LOADING
@@ -76,6 +93,89 @@ function showLoadError(error) {
 			</div>
 		`;
 	}
+}
+
+function initInstallOnboarding() {
+	const guide = document.querySelector("[data-onboarding-guide]");
+	if (!guide) return;
+
+	try {
+		if (localStorage.getItem(INSTALL_ONBOARDING_DISMISSED_KEY) === "true") {
+			guide.hidden = true;
+			return;
+		}
+	} catch (_error) {
+		// Ignore storage failures and keep the guide visible.
+	}
+
+	const cards = Array.from(guide.querySelectorAll("[data-onboarding-provider]"));
+	const summary = guide.querySelector("[data-onboarding-summary]");
+	const jumpButton = guide.querySelector("[data-onboarding-jump]");
+	const dismissButton = guide.querySelector("[data-onboarding-dismiss]");
+	let selectedProvider = "universal";
+
+	const flashInstallRow = (targetName) => {
+		const row = document.querySelector(`[data-install-option="${targetName}"]`);
+		if (!row) return;
+
+		row.scrollIntoView({ behavior: "smooth", block: "center" });
+		row.classList.remove("install-terminal-row--focused");
+		window.setTimeout(() => {
+			row.classList.add("install-terminal-row--focused");
+		}, 120);
+		window.setTimeout(() => {
+			row.classList.remove("install-terminal-row--focused");
+		}, 2200);
+	};
+
+	const setProvider = (providerName) => {
+		const config = INSTALL_ONBOARDING_COPY[providerName] || INSTALL_ONBOARDING_COPY.universal;
+		selectedProvider = providerName in INSTALL_ONBOARDING_COPY ? providerName : "universal";
+
+		cards.forEach((card) => {
+			const isActive = card.dataset.onboardingProvider === selectedProvider;
+			card.classList.toggle("is-active", isActive);
+			card.setAttribute("aria-pressed", isActive ? "true" : "false");
+		});
+
+		if (summary) {
+			summary.textContent = config.summary;
+		}
+
+		try {
+			localStorage.setItem(INSTALL_ONBOARDING_SELECTED_KEY, selectedProvider);
+		} catch (_error) {
+			// Ignore storage failures.
+		}
+	};
+
+	cards.forEach((card) => {
+		card.addEventListener("click", () => {
+			setProvider(card.dataset.onboardingProvider);
+		});
+	});
+
+	jumpButton?.addEventListener("click", () => {
+		const config = INSTALL_ONBOARDING_COPY[selectedProvider] || INSTALL_ONBOARDING_COPY.universal;
+		flashInstallRow(config.target);
+	});
+
+	dismissButton?.addEventListener("click", () => {
+		guide.hidden = true;
+		try {
+			localStorage.setItem(INSTALL_ONBOARDING_DISMISSED_KEY, "true");
+		} catch (_error) {
+			// Ignore storage failures.
+		}
+	});
+
+	let initialProvider = "universal";
+	try {
+		initialProvider = localStorage.getItem(INSTALL_ONBOARDING_SELECTED_KEY) || "universal";
+	} catch (_error) {
+		// Ignore storage failures.
+	}
+	setProvider(initialProvider);
 }
 
 function renderPatternsWithTabs(patterns, antipatterns) {
@@ -248,6 +348,7 @@ function init() {
 	initScrollReveal();
 	initGlassTerminal();
 	initFrameworkViz();
+	initInstallOnboarding();
 	loadContent();
 
 	document.body.classList.add("loaded");
