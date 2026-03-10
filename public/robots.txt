@@ -1,7 +1,5 @@
-# robots.txt for the localized fork
+# robots.txt for www.impeccable.cn
 
 User-agent: *
 Allow: /
-
-# Deployment note:
-# replace sitemap URL with your own domain before going live
+Sitemap: https://www.impeccable.cn/sitemap.xml
