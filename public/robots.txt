@@ -1,6 +1,7 @@
-# robots.txt for impeccable.style
+# robots.txt for the localized fork
 
 User-agent: *
 Allow: /
 
-Sitemap: https://impeccable.style/sitemap.xml
+# Deployment note:
+# replace sitemap URL with your own domain before going live

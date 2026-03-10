@@ -1,7 +1,7 @@
 // Animate command demo - shows static elements becoming choreographed
 export default {
   id: 'animate',
-  caption: 'Static layout → Choreographed entrance',
+  caption: '静态布局 → 有节奏的入场动效',
 
   before: `
     <div style="width: 100%; max-width: 220px; display: flex; flex-direction: column; gap: 8px;">
@@ -39,6 +39,5 @@ export default {
     </style>
   `
 };
-
 
 

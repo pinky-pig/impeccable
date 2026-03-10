@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impeccable Command Cheatsheet</title>
-  <meta name="description" content="Quick reference for all 17 Impeccable commands. Print-friendly cheatsheet for design fluency in AI harnesses.">
+  <title>Impeccable 命令速查表</title>
+  <meta name="description" content="Impeccable 全部 17 个命令的快速参考。适合打印留存的 AI 设计命令速查表。">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -159,27 +159,27 @@
 </head>
 <body>
   <header>
-    <h1>Impeccable Commands</h1>
-    <p class="subtitle">Quick reference for all 17 design commands</p>
-    <a href="/" class="back-link">&larr; Back to impeccable.style</a>
+    <h1>Impeccable 命令</h1>
+    <p class="subtitle">17 个设计命令的快速参考</p>
+    <a href="/" class="back-link">&larr; 返回首页</a>
   </header>
 
   <main id="commands-container">
-    <p style="color: var(--color-ash);">Loading commands...</p>
+    <p style="color: var(--color-ash);">正在加载命令……</p>
   </main>
 
   <footer>
-    <p><a href="https://impeccable.style">impeccable.style</a> &middot; Design fluency for AI harnesses</p>
+    <p><a href="https://impeccable.style">impeccable.style</a> &middot; AI 编程工具设计命令中文版</p>
   </footer>
 
   <script type="module">
     const categoryLabels = {
-      'diagnostic': 'Diagnostic',
-      'quality': 'Quality',
-      'intensity': 'Intensity',
-      'adaptation': 'Adaptation',
-      'enhancement': 'Enhancement',
-      'system': 'System'
+      'diagnostic': '诊断',
+      'quality': '质量',
+      'intensity': '强度',
+      'adaptation': '适配',
+      'enhancement': '增强',
+      'system': '系统'
     };
 
     const categoryOrder = ['diagnostic', 'quality', 'intensity', 'adaptation', 'enhancement', 'system'];
@@ -205,23 +205,23 @@
     };
 
     const commandRelationships = {
-      'teach-impeccable': { flow: 'One-time project context gathering' },
-      'audit': { leadsTo: ['normalize', 'harden', 'optimize', 'adapt', 'clarify'], flow: 'Technical quality audit' },
-      'critique': { leadsTo: ['polish', 'distill', 'bolder', 'quieter'], flow: 'UX and design review' },
-      'normalize': { combinesWith: ['clarify', 'adapt'], flow: 'Align with design system' },
-      'polish': { flow: 'Final pass before shipping' },
-      'optimize': { flow: 'Performance improvements' },
-      'harden': { combinesWith: ['optimize'], flow: 'Error handling & edge cases' },
-      'clarify': { combinesWith: ['normalize', 'adapt'], flow: 'Improve UX copy' },
-      'quieter': { pairs: 'bolder', flow: 'Tone down bold designs' },
-      'bolder': { pairs: 'quieter', flow: 'Amplify timid designs' },
-      'distill': { combinesWith: ['quieter', 'normalize'], flow: 'Strip to essence' },
-      'animate': { combinesWith: ['delight'], flow: 'Add motion' },
-      'colorize': { combinesWith: ['bolder', 'delight'], flow: 'Add strategic color' },
-      'delight': { combinesWith: ['bolder', 'animate'], flow: 'Add personality' },
-      'extract': { flow: 'Create design system elements' },
-      'adapt': { combinesWith: ['normalize', 'clarify'], flow: 'Different devices/contexts' },
-      'onboard': { flow: 'Onboarding & empty states' }
+      'teach-impeccable': { flow: '一次性收集项目设计上下文' },
+      'audit': { leadsTo: ['normalize', 'harden', 'optimize', 'adapt', 'clarify'], flow: '技术质量审计' },
+      'critique': { leadsTo: ['polish', 'distill', 'bolder', 'quieter'], flow: 'UX 与设计评审' },
+      'normalize': { combinesWith: ['clarify', 'adapt'], flow: '对齐设计系统' },
+      'polish': { flow: '上线前的最终润色' },
+      'optimize': { flow: '性能优化' },
+      'harden': { combinesWith: ['optimize'], flow: '错误处理与边界场景加固' },
+      'clarify': { combinesWith: ['normalize', 'adapt'], flow: '改善 UX 文案' },
+      'quieter': { pairs: 'bolder', flow: '降低设计攻击性' },
+      'bolder': { pairs: 'quieter', flow: '增强设计冲击力' },
+      'distill': { combinesWith: ['quieter', 'normalize'], flow: '提炼到本质' },
+      'animate': { combinesWith: ['delight'], flow: '加入动效' },
+      'colorize': { combinesWith: ['bolder', 'delight'], flow: '加入策略性色彩' },
+      'delight': { combinesWith: ['bolder', 'animate'], flow: '加入个性与趣味' },
+      'extract': { flow: '提取设计系统元素' },
+      'adapt': { combinesWith: ['normalize', 'clarify'], flow: '适配不同设备与场景' },
+      'onboard': { flow: '优化引导与空状态' }
     };
 
     async function loadCommands() {
@@ -253,11 +253,11 @@
 
               if (rel) {
                 if (rel.pairs) {
-                  metaHtml = `Pairs with <code>/${rel.pairs}</code>`;
+                  metaHtml = `可与 <code>/${rel.pairs}</code> 搭配`;
                 } else if (rel.leadsTo) {
-                  metaHtml = `Leads to ${rel.leadsTo.map(c => `<code>/${c}</code>`).join(', ')}`;
+                  metaHtml = `后续可接 ${rel.leadsTo.map(c => `<code>/${c}</code>`).join(', ')}`;
                 } else if (rel.combinesWith) {
-                  metaHtml = `Combines with ${rel.combinesWith.map(c => `<code>/${c}</code>`).join(', ')}`;
+                  metaHtml = `常与 ${rel.combinesWith.map(c => `<code>/${c}</code>`).join(', ')}`;
                 }
               }
 
@@ -278,7 +278,7 @@
       } catch (error) {
         console.error('Error loading commands:', error);
         document.getElementById('commands-container').innerHTML =
-          '<p style="color: red;">Error loading commands. Please try refreshing.</p>';
+          '<p style="color: red;">命令加载失败，请刷新页面重试。</p>';
       }
     }
 

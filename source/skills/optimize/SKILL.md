@@ -1,6 +1,6 @@
 ---
 name: optimize
-description: Improve interface performance across loading speed, rendering, animations, images, and bundle size. Makes experiences faster and smoother.
+description: 从加载速度、渲染、动画、图片与包体积等方面优化界面性能，让体验更快、更流畅。
 args:
   - name: target
     description: The feature or area to optimize (optional)
@@ -266,4 +266,3 @@ Test that optimizations worked:
 - **User perception**: Does it *feel* faster?
 
 Remember: Performance is a feature. Fast experiences feel more responsive, more polished, more professional. Optimize systematically, measure ruthlessly, and prioritize user-perceived performance.
-

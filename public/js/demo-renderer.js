@@ -18,33 +18,33 @@ export function renderCommandDemo(commandId) {
         <div class="demo-container">
           <div class="demo-viewport" style="padding: var(--spacing-lg); font-size: 13px; line-height: 1.6;">
             <div style="display: flex; flex-direction: column; gap: 12px; color: var(--color-ash);">
-              <div style="font-size: 14px; color: var(--color-text); font-weight: 600;">When to run</div>
+              <div style="font-size: 14px; color: var(--color-text); font-weight: 600;">何时运行</div>
               <div style="display: flex; flex-direction: column; gap: 8px;">
                 <div style="display: flex; gap: 8px; align-items: baseline;">
                   <span style="color: var(--color-accent); flex-shrink: 0;">1.</span>
-                  <span>Once per project, before using other commands</span>
+                  <span>每个项目执行一次，在使用其他命令之前运行</span>
                 </div>
                 <div style="display: flex; gap: 8px; align-items: baseline;">
                   <span style="color: var(--color-accent); flex-shrink: 0;">2.</span>
-                  <span>Again if your brand or design direction changes</span>
+                  <span>如果品牌或设计方向发生变化，再重新运行一次</span>
                 </div>
               </div>
-              <div style="font-size: 14px; color: var(--color-text); font-weight: 600; margin-top: 4px;">What it does</div>
+              <div style="font-size: 14px; color: var(--color-text); font-weight: 600; margin-top: 4px;">它会做什么</div>
               <div style="display: flex; flex-direction: column; gap: 8px;">
                 <div style="display: flex; gap: 8px; align-items: baseline;">
                   <span style="opacity: 0.5; flex-shrink: 0;">→</span>
-                  <span>Scans your codebase for existing design patterns</span>
+                  <span>扫描代码库中已有的设计模式</span>
                 </div>
                 <div style="display: flex; gap: 8px; align-items: baseline;">
                   <span style="opacity: 0.5; flex-shrink: 0;">→</span>
-                  <span>Asks about brand, users, and aesthetic direction</span>
+                  <span>询问品牌、用户和审美方向</span>
                 </div>
                 <div style="display: flex; gap: 8px; align-items: baseline;">
                   <span style="opacity: 0.5; flex-shrink: 0;">→</span>
-                  <span>Saves a Design Context to your AI config file</span>
+                  <span>将 Design Context 保存到 AI 配置文件中</span>
                 </div>
               </div>
-              <div style="font-size: 12px; opacity: 0.6; margin-top: 4px; font-style: italic;">All other commands use this context automatically.</div>
+              <div style="font-size: 12px; opacity: 0.6; margin-top: 4px; font-style: italic;">其他命令都会自动复用这份上下文。</div>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@ export function renderCommandDemo(commandId) {
       <div class="demo-container">
         <div class="demo-viewport">
           <div style="text-align: center; color: var(--color-ash); font-style: italic; padding: var(--spacing-lg);">
-            Visual demo for /${commandId} coming soon
+            /${commandId} 的可视化演示即将上线
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@ export function renderSkillDemo(skillId) {
       <div class="demo-container">
         <div class="demo-viewport">
           <div style="text-align: center; color: var(--color-ash); padding: var(--spacing-xl);">
-            <p>Demo for ${skillId.replace(/-/g, ' ')} coming soon</p>
+            <p>${skillId.replace(/-/g, ' ')} 的演示即将上线</p>
           </div>
         </div>
       </div>
@@ -132,9 +132,9 @@ function renderSkillTabDemo(skillId, tab) {
       <div class="demo-header">
         ${hasToggle ? `
           <div class="demo-toggle">
-            <span class="demo-toggle-label active" id="${demoId}-before-label">Before</span>
+            <span class="demo-toggle-label active" id="${demoId}-before-label">前</span>
             <button class="demo-toggle-switch" data-demo="${demoId}" role="switch" aria-checked="false" aria-labelledby="${demoId}-before-label ${demoId}-after-label"></button>
-            <span class="demo-toggle-label" id="${demoId}-after-label">After</span>
+            <span class="demo-toggle-label" id="${demoId}-after-label">后</span>
           </div>
         ` : ''}
       </div>
@@ -163,6 +163,5 @@ export function setupDemoTabs() {
     });
   });
 }
-
 
 

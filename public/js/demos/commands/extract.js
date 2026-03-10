@@ -1,7 +1,7 @@
 // Extract command demo - shows patterns being identified and documented
 export default {
   id: 'extract',
-  caption: 'Scattered styles → Documented design tokens',
+  caption: '零散样式 → 被提炼出的设计令牌',
 
   before: `
     <div style="width: 100%; max-width: 280px; display: flex; flex-direction: column; gap: 6px; font-family: monospace; font-size: 11px;">
@@ -25,9 +25,9 @@ export default {
 
   after: `
     <div style="width: 100%; max-width: 280px; display: flex; flex-direction: column; gap: 8px;">
-      <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-ash); margin-bottom: 4px;">Design Tokens</div>
+      <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-ash); margin-bottom: 4px;">设计令牌</div>
       <div style="padding: 10px; background: var(--color-paper); border: 1px solid var(--color-mist); border-radius: 6px;">
-        <div style="font-size: 10px; color: var(--color-ash); margin-bottom: 6px;">SPACING</div>
+        <div style="font-size: 10px; color: var(--color-ash); margin-bottom: 6px;">间距</div>
         <div style="display: flex; gap: 8px;">
           <div style="text-align: center;">
             <div style="width: 24px; height: 8px; background: var(--color-accent); border-radius: 2px; margin-bottom: 4px;"></div>
@@ -44,7 +44,7 @@ export default {
         </div>
       </div>
       <div style="padding: 10px; background: var(--color-paper); border: 1px solid var(--color-mist); border-radius: 6px;">
-        <div style="font-size: 10px; color: var(--color-ash); margin-bottom: 6px;">COLORS</div>
+        <div style="font-size: 10px; color: var(--color-ash); margin-bottom: 6px;">颜色</div>
         <div style="display: flex; gap: 6px;">
           <div style="width: 24px; height: 24px; background: var(--color-ink); border-radius: 4px;" title="ink"></div>
           <div style="width: 24px; height: 24px; background: var(--color-charcoal); border-radius: 4px;" title="charcoal"></div>
@@ -53,9 +53,9 @@ export default {
         </div>
       </div>
       <div style="padding: 10px; background: var(--color-paper); border: 1px solid var(--color-mist); border-radius: 6px;">
-        <div style="font-size: 10px; color: var(--color-ash); margin-bottom: 6px;">TYPOGRAPHY</div>
-        <div style="font-family: var(--font-display); font-size: 16px; font-style: italic; color: var(--color-ink);">Display</div>
-        <div style="font-size: 12px; color: var(--color-charcoal);">Body text</div>
+        <div style="font-size: 10px; color: var(--color-ash); margin-bottom: 6px;">排版</div>
+        <div style="font-family: var(--font-display); font-size: 16px; font-style: italic; color: var(--color-ink);">展示标题</div>
+        <div style="font-size: 12px; color: var(--color-charcoal);">正文文本</div>
       </div>
     </div>
   `

@@ -18,7 +18,7 @@ export function renderGallery(skills) {
             ${filteredSkills.map((skill, index) => renderFrame(skill, index)).join("")}
         </div>
         <div class="gallery-map" role="tablist" aria-label="Skill gallery navigation">
-            ${filteredSkills.map((skill, index) => `<button class="gallery-dot ${index === 0 ? "active" : ""}" data-index="${index}" role="tab" aria-selected="${index === 0 ? "true" : "false"}" aria-label="View ${formatName(skill.id)} skill"></button>`).join("")}
+            ${filteredSkills.map((skill, index) => `<button class="gallery-dot ${index === 0 ? "active" : ""}" data-index="${index}" role="tab" aria-selected="${index === 0 ? "true" : "false"}" aria-label="查看 ${formatName(skill.id)} 技能"></button>`).join("")}
         </div>
     `;
 
@@ -42,7 +42,7 @@ function renderFrame(skill, index) {
                     <div class="gallery-header">
                         <h3 class="gallery-title">${displayName}</h3>
                         <div class="gallery-meta">
-                            Skill · ${isReady ? "Available" : "Coming Soon"}
+                            技能 · ${isReady ? "可用" : "即将推出"}
                         </div>
                     </div>
                     <p class="gallery-desc">${skill.description}</p>
@@ -75,7 +75,7 @@ function renderComingSoonVisual(id) {
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity: 0.3">
                 <path d="M12 6v6l4 2M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
             </svg>
-            <p style="margin-top: 1rem; color: var(--color-ash); font-size: 0.875rem;">Coming Soon</p>
+            <p style="margin-top: 1rem; color: var(--color-ash); font-size: 0.875rem;">即将推出</p>
         </div>
     `;
 }
@@ -137,6 +137,5 @@ function setupInteractions() {
 		});
 	});
 }
-
 
 

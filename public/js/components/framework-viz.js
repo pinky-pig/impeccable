@@ -16,12 +16,12 @@ const categoryColors = {
 };
 
 const categoryLabels = {
-	diagnostic: 'Diagnostic',
-	quality: 'Quality',
-	intensity: 'Intensity',
-	adaptation: 'Adaptation',
-	enhancement: 'Enhancement',
-	system: 'System'
+	diagnostic: '诊断',
+	quality: '质量',
+	intensity: '强度',
+	adaptation: '适配',
+	enhancement: '增强',
+	system: '系统'
 };
 
 // Short symbols for each command (like element symbols)
@@ -153,7 +153,7 @@ export class PeriodicTable {
 				color: var(--color-ash);
 				font-style: italic;
 			">
-				${action} a command to see details
+				${action === 'Tap' ? '点按' : '悬停到'}某个命令以查看详情
 			</div>
 		`;
 	}
@@ -179,17 +179,17 @@ export class PeriodicTable {
 
 		if (pairs.length > 0) {
 			const list = pairs.map(p => `<span style="font-family: var(--font-mono); color: var(--color-ink)">/${p}</span>`).join(', ');
-			relatedHtml += `<span style="color: var(--color-ash)">Pairs with:</span> ${list}`;
+			relatedHtml += `<span style="color: var(--color-ash)">搭配：</span> ${list}`;
 		}
 		if (combinesWith.length > 0) {
 			const list = combinesWith.map(p => `<span style="font-family: var(--font-mono); color: var(--color-ink)">/${p}</span>`).join(', ');
 			if (relatedHtml) relatedHtml += '<span style="color: var(--color-mist); margin: 0 8px;">•</span>';
-			relatedHtml += `<span style="color: var(--color-ash)">Combines with:</span> ${list}`;
+			relatedHtml += `<span style="color: var(--color-ash)">常与：</span> ${list}`;
 		}
 		if (leadsTo.length > 0) {
 			const list = leadsTo.map(p => `<span style="font-family: var(--font-mono); color: var(--color-ink)">/${p}</span>`).join(', ');
 			if (relatedHtml) relatedHtml += '<span style="color: var(--color-mist); margin: 0 8px;">•</span>';
-			relatedHtml += `<span style="color: var(--color-ash)">Then:</span> ${list}`;
+			relatedHtml += `<span style="color: var(--color-ash)">然后：</span> ${list}`;
 		}
 
 		this.infoPanel.innerHTML = `
@@ -220,7 +220,7 @@ export class PeriodicTable {
 					color: var(--color-charcoal);
 					line-height: 1.4;
 					margin-bottom: ${relatedHtml ? '6px' : '0'};
-				">${rel.flow || 'Design command'}</div>
+				">${rel.flow || '设计命令'}</div>
 				${relatedHtml ? `<div style="font-size: 12px; line-height: 1.4;">${relatedHtml}</div>` : ''}
 			</div>
 		`;
@@ -272,7 +272,7 @@ export class PeriodicTable {
 
 		const el = document.createElement('button');
 		el.type = 'button';
-		el.setAttribute('aria-label', `/${cmd} command - ${categoryLabels[category]}`);
+		el.setAttribute('aria-label', `/${cmd} 命令 - ${categoryLabels[category]}`);
 		el.style.cssText = `
 			width: 56px;
 			height: 64px;
