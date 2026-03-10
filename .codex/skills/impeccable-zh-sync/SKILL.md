@@ -12,7 +12,8 @@ Maintain the Chinese fork of `pbakaus/impeccable` without changing the site's st
 1. Confirm remotes and branch intent.
    - Keep the official repo as `upstream`.
    - Keep the user's fork as `origin`.
-   - Work on a dedicated branch such as `zh-cn` or `codex/zh-cn`.
+   - Treat `main` as the production Chinese branch.
+   - When syncing upstream, create a temporary branch such as `sync/2026-03-10-upstream` from `main`.
 
 2. Inspect upstream before merging.
    - Run `./.codex/skills/impeccable-zh-sync/scripts/report_upstream_changes.sh`.
@@ -21,7 +22,7 @@ Maintain the Chinese fork of `pbakaus/impeccable` without changing the site's st
 
 3. Merge upstream deliberately.
    - Fetch `upstream`.
-   - Merge `upstream/main` into the working branch.
+   - Merge `upstream/main` into the temporary sync branch.
    - Resolve conflicts while preserving the upstream structure whenever possible.
    - Do not migrate the project to a framework. This repo is a static `HTML + CSS + JS` site.
 
@@ -41,7 +42,8 @@ Maintain the Chinese fork of `pbakaus/impeccable` without changing the site's st
 6. Finalize and publish.
    - Summarize what changed from upstream.
    - Commit translation updates and sync fixes separately when practical.
-   - Push to `origin`.
+   - Merge the validated sync branch back into `main`.
+   - Push `main` to `origin`.
    - If asked, prepare the repo for Netlify by confirming production URLs in `robots.txt`, sitemap, and other site metadata.
 
 ## Translation Guardrails
