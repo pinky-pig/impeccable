@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications. Generates creative, polished code that avoids generic AI aesthetics.
+description: 创建具有辨识度、可直接投入生产的高质量前端界面。当用户要求构建 Web 组件、页面、作品、海报或应用时使用此技能。它会生成有创造力、经过打磨、并能避开通用 AI 审美的代码。
 license: Apache 2.0. Based on Anthropic's frontend-design skill. See NOTICE.md for attribution.
 ---
 

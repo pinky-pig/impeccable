@@ -51,12 +51,12 @@ export function renderTerminalLayout(commands) {
 function renderDesktopLayout(container, commands) {
     const categoryOrder = ['diagnostic', 'quality', 'intensity', 'adaptation', 'enhancement', 'system'];
     const categoryLabels = {
-        'diagnostic': 'Diagnose',
-        'quality': 'Quality',
-        'intensity': 'Intensity',
-        'adaptation': 'Adaptation',
-        'enhancement': 'Enhancement',
-        'system': 'System'
+        'diagnostic': '诊断',
+        'quality': '质量',
+        'intensity': '强度',
+        'adaptation': '适配',
+        'enhancement': '增强',
+        'system': '系统'
     };
 
     const grouped = {};
@@ -82,8 +82,8 @@ function renderDesktopLayout(container, commands) {
             <div class="glass-terminal-wrapper">
                 <div class="terminal-stack">
                     <div class="terminal-stack-tabs">
-                        <button class="terminal-stack-tab active" data-view="demo">Demo</button>
-                        <button class="terminal-stack-tab" data-view="source">Source</button>
+                        <button class="terminal-stack-tab active" data-view="demo">演示</button>
+                        <button class="terminal-stack-tab" data-view="source">源码</button>
                     </div>
                     <div class="terminal-window terminal-window--source">
                         <div class="source-window">
@@ -91,7 +91,7 @@ function renderDesktopLayout(container, commands) {
                                 <span class="source-title" id="source-title">command.md</span>
                             </div>
                             <div class="source-body" id="source-content">
-                                <span class="source-loading">Select a command to view source...</span>
+                                <span class="source-loading">选择一个命令以查看源码……</span>
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@ function renderDesktopLayout(container, commands) {
                             <div class="terminal-body" id="terminal-content">
                                 <div class="terminal-line">
                                     <span class="terminal-prompt">➜</span>
-                                    <span>Waiting for input...</span>
+                                    <span>等待输入……</span>
                                 </div>
                             </div>
                         </div>
@@ -133,11 +133,11 @@ function renderManualEntry(cmd) {
 
     if (relationship) {
         if (relationship.pairs) {
-            relationshipHTML = `<div class="manual-cmd-rel"><span class="rel-icon">↔</span> pairs with <code>/${relationship.pairs}</code></div>`;
+            relationshipHTML = `<div class="manual-cmd-rel"><span class="rel-icon">↔</span> 可与 <code>/${relationship.pairs}</code> 搭配</div>`;
         } else if (relationship.leadsTo && relationship.leadsTo.length > 0) {
-            relationshipHTML = `<div class="manual-cmd-rel"><span class="rel-icon">→</span> leads to ${relationship.leadsTo.map(c => `<code>/${c}</code>`).join(', ')}</div>`;
+            relationshipHTML = `<div class="manual-cmd-rel"><span class="rel-icon">→</span> 后续可接 ${relationship.leadsTo.map(c => `<code>/${c}</code>`).join(', ')}</div>`;
         } else if (relationship.combinesWith && relationship.combinesWith.length > 0) {
-            relationshipHTML = `<div class="manual-cmd-rel"><span class="rel-icon">+</span> combines with ${relationship.combinesWith.map(c => `<code>/${c}</code>`).join(', ')}</div>`;
+            relationshipHTML = `<div class="manual-cmd-rel"><span class="rel-icon">+</span> 常与 ${relationship.combinesWith.map(c => `<code>/${c}</code>`).join(', ')}</div>`;
         }
     }
 
@@ -204,13 +204,13 @@ function updateTerminal(cmd, container, allCommands) {
         currentSplitInstance = null;
     }
 
-    const steps = commandProcessSteps[cmd.id] || ['Analyze', 'Transform', 'Verify'];
+    const steps = commandProcessSteps[cmd.id] || ['分析', '调整', '验证'];
     const stepsOutput = steps.map((step, i) =>
         `<span class="terminal-step">${i + 1}. ${step}...</span>`
     ).join('<br>');
 
     container.innerHTML = `<div class="terminal-line"><span class="terminal-prompt">➜</span><span class="terminal-cmd">/${cmd.id}</span></div>
-<div class="terminal-output">${stepsOutput}<br><span class="terminal-done">✓ Complete</span></div>
+<div class="terminal-output">${stepsOutput}<br><span class="terminal-done">✓ 已完成</span></div>
 <div class="terminal-preview command-demo-area">${renderCommandDemo(cmd.id)}</div>
 <div class="terminal-line terminal-cursor-line"><span class="terminal-prompt">➜</span><span class="terminal-cursor"></span></div>`;
 
@@ -244,9 +244,9 @@ function renderMobileLayout(container, commands) {
 
         if (relationship) {
             if (relationship.pairs) {
-                relationshipHTML = `<div class="mobile-cmd-rel">↔ pairs with <code>/${relationship.pairs}</code></div>`;
+                relationshipHTML = `<div class="mobile-cmd-rel">↔ 可与 <code>/${relationship.pairs}</code> 搭配</div>`;
             } else if (relationship.leadsTo && relationship.leadsTo.length > 0) {
-                relationshipHTML = `<div class="mobile-cmd-rel">→ leads to ${relationship.leadsTo.map(c => `<code>/${c}</code>`).join(', ')}</div>`;
+                relationshipHTML = `<div class="mobile-cmd-rel">→ 后续可接 ${relationship.leadsTo.map(c => `<code>/${c}</code>`).join(', ')}</div>`;
             }
         }
 
@@ -375,7 +375,7 @@ async function fetchCommandSource(cmdId) {
 
     try {
         const response = await fetch(`/api/command-source/${cmdId}`);
-        if (!response.ok) throw new Error('Failed to fetch source');
+        if (!response.ok) throw new Error('获取源码失败');
         const data = await response.json();
         sourceCache[cmdId] = data.content;
         return data.content;
@@ -398,13 +398,12 @@ async function updateSourceContent(cmdId) {
     if (!titleEl || !contentEl) return;
 
     titleEl.textContent = `${cmdId}.md`;
-    contentEl.innerHTML = '<span class="source-loading">Loading...</span>';
+    contentEl.innerHTML = '<span class="source-loading">加载中……</span>';
 
     const source = await fetchCommandSource(cmdId);
     if (source) {
         contentEl.textContent = source;
     } else {
-        contentEl.innerHTML = '<span class="source-loading">Source not available</span>';
+        contentEl.innerHTML = '<span class="source-loading">源码暂不可用</span>';
     }
 }
-

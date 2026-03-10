@@ -1,6 +1,6 @@
 ---
 name: delight
-description: Add moments of joy, personality, and unexpected touches that make interfaces memorable and enjoyable to use. Elevates functional to delightful.
+description: 为界面加入愉悦感、个性与意外惊喜，让产品更难忘、更好用，把“能用”提升为“令人喜欢”。
 args:
   - name: target
     description: The feature or area to add delight to (optional)

@@ -1,6 +1,6 @@
 ---
 name: adapt
-description: Adapt designs to work across different screen sizes, devices, contexts, or platforms. Ensures consistent experience across varied environments.
+description: 让设计适配不同屏幕尺寸、设备、上下文或平台，确保在各种环境下都保持一致体验。
 args:
   - name: target
     description: The feature or component to adapt (optional)
@@ -196,4 +196,3 @@ Test thoroughly across contexts:
 - **Slow connections**: Test on throttled network
 
 Remember: You're a cross-platform design expert. Make experiences that feel native to each context while maintaining brand and functionality consistency. Adapt intentionally, test thoroughly.
-

@@ -1,16 +1,16 @@
 // Delight command demo - shows functional UI gaining moments of joy
 export default {
   id: 'delight',
-  caption: 'Functional feedback → Moment of joy',
+  caption: '功能反馈 → 更有惊喜感的时刻',
 
   before: `
     <div style="width: 100%; max-width: 200px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
       <div style="text-align: center;">
-        <div style="font-size: 13px; color: #666; margin-bottom: 8px;">Milestone reached</div>
+        <div style="font-size: 13px; color: #666; margin-bottom: 8px;">达到里程碑</div>
         <div style="font-size: 24px; font-weight: bold; color: #333;">100</div>
-        <div style="font-size: 12px; color: #999;">tasks completed</div>
+        <div style="font-size: 12px; color: #999;">项任务已完成</div>
       </div>
-      <button style="padding: 8px 16px; background: #e0e0e0; border: none; border-radius: 4px; font-size: 12px; color: #666;">Dismiss</button>
+      <button style="padding: 8px 16px; background: #e0e0e0; border: none; border-radius: 4px; font-size: 12px; color: #666;">关闭</button>
     </div>
   `,
 
@@ -26,11 +26,11 @@ export default {
       <div style="text-align: center; animation: celebratePop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;">
         <div style="font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent); margin-bottom: 8px; font-weight: 600;">Milestone unlocked!</div>
         <div style="font-family: var(--font-display); font-size: 3.5rem; font-weight: 300; font-style: italic; color: var(--color-ink); line-height: 1;">100</div>
-        <div style="font-size: 0.875rem; color: var(--color-ash); margin-top: 4px;">tasks completed</div>
+        <div style="font-size: 0.875rem; color: var(--color-ash); margin-top: 4px;">项任务已完成</div>
       </div>
       <div style="display: flex; align-items: center; gap: 6px; padding: 8px 16px; background: color-mix(in oklch, var(--color-accent) 10%, var(--color-paper)); border-radius: 20px; animation: badgeSlide 0.5s ease-out 0.3s both;">
         <span style="font-size: 14px;">🏆</span>
-        <span style="font-size: 0.75rem; font-weight: 600; color: var(--color-accent);">Centurion Badge Earned</span>
+        <span style="font-size: 0.75rem; font-weight: 600; color: var(--color-accent);">已获得百任务徽章</span>
       </div>
     </div>
     <style>

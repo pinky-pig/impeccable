@@ -53,10 +53,10 @@ function showLoadError(error) {
 		commandsGallery.innerHTML = `
 			<div class="load-error" role="alert">
 				<div class="load-error-icon" aria-hidden="true">⚠</div>
-				<h3 class="load-error-title">Failed to load commands</h3>
-				<p class="load-error-text">There was a problem loading the content. Please check your connection and try again.</p>
+				<h3 class="load-error-title">命令加载失败</h3>
+				<p class="load-error-text">加载内容时出现问题，请检查网络连接后重试。</p>
 				<button class="btn btn-secondary load-error-retry" onclick="location.reload()">
-					Retry
+					重试
 				</button>
 			</div>
 		`;
@@ -68,10 +68,10 @@ function showLoadError(error) {
 		patternsContainer.innerHTML = `
 			<div class="load-error" role="alert">
 				<div class="load-error-icon" aria-hidden="true">⚠</div>
-				<h3 class="load-error-title">Failed to load patterns</h3>
-				<p class="load-error-text">There was a problem loading the content. Please check your connection and try again.</p>
+				<h3 class="load-error-title">模式加载失败</h3>
+				<p class="load-error-text">加载内容时出现问题，请检查网络连接后重试。</p>
 				<button class="btn btn-secondary load-error-retry" onclick="location.reload()">
-					Retry
+					重试
 				</button>
 			</div>
 		`;
@@ -120,13 +120,13 @@ function renderPatternsWithTabs(patterns, antipatterns) {
 		>
 			<div class="pattern-columns">
 				<div class="pattern-column pattern-column--anti">
-					<span class="pattern-column-label" id="dont-label-${i}">Don't</span>
+					<span class="pattern-column-label" id="dont-label-${i}">不要这样做</span>
 					<ul class="pattern-list" aria-labelledby="dont-label-${i}">
 						${antiItems.map((item) => `<li class="pattern-item pattern-item--anti">${item}</li>`).join("")}
 					</ul>
 				</div>
 				<div class="pattern-column pattern-column--do">
-					<span class="pattern-column-label" id="do-label-${i}">Do</span>
+					<span class="pattern-column-label" id="do-label-${i}">推荐这样做</span>
 					<ul class="pattern-list" aria-labelledby="do-label-${i}">
 						${category.items.map((item) => `<li class="pattern-item pattern-item--do">${item}</li>`).join("")}
 					</ul>
@@ -138,7 +138,7 @@ function renderPatternsWithTabs(patterns, antipatterns) {
 		.join("");
 
 	container.innerHTML = `
-		<div class="pattern-tabs" role="tablist" aria-label="Pattern categories">${tabsHTML}</div>
+		<div class="pattern-tabs" role="tablist" aria-label="模式分类">${tabsHTML}</div>
 		<div class="pattern-panels">${panelsHTML}</div>
 	`;
 

@@ -1,6 +1,6 @@
 ---
 name: animate
-description: Review a feature and enhance it with purposeful animations, micro-interactions, and motion effects that improve usability and delight.
+description: 审视某个功能，并通过有目的的动画、微交互和动效提升可用性与愉悦感。
 args:
   - name: target
     description: The feature or component to animate (optional)

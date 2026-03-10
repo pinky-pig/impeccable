@@ -1,6 +1,6 @@
 ---
 name: normalize
-description: Normalize design to match your design system and ensure consistency
+description: 将设计规范化到与你的设计系统一致，确保整体风格与交互保持统一。
 args:
   - name: feature
     description: The page, route, or feature to normalize (optional)

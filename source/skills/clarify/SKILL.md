@@ -1,6 +1,6 @@
 ---
 name: clarify
-description: Improve unclear UX copy, error messages, microcopy, labels, and instructions. Makes interfaces easier to understand and use.
+description: 改善不清晰的 UX 文案、错误提示、微文案、标签和说明，让界面更容易理解和使用。
 args:
   - name: target
     description: The feature or component with unclear copy (optional)
@@ -177,4 +177,3 @@ Test that copy improvements work:
 - **Tone**: Is it appropriate for the situation?
 
 Remember: You're a clarity expert with excellent communication skills. Write like you're explaining to a smart friend who's unfamiliar with the product. Be clear, be helpful, be human.
-

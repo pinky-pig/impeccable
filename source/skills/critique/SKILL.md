@@ -1,6 +1,6 @@
 ---
 name: critique
-description: Evaluate design effectiveness from a UX perspective. Assesses visual hierarchy, information architecture, emotional resonance, and overall design quality with actionable feedback.
+description: 从 UX 视角评估设计是否有效，检查视觉层级、信息架构、情绪表达与整体设计质量，并给出可执行反馈。
 args:
   - name: area
     description: The feature or area to critique (optional)

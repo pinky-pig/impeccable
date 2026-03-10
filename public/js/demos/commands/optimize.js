@@ -1,7 +1,7 @@
 // Optimize command demo - shows performance improvements
 export default {
   id: 'optimize',
-  caption: 'Heavy, slow UI → Lightweight, performant',
+  caption: '笨重缓慢的界面 → 轻量高性能体验',
 
   before: `
     <div style="width: 100%; max-width: 260px; display: flex; flex-direction: column; gap: 8px;">
@@ -36,21 +36,21 @@ export default {
         <div style="height: 8px; background: var(--color-mist); border-radius: 4px; overflow: hidden;">
           <div style="width: 25%; height: 100%; background: linear-gradient(90deg, #22c55e, #16a34a);"></div>
         </div>
-        <div style="font-size: 12px; color: #22c55e; margin-top: 4px; font-weight: 600;">124 KB <span style="color: var(--color-ash); font-weight: 400;">(-85%)</span></div>
+        <div style="font-size: 12px; color: #22c55e; margin-top: 4px; font-weight: 600;">124 KB <span style="color: var(--color-ash); font-weight: 400;">（-85%）</span></div>
       </div>
       <div style="padding: 12px; background: var(--color-paper); border: 1px solid var(--color-mist); border-radius: 6px;">
         <div style="font-size: 11px; color: var(--color-ash); margin-bottom: 4px;">RENDER TIME</div>
         <div style="height: 8px; background: var(--color-mist); border-radius: 4px; overflow: hidden;">
           <div style="width: 15%; height: 100%; background: linear-gradient(90deg, #22c55e, #16a34a);"></div>
         </div>
-        <div style="font-size: 12px; color: #22c55e; margin-top: 4px; font-weight: 600;">0.3s <span style="color: var(--color-ash); font-weight: 400;">(-88%)</span></div>
+        <div style="font-size: 12px; color: #22c55e; margin-top: 4px; font-weight: 600;">0.3s <span style="color: var(--color-ash); font-weight: 400;">（-88%）</span></div>
       </div>
       <div style="padding: 12px; background: var(--color-paper); border: 1px solid var(--color-mist); border-radius: 6px;">
         <div style="font-size: 11px; color: var(--color-ash); margin-bottom: 4px;">LAYOUT SHIFTS</div>
         <div style="height: 8px; background: var(--color-mist); border-radius: 4px; overflow: hidden;">
           <div style="width: 5%; height: 100%; background: linear-gradient(90deg, #22c55e, #16a34a);"></div>
         </div>
-        <div style="font-size: 12px; color: #22c55e; margin-top: 4px; font-weight: 600;">CLS: 0.02 <span style="color: var(--color-ash); font-weight: 400;">(excellent)</span></div>
+        <div style="font-size: 12px; color: #22c55e; margin-top: 4px; font-weight: 600;">CLS: 0.02 <span style="color: var(--color-ash); font-weight: 400;">（优秀）</span></div>
       </div>
     </div>
   `
