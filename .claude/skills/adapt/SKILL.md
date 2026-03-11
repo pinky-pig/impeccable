@@ -1,6 +1,6 @@
 ---
 name: adapt
-description: Adapt designs to work across different screen sizes, devices, contexts, or platforms. Ensures consistent experience across varied environments.
+description: 让设计适配不同屏幕尺寸、设备、上下文或平台，确保在各种环境下都保持一致体验。
 user-invokable: true
 args:
   - name: target

@@ -1,6 +1,6 @@
 ---
 name: onboard
-description: Design or improve onboarding flows, empty states, and first-time user experiences. Helps users get started successfully and understand value quickly.
+description: 设计或改进引导流程、空状态与首次使用体验，帮助用户顺利上手并更快理解产品价值。
 user-invokable: true
 args:
   - name: target

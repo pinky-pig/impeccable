@@ -1,6 +1,6 @@
 ---
 name: clarify
-description: Improve unclear UX copy, error messages, microcopy, labels, and instructions. Makes interfaces easier to understand and use.
+description: 改善不清晰的 UX 文案、错误提示、微文案、标签和说明，让界面更容易理解和使用。
 user-invokable: true
 args:
   - name: target

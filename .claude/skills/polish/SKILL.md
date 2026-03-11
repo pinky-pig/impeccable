@@ -1,6 +1,6 @@
 ---
 name: polish
-description: Final quality pass before shipping. Fixes alignment, spacing, consistency, and detail issues that separate good from great.
+description: 上线前的最后一轮质量打磨，修复对齐、间距、一致性和细节问题，让作品从“不错”变成“出色”。
 user-invokable: true
 args:
   - name: target

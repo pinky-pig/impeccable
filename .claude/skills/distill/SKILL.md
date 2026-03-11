@@ -1,6 +1,6 @@
 ---
 name: distill
-description: Strip designs to their essence by removing unnecessary complexity. Great design is simple, powerful, and clean.
+description: 通过移除不必要的复杂性，把设计提炼到本质。优秀设计应该简洁、有力、干净。
 user-invokable: true
 args:
   - name: target

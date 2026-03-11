@@ -1,6 +1,6 @@
 ---
 name: audit
-description: Perform comprehensive audit of interface quality across accessibility, performance, theming, and responsive design. Generates detailed report of issues with severity ratings and recommendations.
+description: 从可访问性、性能、主题化与响应式设计等维度，对界面质量进行全面审计，并输出带严重级别与建议的详细报告。
 user-invokable: true
 args:
   - name: area
