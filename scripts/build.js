@@ -280,6 +280,15 @@ async function build() {
     }
   }
 
+  // Copy root-level verification files used by search engines and webmaster tools
+  const publicDir = path.join(ROOT_DIR, 'public');
+  const verificationFiles = fs.readdirSync(publicDir).filter((name) =>
+    /^baidu_verify.*\.html$/i.test(name),
+  );
+  for (const asset of verificationFiles) {
+    fs.copyFileSync(path.join(publicDir, asset), path.join(buildDir, asset));
+  }
+
   // Read source files (unified skills architecture)
   const { skills } = readSourceFiles(ROOT_DIR);
   const patterns = readPatterns(ROOT_DIR);
