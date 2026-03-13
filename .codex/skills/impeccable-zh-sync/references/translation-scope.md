@@ -35,5 +35,7 @@ Use this file to quickly decide what usually requires Chinese updates after upst
 1. Merge `upstream/main`.
 2. Diff `public/` and `source/skills/`.
 3. Update Chinese copy only where upstream changed behavior or wording.
-4. Re-check title, description, Open Graph, sitemap, and robots metadata.
-5. Run local preview and verify homepage plus cheatsheet.
+4. Re-check title, description, Open Graph, sitemap, robots metadata, canonical tags, and verification files.
+5. Run `bun install` if upstream changed dependencies.
+6. Run local build and verify homepage plus cheatsheet.
+7. Merge back to `main`, push to `origin/main`, and report the change list.

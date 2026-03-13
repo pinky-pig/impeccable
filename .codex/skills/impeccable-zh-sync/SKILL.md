@@ -1,11 +1,32 @@
 ---
 name: impeccable-zh-sync
-description: Sync upstream changes for the Impeccable Chinese fork, update the localized static site, and prepare the branch for deployment. Use when upstream impeccable changes, when the Chinese translation needs refreshing, or when preparing this repo for Netlify release.
+description: End-to-end upstream sync workflow for the Impeccable Chinese fork. Use when the user says to sync and translate the latest impeccable.style / pbakaus/impeccable, refresh localized site content, rebuild, push, and report what changed.
 ---
 
 # Impeccable ZH Sync
 
 Maintain the Chinese fork of `pbakaus/impeccable` without changing the site's static architecture.
+
+## Default Trigger
+
+If the user says anything equivalent to:
+
+- "同步并翻译一下最新 impeccable.style"
+- "拉一下最新 upstream，然后翻译"
+- "源站更新了，帮我同步"
+
+then treat that as a request to run the full workflow end-to-end:
+
+1. inspect upstream changes
+2. merge upstream into a temporary sync branch
+3. update Chinese localization where upstream changed visible behavior or wording
+4. run dependency install if needed
+5. build locally
+6. merge back to `main`
+7. push `main` to `origin`
+8. return a concise update list
+
+Do not stop after analysis unless blocked by a real error or the user explicitly asks you not to push.
 
 ## Workflow
 
@@ -19,12 +40,18 @@ Maintain the Chinese fork of `pbakaus/impeccable` without changing the site's st
    - Run `./.codex/skills/impeccable-zh-sync/scripts/report_upstream_changes.sh`.
    - Review the commit list and changed files before making translation edits.
    - Prioritize changes under `public/`, `source/skills/`, `server/`, `scripts/`, and metadata files used by the static site.
+   - Identify both:
+     - upstream feature/build changes that must be synced even without translation
+     - user-facing wording/content changes that require Chinese updates
 
 3. Merge upstream deliberately.
    - Fetch `upstream`.
    - Merge `upstream/main` into the temporary sync branch.
    - Resolve conflicts while preserving the upstream structure whenever possible.
    - Do not migrate the project to a framework. This repo is a static `HTML + CSS + JS` site.
+   - Keep the user's production branch strategy intact:
+     - `main` is the Chinese production branch
+     - sync branches are temporary only
 
 4. Refresh Chinese localization.
    - Keep layout, DOM structure, routes, and asset paths unchanged unless upstream changed them.
@@ -38,13 +65,34 @@ Maintain the Chinese fork of `pbakaus/impeccable` without changing the site's st
    - Run `bun run dev` or `PORT=3001 bun run dev` if port `3000` is busy.
    - Run `bun run build` before finalizing when Bun is available.
    - Check the homepage and `/cheatsheet` at minimum.
+   - If build dependencies changed upstream, install them before judging the build result.
 
 6. Finalize and publish.
-   - Summarize what changed from upstream.
-   - Commit translation updates and sync fixes separately when practical.
+   - Commit the sync branch once it builds.
    - Merge the validated sync branch back into `main`.
    - Push `main` to `origin`.
-   - If asked, prepare the repo for Netlify by confirming production URLs in `robots.txt`, sitemap, and other site metadata.
+   - Assume Netlify auto-deploys from `main`, unless the user says otherwise.
+   - If upstream touched public metadata or URLs, re-check `robots.txt`, sitemap, canonical tags, Open Graph, and verification files.
+
+## Required Final Output
+
+After a successful sync, always return a short update list for the user.
+
+The list should cover:
+
+1. upstream additions or changes that were synced
+2. Chinese translation updates applied
+3. build/validation result
+4. push/deploy status
+
+Preferred format:
+
+- `上游同步`
+- `中文更新`
+- `验证结果`
+- `已推送`
+
+Keep the list concise and concrete. Mention actual features, files, or providers when relevant.
 
 ## Translation Guardrails
 
