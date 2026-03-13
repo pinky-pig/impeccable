@@ -233,6 +233,15 @@ function generateApiData(buildDir, skills, patterns) {
 function copyDistToBuild(distDir, buildDir) {
   const destDir = path.join(buildDir, '_data', 'dist');
   copyDirSync(distDir, destDir);
+
+  const publicDistDir = path.join(buildDir, 'dist');
+  fs.mkdirSync(publicDistDir, { recursive: true });
+  for (const entry of fs.readdirSync(distDir)) {
+    if (entry.endsWith('.zip')) {
+      fs.copyFileSync(path.join(distDir, entry), path.join(publicDistDir, entry));
+    }
+  }
+
   console.log('✓ Copied dist files to build output');
 }
 

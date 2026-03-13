@@ -66,6 +66,22 @@ const server = serve({
       }
       return new Response("Not Found", { status: 404 });
     },
+    "/dist/*": async (req) => {
+      const url = new URL(req.url);
+      if (url.pathname.includes('..')) return new Response("Bad Request", { status: 400 });
+      const filePath = `.${url.pathname}`;
+      const assetFile = file(filePath);
+      if (await assetFile.exists()) {
+        return new Response(assetFile, {
+          headers: {
+            "Content-Type": "application/zip",
+            "X-Content-Type-Options": "nosniff",
+            "X-Frame-Options": "DENY"
+          }
+        });
+      }
+      return new Response("Not Found", { status: 404 });
+    },
 
     // API: Get all skills
     "/api/skills": {
@@ -135,4 +151,3 @@ const server = serve({
 });
 
 console.log(`🎨 impeccable.style running at ${server.url}`);
-

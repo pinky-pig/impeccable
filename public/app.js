@@ -322,7 +322,7 @@ document.addEventListener("click", (e) => {
 		const prefixToggle = document.getElementById('prefix-toggle');
 		const usePrefixed = prefixToggle && prefixToggle.checked;
 		const bundleName = usePrefixed ? `${provider}-prefixed` : provider;
-		window.location.href = `/api/download/bundle/${bundleName}`;
+		window.location.href = `/dist/${bundleName}.zip`;
 	}
 
 	// Handle copy button clicks
