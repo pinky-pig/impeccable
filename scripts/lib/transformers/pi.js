@@ -2,9 +2,9 @@ import path from 'path';
 import { cleanDir, ensureDir, writeFile, generateYamlFrontmatter, replacePlaceholders, prefixSkillReferences } from '../utils.js';
 
 /**
- * Kiro Transformer (Skills Only)
+ * Pi Transformer (Skills Only)
  *
- * All skills output to .kiro/skills/{name}/SKILL.md
+ * All skills output to .pi/skills/{name}/SKILL.md
  * Frontmatter: name, description, license, compatibility, metadata
  *
  * @param {Array} skills - All skills (including user-invokable ones)
@@ -14,12 +14,12 @@ import { cleanDir, ensureDir, writeFile, generateYamlFrontmatter, replacePlaceho
  * @param {string} options.prefix - Prefix to add to skill names (e.g., 'i-')
  * @param {string} options.outputSuffix - Suffix for output directory (e.g., '-prefixed')
  */
-export function transformKiro(skills, distDir, patterns = null, options = {}) {
+export function transformPi(skills, distDir, patterns = null, options = {}) {
   const { prefix = '', outputSuffix = '' } = options;
-  const kiroDir = path.join(distDir, `kiro${outputSuffix}`);
-  const skillsDir = path.join(kiroDir, '.kiro/skills');
+  const piDir = path.join(distDir, `pi${outputSuffix}`);
+  const skillsDir = path.join(piDir, '.pi/skills');
 
-  cleanDir(kiroDir);
+  cleanDir(piDir);
   ensureDir(skillsDir);
 
   const allSkillNames = skills.map(s => s.name);
@@ -39,7 +39,7 @@ export function transformKiro(skills, distDir, patterns = null, options = {}) {
     if (skill.metadata) frontmatterObj.metadata = skill.metadata;
 
     const frontmatter = generateYamlFrontmatter(frontmatterObj);
-    let skillBody = replacePlaceholders(skill.body, 'kiro', commandNames);
+    let skillBody = replacePlaceholders(skill.body, 'pi', commandNames);
     if (prefix) skillBody = prefixSkillReferences(skillBody, prefix, allSkillNames);
     const content = `${frontmatter}\n\n${skillBody}`;
     const outputPath = path.join(skillDir, 'SKILL.md');
@@ -51,7 +51,7 @@ export function transformKiro(skills, distDir, patterns = null, options = {}) {
       ensureDir(refDir);
       for (const ref of skill.references) {
         const refOutputPath = path.join(refDir, `${ref.name}.md`);
-        const refContent = replacePlaceholders(ref.content, 'kiro');
+        const refContent = replacePlaceholders(ref.content, 'pi');
         writeFile(refOutputPath, refContent);
         refCount++;
       }
@@ -61,5 +61,5 @@ export function transformKiro(skills, distDir, patterns = null, options = {}) {
   const userInvokableCount = skills.filter(s => s.userInvokable).length;
   const refInfo = refCount > 0 ? ` (${refCount} reference files)` : '';
   const prefixInfo = prefix ? ` [${prefix}prefixed]` : '';
-  console.log(`✓ Kiro${prefixInfo}: ${skills.length} skills (${userInvokableCount} user-invokable)${refInfo}`);
+  console.log(`✓ Pi${prefixInfo}: ${skills.length} skills (${userInvokableCount} user-invokable)${refInfo}`);
 }

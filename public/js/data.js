@@ -73,7 +73,7 @@ export const commandCategories = {
   'delight': 'enhancement',
   'extract': 'system',
   'adapt': 'adaptation',
-  'onboard': 'system'
+  'onboard': 'enhancement'
 };
 
 // Skill relationships - now consolidated into frontend-design skill
@@ -102,5 +102,5 @@ export const commandRelationships = {
   'delight': { combinesWith: ['bolder', 'animate'], flow: '增强：加入个性与趣味' },
   'extract': { flow: '系统：提取设计系统元素' },
   'adapt': { combinesWith: ['normalize', 'clarify'], flow: '适配：面向不同设备与场景调整' },
-  'onboard': { flow: '系统：优化引导与空状态' }
+  'onboard': { combinesWith: ['clarify', 'delight'], flow: '增强：优化引导与空状态' }
 };

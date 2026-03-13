@@ -24,7 +24,9 @@ import {
   transformGemini,
   transformCodex,
   transformAgents,
-  transformKiro
+  transformKiro,
+  transformOpenCode,
+  transformPi
 } from './lib/transformers/index.js';
 import { createAllZips } from './lib/zip.js';
 import { execSync } from 'child_process';
@@ -146,6 +148,8 @@ function assembleUniversal(distDir, suffix = '') {
     { provider: 'codex', configDir: '.codex' },
     { provider: 'agents', configDir: '.agents' },
     { provider: 'kiro', configDir: '.kiro' },
+    { provider: 'opencode', configDir: '.opencode' },
+    { provider: 'pi', configDir: '.pi' }
   ];
 
   for (const { provider, configDir } of providerMappings) {
@@ -171,6 +175,8 @@ This folder contains skills for all supported tools:
   .codex/     → Codex CLI
   .agents/    → VS Code Copilot, Antigravity
   .kiro/      → Kiro
+  .opencode/  → OpenCode
+  .pi/        → Pi
 
 To install, copy the relevant folder(s) into your project root.
 These are hidden folders (dotfiles) — press Cmd+Shift+. in Finder to see them.
@@ -239,6 +245,45 @@ function generateCFConfig(buildDir) {
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
 
+# HTML pages: browser always revalidates, CDN caches 1h
+/*.html
+  Cache-Control: public, max-age=0, s-maxage=3600, stale-while-revalidate=600
+
+# Hashed JS/CSS bundles: immutable (filename changes on content change)
+/assets/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# Static images and logos: 1 week + 1 day stale
+/assets/*.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/assets/*.svg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/assets/*.webp
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/antipattern-images/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+# Root static assets (favicon, og-image, etc.)
+/favicon.svg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/og-image.jpg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+# ZIP downloads: 1h cache
+/dist/*.zip
+  Cache-Control: public, max-age=3600, stale-while-revalidate=600
+
+# API routes: CDN caches 24h
 /api/*
   Cache-Control: public, s-maxage=86400, stale-while-revalidate=3600
 
@@ -255,7 +300,16 @@ function generateCFConfig(buildDir) {
 `;
   fs.writeFileSync(path.join(buildDir, '_redirects'), redirects);
 
-  console.log('✓ Generated Cloudflare Pages config (_headers, _redirects)');
+  // _routes.json: tell Cloudflare Pages which paths invoke Functions
+  // Without this, the SPA fallback serves index.html for function routes
+  const routes = {
+    version: 1,
+    include: ['/api/download/*'],
+    exclude: [],
+  };
+  fs.writeFileSync(path.join(buildDir, '_routes.json'), JSON.stringify(routes, null, 2));
+
+  console.log('✓ Generated Cloudflare Pages config (_headers, _redirects, _routes.json)');
 }
 
 /**
@@ -302,6 +356,8 @@ async function build() {
   transformCodex(skills, DIST_DIR, patterns);
   transformAgents(skills, DIST_DIR, patterns);
   transformKiro(skills, DIST_DIR, patterns);
+  transformOpenCode(skills, DIST_DIR, patterns);
+  transformPi(skills, DIST_DIR, patterns);
 
   // Transform for each provider (prefixed with i-)
   const prefixOptions = { prefix: 'i-', outputSuffix: '-prefixed' };
@@ -311,6 +367,8 @@ async function build() {
   transformCodex(skills, DIST_DIR, patterns, prefixOptions);
   transformAgents(skills, DIST_DIR, patterns, prefixOptions);
   transformKiro(skills, DIST_DIR, patterns, prefixOptions);
+  transformOpenCode(skills, DIST_DIR, patterns, prefixOptions);
+  transformPi(skills, DIST_DIR, patterns, prefixOptions);
 
   // Assemble universal directory (unprefixed and prefixed)
   assembleUniversal(DIST_DIR);

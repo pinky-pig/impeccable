@@ -202,7 +202,7 @@
       'delight': 'enhancement',
       'extract': 'system',
       'adapt': 'adaptation',
-      'onboard': 'system'
+      'onboard': 'enhancement'
     };
 
     const commandRelationships = {
@@ -222,7 +222,7 @@
       'delight': { combinesWith: ['bolder', 'animate'], flow: '加入个性与趣味' },
       'extract': { flow: '提取设计系统元素' },
       'adapt': { combinesWith: ['normalize', 'clarify'], flow: '适配不同设备与场景' },
-      'onboard': { flow: '优化引导与空状态' }
+      'onboard': { combinesWith: ['clarify', 'delight'], flow: '优化引导与空状态' }
     };
 
     async function loadCommands() {

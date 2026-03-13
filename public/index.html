@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impeccable.style 中文版：AI 编程工具设计提示词与前端设计命令</title>
-  <meta name="description" content="Impeccable.style 中文版，专注于 AI 编程工具设计提示词、前端设计命令、Claude Code 与 Cursor 设计技能翻译与整理，提供 17 个设计命令、精选反模式与中文速查内容。">
+  <title>Impeccable.style 中文 | AI 编程工具设计提示词与前端设计命令</title>
+  <meta name="description" content="Impeccable.style 中文版与 impeccable中文翻译整理站，提供 AI 编程工具设计提示词、前端设计命令、Claude Code、Cursor、Gemini、Codex 等设计技能的中文内容、17 个设计命令与精选反模式。">
   <meta name="theme-color" content="#1a1a1a">
   <meta name="baidu-site-verification" content="codeva-OoJ1ZoXzyM" />
   <link rel="canonical" href="https://www.impeccable.cn/">
@@ -12,15 +12,26 @@
   <!-- OpenGraph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.impeccable.cn/">
-  <meta property="og:title" content="Impeccable.style 中文版">
-  <meta property="og:description" content="AI 编程工具设计提示词、前端设计命令与 Impeccable.style 中文翻译整理。">
+  <meta property="og:site_name" content="Impeccable">
+  <meta property="og:title" content="Impeccable.style 中文">
+  <meta property="og:description" content="Impeccable.style 中文翻译整理，涵盖 AI 编程工具设计提示词、前端设计命令、17 个命令与精选反模式。">
   <meta property="og:image" content="https://www.impeccable.cn/og-image.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Impeccable.style 中文版">
-  <meta name="twitter:description" content="AI 编程工具设计提示词、前端设计命令与 Impeccable.style 中文翻译整理。">
+  <meta name="twitter:title" content="Impeccable.style 中文">
+  <meta name="twitter:description" content="Impeccable.style 中文翻译整理，涵盖 AI 编程工具设计提示词、前端设计命令、17 个命令与精选反模式。">
   <meta name="twitter:image" content="https://www.impeccable.cn/og-image.jpg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Impeccable",
+      "alternateName": "Impeccable.style 中文版",
+      "url": "https://www.impeccable.cn/",
+      "description": "Impeccable.style 中文翻译整理站，提供 AI 编程工具设计提示词、前端设计命令、17 个设计命令与精选反模式。"
+    }
+  </script>
 
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
@@ -65,16 +76,19 @@
           <div class="hero-logos-inline">
             <span class="hero-logos-label">支持</span>
             <div class="hero-logos-row">
-              <img src="https://img.logo.dev/cursor.com?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Cursor" width="24" height="24" loading="lazy">
-              <img src="https://img.logo.dev/claude.ai?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Claude Code" width="24" height="24" loading="lazy">
-              <img src="https://img.logo.dev/gemini.google.com?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Gemini CLI" width="20" height="20" loading="lazy">
-              <img src="https://img.logo.dev/openai.com?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Codex CLI" width="20" height="20" loading="lazy">
-              <img src="https://img.logo.dev/github.com?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="VS Code Copilot" width="20" height="20" loading="lazy">
-              <img src="https://img.logo.dev/antigravity.google?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Antigravity" width="20" height="20" loading="lazy">
+              <img src="assets/cursor-logo.png" alt="Cursor" width="24" height="24" loading="lazy">
+              <img src="assets/claude-logo.png" alt="Claude Code" width="24" height="24" loading="lazy">
+              <img src="assets/gemini-logo.png" alt="Gemini CLI" width="20" height="20" loading="lazy">
+              <img src="assets/openai-logo.png" alt="Codex CLI" width="20" height="20" loading="lazy">
+              <img src="assets/github-logo.png" alt="VS Code Copilot" width="20" height="20" loading="lazy">
+              <img src="assets/antigravity-logo.png" alt="Antigravity" width="20" height="20" loading="lazy">
+              <img src="assets/kiro-logo.png" alt="Kiro" width="20" height="20" loading="lazy">
+              <img src="assets/opencode-logo.png" alt="OpenCode" width="20" height="20" loading="lazy">
+              <img src="assets/pi-logo.svg" alt="Pi" width="20" height="20" loading="lazy" style="background:#1a1a1a;border-radius:50%;padding:3px">
             </div>
           </div>
         </div>
-        <p class="hero-version-link"><a href="#changelog">v1.2.0：新增 Kiro 支持、命名前缀开关与安全加固</a></p>
+        <p class="hero-version-link"><a href="#changelog">v1.3.0：新增 OpenCode 与 Pi 支持</a></p>
       </div>
 
       <!-- Right: Before/After Demo -->
@@ -304,32 +318,40 @@
         <span class="install-providers-label">支持</span>
         <div class="install-providers-row">
           <div class="install-provider-badge">
-            <img src="https://img.logo.dev/cursor.com?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Cursor" width="20" height="20" loading="lazy">
+            <img src="assets/cursor-logo.png" alt="Cursor" width="20" height="20" loading="lazy">
             <span>Cursor</span>
           </div>
           <div class="install-provider-badge">
-            <img src="https://img.logo.dev/claude.ai?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Claude Code" width="20" height="20" loading="lazy">
+            <img src="assets/claude-logo.png" alt="Claude Code" width="20" height="20" loading="lazy">
             <span>Claude Code</span>
           </div>
           <div class="install-provider-badge">
-            <img src="https://img.logo.dev/gemini.google.com?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Gemini CLI" width="20" height="20" loading="lazy">
+            <img src="assets/gemini-logo.png" alt="Gemini CLI" width="20" height="20" loading="lazy">
             <span>Gemini CLI</span>
           </div>
           <div class="install-provider-badge">
-            <img src="https://img.logo.dev/openai.com?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Codex CLI" width="20" height="20" loading="lazy">
+            <img src="assets/openai-logo.png" alt="Codex CLI" width="20" height="20" loading="lazy">
             <span>Codex CLI</span>
           </div>
           <div class="install-provider-badge">
-            <img src="https://img.logo.dev/github.com?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="VS Code Copilot" width="20" height="20" loading="lazy">
+            <img src="assets/github-logo.png" alt="VS Code Copilot" width="20" height="20" loading="lazy">
             <span>Copilot</span>
           </div>
           <div class="install-provider-badge">
-            <img src="https://img.logo.dev/antigravity.google?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Antigravity" width="20" height="20" loading="lazy">
+            <img src="assets/antigravity-logo.png" alt="Antigravity" width="20" height="20" loading="lazy">
             <span>Antigravity</span>
           </div>
           <div class="install-provider-badge">
-            <img src="https://img.logo.dev/kiro.dev?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Kiro" width="20" height="20" loading="lazy">
+            <img src="assets/kiro-logo.png" alt="Kiro" width="20" height="20" loading="lazy">
             <span>Kiro</span>
+          </div>
+          <div class="install-provider-badge">
+            <img src="assets/opencode-logo.png" alt="OpenCode" width="20" height="20" loading="lazy">
+            <span>OpenCode</span>
+          </div>
+          <div class="install-provider-badge">
+            <img src="assets/pi-logo.svg" alt="Pi" width="20" height="20" loading="lazy" style="background:#1a1a1a;border-radius:50%;padding:3px">
+            <span>Pi</span>
           </div>
         </div>
       </div>
@@ -345,6 +367,18 @@
       </div>
 
       <div class="changelog-list" data-reveal>
+        <div class="changelog-entry">
+          <div class="changelog-version-header">
+            <span class="changelog-version">v1.3.0</span>
+            <span class="changelog-date">2026 年 3 月 12 日</span>
+          </div>
+          <ul class="changelog-items">
+            <li>新增 OpenCode 支持</li>
+            <li>新增 Pi 支持</li>
+            <li>将 <code>/onboard</code> 重新归类为增强类命令</li>
+          </ul>
+        </div>
+
         <div class="changelog-entry">
           <div class="changelog-version-header">
             <span class="changelog-version">v1.2.0</span>
