@@ -1,31 +1,15 @@
 ---
 name: quieter
-description: 收敛过于激进或视觉攻击性太强的设计，在保持质量和影响力的同时降低强度。
-args:
-  - name: target
-    description: The feature or component to make quieter (optional)
-    required: false
-user-invokable: true
+description: "收敛过于激进或过度刺激的设计，在保留质量的同时降低视觉强度。适用于用户觉得界面太吵、太猛、压迫感强、俗艳，或希望气质更平静、更精致的场景。"
+argument-hint: "[target]"
+user-invocable: true
 ---
 
 Reduce visual intensity in designs that are too bold, aggressive, or overstimulating, creating a more refined and approachable aesthetic without losing effectiveness.
 
 ## MANDATORY PREPARATION
 
-### Context Gathering (Do This First)
-
-You cannot do a great job without having necessary context, such as target audience (critical), desired use-cases (critical), brand personality/tone, and everything else that a great human designer would need as well.
-
-Attempt to gather these from the current thread or codebase.
-
-1. If you don't find *exact* information and have to infer from existing design and functionality, you MUST STOP and {{ask_instruction}} whether you got it right.
-2. Otherwise, if you can't fully infer or your level of confidence is medium or lower, you MUST {{ask_instruction}} clarifying questions first to complete your context.
-
-Do NOT proceed until you have answers. Guessing leads to generic design.
-
-### Use frontend-design skill
-
-Use the frontend-design skill for design principles and anti-patterns. Do NOT proceed until it has executed and you know all DO's and DON'Ts.
+Invoke {{command_prefix}}frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run {{command_prefix}}teach-impeccable first.
 
 ---
 

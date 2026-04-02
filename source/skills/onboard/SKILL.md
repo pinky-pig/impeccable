@@ -1,11 +1,14 @@
 ---
 name: onboard
-description: 设计或改进引导流程、空状态与首次使用体验，帮助用户顺利上手并更快理解产品价值。
-args:
-  - name: target
-    description: The feature or area needing onboarding (optional)
-    required: false
-user-invokable: true
+description: "设计或改进引导流程、空状态与首次使用体验，帮助用户更快到达价值时刻。适用于用户提到 onboarding、首次使用者、空状态、激活流程、快速上手或新手流程的场景。"
+argument-hint: "[target]"
+user-invocable: true
+---
+
+## MANDATORY PREPARATION
+
+Invoke {{command_prefix}}frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run {{command_prefix}}teach-impeccable first. Additionally gather: the "aha moment" you want users to reach, and users' experience level.
+
 ---
 
 Create or improve onboarding experiences that help users understand, adopt, and succeed with the product quickly.

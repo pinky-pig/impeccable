@@ -1,17 +1,17 @@
 ---
 name: adapt
-description: 让设计适配不同屏幕尺寸、设备、上下文或平台，确保在各种环境下都保持一致体验。
-args:
-  - name: target
-    description: The feature or component to adapt (optional)
-    required: false
-  - name: context
-    description: What to adapt for (mobile, tablet, desktop, print, email, etc.)
-    required: false
-user-invokable: true
+description: "让设计适配不同屏幕尺寸、设备、上下文或平台，覆盖断点、流式布局与触控目标。适用于响应式设计、移动端布局、断点调整、视口适配或跨设备兼容场景。"
+argument-hint: "[target] [context (mobile, tablet, print...)]"
+user-invocable: true
 ---
 
 Adapt existing designs to work effectively across different contexts - different screen sizes, devices, platforms, or use cases.
+
+## MANDATORY PREPARATION
+
+Invoke {{command_prefix}}frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run {{command_prefix}}teach-impeccable first. Additionally gather: target platforms/devices and usage contexts.
+
+---
 
 ## Assess Adaptation Challenge
 

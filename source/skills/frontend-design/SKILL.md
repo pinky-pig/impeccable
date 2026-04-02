@@ -1,10 +1,30 @@
 ---
 name: frontend-design
-description: 创建具有辨识度、可直接投入生产的高质量前端界面。当用户要求构建 Web 组件、页面、作品、海报或应用时使用此技能。它会生成有创造力、经过打磨、并能避开通用 AI 审美的代码。
+description: "创建具有辨识度、可直接投入生产的高质量前端界面，生成有创造力、经过打磨且能避开通用 AI 审美的代码。适用于构建 Web 组件、页面、作品、海报或应用，也适用于其他设计 skill 需要项目上下文时。"
 license: Apache 2.0. Based on Anthropic's frontend-design skill. See NOTICE.md for attribution.
 ---
 
 This skill guides creation of distinctive, production-grade frontend interfaces that avoid generic "AI slop" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.
+
+## Context Gathering Protocol
+
+Design skills produce generic output without project context. You MUST have confirmed design context before doing any design work.
+
+**Required context** — every design skill needs at minimum:
+- **Target audience**: Who uses this product and in what context?
+- **Use cases**: What jobs are they trying to get done?
+- **Brand personality/tone**: How should the interface feel?
+
+Individual skills may require additional context — check the skill's preparation section for specifics.
+
+**CRITICAL**: You cannot infer this context by reading the codebase. Code tells you what was built, not who it's for or what it should feel like. Only the creator can provide this context.
+
+**Gathering order:**
+1. **Check current instructions (instant)**: If your loaded instructions already contain a **Design Context** section, proceed immediately.
+2. **Check .impeccable.md (fast)**: If not in instructions, read `.impeccable.md` from the project root. If it exists and contains the required context, proceed.
+3. **Run teach-impeccable (REQUIRED)**: If neither source has context, you MUST run {{command_prefix}}teach-impeccable NOW before doing anything else. Do NOT skip this step. Do NOT attempt to infer context from the codebase instead.
+
+---
 
 ## Design Direction
 

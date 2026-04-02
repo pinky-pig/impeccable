@@ -1,31 +1,15 @@
 ---
 name: animate
-description: 审视某个功能，并通过有目的的动画、微交互和动效提升可用性与愉悦感。
-args:
-  - name: target
-    description: The feature or component to animate (optional)
-    required: false
-user-invokable: true
+description: "审视某个功能，并通过有目的的动画、微交互与动效提升可用性和愉悦感。适用于添加动画、转场、微交互、动效设计、悬停效果或让界面更有生命力的场景。"
+argument-hint: "[target]"
+user-invocable: true
 ---
 
 Analyze a feature and strategically add animations and micro-interactions that enhance understanding, provide feedback, and create delight.
 
 ## MANDATORY PREPARATION
 
-### Context Gathering (Do This First)
-
-You cannot do a great job without having necessary context, such as target audience (critical), desired use-cases (critical), brand personality/tone (playful vs serious, energetic vs calm), and performance constraints.
-
-Attempt to gather these from the current thread or codebase.
-
-1. If you don't find *exact* information and have to infer from existing design and functionality, you MUST STOP and {{ask_instruction}} whether you got it right.
-2. Otherwise, if you can't fully infer or your level of confidence is medium or lower, you MUST {{ask_instruction}} clarifying questions first to complete your context.
-
-Do NOT proceed until you have answers. Guessing leads to inappropriate or excessive animation.
-
-### Use frontend-design skill
-
-Use the frontend-design skill for design principles and anti-patterns. Do NOT proceed until it has executed and you know all DO's and DON'Ts.
+Invoke {{command_prefix}}frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run {{command_prefix}}teach-impeccable first. Additionally gather: performance constraints.
 
 ---
 

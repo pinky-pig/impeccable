@@ -1,14 +1,17 @@
 ---
 name: normalize
-description: 将设计规范化到与你的设计系统一致，确保整体风格与交互保持统一。
-args:
-  - name: feature
-    description: The page, route, or feature to normalize (optional)
-    required: false
-user-invokable: true
+description: "审查并重新对齐 UI，使其符合设计系统标准、间距、tokens 和模式。适用于一致性问题、设计漂移、风格不统一、tokens 混乱，或希望让功能重新回到系统规范中的场景。"
+argument-hint: "[feature (page, route, component...)]"
+user-invocable: true
 ---
 
 Analyze and redesign the feature to perfectly match our design system standards, aesthetics, and established patterns.
+
+## MANDATORY PREPARATION
+
+Invoke {{command_prefix}}frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run {{command_prefix}}teach-impeccable first.
+
+---
 
 ## Plan
 

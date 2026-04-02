@@ -1,11 +1,8 @@
 ---
 name: extract
-description: 抽取并整合可复用组件、设计令牌与模式，沉淀进设计系统，识别系统化复用机会并丰富组件库。
-args:
-  - name: target
-    description: The feature, component, or area to extract from (optional)
-    required: false
-user-invokable: true
+description: "抽取并整合可复用组件、设计令牌与模式，沉淀进设计系统，识别系统化复用机会并丰富组件库。适用于创建组件、重构重复 UI 模式、搭建设计系统或提取 tokens 的场景。"
+argument-hint: "[target]"
+user-invocable: true
 ---
 
 Identify reusable patterns, components, and design tokens, then extract and consolidate them into the design system for systematic reuse.

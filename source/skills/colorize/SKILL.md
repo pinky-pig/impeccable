@@ -1,31 +1,15 @@
 ---
 name: colorize
-description: 为过于单调或缺乏视觉兴趣的功能加入策略性色彩，让界面更有吸引力与表达力。
-args:
-  - name: target
-    description: The feature or component to colorize (optional)
-    required: false
-user-invokable: true
+description: "为过于单调或缺乏视觉兴趣的界面加入策略性色彩，让它更有吸引力和表达力。适用于设计发灰、沉闷、缺少温度、需要更多色彩或希望拥有更鲜明配色的场景。"
+argument-hint: "[target]"
+user-invocable: true
 ---
 
 Strategically introduce color to designs that are too monochromatic, gray, or lacking in visual warmth and personality.
 
 ## MANDATORY PREPARATION
 
-### Context Gathering (Do This First)
-
-You cannot do a great job without having necessary context, such as target audience (critical), desired use-cases (critical), brand personality/tone, and especially existing brand colors.
-
-Attempt to gather these from the current thread or codebase.
-
-1. If you don't find *exact* information and have to infer from existing design and functionality, you MUST STOP and {{ask_instruction}} whether you got it right.
-2. Otherwise, if you can't fully infer or your level of confidence is medium or lower, you MUST {{ask_instruction}} clarifying questions first to complete your context.
-
-Do NOT proceed until you have answers. Guessing leads to generic AI slop colors.
-
-### Use frontend-design skill
-
-Use the frontend-design skill for design principles and anti-patterns. Do NOT proceed until it has executed and you know all DO's and DON'Ts.
+Invoke {{command_prefix}}frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run {{command_prefix}}teach-impeccable first. Additionally gather: existing brand colors.
 
 ---
 

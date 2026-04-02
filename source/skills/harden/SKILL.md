@@ -1,11 +1,8 @@
 ---
 name: harden
-description: 通过更好的错误处理、国际化支持、文本溢出处理和边界场景管理来增强界面韧性，使其更稳健、更适合生产环境。
-args:
-  - name: target
-    description: The feature or area to harden (optional)
-    required: false
-user-invokable: true
+description: "通过更好的错误处理、国际化支持、文本溢出处理和边界场景管理来增强界面韧性，使其更稳健、更适合生产环境。适用于加固、上线前补强、边界处理、错误状态补齐或修复溢出与 i18n 问题。"
+argument-hint: "[target]"
+user-invocable: true
 ---
 
 Strengthen interfaces against edge cases, errors, internationalization issues, and real-world usage scenarios that break idealized designs.

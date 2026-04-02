@@ -1,14 +1,15 @@
 ---
 name: polish
-description: 上线前的最后一轮质量打磨，修复对齐、间距、一致性和细节问题，让作品从“不错”变成“出色”。
-args:
-  - name: target
-    description: The feature or area to polish (optional)
-    required: false
-user-invokable: true
+description: "上线前执行最后一轮质量打磨，修复对齐、间距、一致性和微观细节问题。适用于需要 polish、收尾、上线前检查、感觉哪里不对，或想把作品从“不错”推进到“出色”的场景。"
+argument-hint: "[target]"
+user-invocable: true
 ---
 
-**First**: Use the frontend-design skill for design principles and anti-patterns.
+## MANDATORY PREPARATION
+
+Invoke {{command_prefix}}frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run {{command_prefix}}teach-impeccable first. Additionally gather: quality bar (MVP vs flagship).
+
+---
 
 Perform a meticulous final pass to catch all the small details that separate good work from great work. The difference between shipped and polished.
 

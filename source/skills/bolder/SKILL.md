@@ -1,31 +1,15 @@
 ---
 name: bolder
-description: 强化过于保守或平淡的设计，让它更有视觉张力与刺激感，同时保持可用性。
-args:
-  - name: target
-    description: The feature or component to make bolder (optional)
-    required: false
-user-invokable: true
+description: "强化过于保守或平淡的设计，让它更有视觉张力与刺激感，同时保持可用性。适用于用户觉得设计平、泛、太安全、缺少个性，或希望增强冲击力与角色感的场景。"
+argument-hint: "[target]"
+user-invocable: true
 ---
 
 Increase visual impact and personality in designs that are too safe, generic, or visually underwhelming, creating more engaging and memorable experiences.
 
 ## MANDATORY PREPARATION
 
-### Context Gathering (Do This First)
-
-You cannot do a great job without having necessary context, such as target audience (critical), desired use-cases (critical), brand personality/tone, and everything else that a great human designer would need as well.
-
-Attempt to gather these from the current thread or codebase.
-
-1. If you don't find *exact* information and have to infer from existing design and functionality, you MUST STOP and {{ask_instruction}} whether you got it right.
-2. Otherwise, if you can't fully infer or your level of confidence is medium or lower, you MUST {{ask_instruction}} clarifying questions first to complete your context.
-
-Do NOT proceed until you have answers. Guessing leads to generic AI slop.
-
-### Use frontend-design skill
-
-Use the frontend-design skill for design principles and anti-patterns. Do NOT proceed until it has executed and you know all DO's and DON'Ts.
+Invoke {{command_prefix}}frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run {{command_prefix}}teach-impeccable first.
 
 ---
 

@@ -6,33 +6,27 @@ import { initLensEffect } from "./js/components/lens.js";
 import { initFrameworkViz } from "./js/components/framework-viz.js";
 import { initScrollReveal } from "./js/utils/reveal.js";
 import { initAnchorScroll, initHashTracking } from "./js/utils/scroll.js";
+import { initSectionNav } from "./js/components/section-nav.js";
 
 // ============================================
 // STATE
 // ============================================
 
 let allCommands = [];
-const INSTALL_ONBOARDING_DISMISSED_KEY = "impeccable-install-onboarding-dismissed";
-const INSTALL_ONBOARDING_SELECTED_KEY = "impeccable-install-onboarding-selection";
-
-const INSTALL_ONBOARDING_COPY = {
-	universal: {
-		summary: "运行通用安装命令，Impeccable 会自动识别你的工具并写到正确目录。",
-		target: "universal",
-	},
-	claude: {
-		summary: "先把插件加入 Claude Code marketplace，再到 Discover 标签页完成安装。",
-		target: "claude",
-	},
-	manual: {
-		summary: "下载通用 ZIP，解压到项目根目录，适合受限环境或你想手动检查目录结构时。",
-		target: "manual",
-	},
-};
 
 // ============================================
 // CONTENT LOADING
 // ============================================
+
+function escapeHtml(value) {
+	if (typeof value !== "string") return "";
+	return value
+		.replaceAll("&", "&amp;")
+		.replaceAll("<", "&lt;")
+		.replaceAll(">", "&gt;")
+		.replaceAll('"', "&quot;")
+		.replaceAll("'", "&#39;");
+}
 
 async function loadContent() {
 	try {
@@ -70,10 +64,10 @@ function showLoadError(error) {
 		commandsGallery.innerHTML = `
 			<div class="load-error" role="alert">
 				<div class="load-error-icon" aria-hidden="true">⚠</div>
-				<h3 class="load-error-title">命令加载失败</h3>
-				<p class="load-error-text">加载内容时出现问题，请检查网络连接后重试。</p>
+					<h3 class="load-error-title">命令加载失败</h3>
+					<p class="load-error-text">加载内容时出现问题，请检查网络连接后重试。</p>
 				<button class="btn btn-secondary load-error-retry" onclick="location.reload()">
-					重试
+						重试
 				</button>
 			</div>
 		`;
@@ -85,97 +79,14 @@ function showLoadError(error) {
 		patternsContainer.innerHTML = `
 			<div class="load-error" role="alert">
 				<div class="load-error-icon" aria-hidden="true">⚠</div>
-				<h3 class="load-error-title">模式加载失败</h3>
-				<p class="load-error-text">加载内容时出现问题，请检查网络连接后重试。</p>
+					<h3 class="load-error-title">模式加载失败</h3>
+					<p class="load-error-text">加载内容时出现问题，请检查网络连接后重试。</p>
 				<button class="btn btn-secondary load-error-retry" onclick="location.reload()">
-					重试
+						重试
 				</button>
 			</div>
 		`;
 	}
-}
-
-function initInstallOnboarding() {
-	const guide = document.querySelector("[data-onboarding-guide]");
-	if (!guide) return;
-
-	try {
-		if (localStorage.getItem(INSTALL_ONBOARDING_DISMISSED_KEY) === "true") {
-			guide.hidden = true;
-			return;
-		}
-	} catch (_error) {
-		// Ignore storage failures and keep the guide visible.
-	}
-
-	const cards = Array.from(guide.querySelectorAll("[data-onboarding-provider]"));
-	const summary = guide.querySelector("[data-onboarding-summary]");
-	const jumpButton = guide.querySelector("[data-onboarding-jump]");
-	const dismissButton = guide.querySelector("[data-onboarding-dismiss]");
-	let selectedProvider = "universal";
-
-	const flashInstallRow = (targetName) => {
-		const row = document.querySelector(`[data-install-option="${targetName}"]`);
-		if (!row) return;
-
-		row.scrollIntoView({ behavior: "smooth", block: "center" });
-		row.classList.remove("install-terminal-row--focused");
-		window.setTimeout(() => {
-			row.classList.add("install-terminal-row--focused");
-		}, 120);
-		window.setTimeout(() => {
-			row.classList.remove("install-terminal-row--focused");
-		}, 2200);
-	};
-
-	const setProvider = (providerName) => {
-		const config = INSTALL_ONBOARDING_COPY[providerName] || INSTALL_ONBOARDING_COPY.universal;
-		selectedProvider = providerName in INSTALL_ONBOARDING_COPY ? providerName : "universal";
-
-		cards.forEach((card) => {
-			const isActive = card.dataset.onboardingProvider === selectedProvider;
-			card.classList.toggle("is-active", isActive);
-			card.setAttribute("aria-pressed", isActive ? "true" : "false");
-		});
-
-		if (summary) {
-			summary.textContent = config.summary;
-		}
-
-		try {
-			localStorage.setItem(INSTALL_ONBOARDING_SELECTED_KEY, selectedProvider);
-		} catch (_error) {
-			// Ignore storage failures.
-		}
-	};
-
-	cards.forEach((card) => {
-		card.addEventListener("click", () => {
-			setProvider(card.dataset.onboardingProvider);
-		});
-	});
-
-	jumpButton?.addEventListener("click", () => {
-		const config = INSTALL_ONBOARDING_COPY[selectedProvider] || INSTALL_ONBOARDING_COPY.universal;
-		flashInstallRow(config.target);
-	});
-
-	dismissButton?.addEventListener("click", () => {
-		guide.hidden = true;
-		try {
-			localStorage.setItem(INSTALL_ONBOARDING_DISMISSED_KEY, "true");
-		} catch (_error) {
-			// Ignore storage failures.
-		}
-	});
-
-	let initialProvider = "universal";
-	try {
-		initialProvider = localStorage.getItem(INSTALL_ONBOARDING_SELECTED_KEY) || "universal";
-	} catch (_error) {
-		// Ignore storage failures.
-	}
-	setProvider(initialProvider);
 }
 
 function renderPatternsWithTabs(patterns, antipatterns) {
@@ -196,13 +107,13 @@ function renderPatternsWithTabs(patterns, antipatterns) {
 	const tabsHTML = patterns
 		.map((category, i) => `<button
 			class="pattern-tab${i === 0 ? ' active' : ''}"
-			data-tab="${category.name}"
+			data-tab="${escapeHtml(category.name)}"
 			role="tab"
 			id="${tabId(category.name)}"
 			aria-selected="${i === 0 ? 'true' : 'false'}"
 			aria-controls="${panelId(category.name)}"
 			tabindex="${i === 0 ? '0' : '-1'}"
-		>${category.name}</button>`)
+		>${escapeHtml(category.name)}</button>`)
 		.join("");
 
 	// Build panels with WAI-ARIA attributes
@@ -212,7 +123,7 @@ function renderPatternsWithTabs(patterns, antipatterns) {
 			return `
 		<div
 			class="pattern-panel${i === 0 ? ' active' : ''}"
-			data-panel="${category.name}"
+			data-panel="${escapeHtml(category.name)}"
 			role="tabpanel"
 			id="${panelId(category.name)}"
 			aria-labelledby="${tabId(category.name)}"
@@ -220,15 +131,15 @@ function renderPatternsWithTabs(patterns, antipatterns) {
 		>
 			<div class="pattern-columns">
 				<div class="pattern-column pattern-column--anti">
-					<span class="pattern-column-label" id="dont-label-${i}">不要这样做</span>
+						<span class="pattern-column-label" id="dont-label-${i}">不要这样做</span>
 					<ul class="pattern-list" aria-labelledby="dont-label-${i}">
-						${antiItems.map((item) => `<li class="pattern-item pattern-item--anti">${item}</li>`).join("")}
+						${antiItems.map((item) => `<li class="pattern-item pattern-item--anti">${escapeHtml(item)}</li>`).join("")}
 					</ul>
 				</div>
 				<div class="pattern-column pattern-column--do">
-					<span class="pattern-column-label" id="do-label-${i}">推荐这样做</span>
+						<span class="pattern-column-label" id="do-label-${i}">推荐这样做</span>
 					<ul class="pattern-list" aria-labelledby="do-label-${i}">
-						${category.items.map((item) => `<li class="pattern-item pattern-item--do">${item}</li>`).join("")}
+						${category.items.map((item) => `<li class="pattern-item pattern-item--do">${escapeHtml(item)}</li>`).join("")}
 					</ul>
 				</div>
 			</div>
@@ -238,7 +149,7 @@ function renderPatternsWithTabs(patterns, antipatterns) {
 		.join("");
 
 	container.innerHTML = `
-		<div class="pattern-tabs" role="tablist" aria-label="模式分类">${tabsHTML}</div>
+			<div class="pattern-tabs" role="tablist" aria-label="模式分类">${tabsHTML}</div>
 		<div class="pattern-panels">${panelsHTML}</div>
 	`;
 
@@ -267,7 +178,9 @@ function renderPatternsWithTabs(patterns, antipatterns) {
 			p.classList.remove('active');
 			p.setAttribute('hidden', '');
 		});
-		const activePanel = container.querySelector(`[data-panel="${tabName}"]`);
+		const escapedName = CSS.escape(tabName);
+		const activePanel = container.querySelector(`[data-panel="${escapedName}"]`);
+		if (!activePanel) return;
 		activePanel.classList.add('active');
 		activePanel.removeAttribute('hidden');
 	};
@@ -314,6 +227,20 @@ function renderPatternsWithTabs(patterns, antipatterns) {
 // EVENT HANDLERS
 // ============================================
 
+// Sync prefix radio buttons to hidden checkbox + update download button label
+document.querySelectorAll('input[name="prefix-choice"]').forEach((radio) => {
+	radio.addEventListener('change', () => {
+		const prefixToggle = document.getElementById('prefix-toggle');
+		if (prefixToggle) prefixToggle.checked = radio.value === 'prefixed';
+		const btnLabel = document.querySelector('#download-zip-btn span');
+		if (btnLabel) {
+			btnLabel.textContent = radio.value === 'prefixed'
+					? '下载带前缀 ZIP'
+					: '下载通用 ZIP';
+		}
+	});
+});
+
 // Handle bundle download clicks via event delegation
 document.addEventListener("click", (e) => {
 	const bundleBtn = e.target.closest("[data-bundle]");
@@ -322,17 +249,27 @@ document.addEventListener("click", (e) => {
 		const prefixToggle = document.getElementById('prefix-toggle');
 		const usePrefixed = prefixToggle && prefixToggle.checked;
 		const bundleName = usePrefixed ? `${provider}-prefixed` : provider;
-		window.location.href = `/dist/${bundleName}.zip`;
+		window.location.href = `/api/download/bundle/${bundleName}`;
 	}
 
 	// Handle copy button clicks
 	const copyBtn = e.target.closest("[data-copy]");
 	if (copyBtn) {
 		const textToCopy = copyBtn.dataset.copy;
-		navigator.clipboard.writeText(textToCopy).then(() => {
+		const onCopied = () => {
 			copyBtn.classList.add('copied');
 			setTimeout(() => copyBtn.classList.remove('copied'), 1500);
-		});
+		};
+		if (navigator.clipboard?.writeText) {
+			navigator.clipboard.writeText(textToCopy).then(onCopied).catch(() => {});
+		} else {
+			// Fallback for non-HTTPS or older browsers
+			const ta = Object.assign(document.createElement('textarea'), { value: textToCopy, style: 'position:fixed;left:-9999px' });
+			document.body.appendChild(ta);
+			ta.select();
+			try { document.execCommand('copy'); onCopied(); } catch {}
+			ta.remove();
+		}
 	}
 });
 
@@ -348,7 +285,7 @@ function init() {
 	initScrollReveal();
 	initGlassTerminal();
 	initFrameworkViz();
-	initInstallOnboarding();
+	initSectionNav();
 	loadContent();
 
 	document.body.classList.add("loaded");

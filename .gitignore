@@ -19,3 +19,12 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# Cloudflare
+.wrangler/
+
+# User design context
+.impeccable.md
+
+# Local synced provider directory
+.rovodev/

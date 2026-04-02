@@ -1,31 +1,15 @@
 ---
 name: distill
-description: 通过移除不必要的复杂性，把设计提炼到本质。优秀设计应该简洁、有力、干净。
-args:
-  - name: target
-    description: The feature or component to distill (optional)
-    required: false
-user-invokable: true
+description: "通过移除不必要的复杂性，把设计提炼到本质。优秀设计应当简洁、有力、干净。适用于简化、去杂讯、减少元素或让界面更聚焦的场景。"
+argument-hint: "[target]"
+user-invocable: true
 ---
 
 Remove unnecessary complexity from designs, revealing the essential elements and creating clarity through ruthless simplification.
 
 ## MANDATORY PREPARATION
 
-### Context Gathering (Do This First)
-
-You cannot do a great job without having necessary context, such as target audience (critical), desired use-cases (critical), and understanding what's truly essential vs nice-to-have for this product.
-
-Attempt to gather these from the current thread or codebase.
-
-1. If you don't find *exact* information and have to infer from existing design and functionality, you MUST STOP and {{ask_instruction}} whether you got it right.
-2. Otherwise, if you can't fully infer or your level of confidence is medium or lower, you MUST {{ask_instruction}} clarifying questions first to complete your context.
-
-Do NOT proceed until you have answers. Simplifying the wrong things destroys usability.
-
-### Use frontend-design skill
-
-Use the frontend-design skill for design principles and anti-patterns. Do NOT proceed until it has executed and you know all DO's and DON'Ts.
+Invoke {{command_prefix}}frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run {{command_prefix}}teach-impeccable first.
 
 ---
 

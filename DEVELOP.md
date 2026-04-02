@@ -4,49 +4,20 @@ Documentation for contributors to Impeccable.
 
 ## Architecture
 
-This repository uses a **feature-rich source format** that transforms into provider-specific formats. We chose "Option A" architecture: maintain full metadata in source files and downgrade for providers with limited support (like Cursor), rather than limiting everyone to the lowest common denominator.
+Source skills in `source/skills/` are transformed into provider-specific formats by a config-driven factory. Each provider is defined as a config object in `scripts/lib/transformers/providers.js` -- adding a new provider requires only a new config entry.
 
-### Why This Approach?
-
-Different providers have different capabilities:
-- **Cursor**: No frontmatter or argument support
-- **Claude Code, Gemini, Codex**: Full support for metadata and arguments
-
-By maintaining rich source files, we preserve maximum functionality where supported while still providing working (if simpler) versions for all providers.
+For detailed harness capabilities (which frontmatter fields each supports, placeholder systems, directory structures), see [HARNESSES.md](HARNESSES.md).
 
 ## Source Format
 
-### Commands (`source/commands/*.md`)
-
-```yaml
----
-name: command-name
-description: What this command does
-args:
-  - name: argname
-    description: Argument description
-    required: false
----
-
-Your command prompt here with {{argname}} placeholders...
-```
-
-**Frontmatter fields**:
-- `name` (required): Command identifier
-- `description` (required): What the command does
-- `args` (optional): Array of argument objects
-  - `name`: Argument identifier
-  - `description`: What it's for
-  - `required`: Boolean (defaults to false)
-
-**Body**: The actual prompt. Use `{{argname}}` for argument placeholders (automatically transformed to provider-specific syntax).
-
-### Skills (`source/skills/*.md`)
+### Skills (`source/skills/{name}/SKILL.md`)
 
 ```yaml
 ---
 name: skill-name
 description: What this skill provides
+argument-hint: "[target]"
+user-invocable: true
 license: License info (optional)
 compatibility: Environment requirements (optional)
 ---
@@ -57,12 +28,19 @@ Your skill instructions here...
 **Frontmatter fields** (based on [Agent Skills spec](https://agentskills.io/specification)):
 - `name` (required): Skill identifier (1-64 chars, lowercase/numbers/hyphens)
 - `description` (required): What the skill provides (1-1024 chars)
+- `user-invocable` (optional): Boolean -- if `true`, the skill can be invoked as a slash command
+- `argument-hint` (optional): Hint shown during autocomplete (e.g., `[target]`, `[area (feature, page...)]`)
 - `license` (optional): License/attribution info
 - `compatibility` (optional): Environment requirements (1-500 chars)
 - `metadata` (optional): Arbitrary key-value pairs
 - `allowed-tools` (optional, experimental): Pre-approved tools list
 
-**Body**: The skill instructions for the LLM.
+**Body placeholders** (replaced per-provider during build):
+- `{{model}}` -- Provider-specific model name (e.g., "Claude", "Gemini", "GPT")
+- `{{config_file}}` -- Provider-specific config file (e.g., "CLAUDE.md", ".cursorrules")
+- `{{ask_instruction}}` -- How to ask the user for clarification
+- `{{command_prefix}}` -- Slash command prefix (`/` for most, `$` for Codex)
+- `{{available_commands}}` -- Comma-separated list of user-invocable commands
 
 ## Building
 
@@ -86,169 +64,124 @@ bun run rebuild
 ### What Gets Generated
 
 ```
-source/                  → dist/
-  commands/*.md            cursor/commands/*.md         (body only)
-  skills/*.md              cursor/skills/*/SKILL.md     (Agent Skills standard)
-
-                           claude-code/commands/*.md    (full frontmatter)
-                           claude-code/skills/*/SKILL.md
-
-                           gemini/commands/*.toml       (TOML format)
-                           gemini/GEMINI*.md            (modular)
-
-                           codex/prompts/*.md           (custom prompt format)
-                           codex/skills/*/SKILL.md      (Agent Skills standard)
+source/                          -> dist/
+  skills/{name}/SKILL.md           {provider}/{configDir}/skills/{name}/SKILL.md
 ```
 
-## Provider Transformations
-
-### Cursor (Agent Skills Standard)
-- Commands → Body only → `dist/cursor/.cursor/commands/*.md` (no frontmatter support)
-- Skills → Agent Skills standard → `dist/cursor/.cursor/skills/{name}/SKILL.md`
-  - Full YAML frontmatter support
-  - Reference files in skill subdirectories
-- **Note**: Agent Skills require Cursor nightly channel
-
-### Claude Code (Full Featured)
-- Keeps full YAML frontmatter + body
-- Commands → `dist/claude-code/commands/*.md`
-- Skills → `dist/claude-code/skills/{name}/SKILL.md`
-
-### Gemini CLI (Full Featured)
-- Commands converted to TOML format → `dist/gemini/commands/*.toml`
-  - `description` and `prompt` keys
-  - Arguments converted to `{{args}}` (Gemini uses single args string)
-- Skills → Modular `GEMINI.{name}.md` files
-- Main `GEMINI.md` imports skill files using `@./GEMINI.{name}.md` syntax
-  - Uses Gemini's native import feature for modular context files
-
-### Codex CLI (Full Featured)
-- Commands → Custom prompts with `argument-hint` → `dist/codex/.codex/prompts/*.md`
-  - Frontmatter uses `description` and `argument-hint` (not `args` array)
-  - Placeholders transformed from `{{argname}}` to `$ARGNAME` (uppercase)
-  - Invoked as `/prompts:<name>`
-- Skills → Agent Skills standard → `dist/codex/.codex/skills/{name}/SKILL.md`
-  - Uses same SKILL.md format as Claude Code
-  - Reference files in subdirectories
-
-### Pi (Agent Skills Standard)
-- Skills → Agent Skills standard → `dist/pi/.pi/skills/{name}/SKILL.md`
-  - Standard frontmatter: name, description, license, compatibility, metadata
-  - Reference files in skill subdirectories
-
-## Adding New Content
-
-### 1. Create Source File
-
-**For a command**:
-```bash
-# Create source/commands/mycommand.md
-touch source/commands/mycommand.md
-```
-
-Add frontmatter and content following the format above.
-
-**For a skill**:
-```bash
-# Create source/skills/myskill.md
-touch source/skills/myskill.md
-```
-
-Add frontmatter and content following the format above.
-
-### 2. Build
-
-```bash
-bun run build
-```
-
-This generates all 4 provider formats automatically.
-
-### 3. Test
-
-Test with your provider of choice to ensure it works correctly. Remember that Cursor will have limited functionality.
-
-### 4. Commit
-
-Commit both source and dist files:
-```bash
-git add source/ dist/
-git commit -m "Add [command/skill name]"
-```
-
-**Important**: The `dist/` directory is committed intentionally so end users can use files without building.
+Each provider gets its own output directory. Two variants are generated per provider: unprefixed and prefixed (with `i-` prefix for skill names).
 
 ## Build System Details
 
-The build system (`scripts/build.js`) is a single ~170-line Node.js script with:
-- Custom YAML frontmatter parser (no dependencies)
-- Provider-specific transformation functions
-- Automatic directory management
-- Zero external dependencies (pure Node.js)
+The build system uses a factory pattern under `scripts/`:
+
+```
+scripts/
+  build.js                        # Main orchestrator
+  lib/
+    utils.js                      # Frontmatter parsing, placeholder replacement, YAML generation
+    zip.js                        # ZIP bundle generation
+    transformers/
+      factory.js                  # createTransformer() -- generates transformer functions from config
+      providers.js                # PROVIDERS config map -- one entry per provider
+      index.js                    # Re-exports factory-generated transformer functions
+```
+
+### Adding a New Provider
+
+1. Add a placeholder config to `PROVIDER_PLACEHOLDERS` in `scripts/lib/utils.js`:
+   ```javascript
+   'my-provider': {
+     model: 'MyModel',
+     config_file: 'CONFIG.md',
+     ask_instruction: 'ask the user directly to clarify.',
+     command_prefix: '/'
+   }
+   ```
+
+2. Add a provider config to `PROVIDERS` in `scripts/lib/transformers/providers.js`:
+   ```javascript
+   'my-provider': {
+     provider: 'my-provider',
+     configDir: '.my-provider',
+     displayName: 'My Provider',
+     frontmatterFields: ['user-invocable', 'argument-hint', 'license'],
+   }
+   ```
+
+3. Run `bun run build` -- the provider is automatically picked up by the build loop.
+
+4. Update `HARNESSES.md` with the provider's capabilities.
+
+### Provider Config Options
+
+| Field | Description |
+|-------|-------------|
+| `provider` | Key for output directory and placeholder lookup |
+| `configDir` | Dot-directory name (e.g., `.claude`) |
+| `displayName` | Human-readable name for build logs |
+| `frontmatterFields` | Which optional fields to emit (see `factory.js` FIELD_SPECS) |
+| `bodyTransform` | Optional `(body, skill) => body` function for post-processing |
+| `placeholderProvider` | Override which PROVIDER_PLACEHOLDERS key to use (for variants sharing config) |
 
 ### Key Functions
 
-- `parseFrontmatter()`: Extracts YAML frontmatter and body
-- `readSourceFiles()`: Recursively reads source files
-- `transformCursor()`: Strips frontmatter for Cursor
-- `transformClaudeCode()`: Keeps full format
-- `transformGemini()`: Converts to TOML + modular skills
-- `transformCodex()`: Full format + modular skills
+- `createTransformer(config)`: Factory that returns a transformer function from a provider config
+- `parseFrontmatter()`: Extracts YAML frontmatter and body from SKILL.md files
+- `readSourceFiles()`: Reads all skill directories from `source/skills/`
+- `replacePlaceholders()`: Substitutes `{{model}}`, `{{config_file}}`, etc. per provider
+- `generateYamlFrontmatter()`: Serializes objects to YAML frontmatter (auto-quotes values starting with `[` or `{`)
+- `prefixSkillReferences()`: Replaces `/skillname` with `/i-skillname` for prefixed variants
 
 ## Best Practices
-
-### Command Writing
-
-1. **Clear descriptions**: Make purpose obvious
-2. **Meaningful argument names**: Use descriptive names
-3. **Flexible prompts**: Write prompts that work even without argument substitution (for Cursor compatibility)
-4. **Test across providers**: Verify it works in multiple contexts
 
 ### Skill Writing
 
 1. **Focused scope**: One clear domain per skill
-2. **Clear instructions**: LLM should understand exactly what to do
-3. **Include examples**: Where they clarify intent
-4. **State constraints**: What NOT to do as clearly as what to do
+2. **Clear descriptions**: Make purpose obvious
+3. **Clear instructions**: LLM should understand exactly what to do
+4. **Include examples**: Where they clarify intent
+5. **State constraints**: What NOT to do as clearly as what to do
+6. **Test across providers**: Verify it works in multiple contexts
 
 ## Reference Documentation
 
 - [Agent Skills Specification](https://agentskills.io/specification) - Open standard
-- [Cursor Commands](https://cursor.com/docs/agent/chat/commands)
-- [Cursor Rules](https://cursor.com/docs/context/rules)
+- [HARNESSES.md](HARNESSES.md) - Provider capabilities matrix
 - [Cursor Skills](https://cursor.com/docs/context/skills)
-- [Claude Code Slash Commands](https://code.claude.com/docs/en/slash-commands)
-- [Anthropic Skills (Claude Code)](https://github.com/anthropics/skills)
-- [Gemini CLI Custom Commands](https://cloud.google.com/blog/topics/developers-practitioners/gemini-cli-custom-slash-commands)
-- [Gemini CLI Skills](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-md.md)
-- [Codex CLI Slash Commands](https://developers.openai.com/codex/guides/slash-commands#create-your-own-slash-commands-with-custom-prompts)
+- [Claude Code Skills](https://code.claude.com/docs/en/skills)
+- [Gemini CLI Skills](https://geminicli.com/docs/cli/skills/)
 - [Codex CLI Skills](https://developers.openai.com/codex/skills/)
+- [VS Code Copilot Skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
+- [Kiro Skills](https://kiro.dev/docs/skills/)
+- [OpenCode Skills](https://opencode.ai/docs/skills/)
 - [Pi Skills](https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/skills.md)
 
 ## Repository Structure
 
 ```
 impeccable/
-├── source/              # Edit these! Source of truth
-│   ├── commands/        # Command definitions
-│   │   └── normalize.md
-│   └── skills/          # Skill definitions
-│       └── frontend-design.md
-├── dist/                # Generated (committed for users)
-│   ├── cursor/
-│   ├── claude-code/
-│   ├── gemini/
-│   ├── codex/
-│   ├── agents/
-│   ├── kiro/
-│   ├── opencode/
-│   └── pi/
-├── scripts/
-│   └── build.js         # Build system (~170 lines, zero deps)
-├── package.json         # ESM project config
-├── README.md            # User documentation
-├── DEVELOP.md           # This file
-└── .gitignore
+  source/                          # Edit these! Source of truth
+    skills/                        # Skill definitions
+      frontend-design/
+        SKILL.md
+        reference/*.md             # Domain-specific references
+      audit/SKILL.md
+      polish/SKILL.md
+      ...
+  dist/                            # Generated output (gitignored)
+  scripts/
+    build.js                       # Main orchestrator
+    lib/
+      utils.js                     # Shared utilities
+      zip.js                       # ZIP generation
+      transformers/
+        factory.js                 # Config-driven transformer factory
+        providers.js               # Provider config map
+        index.js                   # Re-exports
+  tests/                           # Bun test suite
+  HARNESSES.md                     # Provider capabilities reference
+  DEVELOP.md                       # This file
+  README.md                        # User documentation
 ```
 
 ## Troubleshooting
@@ -256,19 +189,18 @@ impeccable/
 ### Build fails with YAML parsing errors
 - Check frontmatter indentation (YAML is indent-sensitive)
 - Ensure `---` delimiters are on their own lines
-- Verify colons have spaces after them (`key: value`)
+- Values starting with `[` or `{` are auto-quoted; other special YAML chars may need manual quoting
 
 ### Output doesn't match expectations
-- Check the transformer function for your provider in `scripts/build.js`
+- Check the provider config in `scripts/lib/transformers/providers.js`
 - Verify source file has correct frontmatter structure
-- Run `npm run rebuild` to ensure clean build
+- Run `bun run rebuild` to ensure clean build
 
 ### Provider doesn't recognize the files
 - Check installation path for your provider
 - Verify file naming matches provider requirements
-- Consult provider's documentation (links above)
+- Consult [HARNESSES.md](HARNESSES.md) for provider-specific details
 
 ## Questions?
 
 Open an issue or submit a PR!
-

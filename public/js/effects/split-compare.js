@@ -10,9 +10,7 @@
 export function initSplitCompare(container, options = {}) {
 	const {
 		defaultPosition = 70,
-		skewOffset = 8,
-		minPosition = -skewOffset,
-		maxPosition = 100 + skewOffset,
+		skewAngle = 10, // Degrees — matches CSS skewX(-10deg) on .split-divider
 		lerpSpeed = 0.15,
 		animationThreshold = 40, // Re-trigger animations when crossing this threshold
 		onCrossThreshold = null // Callback when crossing threshold toward "after" side
@@ -24,6 +22,26 @@ export function initSplitCompare(container, options = {}) {
 
 	if (!splitContainer || !splitAfter || !splitDivider) return null;
 
+	// Compute skewOffset from container dimensions so clip-path angle matches CSS skewX
+	const tanAngle = Math.tan(skewAngle * Math.PI / 180);
+	let skewOffset = 8; // fallback
+
+	function recalcSkewOffset() {
+		const rect = splitContainer.getBoundingClientRect();
+		if (rect.width > 0 && rect.height > 0) {
+			skewOffset = 50 * rect.height * tanAngle / rect.width;
+		}
+	}
+	recalcSkewOffset();
+
+	const resizeObserver = new ResizeObserver(recalcSkewOffset);
+	resizeObserver.observe(splitContainer);
+
+	let minPosition = -skewOffset;
+	let maxPosition = 100 + skewOffset;
+	if (options.minPosition != null) minPosition = options.minPosition;
+	if (options.maxPosition != null) maxPosition = options.maxPosition;
+
 	let isHovering = false;
 	let currentX = defaultPosition;
 	let targetX = defaultPosition;
@@ -31,7 +49,9 @@ export function initSplitCompare(container, options = {}) {
 	let wasAboveThreshold = defaultPosition > animationThreshold;
 
 	function updateSplit(percent) {
-		const clampedX = Math.max(minPosition, Math.min(maxPosition, percent));
+		const minPos = options.minPosition != null ? minPosition : -skewOffset;
+		const maxPos = options.maxPosition != null ? maxPosition : 100 + skewOffset;
+		const clampedX = Math.max(minPos, Math.min(maxPos, percent));
 
 		// Check if we crossed the threshold toward the "after" side (moving left)
 		const isAboveThreshold = clampedX > animationThreshold;
@@ -42,16 +62,33 @@ export function initSplitCompare(container, options = {}) {
 		}
 		wasAboveThreshold = isAboveThreshold;
 
-		// Angled clip-path matching divider's skewX(-10deg)
+		// Angled clip-path matching divider's skewX — offset computed from actual dimensions
 		splitAfter.style.clipPath = `polygon(${clampedX + skewOffset}% 0%, 100% 0%, 100% 100%, ${clampedX - skewOffset}% 100%)`;
 		splitDivider.style.left = `${clampedX}%`;
 	}
 
 	function retriggerAnimations() {
-		// Find all elements with animations in the "after" content and re-trigger them
+		// Re-trigger CSS animations in the "after" content.
+		// If there's a canvas (e.g. overdrive shader), we can't clone-and-replace
+		// because that destroys JS-driven animations. In that case, retrigger
+		// individual elements. Otherwise, use the fast clone approach.
 		const afterContent = splitAfter.querySelector('.split-content');
-		if (afterContent) {
-			// Clone and replace to restart all CSS animations
+		if (!afterContent) return;
+
+		const hasCanvas = afterContent.querySelector('canvas, .od-burn, .od-sparks');
+		if (hasCanvas) {
+			// Safe path: retrigger CSS animations individually, skip canvas
+			afterContent.querySelectorAll('*').forEach(el => {
+				if (el.tagName === 'CANVAS') return;
+				const anim = getComputedStyle(el).animationName;
+				if (anim && anim !== 'none') {
+					el.style.animation = 'none';
+					el.offsetHeight;
+					el.style.animation = '';
+				}
+			});
+		} else {
+			// Fast path: clone and replace to restart all CSS animations
 			const clone = afterContent.cloneNode(true);
 			afterContent.parentNode.replaceChild(clone, afterContent);
 		}
@@ -167,6 +204,7 @@ export function initSplitCompare(container, options = {}) {
 			splitContainer.removeEventListener('touchend', handleTouchEnd);
 			splitContainer.removeEventListener('touchmove', handleTouchMove);
 			if (animationId) cancelAnimationFrame(animationId);
+			resizeObserver.disconnect();
 		},
 		setPosition(percent) {
 			targetX = percent;

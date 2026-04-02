@@ -12,6 +12,11 @@ export const readyCommands = [
   'normalize'  // First command to be fully completed
 ];
 
+// Commands marked as beta — shown with a badge in the UI
+export const betaCommands = [
+  'overdrive'
+];
+
 // Consolidated frontend-design skill with reference domains
 export const skillFocusAreas = {
   'frontend-design': [
@@ -53,7 +58,10 @@ export const commandProcessSteps = {
   'delight': ['识别', '设计', '实现'],
   'extract': ['识别', '抽象', '整理'],
   'adapt': ['分析', '调整', '优化'],
-  'onboard': ['梳理', '设计', '引导']
+  'onboard': ['梳理', '设计', '引导'],
+  'typeset': ['评估', '选择', '定标', '精修'],
+  'arrange': ['评估', '网格化', '节奏化', '平衡'],
+  'overdrive': ['评估', '选择', '构建', '润色']
 };
 
 export const commandCategories = {
@@ -73,7 +81,10 @@ export const commandCategories = {
   'delight': 'enhancement',
   'extract': 'system',
   'adapt': 'adaptation',
-  'onboard': 'enhancement'
+  'onboard': 'enhancement',
+  'typeset': 'enhancement',
+  'arrange': 'enhancement',
+  'overdrive': 'enhancement'
 };
 
 // Skill relationships - now consolidated into frontend-design skill
@@ -88,7 +99,7 @@ export const skillRelationships = {
 export const commandRelationships = {
   'teach-impeccable': { flow: '初始化：一次性收集项目设计上下文' },
   'audit': { leadsTo: ['normalize', 'harden', 'optimize', 'adapt', 'clarify'], flow: '诊断：技术质量审计' },
-  'critique': { leadsTo: ['polish', 'distill', 'bolder', 'quieter'], flow: '诊断：UX 与设计评审' },
+  'critique': { leadsTo: ['polish', 'distill', 'bolder', 'quieter', 'typeset', 'arrange'], flow: '诊断：UX 与设计评审' },
   'normalize': { combinesWith: ['clarify', 'adapt'], flow: '质量：对齐设计系统' },
   'polish': { flow: '质量：上线前最终润色' },
   'optimize': { flow: '质量：性能优化' },
@@ -102,5 +113,8 @@ export const commandRelationships = {
   'delight': { combinesWith: ['bolder', 'animate'], flow: '增强：加入个性与趣味' },
   'extract': { flow: '系统：提取设计系统元素' },
   'adapt': { combinesWith: ['normalize', 'clarify'], flow: '适配：面向不同设备与场景调整' },
-  'onboard': { combinesWith: ['clarify', 'delight'], flow: '增强：优化引导与空状态' }
+  'onboard': { combinesWith: ['clarify', 'delight'], flow: '增强：优化引导与空状态' },
+  'typeset': { combinesWith: ['bolder', 'normalize'], flow: '增强：修正排版' },
+  'arrange': { combinesWith: ['distill', 'adapt'], flow: '增强：修正布局与间距' },
+  'overdrive': { combinesWith: ['animate', 'delight'], flow: '增强：追求技术表达极强的视觉效果' }
 };

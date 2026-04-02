@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEXGHC7V34"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TEXGHC7V34');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Impeccable.style 中文 | AI 编程工具设计提示词与前端设计命令</title>
-  <meta name="description" content="Impeccable.style 中文版与 impeccable中文翻译整理站，提供 AI 编程工具设计提示词、前端设计命令、Claude Code、Cursor、Gemini、Codex 等设计技能的中文内容、17 个设计命令与精选反模式。">
-  <meta name="theme-color" content="#1a1a1a">
+  <meta name="description" content="Impeccable.style 中文版与中文整理站，提供 1 个设计 skill、20 个设计命令与精选反模式，覆盖 Cursor、Claude Code、Gemini CLI、Codex CLI、Copilot、Kiro、OpenCode、Pi 与 Trae。">
+  <meta name="theme-color" content="#fafafa">
   <meta name="baidu-site-verification" content="codeva-OoJ1ZoXzyM" />
   <link rel="canonical" href="https://www.impeccable.cn/">
 
@@ -14,13 +23,13 @@
   <meta property="og:url" content="https://www.impeccable.cn/">
   <meta property="og:site_name" content="Impeccable">
   <meta property="og:title" content="Impeccable.style 中文">
-  <meta property="og:description" content="Impeccable.style 中文翻译整理，涵盖 AI 编程工具设计提示词、前端设计命令、17 个命令与精选反模式。">
+  <meta property="og:description" content="Impeccable.style 中文翻译整理，涵盖 1 个设计 skill、20 个命令与精选反模式，面向主流 AI 编程工具。">
   <meta property="og:image" content="https://www.impeccable.cn/og-image.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Impeccable.style 中文">
-  <meta name="twitter:description" content="Impeccable.style 中文翻译整理，涵盖 AI 编程工具设计提示词、前端设计命令、17 个命令与精选反模式。">
+  <meta name="twitter:description" content="Impeccable.style 中文翻译整理，涵盖 1 个设计 skill、20 个命令与精选反模式。">
   <meta name="twitter:image" content="https://www.impeccable.cn/og-image.jpg">
   <script type="application/ld+json">
     {
@@ -29,7 +38,7 @@
       "name": "Impeccable",
       "alternateName": "Impeccable.style 中文版",
       "url": "https://www.impeccable.cn/",
-      "description": "Impeccable.style 中文翻译整理站，提供 AI 编程工具设计提示词、前端设计命令、17 个设计命令与精选反模式。"
+      "description": "Impeccable.style 中文翻译整理站，提供 AI 编程工具设计提示词、前端设计命令、20 个设计命令与精选反模式。"
     }
   </script>
 
@@ -49,11 +58,21 @@
   <!-- Grain Overlay -->
   <div class="grain-overlay" aria-hidden="true"></div>
 
+  <!-- Sticky Section Nav -->
+  <nav class="section-nav" id="section-nav" aria-label="页面分区">
+    <a href="#antidote" class="section-nav-item" data-section="antidote"><span class="section-nav-num">01</span><span class="section-nav-label">反模式</span></a>
+    <a href="#solution" class="section-nav-item" data-section="solution"><span class="section-nav-num">02</span><span class="section-nav-label">框架</span></a>
+    <a href="#commands-section" class="section-nav-item" data-section="commands-section"><span class="section-nav-num">03</span><span class="section-nav-label">命令</span></a>
+    <a href="#downloads" class="section-nav-item" data-section="downloads"><span class="section-nav-num">04</span><span class="section-nav-label">安装</span></a>
+    <a href="#changelog" class="section-nav-item" data-section="changelog"><span class="section-nav-num">05</span><span class="section-nav-label">更新</span></a>
+    <a href="#faq" class="section-nav-item" data-section="faq"><span class="section-nav-num">06</span><span class="section-nav-label">FAQ</span></a>
+  </nav>
 
   <!-- 1. HERO - Combined with Problem Section -->
   <section id="hero" class="hero-combined">
     <a href="https://github.com/pbakaus/impeccable" class="github-link" aria-label="在 GitHub 查看">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      <span class="github-stars">13.3k</span>
     </a>
     <div class="hero-combined-container">
       <!-- Left: Title & Info -->
@@ -66,9 +85,9 @@
         <div class="hero-included-box">
           <span class="hero-included-title">包含内容</span>
           <div class="hero-included-items">
-            <span>增强版 <em>frontend-design</em> 技能 + 反模式库</span>
+            <span>增强版 <em>frontend-design</em> skill + 反模式库</span>
             <span class="hero-included-sep">·</span>
-            <span>17 个设计命令：/polish、/audit、/distill、/bolder……</span>
+            <span>20 个设计命令：/polish、/audit、/typeset、/overdrive……</span>
           </div>
         </div>
 
@@ -77,19 +96,19 @@
           <div class="hero-logos-inline">
             <span class="hero-logos-label">支持</span>
             <div class="hero-logos-row">
-              <img src="assets/cursor-logo.png" alt="Cursor" width="24" height="24" loading="lazy">
-              <img src="assets/claude-logo.png" alt="Claude Code" width="24" height="24" loading="lazy">
-              <img src="assets/gemini-logo.png" alt="Gemini CLI" width="20" height="20" loading="lazy">
-              <img src="assets/openai-logo.png" alt="Codex CLI" width="20" height="20" loading="lazy">
-              <img src="assets/github-logo.png" alt="VS Code Copilot" width="20" height="20" loading="lazy">
-              <img src="assets/antigravity-logo.png" alt="Antigravity" width="20" height="20" loading="lazy">
-              <img src="assets/kiro-logo.png" alt="Kiro" width="20" height="20" loading="lazy">
-              <img src="assets/opencode-logo.png" alt="OpenCode" width="20" height="20" loading="lazy">
-              <img src="assets/pi-logo.svg" alt="Pi" width="20" height="20" loading="lazy" style="background:#1a1a1a;border-radius:50%;padding:3px">
+              <span class="hero-logo-icon has-tooltip" data-tooltip="Cursor"><img src="assets/cursor-logo.png" alt="Cursor" width="24" height="24" loading="lazy"></span>
+              <span class="hero-logo-icon has-tooltip" data-tooltip="Claude Code"><img src="assets/claude-logo.png" alt="Claude Code" width="24" height="24" loading="lazy"></span>
+              <span class="hero-logo-icon has-tooltip" data-tooltip="Gemini CLI"><img src="assets/gemini-logo.png" alt="Gemini CLI" width="20" height="20" loading="lazy"></span>
+              <span class="hero-logo-icon has-tooltip" data-tooltip="Codex CLI"><img src="assets/openai-logo.png" alt="Codex CLI" width="20" height="20" loading="lazy"></span>
+              <span class="hero-logo-icon has-tooltip" data-tooltip="VS Code Copilot"><img src="assets/github-logo.png" alt="VS Code Copilot" width="20" height="20" loading="lazy"></span>
+              <span class="hero-logo-icon has-tooltip" data-tooltip="Antigravity"><img src="assets/antigravity-logo.png" alt="Antigravity" width="20" height="20" loading="lazy"></span>
+              <span class="hero-logo-icon has-tooltip" data-tooltip="Kiro"><img src="assets/kiro-logo.png" alt="Kiro" width="20" height="20" loading="lazy"></span>
+              <span class="hero-logo-icon has-tooltip" data-tooltip="OpenCode"><img src="assets/opencode-logo.png" alt="OpenCode" width="20" height="20" loading="lazy"></span>
+              <span class="hero-logo-icon has-tooltip" data-tooltip="Pi"><img src="assets/pi-logo.svg" alt="Pi" width="20" height="20" loading="lazy" style="background:#1a1a1a;border-radius:50%;padding:3px"></span>
             </div>
           </div>
         </div>
-        <p class="hero-version-link"><a href="#changelog">v1.3.0：新增 OpenCode 与 Pi 支持</a></p>
+        <p class="hero-version-link"><a href="#changelog">v1.6.0：新增 Trae 支持，强化 /critique 与 /audit 评分机制，并重构构建系统</a></p>
       </div>
 
       <!-- Right: Before/After Demo -->
@@ -173,7 +192,7 @@
         <h2 class="section-title">框架</h2>
       </div>
       <div class="solution-content">
-        <p class="section-lead" data-reveal>一个具备深度知识的综合技能，再配上 17 个命令，组成一整套可操作的设计语言。</p>
+        <p class="section-lead" data-reveal>一个具备深度知识的综合 skill，再配上 20 个命令，组成一整套可操作的设计语言。</p>
 
         <div class="solution-visual-interactive" id="framework-viz-container" data-reveal>
           <!-- Subway map generated by JS -->
@@ -201,163 +220,118 @@
       <div class="section-header" data-reveal>
         <span class="section-number">04</span>
         <h2 class="section-title">安装</h2>
-        <p class="section-subtitle">一条命令，覆盖所有主流工具。</p>
+        <p class="section-subtitle">两步上手 Impeccable。</p>
       </div>
 
-      <div class="onboarding-guide" data-reveal data-onboarding-guide>
-        <div class="onboarding-guide-header">
-          <div>
-            <span class="onboarding-guide-eyebrow">初次上手</span>
-            <h3 class="onboarding-guide-title">先选你的路径，再安装</h3>
-          </div>
-          <button type="button" class="onboarding-guide-dismiss" data-onboarding-dismiss aria-label="关闭初次上手引导">关闭</button>
-        </div>
-
-        <p class="onboarding-guide-intro">你不需要先理解所有命令。先装进去，再用一两个高频命令试跑，最快能感受到价值。</p>
-
-        <div class="onboarding-provider-grid" role="list" aria-label="安装路径选择">
-          <button type="button" class="onboarding-provider-card is-active" data-onboarding-provider="universal" role="listitem" aria-pressed="true">
-            <span class="onboarding-provider-kicker">推荐起点</span>
-            <strong>我用 Cursor / Codex / Gemini / Copilot / Kiro</strong>
-            <span>直接用通用安装命令，最省事。</span>
-          </button>
-          <button type="button" class="onboarding-provider-card" data-onboarding-provider="claude" role="listitem" aria-pressed="false">
-            <span class="onboarding-provider-kicker">Claude Code</span>
-            <strong>我想走官方插件入口</strong>
-            <span>先加 marketplace，再到 Discover 安装。</span>
-          </button>
-          <button type="button" class="onboarding-provider-card" data-onboarding-provider="manual" role="listitem" aria-pressed="false">
-            <span class="onboarding-provider-kicker">兜底方案</span>
-            <strong>我只想下载 ZIP 手动放置</strong>
-            <span>适合离线、受限环境或想看具体文件结构时。</span>
-          </button>
-        </div>
-
-        <div class="onboarding-guide-panel" aria-live="polite">
-          <div>
-            <span class="onboarding-guide-label">下一步</span>
-            <p class="onboarding-guide-summary" data-onboarding-summary>运行通用安装命令，Impeccable 会自动识别你的工具并写到正确目录。</p>
-          </div>
-          <div class="onboarding-guide-actions">
-            <button type="button" class="btn btn-primary btn-small" data-onboarding-jump>定位到这一项</button>
-            <a href="/cheatsheet" class="btn btn-secondary btn-small">先看速查表</a>
-          </div>
-        </div>
-
-        <ol class="onboarding-guide-steps">
-          <li><strong>安装</strong> 把技能和命令放进你的项目目录。</li>
-          <li><strong>验证</strong> 在工具里输入 <code>/</code>，确认能看到 <code>/audit</code>、<code>/polish</code> 等命令。</li>
-          <li><strong>试跑</strong> 先拿一个真实界面，分别试 <code>/polish</code> 或 <code>/clarify</code>，不要一次全上。</li>
-        </ol>
-      </div>
-
-      <!-- Primary install: glass terminal style -->
-      <div class="install-terminal" data-reveal>
-        <div class="glass-terminal">
-          <div class="terminal-header">
-            <span class="terminal-dot red"></span>
-            <span class="terminal-dot yellow"></span>
-            <span class="terminal-dot green"></span>
-            <span class="terminal-title">install</span>
-          </div>
-          <div class="terminal-body">
-            <div class="install-terminal-row" data-install-option="universal">
-              <span class="install-terminal-label">全部工具</span>
-              <div class="install-terminal-cmd">
-                <span class="terminal-prompt">$</span>
-                <code>npx skills add pbakaus/impeccable</code>
-                <button class="copy-btn" aria-label="复制命令" data-copy="npx skills add pbakaus/impeccable">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
-                  </svg>
-                </button>
-              </div>
-              <span class="install-terminal-note">自动识别你的 AI 工具，并安装到正确位置</span>
-            </div>
-            <div class="install-terminal-divider"></div>
-            <div class="install-terminal-row" data-install-option="claude">
-              <span class="install-terminal-label">Claude Code</span>
-              <div class="install-terminal-cmd">
-                <span class="terminal-prompt">$</span>
-                <code>/plugin marketplace add pbakaus/impeccable</code>
-                <button class="copy-btn" aria-label="复制命令" data-copy="/plugin marketplace add pbakaus/impeccable">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
-                  </svg>
-                </button>
-              </div>
-              <span class="install-terminal-note">然后打开 <code>/plugin</code>，在 Discover 标签页中安装</span>
-            </div>
-            <div class="install-terminal-divider"></div>
-            <div class="install-terminal-row" data-install-option="manual">
-              <span class="install-terminal-label">手动安装</span>
-              <div class="install-terminal-cmd install-terminal-cmd--download">
-                <button class="btn btn-secondary btn-small" data-bundle="universal" aria-label="下载通用 ZIP">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-                  </svg>
-                  <span>下载通用 ZIP</span>
-                </button>
-                <label class="prefix-toggle">
-                  <input type="checkbox" id="prefix-toggle" />
-                  <span class="prefix-toggle-slider"></span>
-                  <span class="prefix-toggle-label">
-                    使用 <code>/i-</code> 前缀
-                  </span>
-                </label>
-              </div>
-              <span class="install-terminal-note">包含全部工具目录，解压到项目根目录即可</span>
+      <div class="install-steps">
+        <!-- Step 1: Install -->
+        <div class="install-step" data-reveal>
+          <div class="install-step-header">
+            <span class="install-step-number">1</span>
+            <div class="install-step-meta">
+              <h3 class="install-step-title">安装技能</h3>
+              <p class="install-step-desc">一条命令，覆盖多个 provider。</p>
             </div>
           </div>
+
+          <!-- Primary: npx command -->
+          <div class="install-terminal">
+            <div class="glass-terminal">
+              <div class="terminal-header">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+                <span class="terminal-title">install</span>
+              </div>
+              <div class="terminal-body">
+                <div class="install-terminal-row">
+                  <div class="install-terminal-cmd">
+                    <span class="terminal-prompt">$</span>
+                    <code>npx skills add pbakaus/impeccable</code>
+                      <button class="copy-btn" aria-label="复制命令" data-copy="npx skills add pbakaus/impeccable">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <span class="install-terminal-note">支持 Cursor、Claude Code、Gemini CLI、Codex CLI 等工具，并会自动识别你的 AI harness。</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alternatives (collapsible) -->
+          <details class="install-alternatives">
+            <summary class="install-alternatives-toggle">其他安装方式</summary>
+            <div class="install-alternatives-content">
+              <div class="install-alt-method">
+                <span class="install-alt-label">Claude Code 插件</span>
+                <div class="install-terminal-cmd">
+                  <span class="terminal-prompt">$</span>
+                  <code>/plugin marketplace add pbakaus/impeccable</code>
+                  <button class="copy-btn" aria-label="复制命令" data-copy="/plugin marketplace add pbakaus/impeccable">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+                <span class="install-alt-note">然后打开 <code>/plugin</code>，在 Discover 标签页中完成安装</span>
+              </div>
+              <div class="install-alt-divider"></div>
+              <div class="install-alt-method">
+                <span class="install-alt-label">手动下载</span>
+                <span class="install-alt-note">包含所有 provider 目录。解压到项目根目录即可。</span>
+                <div class="install-prefix-options">
+                  <label class="install-prefix-option" data-prefix="default">
+                    <input type="radio" name="prefix-choice" value="default" checked />
+                    <div class="install-prefix-option-content">
+                      <span class="install-prefix-option-label">默认名称</span>
+                      <span class="install-prefix-option-examples"><code>/polish</code> <code>/audit</code> <code>/typeset</code></span>
+                    </div>
+                  </label>
+                  <div class="install-prefix-option-wrap">
+                    <label class="install-prefix-option" data-prefix="prefixed">
+                      <input type="radio" name="prefix-choice" value="prefixed" />
+                      <div class="install-prefix-option-content">
+                      <span class="install-prefix-option-label">带 <code>/i-</code> 前缀</span>
+                        <span class="install-prefix-option-examples"><code>/i-polish</code> <code>/i-audit</code> <code>/i-typeset</code></span>
+                      </div>
+                    </label>
+                    <span class="install-prefix-reason">可避免和内置命令或其他 skill 包发生命名冲突</span>
+                  </div>
+                </div>
+                <div class="install-alt-download">
+                  <button class="btn btn-primary" data-bundle="universal" aria-label="下载通用 zip" id="download-zip-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                    </svg>
+                    <span>下载通用 ZIP</span>
+                  </button>
+                </div>
+                <input type="checkbox" id="prefix-toggle" class="sr-only" />
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- Step 2: Subscribe -->
+        <div class="install-step" data-reveal>
+          <div class="install-step-header">
+            <span class="install-step-number">2</span>
+            <div class="install-step-meta">
+              <h3 class="install-step-title">保持更新</h3>
+              <p class="install-step-desc">接收新技能、模式更新和设计建议。</p>
+            </div>
+          </div>
+          <div class="install-subscribe">
+            <iframe src="https://impeccablestyle.substack.com/embed" width="100%" height="150" style="border: 1px solid #e8e4df; border-radius: 8px; background: white;" frameborder="0" scrolling="no"></iframe>
+          </div>
         </div>
       </div>
 
-      <!-- Works with badges -->
-      <div class="install-providers" data-reveal>
-        <span class="install-providers-label">支持</span>
-        <div class="install-providers-row">
-          <div class="install-provider-badge">
-            <img src="assets/cursor-logo.png" alt="Cursor" width="20" height="20" loading="lazy">
-            <span>Cursor</span>
-          </div>
-          <div class="install-provider-badge">
-            <img src="assets/claude-logo.png" alt="Claude Code" width="20" height="20" loading="lazy">
-            <span>Claude Code</span>
-          </div>
-          <div class="install-provider-badge">
-            <img src="assets/gemini-logo.png" alt="Gemini CLI" width="20" height="20" loading="lazy">
-            <span>Gemini CLI</span>
-          </div>
-          <div class="install-provider-badge">
-            <img src="assets/openai-logo.png" alt="Codex CLI" width="20" height="20" loading="lazy">
-            <span>Codex CLI</span>
-          </div>
-          <div class="install-provider-badge">
-            <img src="assets/github-logo.png" alt="VS Code Copilot" width="20" height="20" loading="lazy">
-            <span>Copilot</span>
-          </div>
-          <div class="install-provider-badge">
-            <img src="assets/antigravity-logo.png" alt="Antigravity" width="20" height="20" loading="lazy">
-            <span>Antigravity</span>
-          </div>
-          <div class="install-provider-badge">
-            <img src="assets/kiro-logo.png" alt="Kiro" width="20" height="20" loading="lazy">
-            <span>Kiro</span>
-          </div>
-          <div class="install-provider-badge">
-            <img src="assets/opencode-logo.png" alt="OpenCode" width="20" height="20" loading="lazy">
-            <span>OpenCode</span>
-          </div>
-          <div class="install-provider-badge">
-            <img src="assets/pi-logo.svg" alt="Pi" width="20" height="20" loading="lazy" style="background:#1a1a1a;border-radius:50%;padding:3px">
-            <span>Pi</span>
-          </div>
-        </div>
-      </div>
-
-      <p class="download-tip" data-reveal>安装完成后，建议把 <a href="/cheatsheet">命令速查表</a>留在手边，随时查阅。</p>
+      <p class="download-tip" data-reveal>建议把 <a href="/cheatsheet">命令速查表</a>留在手边随时查阅。更新技能时可执行 <code>npx skills update</code>。</p>
     </section>
 
     <!-- 5. CHANGELOG -->
@@ -370,55 +344,98 @@
       <div class="changelog-list" data-reveal>
         <div class="changelog-entry">
           <div class="changelog-version-header">
-            <span class="changelog-version">v1.3.0</span>
-            <span class="changelog-date">2026 年 3 月 12 日</span>
+            <span class="changelog-version">v1.6.0</span>
+            <span class="changelog-date">2026 年 3 月 24 日</span>
           </div>
           <ul class="changelog-items">
-            <li>新增 OpenCode 支持</li>
-            <li>新增 Pi 支持</li>
-            <li>将 <code>/onboard</code> 重新归类为增强类命令</li>
+            <li>新增 provider：<strong>Trae</strong>（中国版与国际版）</li>
+            <li><code>/critique</code> 现在会依据尼尔森 10 条可用性启发式打分，并结合 persona 原型和认知负荷评估</li>
+            <li><code>/audit</code> 现在会对 5 个维度进行评分，并给出 P0-P3 严重级别和结构化行动方案</li>
+            <li>优化了 skill 描述，提升 agent 自动发现能力</li>
+            <li>修复了会破坏 GitHub 预览和 Codex 加载的无效 YAML frontmatter（<a href="https://github.com/pbakaus/impeccable/issues/67">#67</a>）</li>
+            <li>Codex CLI 现在使用正确的 <code>$</code> 前缀引用命令</li>
           </ul>
         </div>
 
-        <div class="changelog-entry">
-          <div class="changelog-version-header">
-            <span class="changelog-version">v1.2.0</span>
-            <span class="changelog-date">2026 年 3 月 5 日</span>
-          </div>
-          <ul class="changelog-items">
-            <li>新增 Kiro 支持（<code>.kiro/skills/</code>）</li>
-            <li>恢复前缀切换，可下载带 <code>i-</code> 前缀的 bundle 以避免命名冲突</li>
-            <li>audit 与 critique 现在只会推荐真实已安装的命令</li>
-          </ul>
-        </div>
+        <details class="changelog-older">
+          <summary class="changelog-older-toggle">查看更早版本</summary>
+          <div class="changelog-older-entries">
+            <div class="changelog-entry">
+              <div class="changelog-version-header">
+                <span class="changelog-version">v1.5.1</span>
+                <span class="changelog-date">2026 年 3 月 17 日</span>
+              </div>
+              <ul class="changelog-items">
+                <li><code>/typeset</code> 现在会为应用界面优先推荐固定字号体系，把流体排版留给营销页和内容页</li>
+              </ul>
+            </div>
 
-        <div class="changelog-entry">
-          <div class="changelog-version-header">
-            <span class="changelog-version">v1.1.0</span>
-            <span class="changelog-date">2026 年 3 月 4 日</span>
-          </div>
-          <ul class="changelog-items">
-            <li>统一 skills 架构，命令现已作为带有 <code>user-invokable: true</code> 的 skills 提供</li>
-            <li>新增 VS Code Copilot 与 Google Antigravity 支持（<code>.agents/skills/</code>）</li>
-            <li>新的安装流程：优先使用 <code>npx skills add</code>，通用 ZIP 作为兜底方案</li>
-            <li>新增包含全部 5 个 provider 目录的通用 ZIP</li>
-            <li>将 <code>/simplify</code> 重命名为 <code>/distill</code>，避免与 Claude Code 冲突</li>
-          </ul>
-        </div>
+            <div class="changelog-entry">
+              <div class="changelog-version-header">
+                <span class="changelog-version">v1.5.0</span>
+                <span class="changelog-date">2026 年 3 月 16 日</span>
+              </div>
+              <ul class="changelog-items">
+                <li>新增 3 个命令：<code>/typeset</code>（修排版）、<code>/arrange</code>（修布局与间距）、<code>/overdrive</code>（技术表达极强的视觉效果，Beta）</li>
+                <li>技能现在会通过 <code>.impeccable.md</code> 自动读取设计上下文，执行一次 <code>/teach-impeccable</code> 后所有技能都可受益</li>
+                <li>支持命令深链接（如 <code>#cmd-overdrive</code>）</li>
+              </ul>
+            </div>
 
-        <div class="changelog-entry">
-          <div class="changelog-version-header">
-            <span class="changelog-version">v1.0.0</span>
-            <span class="changelog-date">2026 年 2 月 28 日</span>
+            <div class="changelog-entry">
+              <div class="changelog-version-header">
+                <span class="changelog-version">v1.3.0</span>
+                <span class="changelog-date">2026 年 3 月 12 日</span>
+              </div>
+              <ul class="changelog-items">
+                <li>新增 OpenCode 支持</li>
+                <li>新增 Pi 支持</li>
+                <li>将 <code>/onboard</code> 重新归类为增强类命令</li>
+              </ul>
+            </div>
+
+            <div class="changelog-entry">
+              <div class="changelog-version-header">
+                <span class="changelog-version">v1.2.0</span>
+                <span class="changelog-date">2026 年 3 月 5 日</span>
+              </div>
+              <ul class="changelog-items">
+                <li>新增 Kiro 支持（<code>.kiro/skills/</code>）</li>
+                <li>恢复前缀切换，可下载带 <code>i-</code> 前缀的 bundle 以避免命名冲突</li>
+                <li>audit 与 critique 现在只会推荐真实已安装的命令</li>
+              </ul>
+            </div>
+
+            <div class="changelog-entry">
+              <div class="changelog-version-header">
+                <span class="changelog-version">v1.1.0</span>
+                <span class="changelog-date">2026 年 3 月 4 日</span>
+              </div>
+              <ul class="changelog-items">
+                <li>统一 skills 架构，命令现已作为带有 <code>user-invocable: true</code> 的 skills 提供</li>
+                <li>新增 VS Code Copilot 与 Google Antigravity 支持（<code>.agents/skills/</code>）</li>
+                <li>新的安装流程：优先使用 <code>npx skills add</code>，通用 ZIP 作为兜底方案</li>
+                <li>新增包含多个 provider 目录的通用 ZIP</li>
+                <li>将 <code>/simplify</code> 重命名为 <code>/distill</code>，避免与 Claude Code 冲突</li>
+              </ul>
+            </div>
+
+            <div class="changelog-entry">
+              <div class="changelog-version-header">
+                <span class="changelog-version">v1.0.0</span>
+                <span class="changelog-date">2026 年 2 月 28 日</span>
+              </div>
+              <ul class="changelog-items">
+                <li>首个版本发布，包含增强版 frontend-design skill</li>
+                <li>17 个设计命令：/polish、/audit、/distill、/bolder 等</li>
+                <li>支持 Cursor、Claude Code、Gemini CLI 与 Codex CLI</li>
+                <li>交互式命令速查表上线</li>
+              </ul>
+            </div>
           </div>
-          <ul class="changelog-items">
-            <li>首个版本发布，包含增强版 frontend-design skill</li>
-            <li>17 个设计命令：/polish、/audit、/distill、/bolder 等</li>
-            <li>支持 Cursor、Claude Code、Gemini CLI 与 Codex CLI</li>
-            <li>交互式命令速查表上线</li>
-          </ul>
-        </div>
+        </details>
       </div>
+
     </section>
 
     <!-- 6. FAQ -->
@@ -433,8 +450,20 @@
           <summary class="faq-question">下载后的文件应该放在哪里？</summary>
           <div class="faq-answer">
             <p>最简单的方法是执行 <code>npx skills add pbakaus/impeccable</code>，它会自动识别你的 AI 工具并把文件放到正确位置。</p>
-            <p>如果你下载的是 <strong>通用 ZIP</strong>，请将它解压到你的<strong>项目根目录</strong>（和 <code>package.json</code> 或 <code>src/</code> 同级）。它会生成各工具所需的隐藏目录：<code>.cursor/</code>、<code>.claude/</code>、<code>.gemini/</code>、<code>.codex/</code> 和 <code>.agents/</code>。</p>
+            <p>如果你下载的是 <strong>通用 ZIP</strong>，请将它解压到<strong>项目根目录</strong>（和 <code>package.json</code> 或 <code>src/</code> 同级）。它会生成各工具所需的隐藏目录，例如 <code>.cursor/</code>、<code>.claude/</code>、<code>.gemini/</code>、<code>.codex/</code> 和 <code>.agents/</code>。</p>
             <p>项目级安装优先级更高，也更方便你把 skills 纳入版本控制。</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">如何更新到最新版本？</summary>
+          <div class="faq-answer">
+            <ul>
+              <li><strong>所有工具：</strong><code>npx skills update</code>（也可以先运行 <code>npx skills check</code> 看看有什么变化）</li>
+              <li><strong>Claude Code 插件：</strong>打开 <code>/plugin</code>，进入 Discover 标签页后在那里更新</li>
+              <li><strong>手动 ZIP：</strong>重新下载上面的最新 ZIP，覆盖解压到项目根目录即可</li>
+            </ul>
+            <p>由 <code>/teach-impeccable</code> 创建的 <code>.impeccable.md</code> 设计上下文文件不会被覆盖，所以你的项目上下文会在更新后继续保留。</p>
           </div>
         </details>
 
@@ -456,10 +485,10 @@
           <div class="faq-answer">
             <p>Skills 和 commands 更偏进阶能力。如果你刚开始接触，建议先掌握基础用法：</p>
             <ul>
-              <li><strong>Claude Code：</strong><a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">官方文档</a></li>
-              <li><strong>Cursor：</strong><a href="https://docs.cursor.com" target="_blank" rel="noopener">Cursor 文档</a></li>
-              <li><strong>Gemini CLI：</strong><a href="https://geminicli.com/docs/" target="_blank" rel="noopener">Gemini CLI 文档</a></li>
-              <li><strong>Codex CLI：</strong><a href="https://github.com/openai/codex" target="_blank" rel="noopener">Codex GitHub</a></li>
+              <li><strong>Claude Code：</strong> <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">官方文档</a></li>
+              <li><strong>Cursor：</strong> <a href="https://docs.cursor.com" target="_blank" rel="noopener">Cursor 文档</a></li>
+              <li><strong>Gemini CLI：</strong> <a href="https://geminicli.com/docs/" target="_blank" rel="noopener">Gemini CLI 文档</a></li>
+              <li><strong>Codex CLI:</strong> <a href="https://github.com/openai/codex" target="_blank" rel="noopener">Codex GitHub</a></li>
             </ul>
             <p>等你熟悉了基础提示词和代码生成流程，再回来试试 Impeccable，会更容易发挥它的价值。</p>
           </div>
@@ -472,11 +501,11 @@
       <div class="consulting-content" data-reveal>
         <div class="consulting-text">
           <h2 class="consulting-title">与我合作</h2>
-          <p class="consulting-desc">我帮助团队推进 AI 转型：提升开发者能力、建立 AI Native 工作流、把产品真正交付上线。专长方向包括开发者体验、设计系统与全栈架构。</p>
+          <p class="consulting-desc">Paul Bakaus 主要帮助团队推进 AI 转型：提升开发者能力、建立 AI-native 工作流、把产品真正交付上线。专长方向包括开发者体验、设计系统与全栈架构。</p>
         </div>
         <div class="consulting-actions">
-          <!-- <a href="mailto:paul@paulbakaus.com" class="btn btn-primary">
-            <span>联系我</span>
+          <a href="mailto:paul@paulbakaus.com" class="btn btn-primary">
+            <span>联系原作者</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
@@ -486,7 +515,7 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
-          </a> -->
+          </a>
         </div>
       </div>
     </section>
@@ -496,14 +525,10 @@
     <div class="footer-content">
       <div class="footer-brand">
         <span class="footer-logo">Impeccable</span>
-        <p class="footer-tagline">www.impeccable.cn</p>
       </div>
       <div class="footer-links">
-        <a href="#antidote">反模式</a>
-        <a href="#commands-section">命令</a>
         <a href="/cheatsheet">速查表</a>
-        <a href="#downloads">下载</a>
-        <a href="#changelog">更新日志</a>
+        <a href="/privacy">隐私说明</a>
         <a href="https://github.com/pbakaus/impeccable">GitHub</a>
       </div>
     </div>
@@ -521,12 +546,19 @@
           </svg>
         </a>
         <span class="footer-author-divider"></span>
-        <!-- <a href="https://www.paulbakaus.com" class="footer-newsletter" target="_blank" rel="noopener">
-          Renaissance Geek
+        <a href="https://www.paulbakaus.com" class="footer-newsletter" target="_blank" rel="noopener">
+          Blog
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
-        </a> -->
+        </a>
+        <span class="footer-author-divider"></span>
+        <a href="https://impeccablestyle.substack.com" class="footer-newsletter" target="_blank" rel="noopener">
+          Newsletter
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
       </div>
     </div>
   </footer>

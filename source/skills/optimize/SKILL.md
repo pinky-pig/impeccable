@@ -1,11 +1,8 @@
 ---
 name: optimize
-description: 从加载速度、渲染、动画、图片与包体积等方面优化界面性能，让体验更快、更流畅。
-args:
-  - name: target
-    description: The feature or area to optimize (optional)
-    required: false
-user-invokable: true
+description: "从加载速度、渲染、动画、图片与包体积等方面诊断并修复界面性能问题。适用于卡顿、掉帧、性能差、包体积大、加载慢，或希望体验更快更顺滑的场景。"
+argument-hint: "[target]"
+user-invocable: true
 ---
 
 Identify and fix performance issues to create faster, smoother user experiences.
