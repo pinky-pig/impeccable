@@ -1,42 +1,41 @@
 ---
-tagline: "Fix typography that feels generic, inconsistent, or accidental."
+tagline: "修正看起来太默认、太平或太随意的排版，让文字真正带着设计判断。"
 ---
 
-## When to use it
+## 什么时候使用
 
-Reach for `/typeset` when the text on a page looks like default typography instead of designed typography. Muddy hierarchy, three sizes that look the same, body copy at 14px, a display font that is actually just Inter bold, headlines with no kerning attention.
+`/typeset` 适合那些“内容都在，但字看起来像没设计过”的页面。层级太平、字号差太近、正文太小、标题只是 Inter 加粗、行宽失控、字体选择过于默认，这些都属于它的工作范围。
 
-Common triggers: "hierarchy feels flat", "readability is off", "fonts look generic".
+当你感觉页面“读起来不顺”“层级立不起来”“字体太像默认值”时，就该找它。
 
-## How it works
+## 它是怎么工作的
 
-The skill assesses typography across five dimensions:
+它会从五个维度重新整理排版系统：
 
-1. **Font choices**: are you using invisible defaults (Inter, Roboto, Arial, Open Sans), does the typeface match the brand, are there more than 2 to 3 families.
-2. **Hierarchy**: are heading, body, and caption clearly different at a glance, is the size contrast at least 1.25x between steps, are weight contrasts legible.
-3. **Sizing and scale**: is there a coherent type scale, does body text meet 16px minimum, is the scale fixed-rem for app UIs or fluid-clamp for marketing pages.
-4. **Readability**: line length 45 to 75 characters, line-height tuned for font and context, contrast.
-5. **Consistency**: same element uses same treatment everywhere, no one-off font-size overrides.
+1. **字体选择**：是不是还在用看不见的默认字体，是否匹配品牌气质。
+2. **层级**：标题、正文、说明、标签能不能一眼区分开。
+3. **比例与尺度**：有没有清楚的字号体系，正文是否达到可读下限。
+4. **可读性**：行宽、行高、对比度、字距是否舒服。
+5. **一致性**：同类元素是不是始终用同一种排版处理，而不是东一块西一块。
 
-It then fixes what it finds: picks distinctive typefaces, builds a modular scale, widens hierarchy contrast, sets proper line length and leading.
+它不是为了让文字更“花”，而是让文字更清楚、更稳定、更有风格。
 
-## Try it
+## 试一下
 
 ```
 /typeset the article layout
 ```
 
-Expected diff:
+常见结果包括：
 
-- Display font swapped from Inter 700 to a real display face
-- Type scale rebuilt: 3rem / 2rem / 1.25rem / 1rem / 0.875rem, ratio 1.333
-- Body text bumped from 14px to 16px
-- Line length clamped to 68ch on the article column
-- Line-height 1.6 for body, 1.1 for display
-- Removed four one-off `font-size` values scattered in component styles
+- 把默认无衬线换成更有性格的字体组合
+- 重建 5 级左右的字号体系
+- 正文从 14px 拉回更舒适的阅读尺寸
+- 文章列宽收回到适合阅读的范围
+- 标题、正文、标签的字重和行高关系变得更明确
 
-## Pitfalls
+## 常见误区
 
-- **Asking for a new font without context.** Typeset will pick based on the `.impeccable.md` brand voice. If you have not run `/impeccable teach`, the suggestion will be generic.
-- **Reaching for typeset when the issue is layout.** If paragraphs are fine but the page feels cramped, you want `/layout`.
-- **Expecting fluid clamp scales on app UIs.** Typeset uses fixed rem scales for app interfaces. Fluid typography is for marketing and content pages where line length varies dramatically.
+- **没上下文就让它随便挑字体。** 没有品牌方向时，排版建议会更保守。
+- **其实问题是布局，却先找 typeset。** 如果文字本身没问题，只是页面太挤，先看 `/layout`。
+- **把 fluid typography 强塞给所有页面。** 应用型界面很多时候更适合稳固的固定比例体系。

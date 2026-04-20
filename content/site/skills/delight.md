@@ -1,42 +1,40 @@
 ---
-tagline: "Small moments of personality that turn functional into memorable."
+tagline: "在功能已经成立之后，补上那些让人记住它的小小惊喜。"
 ---
 
-## When to use it
+## 什么时候使用
 
-`/delight` is for interfaces that work but do not feel like anything. Use it when the core experience is solid and you want to add the small human touches that make people remember it: a considered empty state, a loading message with a point of view, a success animation that feels earned, a microcopy moment that makes someone smile.
+`/delight` 适合“能用了，但还没有情绪”的界面。流程顺了、结构稳了，可它仍然没什么人味，这时就轮到它出场。空状态、等待状态、成功反馈、微文案这些地方，往往最容易让产品从“能用”变成“会被记住”。
 
-It is a finishing skill. Never the first thing you run on a new build.
+它是收尾型技能，不该在一个还没站稳的页面上最先动手。
 
-## How it works
+## 它是怎么工作的
 
-The skill hunts for delight opportunities in the places most designers skip:
+这个技能会在最容易被忽略的触点里寻找值得加入个性的时刻：
 
-1. **Empty states**: instead of "No items yet", something with personality appropriate to the brand.
-2. **Loading and waiting moments**: the best products turn waits into content.
-3. **Success feedback**: a moment of celebration when something worth celebrating happens.
-4. **Microcopy**: button labels, tooltips, error messages, placeholder text. Tiny copy with taste.
-5. **Easter eggs and secondary states**: things users discover that reward paying attention.
+1. **空状态**：不再只是“这里还没有内容”，而是给出方向和情绪。
+2. **等待时刻**：让加载不只是机械等待，而是继续传达产品语气。
+3. **成功反馈**：在真正值得庆祝的瞬间给用户一个小回报。
+4. **微文案**：按钮、提示、tooltip、占位词，都可以更像是人写的。
+5. **次级发现**：少量“注意到就会开心”的细节，而不是全页噱头。
 
-The skill reads the brand tone from `.impeccable.md`. A serious analytics tool gets serious delight (dry, precise, a little clever). A playful consumer app gets more overt personality. It does not force humor where humor is wrong for the audience.
+它会读取品牌气质来决定“愉悦感”的表达方式。严肃产品的 delight 也应该是克制、聪明、不过界的。
 
-The rule is: every delight moment must still work perfectly if you delete the delight. Nothing depends on the smile.
-
-## Try it
+## 试一下
 
 ```
 /delight the first-run experience
 ```
 
-Expected additions:
+常见结果包括：
 
-- Empty dashboard replaces "No data yet" with "Your dashboard is quiet. Let's fix that." plus a single-action CTA.
-- Initial sync gets a 3-state loading message that advances: "Finding your accounts... / Pulling the last 30 days... / Making it look good...".
-- First successful action triggers a one-time toast with a tiny celebratory moment. After that, just a quiet checkmark.
-- Help tooltip on the tricky field has a voice that sounds like a person wrote it.
+- 空白仪表盘不再只是“暂无数据”，而是给出一句更有人味的话和一个单一明确动作
+- 首次同步过程拥有更清晰、分阶段的加载信息
+- 完成第一次关键动作时出现一次性的轻微庆祝反馈
+- 难懂字段旁边的帮助文案变得更像真人在说话
 
-## Pitfalls
+## 常见误区
 
-- **Forcing humor.** Not every brand is playful. If the brand voice in `.impeccable.md` is "clinical and precise", delight adds clever restraint, not jokes.
-- **Over-decorating.** One moment of delight is memorable. Twenty becomes noise. The skill is conservative on purpose.
-- **Running delight before polish.** Polish fixes what is wrong. Delight adds what is missing. In that order.
+- **强行搞笑。** 愉悦感不等于段子，品牌不对时只会显得轻浮。
+- **到处都加。** 一两个瞬间会被记住，二十个就只会变成噪音。
+- **在 polish 之前先 delight。** 先把不对的地方修平，再补惊喜，顺序不能反。

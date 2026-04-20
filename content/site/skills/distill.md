@@ -1,44 +1,39 @@
 ---
-tagline: "Ruthless subtraction. Strip designs to their essence."
+tagline: "毫不留情地做减法，把设计压缩到真正重要的部分。"
 ---
 
-## When to use it
+## 什么时候使用
 
-`/distill` removes what should not be there. Competing buttons, redundant information, decorative borders, three fonts where one works, six navigation items where three belong. Use it when an interface feels cluttered, busy, or like it is trying to do too much at once.
+`/distill` 用来处理那些“什么都想放进去”的页面。按钮太多、信息重复、边框太满、字体太杂、导航项一长串，看起来像每个人都往里塞了一点自己的想法，却没人认真删过一轮。
 
-Reach for it after `/critique` flags "cognitive load" or "visual noise", or any time a page has grown by accretion and no one has done the editing.
+如果 `/critique` 指出了认知负荷高、视觉噪音重，或者你自己已经觉得这页“太满太乱”，通常就该先来一次 `/distill`。
 
-## How it works
+## 它是怎么工作的
 
-The skill starts from one question: what is the single job this interface is trying to do? Everything that does not help that job is on the chopping block.
+它先追问一个问题：这个界面最核心的任务到底是什么？所有不能帮助用户更快完成这件事的元素，都要重新评估价值。
 
-It works in two passes:
+处理过程通常分两步：
 
-1. **Assess the complexity sources**. Too many elements, excessive variation, information overload, visual noise, confusing hierarchy, feature creep. Name each one.
-2. **Edit ruthlessly**. Remove what is not essential. Combine what can be combined. Hide what can wait. Consolidate variation into a single treatment. Commit to a single visual language.
+1. **找出复杂性的来源**：是元素太多、变化太多、层级混乱，还是信息重复、功能不断累加。
+2. **做真正的编辑**：删掉不必要的，合并可合并的，延后可延后的，统一本该统一的。
 
-The principle: simplicity is not about fewer features. It is about fewer obstacles between users and their goals. Every element on the page has to justify its existence.
+它追求的不是“功能更少”，而是“阻碍更少”。简单从来不是空，而是把必要内容放到更清楚的位置上。
 
-## Try it
+## 试一下
 
 ```
 /distill this dashboard
 ```
 
-Before: four card styles, three button variants, two header treatments, a sidebar with 14 items grouped into 5 sections.
+常见结果包括：
 
-After a `/distill` pass, typical changes:
+- 四种卡片样式收敛成一种
+- 多个看起来都像主动作的按钮被重新排序
+- 侧边导航分组被压缩，减少无意义选项
+- 高级设置收进 disclosure，而不是一开始就摊满页面
 
-- Collapse the four card styles into one
-- Pick one button variant, demote the others to text links
-- Unify the headers
-- Group the sidebar into 3 sections, not 5
-- Hide advanced options behind a disclosure
+## 常见误区
 
-Fewer things. Each one clearer.
-
-## Pitfalls
-
-- **Confusing distill with delete.** Distill removes obstacles. It does not remove features users need. If a user relies on something daily, find a way to keep it quietly, not a way to cut it.
-- **Running it too early.** If the feature is still growing, distilling it now means distilling the same thing again next week. Wait until the shape is stable.
-- **Expecting it to replace hierarchy work.** Sometimes the right fix is not removing things, it is arranging them. Reach for `/layout` when the problem is layout, not quantity.
+- **把 distill 理解成一通乱删。** 它删的是阻碍，不是用户真正需要的能力。
+- **功能还在长，就急着 distill。** 太早做减法，很快还得重做一次。
+- **其实问题是布局，却先做 distill。** 如果保留内容本身没问题，只是摆法糟糕，更该先找 `/layout`。

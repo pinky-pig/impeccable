@@ -1,38 +1,39 @@
 ---
-tagline: "Add strategic color to monochrome interfaces without going garish."
+tagline: "给过于发灰的界面注入有策略的颜色，而不是随手上满一屏彩色。"
 ---
 
-## When to use it
+## 什么时候使用
 
-`/colorize` is the counterweight to "everything is gray". Dashboards that read as a beige wall, forms with no accent, content pages that could be any SaaS product. Reach for it when the interface is functional but emotionally flat, and you want warmth without tipping into the AI color palette (purple-to-pink, cyan neon, dark mode glow).
+`/colorize` 是“什么都对，但整页像一块灰板”时的解法。很多仪表盘、表单页、内容页并不是设计坏了，而是缺少温度、记忆点和层次中的色彩支持。
 
-## How it works
+它尤其适合那些功能已经清楚，但情绪表达太冷、太平、太像默认 SaaS 模板的界面。
 
-The skill starts by reading your brand color if one exists, then decides where color earns its place:
+## 它是怎么工作的
 
-1. **Primary action** gets the strongest expression of the brand hue.
-2. **Secondary accents** get muted or tinted variants, not a second full color.
-3. **Neutrals** get tinted toward the brand hue at low chroma (around 0.005 to 0.01), which is nearly invisible per pixel but creates subconscious cohesion.
-4. **Content categories** get a limited, intentional accent system, not a rainbow.
+这个技能会先读出品牌色或已有色彩方向，再决定颜色应该落在哪些最值得的位置：
 
-Importantly, it uses OKLCH rather than HSL so that equal lightness steps look equal. As lightness moves toward the extremes, chroma drops automatically. This is how you get color that feels considered instead of computed.
+1. **主动作**：最核心按钮或 CTA 拿到最完整的色彩表达。
+2. **次级强调**：用同色系更克制的层级，而不是又凭空开一个新颜色。
+3. **中性色调染**：不是纯灰，而是轻轻带向品牌色相，让整页更有整体感。
+4. **信息分层**：让颜色参与导航、状态和类别区分，而不是只负责“好看”。
 
-## Try it
+它默认偏向少而准的用色方式，优先建立层次和氛围，而不是堆出一张“什么颜色都有”的页面。
+
+## 试一下
 
 ```
 /colorize the dashboard
 ```
 
-Expected diff:
+常见改动包括：
 
-- Brand color moved from a hardcoded hex to `--color-accent: oklch(62% 0.18 240)`
-- Neutrals tinted with 0.007 chroma toward the brand hue
-- Primary button gets the full accent, secondary buttons get ink/mist
-- Chart series uses 3 distinct hues, all at matched lightness so no series visually dominates
-- Empty state illustration picks up a soft accent wash
+- 统一品牌强调色及其明暗层级
+- 给中性色加入极轻的色相偏移，避免一片死灰
+- 主按钮、链接、图表和状态色的分工更清楚
+- 空状态、辅助插图或内容分区获得更恰当的色彩支撑
 
-## Pitfalls
+## 常见误区
 
-- **Running it without a brand hue.** Colorize needs a starting point. If `.impeccable.md` does not specify one, it will ask. Do not let it pick from the AI color palette defaults.
-- **Expecting it to fix the AI color palette problem.** If your design already has purple gradients and cyan neon, you need `/quieter` first, then colorize can rebuild.
-- **Using it on already-colorful interfaces.** That is a `/quieter` job. Colorize adds, it does not subtract.
+- **没有品牌色就硬上。** 至少要先知道大方向，否则很容易滑回 AI 默认配色。
+- **试图让它去清理已经太吵的页面。** 那通常更应该先用 `/quieter`。
+- **把“更多颜色”误当成“更有设计感”。** 真正有效的是色彩分配，而不是色彩数量。

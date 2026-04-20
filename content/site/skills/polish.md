@@ -1,46 +1,42 @@
 ---
-tagline: "The meticulous final pass between good and great."
+tagline: "把已经完成的功能，从‘差不多可以了’推到真正能上线的精致状态。"
 ---
 
-## When to use it
+## 什么时候使用
 
-`/polish` is the last thing you run before shipping. It hunts down the small details that separate a shipped feature from a polished one: half-pixel misalignments, inconsistent spacing, forgotten focus states, loading transitions that flash, copy that drifts in tone. It also aligns the feature with your design system -- replacing hard-coded values with tokens, swapping custom components for shared ones, and fixing any drift from established patterns.
+`/polish` 是上线前的最后一道工序。它不是重新设计，也不是补大功能，而是去抓那些只有在整体都成型以后才看得出来的细节问题：对齐差半像素、间距不一致、按钮状态不完整、过渡太硬、文案语气飘忽、局部偏离设计系统。
 
-Reach for it when the feature is functionally complete, nothing is broken, and something still feels off. Also reach for it when a feature has drifted from the design system and needs to be pulled back in line.
+当一个功能已经完成 90%，但总觉得还差口气时，通常就该用它。
 
-## How it works
+## 它是怎么工作的
 
-Polish starts by discovering the design system (tokens, spacing scale, shared components), then works methodically across six dimensions:
+它会先判断你要对齐的是哪一套系统：设计 token、组件库、既有间距尺度、交互状态、文案语气。然后再一项项做最后收口：
 
-1. **Visual alignment and spacing**: pixel-perfect grid adherence, consistent spacing scale, optical alignment on icons.
-2. **Typography**: hierarchy consistency, line length, widows and orphans, kerning on headlines.
-3. **Color and contrast**: token usage, theme parity, WCAG ratios, focus indicators.
-4. **Interaction states**: hover, focus, active, disabled, loading, error, success. Every state accounted for.
-5. **Transitions and motion**: smooth easing, no layout jank, respect for `prefers-reduced-motion`.
-6. **Copy**: consistent voice, correct tense, no placeholder strings, no stray TODOs.
+1. **视觉对齐与间距**：看网格、边界、光学对齐和响应式一致性。
+2. **排版**：看层级、字距、孤行、行宽、标题细节。
+3. **颜色与对比**：看 token 使用、深浅主题一致性和焦点状态。
+4. **交互状态**：hover、focus、active、disabled、loading、error、success 是否都完整。
+5. **过渡与反馈**：动效是否平顺、有无 layout jank、是否照顾 reduced-motion。
+6. **文案**：看 tone 是否统一，是否还有占位词、TODO 或不合时宜的句子。
 
-The skill is explicit about one thing: polish is the last step, not the first. If the feature is not functionally complete, polishing it is wasted work.
+它解决的是“做得不够到位”的问题，而不是“方向错了”的问题。
 
-## Try it
+## 试一下
 
 ```
 /polish the pricing page
 ```
 
-A healthy run looks like:
+你通常会看到这样的成果：
 
-```
-Visual alignment: fixed 3 off-grid elements (8px baseline)
-Typography: tightened h1 kerning, fixed widow on testimonial
-Interaction: added hover state on FAQ items, focus ring on email input
-Motion: softened modal entrance, added reduced-motion fallback
-Copy: removed one "Lorem ipsum" stray, aligned button voice
-```
+- 几个 off-grid 元素被拉回统一基线
+- 标题字距和正文行宽被细修
+- FAQ、按钮、输入框补齐缺失状态
+- 模态框或反馈动画变得更顺
+- 杂散文案与占位内容被清理掉
 
-Five small fixes, no rewrites. That is the shape of a good polish pass.
+## 常见误区
 
-## Pitfalls
-
-- **Polishing work that is not done.** If there are TODOs in the code, you are not ready. Run `/polish` on finished features only.
-- **Treating polish as redesign.** Polish refines what exists. If you find yourself rearchitecting a layout, you needed `/critique` or `/layout` instead.
-- **Running `/polish` without `/audit` first.** Polish catches feel-based issues. Audit catches measurable ones. Use both.
+- **功能没做完就先 polish。** 这会让你白白打磨一遍。
+- **把 polish 当成 redesign。** 如果你想大改结构，那已经超出它的职责了。
+- **没跑 audit 就直接 polish。** 一个看感觉，一个看量化，最好搭配使用。

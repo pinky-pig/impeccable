@@ -1,56 +1,42 @@
 ---
-tagline: "Diagnose and fix UI performance from LCP to bundle size."
+tagline: "从首屏、交互、渲染到包体积，系统性找出 UI 为什么慢。"
 ---
 
-## When to use it
+## 什么时候使用
 
-`/optimize` is for interfaces that feel slow. First paint takes forever, scrolling janks, images pop in late, interactions feel laggy, the bundle ships 800KB of JavaScript. Use it when the Web Vitals are bad or when users are complaining that things are sluggish.
+`/optimize` 适合一切“用户已经开始感觉到慢”的场景。首屏迟迟不出、滚动卡、图像慢半拍、交互按下去有延迟、打包结果越来越重，这些都说明该认真看性能了。
 
-Do not use it as premature optimization. If LCP is 1.1s and INP is 80ms, stop. The design work matters more.
+但它不适合“凭感觉想顺手优化一下”。如果 LCP、INP、本地体感都已经很好，那此刻也许更应该把时间放回设计质量本身。
 
-## How it works
+## 它是怎么工作的
 
-The skill works through five perf dimensions:
+它会沿着五个性能方向逐项定位问题：
 
-1. **Loading and Web Vitals**: LCP, INP, CLS. Identify what is blocking the first paint, what is delaying interaction, what is shifting layout.
-2. **Rendering**: unnecessary re-renders, missing memoization, expensive reconciliation, layout thrash in loops.
-3. **Animations**: is anything animating layout properties, are transforms and opacity the only thing touched, does `will-change` help or hurt here.
-4. **Images and assets**: lazy loading, responsive images (`srcset`, `sizes`), modern formats (WebP, AVIF), dimensions set to prevent CLS.
-5. **Bundle size**: unused imports, oversized dependencies, missing code-splitting, dead code.
+1. **加载与 Web Vitals**：LCP、INP、CLS 到底被谁拖慢了。
+2. **渲染过程**：有没有不必要的重渲染、同步布局读取、昂贵循环。
+3. **动画策略**：是否在动布局属性，是否真的做到了只动 transform 和 opacity。
+4. **图像与资源**：图片尺寸、格式、懒加载、预加载、字体加载是否合理。
+5. **包体积**：依赖是否过重、路由是否切分、有没有废代码继续被打进包里。
 
-The skill measures before and after. Every fix gets quantified. If a change does not move a metric, it gets rolled back.
+最重要的是，它强调“前后对照”。没有基线，就没有真正的优化结论。
 
-## Try it
+## 试一下
 
 ```
 /optimize the homepage
 ```
 
-Expected shape:
+理想结果通常会像：
 
-```
-LCP: 3.2s → 1.4s
-  - Hero image preloaded (-800ms)
-  - Removed render-blocking font stylesheet (-240ms)
-  - Deferred analytics script (-180ms)
+- LCP 从 3.2s 降到 1.4s
+- INP 从 240ms 降到 90ms
+- CLS 从 0.18 降到 0.02
+- Bundle 从 340KB 降到 180KB
 
-INP: 240ms → 90ms
-  - Debounced scroll handler
-  - Memoized expensive list render
-  - Removed synchronous layout read in event loop
+同时配上每一项变化具体来自哪里。
 
-CLS: 0.18 → 0.02
-  - Set dimensions on hero image and logo
-  - Reserved space for async header badge
+## 常见误区
 
-Bundle: 340KB → 180KB
-  - Removed unused lodash import (52KB)
-  - Code-split the playground route (78KB)
-  - Dropped deprecated icon set (30KB)
-```
-
-## Pitfalls
-
-- **Optimizing before measuring.** Without baseline metrics, you cannot tell what helped. Run `/optimize` with specific Web Vitals numbers, not vibes.
-- **Chasing tiny wins.** A 20ms improvement in INP that takes a week is rarely worth it. Optimize has diminishing returns; know when to stop.
-- **Forgetting to re-measure after every change.** The build could have made things worse in a way the skill did not predict. Verify.
+- **没量就优化。** 先测，再改。
+- **追求小数点级别提升。** 不值得的优化会吞掉大量时间。
+- **改完不复测。** 你以为变快了，实际可能只是把问题换了位置。

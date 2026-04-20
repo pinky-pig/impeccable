@@ -91,117 +91,117 @@ const ANTIPATTERNS = [
   {
     id: 'side-tab',
     category: 'slop',
-    name: 'Side-tab accent border',
+    name: '卡片侧边重色条',
     description:
-      'Thick colored border on one side of a card — the most recognizable tell of AI-generated UIs. Use a subtler accent or remove it entirely.',
+      '卡片一侧挂着粗重的彩色边条，这是最容易暴露 AI 生成痕迹的视觉信号之一。要么改成更克制的强调方式，要么干脆删掉。',
     skillSection: 'Visual Details',
     skillGuideline: 'colored accent stripe',
   },
   {
     id: 'border-accent-on-rounded',
     category: 'slop',
-    name: 'Border accent on rounded element',
+    name: '圆角元素上的强调色粗边',
     description:
-      'Thick accent border on a rounded card — the border clashes with the rounded corners. Remove the border or the border-radius.',
+      '在圆角卡片上再加一圈厚重强调边，会和圆角本身互相打架。要么去掉粗边，要么不要再保留这种圆角处理。',
     skillSection: 'Visual Details',
     skillGuideline: 'colored accent stripe',
   },
   {
     id: 'overused-font',
     category: 'slop',
-    name: 'Overused font',
+    name: '被用滥的字体',
     description:
-      'Inter, Roboto, Open Sans, Lato, Montserrat, and Arial are used on millions of sites. Choose a distinctive font that gives your interface personality.',
+      'Inter、Roboto、Open Sans、Lato、Montserrat、Arial 已经被成千上万的网站重复使用。换一套更有辨识度的字体，才能让界面真正长出个性。',
     skillSection: 'Typography',
     skillGuideline: 'overused fonts like Inter',
   },
   {
     id: 'single-font',
     category: 'slop',
-    name: 'Single font for everything',
+    name: '整页只用一套字体',
     description:
-      'Only one font family is used for the entire page. Pair a distinctive display font with a refined body font to create typographic hierarchy.',
+      '整页从标题到正文都只用同一个字体家族，排版层级自然会变平。用一套更有性格的展示字体搭配稳健正文，才更容易建立层次。',
     skillSection: 'Typography',
     skillGuideline: 'only one font family for the entire page',
   },
   {
     id: 'flat-type-hierarchy',
     category: 'slop',
-    name: 'Flat type hierarchy',
+    name: '排版层级过平',
     description:
-      'Font sizes are too close together — no clear visual hierarchy. Use fewer sizes with more contrast (aim for at least a 1.25 ratio between steps).',
+      '字号彼此挨得太近，视觉层级不够明确。减少层级数量、拉大对比，级差最好至少做到 1.25 倍左右。',
     skillSection: 'Typography',
     skillGuideline: 'flat type hierarchy',
   },
   {
     id: 'gradient-text',
     category: 'slop',
-    name: 'Gradient text',
+    name: '渐变文字',
     description:
-      'Gradient text is decorative rather than meaningful — a common AI tell, especially on headings and metrics. Use solid colors for text.',
+      '渐变文字更多是装饰，而不是信息表达，尤其放在标题和指标上时，是非常典型的 AI 味信号。正文与标题优先使用纯色文字。',
     skillSection: 'Color & Contrast',
     skillGuideline: 'gradient text for',
   },
   {
     id: 'ai-color-palette',
     category: 'slop',
-    name: 'AI color palette',
+    name: 'AI 式配色盘',
     description:
-      'Purple/violet gradients and cyan-on-dark are the most recognizable tells of AI-generated UIs. Choose a distinctive, intentional palette.',
+      '紫罗兰渐变加深色底上的青蓝高亮，是最容易被认出的 AI 生成配色。配色应该更有判断，而不是沿用默认模板。',
     skillSection: 'Color & Contrast',
     skillGuideline: 'AI color palette',
   },
   {
     id: 'nested-cards',
     category: 'slop',
-    name: 'Nested cards',
+    name: '卡片套卡片',
     description:
-      'Cards inside cards create visual noise and excessive depth. Flatten the hierarchy — use spacing, typography, and dividers instead of nesting containers.',
+      '卡片里再套卡片，会制造噪音和过度层级。优先用间距、排版和分隔关系来组织内容，而不是不断往里套容器。',
     skillSection: 'Layout & Space',
     skillGuideline: 'Nest cards inside cards',
   },
   {
     id: 'monotonous-spacing',
     category: 'slop',
-    name: 'Monotonous spacing',
+    name: '间距单调无节奏',
     description:
-      'The same spacing value used everywhere — no rhythm, no variation. Use tight groupings for related items and generous separations between sections.',
+      '整页到处都用同一个间距值，没有节奏，也没有层次。相关内容应该更紧，区块之间则应该更松，靠变化建立呼吸感。',
     skillSection: 'Layout & Space',
     skillGuideline: 'same spacing everywhere',
   },
   {
     id: 'everything-centered',
     category: 'slop',
-    name: 'Everything centered',
+    name: '什么都居中',
     description:
-      'Every text element is center-aligned. Left-aligned text with asymmetric layouts feels more designed. Center only hero sections and CTAs.',
+      '所有文字都默认居中，看起来很像模板。大多数场景下，左对齐配合不对称构图会更像认真设计过；居中应只留给少数 hero 区和 CTA。',
     skillSection: 'Layout & Space',
     skillGuideline: 'Center everything',
   },
   {
     id: 'bounce-easing',
     category: 'slop',
-    name: 'Bounce or elastic easing',
+    name: '弹跳或橡皮筋缓动',
     description:
-      'Bounce and elastic easing feel dated and tacky. Real objects decelerate smoothly — use exponential easing (ease-out-quart/quint/expo) instead.',
+      '弹跳和橡皮筋式缓动很容易显得廉价又过时。真实世界的运动更接近平顺减速，优先用指数类 ease-out-quart / quint / expo。',
     skillSection: 'Motion',
     skillGuideline: 'bounce or elastic easing',
   },
   {
     id: 'dark-glow',
     category: 'slop',
-    name: 'Dark mode with glowing accents',
+    name: '发光强调的默认暗色模式',
     description:
-      'Dark backgrounds with colored box-shadow glows are the default "cool" look of AI-generated UIs. Use subtle, purposeful lighting instead — or skip the dark theme entirely.',
+      '深色背景配彩色发光阴影，是 AI 最常给出的“酷炫”默认值。要么把光感做得更克制、更有目的，要么就别为了耍帅硬上暗色。',
     skillSection: 'Color & Contrast',
     skillGuideline: 'dark mode with glowing accents',
   },
   {
     id: 'icon-tile-stack',
     category: 'slop',
-    name: 'Icon tile stacked above heading',
+    name: '标题上方堆一个图标砖块',
     description:
-      'A small rounded-square icon container above a heading is the universal AI feature-card template — every generator outputs this exact shape. Try a side-by-side icon and heading, or let the icon sit in flow without its own container.',
+      '标题上方放一个圆角小图标砖块，是 AI 功能卡片最通用的模板之一。试试图标与标题并排，或让图标直接跟着内容流动，而不是再单独套个盒子。',
     skillSection: 'Typography',
     skillGuideline: 'large icons with rounded corners above every heading',
   },
@@ -210,96 +210,96 @@ const ANTIPATTERNS = [
   {
     id: 'pure-black-white',
     category: 'quality',
-    name: 'Pure black background',
+    name: '纯黑背景',
     description:
-      'Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.',
+      '纯 #000000 作为背景会显得生硬且不自然。稍微往品牌色方向带一点色相，会比完全无色的黑更精致。',
     skillSection: 'Color & Contrast',
     skillGuideline: 'pure black (#000)',
   },
   {
     id: 'gray-on-color',
     category: 'quality',
-    name: 'Gray text on colored background',
+    name: '彩底上的灰字',
     description:
-      'Gray text looks washed out on colored backgrounds. Use a darker shade of the background color instead, or white/near-white for contrast.',
+      '彩色背景上的灰字很容易发灰、发虚。更好的做法是使用背景色的深色变体，或者直接用白色 / 近白色来拉开对比。',
     skillSection: 'Color & Contrast',
     skillGuideline: 'gray text on colored backgrounds',
   },
   {
     id: 'low-contrast',
     category: 'quality',
-    name: 'Low contrast text',
+    name: '文字对比度过低',
     description:
-      'Text does not meet WCAG AA contrast requirements (4.5:1 for body, 3:1 for large text). Increase the contrast between text and background.',
+      '文字没有达到 WCAG AA 的对比度要求（正文 4.5:1，大字 3:1）。需要进一步拉开文字与背景之间的明度差。',
   },
   {
     id: 'layout-transition',
     category: 'quality',
-    name: 'Layout property animation',
+    name: '直接动画布局属性',
     description:
-      'Animating width, height, padding, or margin causes layout thrash and janky performance. Use transform and opacity instead, or grid-template-rows for height animations.',
+      '直接动画 width、height、padding、margin 容易触发布局抖动和卡顿。优先用 transform 与 opacity，做高度展开时可改用 grid-template-rows。',
     skillSection: 'Motion',
     skillGuideline: 'Animate layout properties',
   },
   {
     id: 'line-length',
     category: 'quality',
-    name: 'Line length too long',
+    name: '行宽过长',
     description:
-      'Text lines wider than ~80 characters are hard to read. The eye loses its place tracking back to the start of the next line. Add a max-width (65ch to 75ch) to text containers.',
+      '单行文字超过大约 80 个字符时，可读性会明显下降，视线回扫更容易丢行。正文容器通常应该限制在 65ch 到 75ch 左右。',
     skillSection: 'Layout & Space',
     skillGuideline: 'wrap beyond ~80 characters',
   },
   {
     id: 'cramped-padding',
     category: 'quality',
-    name: 'Cramped padding',
+    name: '内边距过小',
     description:
-      'Text is too close to the edge of its container. Add at least 8px (ideally 12-16px) of padding inside bordered or colored containers.',
+      '文字离容器边缘太近，会显得局促。带边框或彩底的容器，通常至少需要 8px，理想状态是 12 到 16px 的内边距。',
   },
   {
     id: 'tight-leading',
     category: 'quality',
-    name: 'Tight line height',
+    name: '行高过紧',
     description:
-      'Line height below 1.3x the font size makes multi-line text hard to read. Use 1.5 to 1.7 for body text so lines have room to breathe.',
+      '行高低于字号的 1.3 倍时，多行文字会明显难读。正文通常应该放在 1.5 到 1.7 之间，让行与行之间有足够呼吸感。',
   },
   {
     id: 'skipped-heading',
     category: 'quality',
-    name: 'Skipped heading level',
+    name: '标题层级跳号',
     description:
-      'Heading levels should not skip (e.g. h1 then h3 with no h2). Screen readers use heading hierarchy for navigation. Skipping levels breaks the document outline.',
+      '标题层级不该跳号，比如 h1 后面直接接 h3。屏幕阅读器会依赖标题层级导航，跳级会破坏文档结构。',
   },
   {
     id: 'justified-text',
     category: 'quality',
-    name: 'Justified text',
+    name: '两端对齐正文',
     description:
-      'Justified text without hyphenation creates uneven word spacing ("rivers of white"). Use text-align: left for body text, or enable hyphens: auto if you must justify.',
+      '网页正文做两端对齐、却没有断词处理时，词间距会拉得忽宽忽窄，形成“白河”。正文默认用左对齐；如果必须两端对齐，也要配合 hyphens: auto。',
   },
   {
     id: 'tiny-text',
     category: 'quality',
-    name: 'Tiny body text',
+    name: '正文过小',
     description:
-      'Body text below 12px is hard to read, especially on high-DPI screens. Use at least 14px for body content, 16px is ideal.',
+      '正文低于 12px 时会很难读，尤其在高分屏上更明显。正文至少应有 14px，理想状态通常是 16px。',
   },
   {
     id: 'all-caps-body',
     category: 'quality',
-    name: 'All-caps body text',
+    name: '整段正文全大写',
     description:
-      'Long passages in uppercase are hard to read. We recognize words by shape (ascenders and descenders), which all-caps removes. Reserve uppercase for short labels and headings.',
+      '大段全大写正文会显著拖慢阅读，因为单词形状被抹平了。全大写更适合短标签和少量标题，不适合长正文。',
     skillSection: 'Typography',
     skillGuideline: 'long body passages in uppercase',
   },
   {
     id: 'wide-tracking',
     category: 'quality',
-    name: 'Wide letter spacing on body text',
+    name: '正文字符间距过宽',
     description:
-      'Letter spacing above 0.05em on body text disrupts natural character groupings and slows reading. Reserve wide tracking for short uppercase labels only.',
+      '正文字符间距一旦超过 0.05em，就会打散自然的字词分组，阅读速度也会被拖慢。大字距更适合短促的全大写标签。',
   },
 ];
 

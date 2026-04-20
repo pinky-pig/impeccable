@@ -1,40 +1,39 @@
 ---
-tagline: "Push safe designs toward impact without sliding into chaos."
+tagline: "把过于安全的设计往前推一步，增加冲击力，但不滑向失控。"
 ---
 
-## When to use it
+## 什么时候使用
 
-Reach for `/bolder` when the interface looks like every other interface. Generic sans, medium weights, soft shadows, modest accent color, reasonable spacing, forgettable. The design is not wrong, it is just safe. Use bolder when a project can handle presence and the current state is not bringing any.
+当界面看起来像“又一个差不多的网站”时，就该考虑 `/bolder`。默认无衬线、温和阴影、谨慎配色、规矩间距、没毛病但记不住，这正是它的目标区间。
 
-Do not use it on dashboards people stare at for hours. Boldness earns its place on marketing pages, hero moments, and content features. Not in operator tools.
+不过它不适合那些用户要长时间盯着看的后台、配置页或操作面板。大胆感更适合营销页、品牌页、内容专题页这些需要存在感的地方。
 
-## How it works
+## 它是怎么工作的
 
-The skill amplifies four axes without breaking usability:
+这个技能会在不牺牲可用性的前提下，放大四个维度的对比：
 
-1. **Scale**: display type gets pushed to clamp(3rem, 6vw, 6rem) or beyond. Headlines that fill the viewport, not hedge it.
-2. **Weight contrast**: light 300 against heavy 800 instead of medium against regular. Real tension, not a shrug.
-3. **Color commitment**: the accent color shows up at full strength, not diluted. Backgrounds can take a stance (ink, accent, cream) instead of all-paper.
-4. **Compositional confidence**: asymmetry, off-grid, pullquotes, hanging punctuation, scale jumps. The layout has a voice.
+1. **尺度**：该大的地方要真正大起来，而不是永远停在“安全字号”。
+2. **字重反差**：用更明显的轻与重制造张力，而不是中不溜秋地堆满页面。
+3. **色彩立场**：强调色要敢于出现，背景也可以有明确态度，而不总是白底淡灰边。
+4. **构图信心**：允许不对称、跨出网格、比例跳跃，让版面带着声音说话。
 
-The skill does not add more. It amplifies what is already there. If the design has three colors, bolder does not add a fourth, it commits harder to the three.
+它不会无节制地往页面里加东西，而是强化你已经选定的方向，让设计从“正确”走向“有记忆点”。
 
-## Try it
+## 试一下
 
 ```
 /bolder the landing page hero
 ```
 
-Expected changes:
+常见结果包括：
 
-- Hero heading from 3rem to clamp(3.5rem, 7vw, 6.5rem), display font, weight 700
-- Subhead from regular to italic at 1.5rem, pulled 8px left of the heading for optical alignment
-- Background switches from paper to a cream-to-paper gradient, creating a warmer container
-- CTA button fills, drops shadow removed, border radius reduced, hover state inverts colors
-- Supporting image pushed slightly off-grid with a negative top margin, creating asymmetry
+- hero 标题尺寸显著放大，真正成为第一视觉
+- 副标题、正文、按钮之间的反差被拉开
+- 背景从纯平变成更有态度的底色或渐层
+- 构图加入轻微越界或错位，打破过分稳妥的中轴
 
-## Pitfalls
+## 常见误区
 
-- **Running it on the wrong page.** Product dashboards, settings, and forms should not be bold. They should be legible. Use `/layout` or `/polish` instead.
-- **Confusing bold with loud.** Bold means committed and confident. Loud means shouting. Bolder is the former. If the result feels aggressive, follow up with `/quieter`.
-- **Pairing it with `/delight` in the same pass.** Delight works best against a stable visual baseline. Bold first, stabilize, then delight.
+- **把它用在错误的页面。** 财务后台和设置页需要的是清晰，不是张扬。
+- **把大胆等同于吵闹。** 真正的 bold 是有取舍的，不是把所有东西都开到最大。
+- **一口气叠上 `/delight`。** 先把视觉力量定住，再谈细节趣味，效果会更稳。

@@ -1,50 +1,47 @@
 ---
-tagline: "Five-dimension technical quality check with P0 to P3 severity."
+tagline: "从五个维度做技术质量检查，并给出 P0 到 P3 的行动清单。"
 ---
 
-## When to use it
+## 什么时候使用
 
-`/audit` is the technical counterpart to `/critique`. Where `/critique` asks "does this feel right", `/audit` asks "does this hold up". It runs accessibility, performance, theming, responsive design, and anti-pattern checks against the implementation, scores each dimension 0 to 4, and produces a plan with P0 to P3 severity ratings.
+`/audit` 可以看作 `/critique` 的技术侧版本。`/critique` 问的是“设计判断对不对”，`/audit` 问的是“实现质量扛不扛得住”。它会从可访问性、性能、主题一致性、响应式和反模式检测五个方向做评分，并整理成一份带严重级别的报告。
 
-Use it before shipping, during a quality sprint, or whenever a tech lead says "we should really look at accessibility".
+适合上线前、质量冲刺阶段，或者团队里有人说“我们最好认真看一眼无障碍和性能”的时候。
 
-## How it works
+## 它是怎么工作的
 
-The skill scans your code across five dimensions:
+它会沿着五个维度扫实现质量：
 
-1. **Accessibility**: WCAG contrast, ARIA, keyboard nav, semantic HTML, form labels.
-2. **Performance**: layout thrashing, expensive animations, missing lazy loading, bundle weight.
-3. **Theming**: hard-coded colors, dark mode coverage, token consistency.
-4. **Responsive**: breakpoint behavior, touch targets, mobile viewport handling.
-5. **Anti-patterns**: the same deterministic 25 checks the detector runs.
+1. **可访问性**：对比度、语义、ARIA、键盘导航、表单标注。
+2. **性能**：布局抖动、昂贵动画、资源懒加载、渲染浪费、包体积。
+3. **主题化**：是否滥用硬编码颜色、token 是否一致、深浅主题是否真的成立。
+4. **响应式**：窄屏溢出、触控面积、断点行为、文本放大后的表现。
+5. **反模式**：是否命中了 Impeccable 那 25 条确定性检测规则，以及相关延伸问题。
 
-Each dimension gets a 0 to 4 score. Each finding gets a severity: P0 blocks the release, P1 should fix this sprint, P2 is next cycle, P3 is polish. You get back a single document you can paste into a ticket tracker.
+每个维度都会得到一个 0 到 4 的分数；每条问题会标成 P0 到 P3。最后你拿到的是一份足够能塞进 ticket 系统的行动清单，而不是一句泛泛的“这里还有优化空间”。
 
-Audit does not fix anything. It documents. Route the findings to `/polish`, `/harden`, or `/optimize` depending on the category.
-
-## Try it
+## 试一下
 
 ```
 /audit the checkout flow
 ```
 
-Expected output:
+输出通常会像这样：
 
 ```
-Accessibility: 2/4 (partial)
-  P0: Missing form labels on 4 inputs
-  P1: Contrast 3.1:1 on disabled button state
-  P2: No visible focus indicator on custom dropdown
+可访问性：2/4
+  P0：4 个输入框缺少可读标签
+  P1：禁用按钮状态对比度不足
 
-Performance: 3/4 (good)
-  P1: Hero image not lazy-loaded (340KB)
+性能：3/4
+  P1：首屏图片未懒加载
   ...
 ```
 
-Hand the P0s to `/harden`, the theming and typography P1s to `/typeset` and `/polish`, the rest to `/polish`.
+然后再把 P0 丢给 `/harden`，把一些视觉和交互层面的补丁交给 `/polish` 或 `/typeset`。
 
-## Pitfalls
+## 常见误区
 
-- **Confusing it with `/critique`.** Audit is implementation quality. Critique is design quality. Run both for a full picture.
-- **Fixing P3s before P0s.** The severity scale exists for a reason. Start at the top.
-- **Skipping the dimensions you think are fine.** Theming and responsive are the ones most people assume are fine until they are not.
+- **把 audit 当成 critique。** 前者看实现质量，后者看设计质量，两者最好搭配使用。
+- **先修 P3，不碰 P0。** 严重级别存在就是为了帮你排序。
+- **只看自己担心的那一维。** 真正容易出事的，往往是团队默认“应该没问题吧”的维度。

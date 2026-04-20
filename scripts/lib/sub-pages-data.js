@@ -74,21 +74,21 @@ const SKILL_CATEGORIES = {
 export const CATEGORY_ORDER = ['create', 'evaluate', 'refine', 'simplify', 'harden'];
 
 export const CATEGORY_LABELS = {
-  create: 'Create',
-  evaluate: 'Evaluate',
-  refine: 'Refine',
-  simplify: 'Simplify',
-  harden: 'Harden',
-  system: 'System',
+  create: '创建',
+  evaluate: '评估',
+  refine: '打磨',
+  simplify: '简化',
+  harden: '补强',
+  system: '系统',
 };
 
 export const CATEGORY_DESCRIPTIONS = {
-  create: 'Build something new, from a blank page to a working feature.',
-  evaluate: 'Review what you have. Score it, critique it, find what to fix.',
-  refine: 'Improve one dimension at a time: type, layout, color, motion.',
-  simplify: 'Strip complexity. Remove what does not earn its place.',
-  harden: 'Make it production-ready. Edge cases, performance, polish.',
-  system: 'Setup and tooling. Design system work, extraction, organization.',
+  create: '从空白到可用功能，搭起新的界面与体验。',
+  evaluate: '审视现状，评分、评审，并找出最值得修的地方。',
+  refine: '沿着排版、布局、色彩、动效等维度逐项提升。',
+  simplify: '去掉不必要的复杂性，让真正重要的内容更突出。',
+  harden: '补齐边界情况、性能与上线前细节，让它能真正交付。',
+  system: '偏系统与工具链的工作，包括抽取、整理与设计系统维护。',
 };
 
 /**

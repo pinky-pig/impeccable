@@ -81,7 +81,7 @@ export function renderPage({
   const rel = assetDepth > 0 ? '../'.repeat(assetDepth) : './';
 
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -97,7 +97,7 @@ export function renderPage({
   ${extraHead}
 </head>
 <body class="${bodyClass}">
-  <a href="#main" class="skip-link">Skip to content</a>
+  <a href="#main" class="skip-link">跳到主要内容</a>
   ${header}
   <main id="main">
 ${bodyHtml}

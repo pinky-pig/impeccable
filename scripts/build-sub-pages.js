@@ -33,6 +33,21 @@ function escapeHtml(str) {
     .replace(/'/g, '&#39;');
 }
 
+const RULE_SECTION_LABELS = {
+  'Visual Details': '视觉细节',
+  Typography: '排版',
+  'Color & Contrast': '色彩与对比',
+  'Layout & Space': '布局与空间',
+  Motion: '动效',
+  Interaction: '交互',
+  Responsive: '响应式',
+  'General quality': '通用质量',
+};
+
+function getRuleSectionLabel(section) {
+  return RULE_SECTION_LABELS[section] || section;
+}
+
 /**
  * Render the before/after split-compare demo block for a skill.
  * Returns '' when the skill has no demo data (e.g. /shape).
@@ -41,9 +56,9 @@ function renderSkillDemo(skill) {
   if (!skill.demo) return '';
   const { before, after, caption } = skill.demo;
   return `
-<section class="skill-demo" aria-label="Before and after demo">
+<section class="skill-demo" aria-label="改前改后对比示例">
   <div class="split-comparison" data-demo="skill-${skill.id}">
-    <p class="skill-demo-eyebrow">Drag or hover to compare</p>
+    <p class="skill-demo-eyebrow">拖动或悬停查看对比</p>
     <div class="split-container">
       <div class="split-before">
         <div class="split-content">${before}</div>
@@ -54,9 +69,9 @@ function renderSkillDemo(skill) {
       <div class="split-divider"></div>
     </div>
     <div class="split-labels">
-      <span class="split-label-item" data-point="before">Before</span>
+      <span class="split-label-item" data-point="before">改前</span>
       ${caption ? `<p class="skill-demo-caption">${escapeHtml(caption)}</p>` : '<span></span>'}
-      <span class="split-label-item" data-point="after">After</span>
+      <span class="split-label-item" data-point="after">改后</span>
     </div>
   </div>
 </section>`;
@@ -96,7 +111,7 @@ function renderSkillDetail(skill, knownSkillIds) {
           .join(' ');
         return `
 <details class="skill-reference" id="reference-${slug}">
-  <summary><span class="skill-reference-label">Reference</span><span class="skill-reference-title">${escapeHtml(title)}</span></summary>
+  <summary><span class="skill-reference-label">参考</span><span class="skill-reference-title">${escapeHtml(title)}</span></summary>
   <div class="prose skill-reference-body">
 ${refBody}
   </div>
@@ -104,8 +119,8 @@ ${refBody}
       })
       .join('\n');
     referencesHtml = `
-<section class="skill-references" aria-label="Reference material">
-  <h2 class="skill-references-heading">Deeper reference</h2>
+<section class="skill-references" aria-label="参考资料">
+  <h2 class="skill-references-heading">延伸参考</h2>
   ${refs}
 </section>`;
   }
@@ -113,7 +128,7 @@ ${refBody}
   const metaStrip = `
 <div class="skill-meta-strip">
   <span class="skill-meta-chip skill-meta-category" data-category="${skill.category}">${escapeHtml(categoryLabel)}</span>
-  <span class="skill-meta-chip">User-invocable</span>
+  <span class="skill-meta-chip">可直接调用</span>
   ${skill.argumentHint ? `<span class="skill-meta-chip skill-meta-args">${escapeHtml(skill.argumentHint)}</span>` : ''}
 </div>`;
 
@@ -123,7 +138,7 @@ ${refBody}
 <article class="skill-detail">
   <div class="skill-detail-hero${hasDemo ? ' skill-detail-hero--has-demo' : ''}">
     <header class="skill-detail-header">
-      <p class="skill-detail-eyebrow"><a href="/skills">Skills</a> / ${escapeHtml(categoryLabel)}</p>
+      <p class="skill-detail-eyebrow"><a href="/skills">技能</a> / ${escapeHtml(categoryLabel)}</p>
       <h1 class="skill-detail-title"><span class="skill-detail-title-slash">/</span>${escapeHtml(skill.id)}</h1>
       <p class="skill-detail-tagline">${escapeHtml(tagline)}</p>
       ${metaStrip}
@@ -136,7 +151,7 @@ ${refBody}
   <section class="skill-source-card">
     <header class="skill-source-card-header">
       <span class="skill-source-card-label">SKILL.md</span>
-      <span class="skill-source-card-subtitle">The canonical skill definition your AI harness loads.</span>
+      <span class="skill-source-card-subtitle">这里展示的是 AI harness 实际会读取的原始技能定义。</span>
     </header>
     <div class="skill-source-card-body prose">
 ${bodyHtml}
@@ -160,7 +175,7 @@ ${bodyHtml}
 function renderDocsSidebar(skillsByCategory, tutorials, current = null) {
   // Label the toggle button with the current page so mobile users know
   // where they are at a glance, then open the menu to switch.
-  let currentLabel = 'Docs menu';
+  let currentLabel = '文档菜单';
   if (current?.kind === 'skill') {
     currentLabel = `/${current.id}`;
   } else if (current?.kind === 'tutorial') {
@@ -169,20 +184,20 @@ function renderDocsSidebar(skillsByCategory, tutorials, current = null) {
   }
 
   let html = `
-<aside class="skills-sidebar" aria-label="Documentation">
+<aside class="skills-sidebar" aria-label="文档导航">
   <button class="skills-sidebar-toggle" type="button" aria-expanded="false" aria-controls="skills-sidebar-inner">
     <span class="skills-sidebar-toggle-label">${escapeHtml(currentLabel)}</span>
     <svg class="skills-sidebar-toggle-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
   </button>
   <div class="skills-sidebar-inner" id="skills-sidebar-inner">
-    <p class="skills-sidebar-label">Docs</p>
+    <p class="skills-sidebar-label">文档</p>
 `;
 
   // Tutorials first: walk-throughs are the on-ramp, they go at the top.
   if (tutorials && tutorials.length > 0) {
     html += `
     <div class="skills-sidebar-group" data-category="tutorials">
-      <p class="skills-sidebar-group-title">Tutorials</p>
+      <p class="skills-sidebar-group-title">教程</p>
       <ul class="skills-sidebar-list">
 ${tutorials
   .map((t) => {
@@ -266,7 +281,7 @@ function renderSkillsOverviewMain(skillsByCategory) {
     <section class="skills-overview-category" data-category="${category}" id="category-${category}">
       <div class="skills-overview-category-meta">
         <h2 class="skills-overview-category-title">${escapeHtml(CATEGORY_LABELS[category])}</h2>
-        <p class="skills-overview-category-count">${list.length} ${list.length === 1 ? 'skill' : 'skills'}</p>
+        <p class="skills-overview-category-count">${list.length} 个技能</p>
       </div>
       <p class="skills-overview-category-desc">${escapeHtml(CATEGORY_DESCRIPTIONS[category])}</p>
       <div class="skills-overview-chips">
@@ -279,14 +294,14 @@ ${skillChips}
   return `
 <div class="skills-overview-content">
   <header class="skills-overview-header">
-    <p class="sub-page-eyebrow">${totalSkills} commands</p>
-    <h1 class="sub-page-title">Skills</h1>
-    <p class="sub-page-lede">One skill, <a href="/skills/impeccable">/impeccable</a>, teaches your AI design. Eighteen commands steer the result. Each command does one job with an opinion about what good looks like.</p>
+    <p class="sub-page-eyebrow">${totalSkills} 个命令</p>
+    <h1 class="sub-page-title">技能</h1>
+    <p class="sub-page-lede">一个 <a href="/skills/impeccable">/impeccable</a> 技能，负责把设计判断交给你的 AI；十八个命令，则分别把这套判断落实到具体动作上。每个命令只做一件事，而且都带着明确的审美立场。</p>
   </header>
 
   <section class="skills-overview-howto">
-    <h2 class="skills-overview-howto-title">How to pick one</h2>
-    <p>Skills are named after the intent you bring to them. Reviewing something? <a href="/skills/critique">/critique</a> or <a href="/skills/audit">/audit</a>. Fixing type? <a href="/skills/typeset">/typeset</a>. Last-mile pass before shipping? <a href="/skills/polish">/polish</a>. The categories below group skills by the job.</p>
+    <h2 class="skills-overview-howto-title">怎么选一个</h2>
+    <p>技能名基本就对应你当下的意图。想做评审，就用 <a href="/skills/critique">/critique</a> 或 <a href="/skills/audit">/audit</a>；想修排版，就用 <a href="/skills/typeset">/typeset</a>；准备上线前做最后一轮收尾，就用 <a href="/skills/polish">/polish</a>。下面这些分类，按“这次要解决什么问题”来帮你挑选。</p>
   </section>
 
   <div class="skills-overview-categories">
@@ -367,18 +382,18 @@ function renderAntiPatternsSidebar(grouped) {
     .map((section) => {
       const slug = slugify(section);
       const count = grouped.bySection[section].length;
-      return `        <li><a href="#section-${slug}"><span>${escapeHtml(section)}</span><span class="anti-patterns-sidebar-count">${count}</span></a></li>`;
+      return `        <li><a href="#section-${slug}"><span>${escapeHtml(getRuleSectionLabel(section))}</span><span class="anti-patterns-sidebar-count">${count}</span></a></li>`;
     })
     .join('\n');
 
   return `
-<aside class="skills-sidebar anti-patterns-sidebar" aria-label="Anti-pattern sections">
+<aside class="skills-sidebar anti-patterns-sidebar" aria-label="反模式章节">
   <button class="skills-sidebar-toggle" type="button" aria-expanded="false" aria-controls="anti-patterns-sidebar-inner">
-    <span class="skills-sidebar-toggle-label">Sections</span>
+    <span class="skills-sidebar-toggle-label">章节</span>
     <svg class="skills-sidebar-toggle-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
   </button>
   <div class="skills-sidebar-inner" id="anti-patterns-sidebar-inner">
-    <p class="skills-sidebar-label">Sections</p>
+    <p class="skills-sidebar-label">章节</p>
     <div class="skills-sidebar-group">
       <ul class="skills-sidebar-list anti-patterns-sidebar-list">
 ${entries}
@@ -392,12 +407,12 @@ ${entries}
  * Render one rule card inside the anti-patterns main column.
  */
 function renderRuleCard(rule) {
-  const categoryLabel = rule.category === 'slop' ? 'AI slop' : 'Quality';
+  const categoryLabel = rule.category === 'slop' ? 'AI slop' : '质量';
   const layer = rule.layer || 'cli';
   const layerLabel = LAYER_LABELS[layer] || layer;
   const layerTitle = LAYER_DESCRIPTIONS[layer] || '';
   const skillLink = rule.skillSection
-    ? `<a class="rule-card-skill-link" href="/skills/impeccable#${slugify(rule.skillSection)}">See in /impeccable</a>`
+    ? `<a class="rule-card-skill-link" href="/skills/impeccable#${slugify(rule.skillSection)}">去 /impeccable 看对应原则</a>`
     : '';
   const visual = rule.visual
     ? `<div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner">${rule.visual}</div></div>`
@@ -442,9 +457,9 @@ function renderTutorialsIndexMain(tutorials) {
   return `
 <div class="tutorials-content">
   <header class="sub-page-header">
-    <p class="sub-page-eyebrow">${tutorials.length} walk-throughs</p>
-    <h1 class="sub-page-title">Tutorials</h1>
-    <p class="sub-page-lede">Short, opinionated walk-throughs of the highest-leverage workflows. Each one takes around ten minutes and ends with something working in your project.</p>
+    <p class="sub-page-eyebrow">${tutorials.length} 篇教程</p>
+    <h1 class="sub-page-title">教程</h1>
+    <p class="sub-page-lede">这些简短但有立场的教程，覆盖了 Impeccable 里最值得优先掌握的高杠杆工作流。通常十分钟左右就能走完一遍，并在你的项目里拿到一个真正可用的结果。</p>
   </header>
 
   <div class="tutorial-cards">
@@ -466,7 +481,7 @@ function renderVisualModeMain() {
     (item) => `
       <a class="gallery-card" href="/antipattern-examples/${item.id}.html">
         <div class="gallery-card-thumb">
-          <img src="../antipattern-images/${item.id}.png" alt="${escapeAttr(item.title)} specimen" loading="lazy" width="540" height="540">
+          <img src="../antipattern-images/${item.id}.png" alt="${escapeAttr(item.title)} 示例" loading="lazy" width="540" height="540">
         </div>
         <div class="gallery-card-body">
           <h3 class="gallery-card-title">${escapeHtml(item.title)}</h3>
@@ -478,49 +493,49 @@ function renderVisualModeMain() {
   return `
 <div class="visual-mode-page">
   <header class="visual-mode-page-header">
-    <p class="sub-page-eyebrow">Live detection overlay</p>
-    <h1 class="sub-page-title">Visual Mode</h1>
-    <p class="sub-page-lede">See every anti-pattern flagged directly on the page. No screenshots, no JSON to map back to line numbers. The overlay draws an outline and a label on every element the detector catches, so you fix them in place.</p>
+    <p class="sub-page-eyebrow">实时检测覆盖层</p>
+    <h1 class="sub-page-title">可视模式</h1>
+    <p class="sub-page-lede">把每条反模式直接标在页面上看。你不需要再对着截图或 JSON 倒推具体位置；检测器会给命中的元素画出描边和标签，让你在原位就能判断、修改、复查。</p>
   </header>
 
-  <section class="visual-mode-demo-wrap" aria-label="Visual Mode demo">
+  <section class="visual-mode-demo-wrap" aria-label="可视模式演示">
     <div class="visual-mode-preview">
       <div class="visual-mode-preview-header">
         <span class="visual-mode-preview-dot red"></span>
         <span class="visual-mode-preview-dot yellow"></span>
         <span class="visual-mode-preview-dot green"></span>
-        <span class="visual-mode-preview-title">Live on a synthetic slop page</span>
+        <span class="visual-mode-preview-title">合成示例页上的实时覆盖层</span>
       </div>
-      <iframe src="/antipattern-examples/visual-mode-demo.html" class="visual-mode-frame" loading="lazy" title="Impeccable overlay running on a demo page"></iframe>
+      <iframe src="/antipattern-examples/visual-mode-demo.html" class="visual-mode-frame" loading="lazy" title="Impeccable 覆盖层演示"></iframe>
     </div>
-    <p class="visual-mode-demo-caption">Hover or tap any outlined element to see which rule fired.</p>
+    <p class="visual-mode-demo-caption">悬停或点按任意被框出的元素，就能看到具体触发了哪条规则。</p>
   </section>
 
-  <section class="visual-mode-methods" aria-label="Where to run Visual Mode">
-    <h2 class="visual-mode-methods-title">Three ways to run it</h2>
+  <section class="visual-mode-methods" aria-label="可视模式的使用方式">
+    <h2 class="visual-mode-methods-title">三种运行方式</h2>
     <div class="visual-mode-methods-grid">
       <article class="visual-mode-method">
-        <p class="visual-mode-method-label">Inside /critique</p>
+        <p class="visual-mode-method-label">集成在 /critique 里</p>
         <h3 class="visual-mode-method-name"><a href="/skills/critique">/critique</a></h3>
-        <p class="visual-mode-method-desc">The design review skill opens the overlay automatically during its browser assessment pass. You get the deterministic findings highlighted in place while the LLM runs its separate heuristic review.</p>
+        <p class="visual-mode-method-desc">设计评审技能在浏览器检查阶段会自动打开覆盖层。你会一边看到确定性检测结果被直接标在页面上，一边让 LLM 独立完成它的启发式评审。</p>
       </article>
       <article class="visual-mode-method">
-        <p class="visual-mode-method-label">Standalone CLI</p>
+        <p class="visual-mode-method-label">独立 CLI</p>
         <h3 class="visual-mode-method-name"><code>npx impeccable live</code></h3>
-        <p class="visual-mode-method-desc">Starts a local server that serves the detector script. Inject it into any page via a <code>&lt;script&gt;</code> tag to see the overlay. Works on your own dev server, a staging URL, or anyone's live page.</p>
+        <p class="visual-mode-method-desc">它会启动一个本地服务来提供检测脚本。把脚本通过 <code>&lt;script&gt;</code> 注入任意页面后，你就能看到覆盖层。无论是自己的开发环境、预发地址，还是线上页面，都能用。</p>
       </article>
       <article class="visual-mode-method">
-        <p class="visual-mode-method-label">Easiest</p>
-        <h3 class="visual-mode-method-name">Chrome extension</h3>
-        <p class="visual-mode-method-desc">One-click activation on any tab. <a href="https://chromewebstore.google.com/detail/impeccable/bdkgmiklpdmaojlpflclinlofgjfpabf" target="_blank" rel="noopener">Install from Chrome Web Store &rarr;</a></p>
+        <p class="visual-mode-method-label">最省事</p>
+        <h3 class="visual-mode-method-name">Chrome 扩展</h3>
+        <p class="visual-mode-method-desc">任意标签页一键开启。<a href="https://chromewebstore.google.com/detail/impeccable/bdkgmiklpdmaojlpflclinlofgjfpabf" target="_blank" rel="noopener">前往 Chrome Web Store 安装 &rarr;</a></p>
       </article>
     </div>
   </section>
 
-  <section class="visual-mode-gallery" id="try-it-live" aria-label="Try it on synthetic specimens">
+  <section class="visual-mode-gallery" id="try-it-live" aria-label="在合成示例页上体验">
     <header class="visual-mode-gallery-header">
-      <h2 class="visual-mode-gallery-title">Try it live</h2>
-      <p class="visual-mode-gallery-lede">These ${GALLERY_ITEMS.length} synthetic slop pages ship with the detector script baked in. Click any to see the overlay running on a real page, then scroll around and hover the outlined elements.</p>
+      <h2 class="visual-mode-gallery-title">直接上手试</h2>
+      <p class="visual-mode-gallery-lede">这 ${GALLERY_ITEMS.length} 个合成示例页都已经内置检测脚本。点开任意一个，就能在真实页面结构上看到覆盖层运行，再滚动、悬停，看看哪些元素被框出来。</p>
     </header>
     <div class="gallery-grid">
 ${specimenCards}
@@ -537,7 +552,7 @@ function renderTutorialDetail(tutorial, knownSkillIds) {
   return `
 <article class="tutorial-detail">
   <header class="tutorial-detail-header">
-    <p class="skill-detail-eyebrow"><a href="/tutorials">Tutorials</a> / ${String(tutorial.order).padStart(2, '0')}</p>
+    <p class="skill-detail-eyebrow"><a href="/tutorials">教程</a> / ${String(tutorial.order).padStart(2, '0')}</p>
     <h1 class="tutorial-detail-title">${escapeHtml(tutorial.title)}</h1>
     ${tutorial.tagline ? `<p class="tutorial-detail-tagline">${escapeHtml(tutorial.tagline)}</p>` : ''}
   </header>
@@ -560,8 +575,8 @@ function renderAntiPatternsMain(grouped, totalRules) {
     sectionsHtml += `
     <section class="anti-patterns-section" id="section-${slug}">
       <header class="anti-patterns-section-header">
-        <h2 class="anti-patterns-section-title">${escapeHtml(section)}</h2>
-        <p class="anti-patterns-section-count">${rules.length} ${rules.length === 1 ? 'rule' : 'rules'}</p>
+        <h2 class="anti-patterns-section-title">${escapeHtml(getRuleSectionLabel(section))}</h2>
+        <p class="anti-patterns-section-count">${rules.length} 条规则</p>
       </header>
       <div class="rule-card-grid">
 ${rules.map(renderRuleCard).join('\n')}
@@ -577,22 +592,22 @@ ${rules.map(renderRuleCard).join('\n')}
   return `
 <div class="anti-patterns-content">
   <header class="anti-patterns-header">
-    <p class="sub-page-eyebrow">${totalRules} rules</p>
-    <h1 class="sub-page-title">Anti-patterns</h1>
-    <p class="sub-page-lede">The full catalog of patterns <a href="/skills/impeccable">/impeccable</a> teaches against. ${detectedCount} are caught by a deterministic detector (<code>npx impeccable detect</code> or the browser extension). ${llmCount} can only be flagged by <a href="/skills/critique">/critique</a>'s LLM review pass. Want to see them live on real pages? Try <a href="/visual-mode">Visual Mode</a>.</p>
+    <p class="sub-page-eyebrow">${totalRules} 条规则</p>
+    <h1 class="sub-page-title">反模式</h1>
+    <p class="sub-page-lede">这里收录了 <a href="/skills/impeccable">/impeccable</a> 会明确反对的完整模式清单。其中 ${detectedCount} 条能被确定性检测器直接抓到，可通过 <code>npx impeccable detect</code> 或浏览器扩展运行；另外 ${llmCount} 条只能在 <a href="/skills/critique">/critique</a> 的 LLM 设计评审阶段识别。想看它们直接叠加在真实页面上的效果，可以去试试 <a href="/visual-mode">可视模式</a>。</p>
   </header>
 
   <details class="anti-patterns-legend">
     <summary class="anti-patterns-legend-summary">
-      <span class="anti-patterns-legend-title">How to read this</span>
+      <span class="anti-patterns-legend-title">怎么看这页</span>
       <svg class="anti-patterns-legend-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
     </summary>
     <div class="anti-patterns-legend-body">
-      <p><strong>AI slop</strong> rules flag the visible tells of AI-generated UIs. <strong>Quality</strong> rules flag general design mistakes that are not AI-specific but still hurt the work. Each rule also shows how it is detected:</p>
+      <p><strong>AI slop</strong> 规则会指出 AI 生成界面最容易露馅的外显痕迹；<strong>质量</strong> 规则则覆盖那些并非 AI 专属、但同样会伤害设计质量的常见错误。每条规则还会标出它是怎么被发现的：</p>
       <dl class="anti-patterns-legend-layers">
-        <div><dt><span class="rule-card-layer" data-layer="cli">CLI</span></dt><dd>Deterministic. Runs from <code>npx impeccable detect</code> on files, no browser required.</dd></div>
-        <div><dt><span class="rule-card-layer" data-layer="browser">Browser</span></dt><dd>Deterministic, but needs real browser layout. Runs via the browser extension or Puppeteer, not the plain CLI.</dd></div>
-        <div><dt><span class="rule-card-layer" data-layer="llm">LLM only</span></dt><dd>No deterministic detector. Caught by <a href="/skills/critique">/critique</a> during its LLM design review.</dd></div>
+        <div><dt><span class="rule-card-layer" data-layer="cli">CLI</span></dt><dd>确定性检测。直接用 <code>npx impeccable detect</code> 扫文件即可，不需要浏览器。</dd></div>
+        <div><dt><span class="rule-card-layer" data-layer="browser">浏览器</span></dt><dd>同样是确定性检测，但必须依赖真实浏览器布局。通常通过浏览器扩展或 Puppeteer 运行，而不是纯 CLI。</dd></div>
+        <div><dt><span class="rule-card-layer" data-layer="llm">仅 LLM</span></dt><dd>没有确定性检测器可抓，只能在 <a href="/skills/critique">/critique</a> 的 LLM 设计评审阶段发现。</dd></div>
       </dl>
     </div>
   </details>
@@ -631,9 +646,9 @@ export async function generateSubPages(rootDir) {
     const sidebar = renderDocsSidebar(data.skillsByCategory, data.tutorials, null);
     const main = renderSkillsOverviewMain(data.skillsByCategory);
     const html = renderPage({
-      title: 'Skills | Impeccable',
+      title: '技能 | Impeccable',
       description:
-        '18 commands that teach your AI harness how to design. Browse by category: create, evaluate, refine, simplify, harden.',
+        '18 个命令，帮助你的 AI 学会如何做设计。可按创建、评估、打磨、简化、补强来浏览。',
       bodyHtml: wrapInDocsLayout(sidebar, main),
       activeNav: 'docs',
       canonicalPath: '/skills',
@@ -669,8 +684,8 @@ export async function generateSubPages(rootDir) {
     const sidebar = renderAntiPatternsSidebar(grouped);
     const main = renderAntiPatternsMain(grouped, data.rules.length);
     const html = renderPage({
-      title: 'Anti-patterns | Impeccable',
-      description: `${data.rules.length} deterministic detection rules that flag the visible tells of AI-generated interfaces and common quality issues. Used by npx impeccable detect and the browser extension.`,
+      title: '反模式 | Impeccable',
+      description: `${data.rules.length} 条规则，覆盖 AI 生成界面的常见露馅痕迹与通用质量问题，可用于 npx impeccable detect 与浏览器扩展。`,
       bodyHtml: wrapInDocsLayout(sidebar, main),
       activeNav: 'anti-patterns',
       canonicalPath: '/anti-patterns',
@@ -686,8 +701,8 @@ export async function generateSubPages(rootDir) {
     const sidebar = renderDocsSidebar(data.skillsByCategory, data.tutorials, null);
     const main = renderTutorialsIndexMain(data.tutorials);
     const html = renderPage({
-      title: 'Tutorials | Impeccable',
-      description: `${data.tutorials.length} short, opinionated walk-throughs of the highest-leverage Impeccable workflows.`,
+      title: '教程 | Impeccable',
+      description: `${data.tutorials.length} 篇简短但有立场的教程，带你走通 Impeccable 里最值得先掌握的工作流。`,
       bodyHtml: wrapInDocsLayout(sidebar, main),
       activeNav: 'docs',
       canonicalPath: '/tutorials',
@@ -701,9 +716,9 @@ export async function generateSubPages(rootDir) {
   // Visual Mode: single standalone page, no sidebar, single-column layout.
   {
     const html = renderPage({
-      title: 'Visual Mode | Impeccable',
+      title: '可视模式 | Impeccable',
       description:
-        'See every anti-pattern flagged directly on the page. Live detection overlay from Impeccable, available via /critique, npx impeccable live, or the upcoming Chrome extension.',
+        '直接在页面上查看每条反模式命中位置。Impeccable 的实时检测覆盖层可通过 /critique、npx impeccable live 或 Chrome 扩展使用。',
       bodyHtml: renderVisualModeMain(),
       activeNav: 'visual-mode',
       canonicalPath: '/visual-mode',
@@ -719,7 +734,7 @@ export async function generateSubPages(rootDir) {
     const sidebar = renderDocsSidebar(data.skillsByCategory, data.tutorials, { kind: 'tutorial', slug: tutorial.slug });
     const main = renderTutorialDetail(tutorial, data.knownSkillIds);
     const html = renderPage({
-      title: `${tutorial.title} | Tutorials | Impeccable`,
+      title: `${tutorial.title} | 教程 | Impeccable`,
       description: tutorial.description || tutorial.tagline || '',
       bodyHtml: wrapInDocsLayout(sidebar, main),
       activeNav: 'docs',

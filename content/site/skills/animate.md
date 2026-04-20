@@ -1,42 +1,40 @@
 ---
-tagline: "Purposeful motion that conveys state, not decoration."
+tagline: "用有目的的动效传达状态，而不是只为了装饰。"
 ---
 
-## When to use it
+## 什么时候使用
 
-`/animate` is for interfaces that feel lifeless, where state changes are instant and jarring, where loading just pops in, where the user never quite trusts that their click registered. Use it to add the small motions that communicate what is happening: entrances, exits, feedback, transitions between states.
+`/animate` 适合那些“功能是对的，但反馈太死”的界面。状态切换突兀、加载像硬切、按钮点了像没点、元素出现和消失都没有铺垫时，就该让动效承担沟通职责。
 
-Do not use it to add bounces or elastic springs for the sake of energy. That is decoration, and this skill will not give it to you.
+它不是给页面随便加点“更炫的动画”。如果你只是想要弹跳、橡皮筋、乱飞的粒子，那不是这个技能要做的事。
 
-## How it works
+## 它是怎么工作的
 
-The skill identifies static moments that would benefit from motion, then applies them with strict discipline:
+这个技能会先找出哪些静态时刻应该通过运动来解释，再非常克制地补上它们：
 
-1. **Entrances and exits**: elements appear and leave with 200 to 300ms fades plus subtle Y or scale, never layout properties.
-2. **State feedback**: hover, active, focus, loading, success all communicate via motion instead of sudden swaps.
-3. **Transitions between views**: shared-element transitions where it makes sense, fade-through otherwise.
-4. **Progress and loading**: skeleton screens, determinate bars, motion that says "still working".
-5. **Reduced motion**: every animation has a `prefers-reduced-motion` fallback.
+1. **进入与离开**：元素出现或退出时，用轻微位移、透明度或缩放解释状态变化。
+2. **状态反馈**：hover、active、focus、loading、success 都应该有连贯反馈，而不是突然换样式。
+3. **视图切换**：该共享元素过渡的时候就共享，不适合的时候就安静地 fade-through。
+4. **进度与等待**：Skeleton、进度条、加载反馈，告诉用户“系统还在继续工作”。
+5. **降低动态**：所有动效都必须有 `prefers-reduced-motion` 兜底。
 
-Easing is always exponential (ease-out-quart, quint, or expo) because real objects decelerate smoothly. No bounce, no elastic, no linear for anything except progress indicators.
+它默认优先动画 `transform` 和 `opacity`，而不是 `width`、`height`、`top`、`left` 这些更容易引起抖动的属性。
 
-The skill animates `transform` and `opacity` only. If you find yourself animating `width`, `height`, `top`, or `left`, it is doing the wrong thing. Use `grid-template-rows` for height transitions.
-
-## Try it
+## 试一下
 
 ```
 /animate the sign-up flow
 ```
 
-Typical additions:
+常见改动包括：
 
-- Email input gets a focus glow on focus-visible (opacity + shadow, 180ms)
-- Submit button shows a spinner inside itself on loading state, not a separate spinner next to it
-- Success screen enters with opacity + translateY(8px), 260ms, ease-out-quart
-- Error message slides down with grid-template-rows (not height), 220ms
-- `@media (prefers-reduced-motion: reduce)` fallback for every transition
+- 输入框 focus 时出现柔和高亮，而不是生硬切换
+- 提交按钮加载时在按钮内部展示状态，不再额外挂一个 spinner
+- 成功页用轻微上移和透明度变化进入
+- 错误提示通过可控的展开动画出现，而不是瞬间顶开布局
+- 所有动效都补上 reduced-motion 降级方案
 
-## Pitfalls
+## 常见误区
 
-- **Asking for "more animation".** Animate is not a dial. It adds where motion communicates, not everywhere.
-- **Removing the reduced-motion fallbacks.** The skill adds them automatically. Non-negotiable for accessibility.
+- **把 animate 当成“多一点动画”按钮。** 它不是加法器，而是状态沟通工具。
+- **删掉 reduced-motion。** 这不是可选项，而是无障碍底线。

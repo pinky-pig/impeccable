@@ -1,30 +1,37 @@
 ---
-tagline: "Push an interface past conventional limits. Shaders, physics, 60fps, cinematic transitions."
+tagline: "把界面推到常规做法之上，用真正有技术野心的实现做出“这一段真的不一样”。"
 ---
 
-## When to use it
+## 什么时候使用
 
-`/overdrive` is for the moments where you want to impress. A hero that uses WebGL. A table that handles a million rows. A dialog that morphs out of its trigger element. A form that validates in real-time with streaming feedback. A page transition that feels cinematic. Use it when the project budget allows for technical ambition and the outcome needs to feel extraordinary.
+`/overdrive` 是留给少数关键时刻的。它适合那些你明确想做出“哇，这很不一样”的瞬间，比如超高帧率的大数据表格、带物理感的视图切换、WebGL 驱动的 hero、真正顺滑的复杂交互。
 
-Do not use it on operator tools, dashboards, or anything where reliability beats spectacle. Overdrive burns complexity for effect, and that trade-off is only worth it on moments that matter.
+它不该被用在每一页上。对工具型页面、后台、配置流程来说，可靠和清楚通常比炫更重要。
 
-## How it works
+## 它是怎么工作的
 
-The skill picks one moment to make extraordinary and commits to it, rather than spreading effort across the whole interface. It then reaches for techniques most AI-generated UIs never touch: WebGL shaders, spring physics, Scroll Timeline, View Transitions, canvas animation, GPU-accelerated filters. Everything is budgeted, profiled, and tested at 60fps, with reduced-motion fallbacks baked in.
+这个技能不会把整站都推到满功率，而是先挑一个最值得投入的时刻，然后把技术预算集中砸在这里：
 
-Overdrive output is announced with `──── ⚡ OVERDRIVE ────` so you know you are entering a more ambitious mode. Expect larger diffs, new dependencies, and implementation depth beyond what other skills produce.
+1. **先想方向**：至少比较两到三种不同的实现野心和观感路线。
+2. **再选手段**：根据目标决定是用 shader、scroll-driven reveal、spring physics、view transitions，还是高性能列表。
+3. **最后反复验证**：这类效果几乎不可能一次成型，必须靠实际预览和多轮微调收口。
 
-## Try it
+它追求的不是“更花”，而是“超出预期但仍然合理”。
+
+## 试一下
 
 ```
 /overdrive the landing hero
 ```
 
-One concrete run might replace a static hero with a WebGL shader background driven by mouse position, a display headline that reveals with a mask on scroll using the Scroll Timeline API, and a View Transition on the CTA that morphs into the next page. Plus a reduced-motion fallback that swaps all of it for a clean static composition.
+可能的结果包括：
 
-## Pitfalls
+- 一个真正跟鼠标或滚动同步的动态背景，而不是静态渐变
+- CTA 与下一个页面之间的形变过渡
+- 即便在高密度数据场景里也能保持 60fps 的交互反馈
 
-- **Using it everywhere.** Overdrive works because it is rare. If every page has cinematic moments, none of them are cinematic.
-- **Shipping without reduced-motion fallbacks.** Non-negotiable. Overdrive adds them automatically; do not remove them.
-- **Ignoring performance.** Extraordinary moments still need to hit 60fps. If the effect drops frames, cut it or optimize. Slow spectacle is worse than simple done well.
-- **Running overdrive before the base interface is solid.** Spectacle on a broken foundation reads as distraction, not delight.
+## 常见误区
+
+- **到处都 overdrive。** 一旦处处都想惊艳，就没有任何地方还会惊艳。
+- **忘了 reduced-motion。** 这是底线，不是可选项。
+- **基础都没打稳就上特效。** 地基不稳时，野心只会显得像遮羞布。

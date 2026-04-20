@@ -1,40 +1,40 @@
 ---
-tagline: "Tone down designs that are shouting without losing their intent."
+tagline: "把太吵、太猛、太用力的设计收回来，换成更克制但更高级的表达。"
 ---
 
-## When to use it
+## 什么时候使用
 
-`/quieter` is the counterweight to `/bolder`. Reach for it when an interface is visually aggressive, overstimulating, or trying to do too many things at full volume. Neon on dark, gradient text everywhere, 6 accent colors, everything animated, 20px shadows. Use quieter when the design needs to breathe and you want refinement without losing the point of view.
+`/quieter` 是 `/bolder` 的反向技能。它适合那些太满、太吵、太想证明自己很酷的界面：到处都是渐变、发光、重阴影、大动画、多强调色，看久了会累，第一眼就有压迫感。
 
-Also useful after `/bolder` goes a little too far.
+如果你已经觉得页面在“喊”，而不是在“说”，那就该让它安静一点。
 
-## How it works
+## 它是怎么工作的
 
-The skill works by reduction across four axes:
+这个技能会在不丢掉原有方向的前提下，系统性地降噪：
 
-1. **Color**: desaturate, lower chroma in OKLCH, pull accents back to a single primary plus muted support. No more than two intentional colors.
-2. **Contrast**: soften extreme darks and lights, pull the range in. Backgrounds move from pure white and pure black to paper and ink.
-3. **Decoration**: remove shadows that are not doing work, drop borders that are not carrying structure, retire gradients that exist for energy rather than hierarchy.
-4. **Motion and effect**: slow animations down, remove anything that auto-plays, drop parallax and blur unless they serve readability.
+1. **颜色**：降低饱和度，减少颜色数量，把强调色重新收束。
+2. **对比**：缓和纯黑纯白和过强明暗对撞，让画面更耐看。
+3. **装饰**：把不承担结构任务的阴影、渐变、边框、纹理都拿掉或减弱。
+4. **动效**：把多余的自动播放、过大位移、夸张缓动收回到更克制的状态。
 
-The skill preserves the design's intent. If the original had a point of view, the quieter version has the same point of view with more confidence. Refinement, not neutralization.
+它的目标不是把页面变无聊，而是让原本的立场显得更笃定、更成熟。
 
-## Try it
+## 试一下
 
 ```
 /quieter the pricing page
 ```
 
-Typical diff:
+常见结果包括：
 
-- Gradient text on the price removed, replaced with solid ink at one weight heavier
-- Three accent colors reduced to one (magenta), the other two become neutral variants
-- Card shadows reduced from `0 20px 40px rgba(0,0,0,0.2)` to `0 1px 0 var(--color-mist)` (a hairline)
-- Background switches from dark gradient to paper with a subtle cream wash at the top
-- Hero animation from 1.2s easeOut with 3 staggered elements to a single 260ms fade-in
+- 渐变标题回归纯色文字
+- 三四种强调色被压回到一主一辅
+- 大阴影收成发丝级层次
+- 背景从深色炫光改成更克制的纸色或轻微色洗
+- 动效从大开大合变成短促、顺滑的反馈
 
-## Pitfalls
+## 常见误区
 
-- **Over-applying.** Quieter can strip personality if you run it on something that was already measured. Use it when the design is too loud, not when it is correctly assertive.
-- **Confusing quieter with distill.** Quieter reduces intensity. Distill removes elements. They are different moves.
-- **Running it in response to a critique that says "too busy".** Busy usually means too many things, not too loud. Try `/distill` first.
+- **用得太狠。** 收得过头，就会把原本的个性也一起削没。
+- **把 quieter 和 distill 混起来。** 一个是降噪，一个是删东西，不是一回事。
+- **真正的问题是信息太多，却先去 quieter。** 忙乱往往先要靠 `/distill` 解决。

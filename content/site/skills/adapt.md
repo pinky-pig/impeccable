@@ -1,40 +1,40 @@
 ---
-tagline: "Make designs work across screens, devices, and contexts without amputating features."
+tagline: "让设计跨屏幕、设备与使用场景都成立，而不是一换环境就残缺。"
 ---
 
-## When to use it
+## 什么时候使用
 
-`/adapt` is for taking a design built for one context and making it work in another. Mobile from desktop, tablet from mobile, print from web, embedded from standalone, email from dashboard. Reach for it when the source design is solid but falls apart at other breakpoints, on touch, or in a different container.
+`/adapt` 适合那种“原设计本身没问题，但一换上下文就开始失灵”的场景。比如把桌面端改到手机，把手机改到平板，把网页改到打印版，或把完整页面塞进更小的嵌入容器。
 
-Not for building responsive from scratch. For that, start with `/impeccable` and shape the layout responsive-first. Adapt is for the "we never thought about mobile" backfill.
+它不是从零做响应式；那种情况应该先用 `/impeccable` 从一开始就按多端去塑形。`/adapt` 解决的是“之前根本没认真想过这个场景”的补课问题。
 
-## How it works
+## 它是怎么工作的
 
-The skill works through four dimensions of contextual fit:
+这个技能会从 4 个维度重新审视设计与上下文之间的匹配度：
 
-1. **Breakpoints and fluid layout**: collapse multi-column to single, adjust clamp ranges, introduce new breakpoints where the design genuinely breaks.
-2. **Touch targets**: minimum 44px hit areas, sufficient spacing between adjacent targets, larger tap zones than visual bounds where needed.
-3. **Navigation patterns**: desktop sidebars become mobile bottom nav or slide-outs, dense toolbars collapse into menus, hover states get touch equivalents.
-4. **Content priority**: decide what must be visible, what can collapse into disclosures, what can be removed entirely for that context.
+1. **断点与流式布局**：什么时候该从多栏收成单栏，什么时候该新增断点，什么时候要改 `clamp()` 范围。
+2. **触控目标**：是否满足 44px 触控面积，目标之间是否有足够间距，视觉尺寸和可点区域是否需要分离。
+3. **导航模式**：桌面侧栏是否要改成底部导航、抽屉或横向滚动；悬停交互是否都能找到触控替代。
+4. **内容优先级**：哪些内容必须露出，哪些可以折叠，哪些真的可以延后。
 
-The non-negotiable rule: adapt, do not amputate. Critical functionality cannot disappear on mobile just because it is inconvenient. Find a way to fit it, redesign the interaction, or reconsider whether it was really critical on desktop.
+最重要的一条原则是：**适配，不要阉割**。关键功能不能因为手机上“不太好摆”就直接消失。要么重做交互，要么重排结构，但不能假装那项能力不重要。
 
-## Try it
+## 试一下
 
 ```
 /adapt the settings page for mobile
 ```
 
-Expected changes:
+常见结果会像这样：
 
-- Three-column grid becomes single column with section headers acting as sticky dividers
-- Sidebar nav moves to a horizontal scroller above the content
-- Toggles gain 8px vertical padding so they meet 44px touch targets
-- Inline help text moves to tap-to-reveal, not hover
-- The "Danger zone" section expands fully on mobile instead of collapsing, because it contains irreversible actions and we want users to see them clearly
+- 三栏设置页改成单栏，标题变成吸顶分隔
+- 侧边导航改到内容区上方，用横向滚动承载
+- 开关控件增大垂直 padding，满足触控面积
+- 原本只在 hover 里出现的说明，改成点击展开
+- “危险操作”区在移动端保持完整展开，因为这里不该被藏起来
 
-## Pitfalls
+## 常见误区
 
-- **Amputating features.** If the mobile version hides things the desktop version can do, that is a regression, not an adaptation. Fight for the feature.
-- **Treating mobile as "smaller desktop".** Mobile is a different context: thumbs, interruption, short sessions. Adapt to the context, not to the viewport width.
-- **Skipping `/harden` afterward.** Responsive layouts reveal edge cases. Run hardening after adapt to catch the ones that only show up at 320px.
+- **把功能删掉当成适配。** 如果移动端失去了桌面端能做的关键动作，那不是优化，而是回退。
+- **把移动端当“小号桌面端”。** 这是完全不同的使用情境：拇指操作、碎片时间、随时被打断。
+- **适配完就收工。** 多端布局会暴露很多新的边界情况，最好再跑一遍 `/harden`。

@@ -86,19 +86,19 @@ export const LAYER_DESCRIPTIONS = {
  * rule card preview area (~100% wide, ~120px tall).
  */
 export const VISUAL_EXAMPLES = {
-  'side-tab': `<div style="background: #fff; border: 1px solid #e8e4df; border-left: 4px solid oklch(60% 0.22 265); border-radius: 6px; padding: 14px 16px; width: 220px; font-family: system-ui, sans-serif; font-size: 13px; color: #111;"><div style="font-weight: 600; margin-bottom: 4px;">Alert title</div><div style="color: #666; font-size: 12px;">Thick colored stripe on one side.</div></div>`,
+  'side-tab': `<div style="background: #fff; border: 1px solid #e8e4df; border-left: 4px solid oklch(60% 0.22 265); border-radius: 6px; padding: 14px 16px; width: 220px; font-family: system-ui, sans-serif; font-size: 13px; color: #111;"><div style="font-weight: 600; margin-bottom: 4px;">提示标题</div><div style="color: #666; font-size: 12px;">单侧出现厚重彩色边条。</div></div>`,
 
-  'border-accent-on-rounded': `<div style="background: #fff; border: 2px solid oklch(60% 0.22 290); border-radius: 16px; padding: 14px 18px; width: 220px; font-family: system-ui, sans-serif; font-size: 13px; color: #111;"><div style="font-weight: 600;">Rounded card</div><div style="color: #666; font-size: 12px;">Thick colored border clashes with the radius.</div></div>`,
+  'border-accent-on-rounded': `<div style="background: #fff; border: 2px solid oklch(60% 0.22 290); border-radius: 16px; padding: 14px 18px; width: 220px; font-family: system-ui, sans-serif; font-size: 13px; color: #111;"><div style="font-weight: 600;">圆角卡片</div><div style="color: #666; font-size: 12px;">厚边框会和圆角互相打架。</div></div>`,
 
-  'overused-font': `<div style="font-family: Inter, system-ui, sans-serif; font-size: 15px; color: #111; line-height: 1.4;"><div style="font-weight: 600; margin-bottom: 4px;">Just another Inter headline</div><div style="color: #555; font-size: 13px;">Every SaaS homepage looks like this.</div></div>`,
+  'overused-font': `<div style="font-family: Inter, system-ui, sans-serif; font-size: 15px; color: #111; line-height: 1.4;"><div style="font-weight: 600; margin-bottom: 4px;">又一个 Inter 标题</div><div style="color: #555; font-size: 13px;">很多 SaaS 首页都长这样。</div></div>`,
 
-  'single-font': `<div style="font-family: system-ui, sans-serif; font-size: 14px; color: #111;"><div style="font-size: 19px; font-weight: 600; margin-bottom: 6px;">Heading in the body font</div><div style="color: #555;">Body in the same font. No contrast. Flat.</div></div>`,
+  'single-font': `<div style="font-family: system-ui, sans-serif; font-size: 14px; color: #111;"><div style="font-size: 19px; font-weight: 600; margin-bottom: 6px;">标题和正文同一字体</div><div style="color: #555;">整页都一个字样，没有反差，也没有层级。</div></div>`,
 
   'flat-type-hierarchy': `<div style="font-family: system-ui, sans-serif; color: #111; line-height: 1.3;"><div style="font-size: 17px; font-weight: 600;">Heading</div><div style="font-size: 16px; font-weight: 500; margin: 2px 0;">Subheading</div><div style="font-size: 15px; color: #555;">Body text at almost the same size.</div></div>`,
 
-  'icon-tile-stack': `<div style="font-family: system-ui, sans-serif; color: #111;"><div style="width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, oklch(62% 0.22 265), oklch(70% 0.20 320)); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff; margin-bottom: 10px;">✦</div><div style="font-size: 14px; font-weight: 600; margin-bottom: 2px;">Feature name</div><div style="font-size: 12px; color: #666;">Rounded icon tile above heading.</div></div>`,
+  'icon-tile-stack': `<div style="font-family: system-ui, sans-serif; color: #111;"><div style="width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, oklch(62% 0.22 265), oklch(70% 0.20 320)); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff; margin-bottom: 10px;">✦</div><div style="font-size: 14px; font-weight: 600; margin-bottom: 2px;">功能名称</div><div style="font-size: 12px; color: #666;">标题上方再堆一个圆角图标砖块。</div></div>`,
 
-  'gradient-text': `<div style="font-family: system-ui, sans-serif;"><div style="font-size: 28px; font-weight: 700; background: linear-gradient(135deg, oklch(65% 0.25 320), oklch(60% 0.25 265)); -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1.1;">Build the Future</div><div style="font-size: 12px; color: #888; margin-top: 4px;">Gradient text kills scannability.</div></div>`,
+  'gradient-text': `<div style="font-family: system-ui, sans-serif;"><div style="font-size: 28px; font-weight: 700; background: linear-gradient(135deg, oklch(65% 0.25 320), oklch(60% 0.25 265)); -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1.1;">构建未来</div><div style="font-size: 12px; color: #888; margin-top: 4px;">渐变字会明显削弱扫读效率。</div></div>`,
 
   'ai-color-palette': `<div style="display: flex; gap: 6px;"><div style="width: 44px; height: 44px; border-radius: 6px; background: oklch(60% 0.22 265);"></div><div style="width: 44px; height: 44px; border-radius: 6px; background: oklch(62% 0.25 300);"></div><div style="width: 44px; height: 44px; border-radius: 6px; background: oklch(64% 0.25 340);"></div><div style="width: 44px; height: 44px; border-radius: 6px; background: oklch(70% 0.20 200);"></div></div>`,
 
@@ -112,7 +112,7 @@ export const VISUAL_EXAMPLES = {
 
   'bounce-easing': `<div style="font-family: system-ui, sans-serif; color: #111; display: flex; align-items: center; gap: 10px;"><div style="width: 36px; height: 36px; border-radius: 50%; background: oklch(65% 0.22 265); animation: bouncey 0.9s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;"></div><div style="font-size: 12px; color: #555;">Bounce + elastic easing feels dated.</div><style>@keyframes bouncey { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }</style></div>`,
 
-  'all-caps-body': `<div style="font-family: system-ui, sans-serif; color: #111; font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.5;">Long passages in uppercase are hard to read. We recognize words by their shape, which all-caps removes.</div>`,
+  'all-caps-body': `<div style="font-family: system-ui, sans-serif; color: #111; font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.5;">整段全大写会严重拖慢阅读，因为单词轮廓被抹平了。</div>`,
 
   'pure-black-white': `<div style="background: #ffffff; padding: 16px 18px; color: #000000; font-family: system-ui, sans-serif; font-size: 14px;"><div style="font-weight: 600; margin-bottom: 4px;">Pure black on pure white</div><div style="font-size: 12px; color: #000;">Neither exists in nature. Always tint.</div></div>`,
 
@@ -134,13 +134,13 @@ export const VISUAL_EXAMPLES = {
 
   'wide-tracking': `<div style="font-family: system-ui, sans-serif; font-size: 13px; color: #111; letter-spacing: 0.22em; max-width: 230px; line-height: 1.6;">Wide tracking on body text slows reading by breaking up natural character groupings.</div>`,
 
-  'line-length': `<div style="font-family: system-ui, sans-serif; font-size: 13px; color: #111; line-height: 1.55; max-width: 100%;">Paragraphs wider than roughly 75 characters per line become fatiguing because the eye has to track an excessive distance back to the start of the next line, losing its place.</div>`,
+  'line-length': `<div style="font-family: system-ui, sans-serif; font-size: 13px; color: #111; line-height: 1.55; max-width: 100%;">单行一旦超过大约 75 个字符，视线回扫距离就会太长，阅读会明显更累。</div>`,
 
   // ── LLM-only rule visuals ─────────────────────────────────────────
 
   'monospace-as-technical': `<div style="font-family: 'Courier New', monospace; color: #111;"><div style="font-size: 18px; font-weight: 700; margin-bottom: 6px;">TECHNICAL_TOOL</div><div style="font-size: 11px; color: #555;">Mono for "developer" vibes. Lazy.</div></div>`,
 
-  'dark-mode-default': `<div style="background: #0f1117; padding: 18px; border-radius: 8px; font-family: system-ui, sans-serif;"><div style="color: #e5e7eb; font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dark by default</div><div style="color: #9ca3af; font-size: 11px;">Defaulting to dark is a retreat from a decision.</div></div>`,
+  'dark-mode-default': `<div style="background: #0f1117; padding: 18px; border-radius: 8px; font-family: system-ui, sans-serif;"><div style="color: #e5e7eb; font-size: 14px; font-weight: 600; margin-bottom: 4px;">默认暗色</div><div style="color: #9ca3af; font-size: 11px;">默认上暗色，本质上是在回避设计判断。</div></div>`,
 
   'everything-in-cards': `<div style="background: #fff; border: 1px solid #e8e4df; border-radius: 8px; padding: 10px;"><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 6px; padding: 8px; font-family: system-ui, sans-serif; font-size: 12px; color: #111;"><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 4px; padding: 6px;">Title</div></div><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 6px; padding: 8px; margin-top: 6px; font-family: system-ui, sans-serif; font-size: 11px; color: #555;">Card around every single thing.</div></div>`,
 
@@ -148,19 +148,19 @@ export const VISUAL_EXAMPLES = {
 
   'hero-metric-layout': `<div style="font-family: system-ui, sans-serif; text-align: left;"><div style="font-size: 42px; font-weight: 800; background: linear-gradient(135deg, oklch(65% 0.25 265), oklch(65% 0.25 340)); -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1;">10M+</div><div style="font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px;">Active users</div><div style="display: flex; gap: 14px; margin-top: 10px; font-size: 10px; color: #555;"><span><strong>99.9%</strong> uptime</span><span><strong>200ms</strong> p50</span></div></div>`,
 
-  'glassmorphism': `<div style="position: relative; width: 100%; height: 100%; background: linear-gradient(135deg, oklch(70% 0.22 265), oklch(70% 0.25 340)); border-radius: 10px; overflow: hidden; display: flex; align-items: center; justify-content: center;"><div style="background: rgba(255,255,255,0.25); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.4); border-radius: 10px; padding: 14px 18px; color: #fff; font-family: system-ui, sans-serif; font-size: 12px; font-weight: 600; box-shadow: 0 8px 30px rgba(0,0,0,0.12);">Frosted glass card</div></div>`,
+  'glassmorphism': `<div style="position: relative; width: 100%; height: 100%; background: linear-gradient(135deg, oklch(70% 0.22 265), oklch(70% 0.25 340)); border-radius: 10px; overflow: hidden; display: flex; align-items: center; justify-content: center;"><div style="background: rgba(255,255,255,0.25); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.4); border-radius: 10px; padding: 14px 18px; color: #fff; font-family: system-ui, sans-serif; font-size: 12px; font-weight: 600; box-shadow: 0 8px 30px rgba(0,0,0,0.12);">磨砂玻璃卡片</div></div>`,
 
-  'sparkline-decoration': `<div style="background: #fff; border: 1px solid #e8e4df; border-radius: 8px; padding: 14px 16px; width: 220px; font-family: system-ui, sans-serif;"><div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;"><div><div style="font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 0.08em;">Revenue</div><div style="font-size: 20px; font-weight: 700; color: #111;">$42.1k</div></div><svg width="60" height="28" viewBox="0 0 60 28" style="flex-shrink: 0;"><polyline points="0,20 10,18 20,22 30,10 40,14 50,6 60,12" stroke="oklch(62% 0.22 265)" stroke-width="2" fill="none"/></svg></div><div style="font-size: 10px; color: #888;">Tiny chart, no real information.</div></div>`,
+  'sparkline-decoration': `<div style="background: #fff; border: 1px solid #e8e4df; border-radius: 8px; padding: 14px 16px; width: 220px; font-family: system-ui, sans-serif;"><div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;"><div><div style="font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 0.08em;">营收</div><div style="font-size: 20px; font-weight: 700; color: #111;">¥42.1k</div></div><svg width="60" height="28" viewBox="0 0 60 28" style="flex-shrink: 0;"><polyline points="0,20 10,18 20,22 30,10 40,14 50,6 60,12" stroke="oklch(62% 0.22 265)" stroke-width="2" fill="none"/></svg></div><div style="font-size: 10px; color: #888;">看着像图表，其实没传递多少信息。</div></div>`,
 
   'generic-drop-shadows': `<div style="display: flex; gap: 10px;"><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 10px; width: 70px; height: 70px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);"></div><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 10px; width: 70px; height: 70px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);"></div><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 10px; width: 70px; height: 70px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);"></div></div>`,
 
-  'modal-reflex': `<div style="position: relative; width: 100%; height: 100%; background: #f5f3ef; border-radius: 8px; overflow: hidden;"><div style="position: absolute; inset: 0; background: rgba(0,0,0,0.35);"></div><div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; border-radius: 8px; padding: 14px 18px; width: 200px; font-family: system-ui, sans-serif; box-shadow: 0 20px 60px rgba(0,0,0,0.2);"><div style="font-size: 13px; font-weight: 600; color: #111; margin-bottom: 4px;">Are you sure?</div><div style="font-size: 11px; color: #666; margin-bottom: 8px;">Really, truly sure about this?</div><div style="display: flex; gap: 6px; justify-content: flex-end;"><div style="background: #eee; color: #555; padding: 4px 8px; border-radius: 4px; font-size: 10px;">Cancel</div><div style="background: oklch(60% 0.22 265); color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 10px;">OK</div></div></div></div>`,
+  'modal-reflex': `<div style="position: relative; width: 100%; height: 100%; background: #f5f3ef; border-radius: 8px; overflow: hidden;"><div style="position: absolute; inset: 0; background: rgba(0,0,0,0.35);"></div><div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; border-radius: 8px; padding: 14px 18px; width: 200px; font-family: system-ui, sans-serif; box-shadow: 0 20px 60px rgba(0,0,0,0.2);"><div style="font-size: 13px; font-weight: 600; color: #111; margin-bottom: 4px;">确定要继续吗？</div><div style="font-size: 11px; color: #666; margin-bottom: 8px;">真的、真的要这样做？</div><div style="display: flex; gap: 6px; justify-content: flex-end;"><div style="background: #eee; color: #555; padding: 4px 8px; border-radius: 4px; font-size: 10px;">取消</div><div style="background: oklch(60% 0.22 265); color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 10px;">确定</div></div></div></div>`,
 
-  'every-button-primary': `<div style="display: flex; flex-direction: column; gap: 6px; font-family: system-ui, sans-serif;"><div style="display: flex; gap: 6px;"><button style="background: oklch(60% 0.22 265); color: #fff; border: none; border-radius: 5px; padding: 6px 12px; font-size: 11px; font-weight: 600;">Save</button><button style="background: oklch(60% 0.22 265); color: #fff; border: none; border-radius: 5px; padding: 6px 12px; font-size: 11px; font-weight: 600;">Cancel</button><button style="background: oklch(60% 0.22 265); color: #fff; border: none; border-radius: 5px; padding: 6px 12px; font-size: 11px; font-weight: 600;">Delete</button></div><div style="font-size: 10px; color: #888;">Every action shouts equally.</div></div>`,
+  'every-button-primary': `<div style="display: flex; flex-direction: column; gap: 6px; font-family: system-ui, sans-serif;"><div style="display: flex; gap: 6px;"><button style="background: oklch(60% 0.22 265); color: #fff; border: none; border-radius: 5px; padding: 6px 12px; font-size: 11px; font-weight: 600;">保存</button><button style="background: oklch(60% 0.22 265); color: #fff; border: none; border-radius: 5px; padding: 6px 12px; font-size: 11px; font-weight: 600;">取消</button><button style="background: oklch(60% 0.22 265); color: #fff; border: none; border-radius: 5px; padding: 6px 12px; font-size: 11px; font-weight: 600;">删除</button></div><div style="font-size: 10px; color: #888;">每个动作都在大喊自己最重要。</div></div>`,
 
-  'redundant-headers': `<div style="font-family: system-ui, sans-serif; color: #111; max-width: 230px;"><div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Overview</div><div style="font-size: 11px; color: #555; line-height: 1.5;">This is the overview section, which provides an overview of the overview.</div></div>`,
+  'redundant-headers': `<div style="font-family: system-ui, sans-serif; color: #111; max-width: 230px;"><div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">概览</div><div style="font-size: 11px; color: #555; line-height: 1.5;">这一段是概览区，用来继续解释前面那个“概览”标题。</div></div>`,
 
-  'mobile-amputation': `<div style="font-family: system-ui, sans-serif;"><div style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: #fff; border: 1px solid #e8e4df; border-radius: 6px; margin-bottom: 4px; font-size: 12px; color: #999; text-decoration: line-through;"><span>Export to CSV</span></div><div style="font-size: 10px; color: #888; margin-top: 4px;">"Not available on mobile."</div></div>`,
+  'mobile-amputation': `<div style="font-family: system-ui, sans-serif;"><div style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: #fff; border: 1px solid #e8e4df; border-radius: 6px; margin-bottom: 4px; font-size: 12px; color: #999; text-decoration: line-through;"><span>导出 CSV</span></div><div style="font-size: 10px; color: #888; margin-top: 4px;">“移动端暂不支持”。</div></div>`,
 };
 
 /**
@@ -257,97 +257,97 @@ export const LLM_ONLY_RULES = [
   {
     id: 'monospace-as-technical',
     category: 'slop',
-    name: 'Monospace as "technical" shorthand',
+    name: '把等宽字体当成“技术感”速记',
     description:
-      'Using a monospace typeface to signal "developer / technical" vibes. Reach for real type choices instead of a lazy stereotype.',
+      '靠等宽字体硬造“开发者 / 技术味”，本质上是在偷懒。真正的技术气质，应该通过更有判断的排版选择来建立。',
     skillSection: 'Typography',
   },
   {
     id: 'dark-mode-default',
     category: 'slop',
-    name: 'Defaulting to dark mode for "safety"',
+    name: '为了“保险”默认上暗色模式',
     description:
-      'Defaulting to light mode to be safe is the inverse of defaulting to dark mode to look cool. Either way you are retreating from a decision.',
+      '为了显得更酷而默认暗色，和为了求稳而默认浅色，其实都是在逃避真正的设计决定。',
     skillSection: 'Color & Contrast',
   },
   {
     id: 'everything-in-cards',
     category: 'slop',
-    name: 'Wrapping everything in cards',
+    name: '什么都往卡片里塞',
     description:
-      'Not every piece of content needs a bordered container. Spacing and alignment create visual grouping without the overhead of a card.',
+      '不是每一块内容都需要一个带边框的卡片。很多时候，间距和对齐就足以建立分组关系，没必要把页面塞满盒子。',
     skillSection: 'Layout & Space',
   },
   {
     id: 'identical-card-grids',
     category: 'slop',
-    name: 'Identical card grids',
+    name: '清一色卡片网格',
     description:
-      'Same-sized cards with icon + heading + text repeated endlessly. The default AI homepage layout.',
+      '同尺寸卡片里重复摆着图标、标题、说明文，这是 AI 首页最爱输出的默认排布之一。',
     skillSection: 'Layout & Space',
   },
   {
     id: 'hero-metric-layout',
     category: 'slop',
-    name: 'Hero metric layout',
+    name: 'Hero 指标模板',
     description:
-      'Big number, small label, three supporting stats, gradient accent. Used everywhere, trusted nowhere.',
+      '大数字、小标签、三条补充指标、再加一抹渐变强调，这种模板几乎哪里都见过，也因此很难再让人信服。',
     skillSection: 'Layout & Space',
   },
   {
     id: 'glassmorphism',
     category: 'slop',
-    name: 'Glassmorphism everywhere',
+    name: '到处都是玻璃拟态',
     description:
-      'Blur effects, glass cards, and glow borders used as decoration rather than to solve a real layering problem.',
+      '模糊、玻璃卡片和发光边框如果只是为了装饰，而不是为了解决真实的层级问题，就只会显得套路化。',
     skillSection: 'Visual Details',
   },
   {
     id: 'sparkline-decoration',
     category: 'slop',
-    name: 'Sparklines as decoration',
+    name: '把 sparkline 当装饰',
     description:
-      'Tiny charts that look sophisticated but convey no meaningful information. If the data matters, give it room.',
+      '小火花线看起来像是“有数据支撑”，但很多时候根本没有传递有效信息。真在意数据，就给它应有的空间。',
     skillSection: 'Visual Details',
   },
   {
     id: 'generic-drop-shadows',
     category: 'slop',
-    name: 'Rounded rectangles with generic drop shadows',
+    name: '圆角矩形配通用投影',
     description:
-      'The safest, most forgettable shape on the web. Could be the output of any AI. Commit to a stronger visual treatment.',
+      '这是网页里最安全、也最容易被忘掉的形状组合之一，几乎任何 AI 都能吐出这一版。要么更克制，要么更有判断，不要停在模板中间。',
     skillSection: 'Visual Details',
   },
   {
     id: 'modal-reflex',
     category: 'slop',
-    name: 'Reaching for modals by reflex',
+    name: '条件反射式地用弹窗',
     description:
-      'Modals interrupt the user and are lazy as a design default. Use them only when there is truly no better place for the interaction.',
+      '弹窗会打断用户，把它当默认解法其实是一种偷懒。只有在确实没有更合适承载位置时，才值得用。',
     skillSection: 'Visual Details',
   },
   {
     id: 'every-button-primary',
     category: 'quality',
-    name: 'Every button is a primary button',
+    name: '所有按钮都像主按钮',
     description:
-      'When every button looks equally important, nothing reads as the primary action. Use ghost buttons, text links, and secondary styles to build hierarchy.',
+      '当每个按钮看起来都一样重要时，真正的主动作反而会消失。需要通过幽灵按钮、文本链接和次级样式把优先级拉开。',
     skillSection: 'Interaction',
   },
   {
     id: 'redundant-headers',
     category: 'quality',
-    name: 'Redundant information',
+    name: '信息重复',
     description:
-      'Intros that restate the heading. Section labels that repeat the page title. Cards that echo their own caption. Make every word earn its place.',
+      '开头重复标题，分区标签又重复页面标题，卡片内容再把自己的 caption 说一遍。让每个词都真正承担作用，而不是互相复述。',
     skillSection: 'Interaction',
   },
   {
     id: 'mobile-amputation',
     category: 'quality',
-    name: 'Amputating features on mobile',
+    name: '在移动端阉割功能',
     description:
-      'Hiding critical functionality on mobile because it is inconvenient. Adapt the interface to the context, do not strip it.',
+      '因为实现麻烦，就在移动端把关键功能藏掉或砍掉，这不是适配，而是倒退。应该为新场景重做交互，而不是直接删能力。',
     skillSection: 'Responsive',
   },
 ];
