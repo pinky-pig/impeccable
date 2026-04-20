@@ -1,13 +1,14 @@
 ---
 name: adapt
 description: 让设计适配不同屏幕尺寸、设备、上下文或平台，覆盖断点、流式布局与触控目标。适用于响应式设计、移动端布局、断点调整、视口适配或跨设备兼容场景。
+version: 2.1.1
 ---
 
 Adapt existing designs to work effectively across different contexts - different screen sizes, devices, platforms, or use cases.
 
 ## MANDATORY PREPARATION
 
-Invoke /frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run /teach-impeccable first. Additionally gather: target platforms/devices and usage contexts.
+Invoke /impeccable — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run /impeccable teach first. Additionally gather: target platforms/devices and usage contexts.
 
 ---
 

@@ -1,6 +1,7 @@
 ---
 name: animate
 description: 审视某个功能，并通过有目的的动画、微交互与动效提升可用性和愉悦感。适用于添加动画、转场、微交互、动效设计、悬停效果或让界面更有生命力的场景。
+version: 2.1.1
 argument-hint: "[target]"
 ---
 
@@ -8,7 +9,7 @@ Analyze a feature and strategically add animations and micro-interactions that e
 
 ## MANDATORY PREPARATION
 
-Invoke $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run $teach-impeccable first. Additionally gather: performance constraints.
+Invoke $impeccable — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run $impeccable teach first. Additionally gather: performance constraints.
 
 ---
 

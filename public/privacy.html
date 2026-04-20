@@ -6,19 +6,47 @@
   <title>隐私说明 - Impeccable 中文站</title>
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/sub-pages.css">
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 680px; margin: 0 auto; padding: 2rem 1.5rem; line-height: 1.6; color: #1a1a1a; }
-    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
-    h2 { font-size: 1.2rem; margin-top: 2rem; }
-    .updated { color: #666; font-size: 0.9rem; margin-bottom: 2rem; }
-    a { color: #1a1a1a; }
-    .back { display: inline-block; margin-bottom: 2rem; font-size: 0.9rem; }
+    .privacy-content { max-width: 680px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    .privacy-content h1 { font-family: var(--font-display); font-size: 2.25rem; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+    .privacy-content h2 { font-size: 1.125rem; margin-top: 2rem; font-weight: 600; }
+    .privacy-content p, .privacy-content ul { color: var(--color-charcoal); margin-top: 0.5rem; }
+    .privacy-content ul { padding-left: 1.25rem; }
+    .privacy-content li { margin-top: 0.25rem; }
+    .privacy-content a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+    .privacy-content a:hover { color: var(--color-accent-hover); }
+    .privacy-content .updated { color: var(--color-ash); font-size: 0.875rem; margin-bottom: 2rem; font-style: italic; }
   </style>
 </head>
-<body>
-  <a href="/" class="back">&larr; 返回首页</a>
+<body class="sub-page">
+  <!-- site-header v1 -->
+  <header class="site-header" data-site-header>
+    <a href="/" class="site-header-brand" aria-label="Impeccable 首页">
+      <svg class="site-header-brand-logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1a1a1a"/><text x="16" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="500" fill="#f5f3ef" text-anchor="middle">/</text></svg>
+      <span class="site-header-brand-name">Impeccable</span>
+    </a>
+    <div class="site-header-right">
+      <nav class="site-header-nav" aria-label="主导航">
+        <a href="/" data-nav="home">首页</a>
+        <a href="/skills" data-nav="docs">文档</a>
+        <a href="/anti-patterns" data-nav="anti-patterns">反模式</a>
+        <a href="/visual-mode" data-nav="visual-mode">可视模式</a>
+      </nav>
+      <a href="https://github.com/pbakaus/impeccable" class="site-header-github" target="_blank" rel="noopener" aria-label="Impeccable GitHub 仓库，18k stars">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <span class="site-header-github-label">18k</span>
+        <svg class="site-header-github-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.76 6.36L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.24-.91L12 2z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main class="privacy-content">
   <h1>隐私说明</h1>
-  <p class="updated">最后更新：2026 年 4 月 2 日</p>
+  <p class="updated">最后更新：2026 年 4 月 6 日</p>
 
   <h2>Impeccable 是什么</h2>
   <p>Impeccable 是一组开源的 agent skills（文本文件），运行在你的本地 AI 编程工具里。skills 本身不会收集数据、不会主动发起网络请求，也不内置分析追踪。</p>
@@ -32,10 +60,22 @@
   <h2>Claude Code 插件</h2>
   <p>当以 Claude Code 插件形式安装时，Impeccable 完全运行在你的本地 Claude Code 会话中。数据不会发送到 Impeccable 的服务器。Claude Code 应用本身受 Anthropic 自己的隐私政策约束。</p>
 
+  <h2>Chrome 扩展</h2>
+  <p>Impeccable 的 Chrome DevTools 扩展完全在你的浏览器中运行。所有反模式检测都只在你当前查看的页面本地完成，不会把页面内容、URL 或检测结果发送到任何外部服务器。</p>
+  <p>扩展会使用 Chrome 内置的同步存储（<code>chrome.storage.sync</code>）保存你的规则偏好设置，也就是哪些检测项开启或关闭。这些设置会通过你的 Google 账号在不同 Chrome 实例之间同步。除此之外，不会额外存储或传输其他数据。</p>
+  <p>扩展需要以下权限：</p>
+  <ul>
+    <li><strong>activeTab / scripting</strong>：将检测脚本注入你当前检查的页面</li>
+    <li><strong>storage</strong>：保存你的规则偏好设置</li>
+    <li><strong>webNavigation</strong>：在你跳转到新页面后自动重新扫描</li>
+    <li><strong>Host permissions（全部 URL）</strong>：让检测器可以运行在你选择检查的任意网站上</li>
+  </ul>
+
   <h2>GitHub</h2>
   <p>项目源码托管在 GitHub 上。你与仓库的交互（issues、pull requests、stars 等）受 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub 隐私政策</a> 约束。</p>
 
-  <h2>联系</h2>
-  <p>如果你对这份说明有疑问，可以在 <a href="https://github.com/pbakaus/impeccable">GitHub</a> 上提交 issue。与原项目本身相关的隐私问题，也可以参考原作者公开的信息渠道。</p>
+  <h2>联系方式</h2>
+  <p>如果你对这份说明有任何问题，可以在 <a href="https://github.com/pbakaus/impeccable">GitHub</a> 提交 issue，或通过 <a href="https://x.com/pbakaus">@pbakaus</a> 联系作者。</p>
+  </main>
 </body>
 </html>

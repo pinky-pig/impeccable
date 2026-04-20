@@ -1,13 +1,14 @@
 ---
 name: clarify
 description: 改善不清晰的 UX 文案、错误提示、微文案、标签和说明，让界面更容易理解。适用于用户提到文案混乱、标签不清、报错难懂、说明难跟或想优化 UX 写作的场景。
+version: 2.1.1
 ---
 
 Identify and improve unclear, confusing, or poorly written interface text to make the product easier to understand and use.
 
 ## MANDATORY PREPARATION
 
-Invoke /frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run /teach-impeccable first. Additionally gather: audience technical level and users' mental state in context.
+Invoke /impeccable — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run /impeccable teach first. Additionally gather: audience technical level and users' mental state in context.
 
 ---
 

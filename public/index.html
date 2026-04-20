@@ -12,8 +12,8 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impeccable.style 中文 | AI 编程工具设计提示词与前端设计命令</title>
-  <meta name="description" content="Impeccable.style 中文版与中文整理站，提供 1 个设计 skill、20 个设计命令与精选反模式，覆盖 Cursor、Claude Code、Gemini CLI、Codex CLI、Copilot、Kiro、OpenCode、Pi 与 Trae。">
+  <title>Impeccable：给 AI 编程工具补上的设计升级</title>
+  <meta name="description" content="1 个核心 skill、18 个设计命令，以及精选的界面反模式，帮助 AI 产出更好的前端设计。支持 Cursor、Claude Code、Gemini CLI 与 Codex CLI。">
   <meta name="theme-color" content="#fafafa">
   <meta name="baidu-site-verification" content="codeva-OoJ1ZoXzyM" />
   <link rel="canonical" href="https://www.impeccable.cn/">
@@ -21,26 +21,17 @@
   <!-- OpenGraph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.impeccable.cn/">
-  <meta property="og:site_name" content="Impeccable">
-  <meta property="og:title" content="Impeccable.style 中文">
-  <meta property="og:description" content="Impeccable.style 中文翻译整理，涵盖 1 个设计 skill、20 个命令与精选反模式，面向主流 AI 编程工具。">
+  <meta property="og:title" content="Impeccable：面向 AI 编程工具的设计技能包">
+  <meta property="og:description" content="1 个核心 skill、18 个设计命令，以及精选的界面反模式，帮助 AI 产出更好的前端设计。">
   <meta property="og:image" content="https://www.impeccable.cn/og-image.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Impeccable.style 中文">
-  <meta name="twitter:description" content="Impeccable.style 中文翻译整理，涵盖 1 个设计 skill、20 个命令与精选反模式。">
+  <meta name="twitter:site" content="@pbakaus">
+  <meta name="twitter:creator" content="@pbakaus">
+  <meta name="twitter:title" content="Impeccable：面向 AI 编程工具的设计技能包">
+  <meta name="twitter:description" content="1 个核心 skill、18 个设计命令，以及精选的界面反模式。">
   <meta name="twitter:image" content="https://www.impeccable.cn/og-image.jpg">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Impeccable",
-      "alternateName": "Impeccable.style 中文版",
-      "url": "https://www.impeccable.cn/",
-      "description": "Impeccable.style 中文翻译整理站，提供 AI 编程工具设计提示词、前端设计命令、20 个设计命令与精选反模式。"
-    }
-  </script>
 
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
@@ -48,46 +39,65 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="728f2b18-ab02-4357-abfd-97c937e68377"></script>
-  
+  <link rel="stylesheet" href="./css/sub-pages.css">
+
   </head>
 <body>
   <!-- Skip to main content link for keyboard users -->
-  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <a href="#main-content" class="skip-link">跳到主要内容</a>
 
   <!-- Grain Overlay -->
   <div class="grain-overlay" aria-hidden="true"></div>
 
+  <!-- site-header v1 -->
+  <header class="site-header" data-site-header>
+    <a href="/" class="site-header-brand" aria-label="Impeccable 首页">
+      <svg class="site-header-brand-logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1a1a1a"/><text x="16" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="500" fill="#f5f3ef" text-anchor="middle">/</text></svg>
+      <span class="site-header-brand-name">Impeccable</span>
+    </a>
+    <div class="site-header-right">
+      <nav class="site-header-nav" aria-label="主导航">
+        <a href="/" data-nav="home" aria-current="page">首页</a>
+        <a href="/skills" data-nav="docs">文档</a>
+        <a href="/anti-patterns" data-nav="anti-patterns">反模式</a>
+        <a href="/visual-mode" data-nav="visual-mode">可视模式</a>
+      </nav>
+      <a href="https://github.com/pbakaus/impeccable" class="site-header-github" target="_blank" rel="noopener" aria-label="Impeccable GitHub 仓库，18k stars">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <span class="site-header-github-label">18k</span>
+        <svg class="site-header-github-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.76 6.36L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.24-.91L12 2z"/></svg>
+      </a>
+    </div>
+  </header>
+
   <!-- Sticky Section Nav -->
-  <nav class="section-nav" id="section-nav" aria-label="页面分区">
-    <a href="#antidote" class="section-nav-item" data-section="antidote"><span class="section-nav-num">01</span><span class="section-nav-label">反模式</span></a>
-    <a href="#solution" class="section-nav-item" data-section="solution"><span class="section-nav-num">02</span><span class="section-nav-label">框架</span></a>
-    <a href="#commands-section" class="section-nav-item" data-section="commands-section"><span class="section-nav-num">03</span><span class="section-nav-label">命令</span></a>
-    <a href="#downloads" class="section-nav-item" data-section="downloads"><span class="section-nav-num">04</span><span class="section-nav-label">安装</span></a>
-    <a href="#changelog" class="section-nav-item" data-section="changelog"><span class="section-nav-num">05</span><span class="section-nav-label">更新</span></a>
-    <a href="#faq" class="section-nav-item" data-section="faq"><span class="section-nav-num">06</span><span class="section-nav-label">FAQ</span></a>
+  <nav class="section-nav" id="section-nav" aria-label="页面章节">
+    <a href="#foundation" class="section-nav-item" data-section="foundation"><span class="section-nav-num">01</span><span class="section-nav-label">基础</span></a>
+    <a href="#language" class="section-nav-item" data-section="language"><span class="section-nav-num">02</span><span class="section-nav-label">语言</span></a>
+    <a href="#antidote" class="section-nav-item" data-section="antidote"><span class="section-nav-num">03</span><span class="section-nav-label">解药</span></a>
+    <a href="#visual-mode" class="section-nav-item" data-section="visual-mode"><span class="section-nav-num">04</span><span class="section-nav-label">可视</span></a>
+    <a href="#downloads" class="section-nav-item" data-section="downloads"><span class="section-nav-num">05</span><span class="section-nav-label">安装</span></a>
+    <a href="#changelog" class="section-nav-item" data-section="changelog"><span class="section-nav-num">06</span><span class="section-nav-label">更新</span></a>
+    <a href="#faq" class="section-nav-item" data-section="faq"><span class="section-nav-num">07</span><span class="section-nav-label">问答</span></a>
   </nav>
 
   <!-- 1. HERO - Combined with Problem Section -->
   <section id="hero" class="hero-combined">
-    <a href="https://github.com/pbakaus/impeccable" class="github-link" aria-label="在 GitHub 查看">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-      <span class="github-stars">13.3k</span>
-    </a>
     <div class="hero-combined-container">
       <!-- Left: Title & Info -->
       <div class="hero-combined-left">
         <h1 class="hero-title-combined">Impeccable</h1>
         <p class="hero-tagline-combined">给 AI 编程工具补上设计表达能力</p>
 
-        <p class="hero-hook-text">优秀的设计提示词，前提是你得先会说设计语言。大多数人并不会。假如你从没用过“纵向节奏”这样的说法，就不可能要求模型“把纵向节奏做得更好”。Impeccable 把设计师常用的话语体系，直接变成你手里的命令。</p>
+        <p class="hero-hook-text hero-hook-text--full">真正好的设计提示词，背后需要足够精确的设计语言。大多数人没有这套词汇。Impeccable 会把深层设计知识交给你的 AI，并提供 18 个命令来精准引导结果。</p>
+        <p class="hero-hook-text hero-hook-text--short">Impeccable 让你的 AI 学会真正的设计，并给你 18 个命令来引导结果。</p>
 
         <div class="hero-included-box">
           <span class="hero-included-title">包含内容</span>
           <div class="hero-included-items">
-            <span>增强版 <em>frontend-design</em> skill + 反模式库</span>
+            <span>增强版 <em>impeccable</em> skill + 反模式体系</span>
             <span class="hero-included-sep">·</span>
-            <span>20 个设计命令：/polish、/audit、/typeset、/overdrive……</span>
+            <span>18 个设计命令：/polish、/audit、/typeset、/overdrive…</span>
           </div>
         </div>
 
@@ -108,7 +118,7 @@
             </div>
           </div>
         </div>
-        <p class="hero-version-link"><a href="#changelog">v1.6.0：新增 Trae 支持，强化 /critique 与 /audit 评分机制，并重构构建系统</a></p>
+        <p class="hero-version-link"><a href="#changelog">v2.1：从 21 个命令收敛到 18 个</a></p>
       </div>
 
       <!-- Right: Before/After Demo -->
@@ -131,9 +141,9 @@
               </div>
               <!-- Callout labels pointing to issues -->
               <div class="slop-callouts">
-                <span class="slop-callout" data-point="font">又是 Inter</span>
+                <span class="slop-callout" data-point="font">Inter 字体</span>
                 <span class="slop-callout" data-point="gradient">紫色渐变</span>
-                <span class="slop-callout" data-point="copy">空洞套话</span>
+                <span class="slop-callout" data-point="copy">泛化文案</span>
                 <span class="slop-callout" data-point="rounded">卡片套卡片</span>
               </div>
             </div>
@@ -141,10 +151,10 @@
             <div class="split-after">
               <span class="split-badge split-badge--after">改造后</span>
               <div class="impeccable-card">
-                <p class="impeccable-eyebrow">现在发布</p>
-                <h3 class="impeccable-title">更有判断力的设计</h3>
-                <p class="impeccable-body">每个元素都有理由存在。层级引导视线。留白让内容真正呼吸。</p>
-                <button class="impeccable-button">查看详情</button>
+                <p class="impeccable-eyebrow">设计升级</p>
+                <p class="impeccable-title">有判断的界面</p>
+                <p class="impeccable-body">每个元素都有理由存在，层级自然引导视线，留白也真正参与表达。</p>
+                <button class="impeccable-button">继续查看</button>
               </div>
             </div>
             <!-- The Divider -->
@@ -167,81 +177,169 @@
 
   <main class="site-content" id="main-content">
 
-    <!-- 2. THE ANTIDOTE - Patterns & Anti-Patterns -->
-    <section class="antidote-section" id="antidote">
+    <!-- 01. THE FOUNDATION - Design knowledge -->
+    <section class="foundation-section" id="foundation">
       <div class="section-header" data-reveal>
         <span class="section-number">01</span>
-        <h2 class="section-title">解药</h2>
+        <h2 class="section-title">基础能力</h2>
       </div>
-      <div class="antidote-content">
-        <p class="section-lead" data-reveal>Anthropic 原版的 frontend-design skill 打下了基础。Impeccable 在其之上补充了精心整理的模式与反模式，覆盖排版、色彩、布局、动效等多个维度。</p>
+      <div class="foundation-content">
+        <p class="section-lead" data-reveal>在命令和检测之前，Impeccable 先让你的 AI 学会真正的设计。7 个维度的深层参考知识，会在每次写代码时一起加载。</p>
 
-        <!-- Patterns by category with tabs -->
-        <div class="patterns-categories" id="patterns-categories">
-          <!-- Rendered by JS -->
+        <div class="foundation-grid" data-reveal>
+          <!-- 7 dimension cards, rendered by JS -->
         </div>
 
-        <p class="contribute-inline">发现还缺内容？<a href="https://github.com/pbakaus/impeccable/issues/new?labels=pattern&title=Pattern%20suggestion%3A%20">提交一个模式建议 &rarr;</a></p>
+        <div class="foundation-cta" data-reveal>
+          <p class="foundation-cta-text">先运行一次 <code><span class="foundation-slash">/</span>impeccable teach</code>，把项目的设计上下文建立起来。之后每个命令都会受益。</p>
+        </div>
       </div>
     </section>
 
-    <!-- 3. THE SOLUTION - Two-part system -->
-    <section class="solution-section" id="solution">
+    <!-- 02. THE LANGUAGE - Commands vocabulary + demos -->
+    <section class="language-section" id="language">
+      <div id="solution" style="height:0;overflow:hidden;visibility:hidden"></div>
       <div class="section-header" data-reveal>
         <span class="section-number">02</span>
-        <h2 class="section-title">框架</h2>
+        <h2 class="section-title">设计语言</h2>
       </div>
-      <div class="solution-content">
-        <p class="section-lead" data-reveal>一个具备深度知识的综合 skill，再配上 20 个命令，组成一整套可操作的设计语言。</p>
+      <div class="language-content">
+        <p class="section-lead" data-reveal>18 个命令构成了你和 AI 之间共享的设计词汇表。每个命令都承载一个明确的设计学科，让你能更精准地引导结果。</p>
 
         <div class="solution-visual-interactive" id="framework-viz-container" data-reveal>
-          <!-- Subway map generated by JS -->
+          <!-- Periodic table generated by JS -->
         </div>
 
+        <div id="commands-section" style="height:0;overflow:hidden;visibility:hidden"></div>
+
+        <div class="commands-subsection">
+          <div class="commands-header" data-reveal>
+            <p class="commands-header-subtitle">点任意命令，看看它具体如何工作。<a href="/cheatsheet" class="cheatsheet-link">查看速查表 &rarr;</a></p>
+          </div>
+          <div class="commands-gallery">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- 4. COMMANDS - Glass Terminal -->
-    <section class="commands-section" id="commands-section">
+    <!-- 03. THE ANTIDOTE - Anti-patterns -->
+    <section class="antidote-section" id="antidote">
       <div class="section-header" data-reveal>
         <span class="section-number">03</span>
-        <h2 class="section-title">命令实际效果</h2>
-        <p class="section-subtitle">看看这些命令到底怎么工作 <a href="/cheatsheet" class="cheatsheet-link">查看速查表 &rarr;</a></p>
+        <h2 class="section-title">反模式解药</h2>
       </div>
+      <div class="antidote-content">
+        <p class="section-lead" data-reveal>几乎所有 AI 模型都从相似的模板里学到了相似的界面习惯。没有干预时，它们会反复犯同一种错误。Impeccable 会把这些问题命名出来、检测出来，再教 AI 主动避开。</p>
 
-      <div class="commands-gallery">
-          <!-- Rendered by JS -->
+        <!-- Patterns + Gallery side by side -->
+        <div class="antidote-row" data-reveal>
+          <div class="patterns-tabbed" id="patterns-categories">
+            <!-- Rendered by JS -->
+          </div>
+
+          <div class="gallery-stack-container">
+            <div class="gallery-stack-header">
+              <h3 class="gallery-stack-title">反面案例集</h3>
+              <button class="gallery-stack-btn gallery-stack-prev" aria-label="上一张">&larr;</button>
+              <button class="gallery-stack-btn gallery-stack-next" aria-label="下一张">&rarr;</button>
+            </div>
+            <div class="gallery-stack" id="gallery-stack">
+              <a href="/antipattern-examples/purple-gradients.html" class="gallery-stack-card">
+                <img src="antipattern-images/purple-gradients.png" alt="紫色渐变界面" loading="lazy">
+                <span class="gallery-stack-label">紫色渐变泛滥</span>
+              </a>
+              <a href="/antipattern-examples/thick-border-cards.html" class="gallery-stack-card">
+                <img src="antipattern-images/thick-border-cards.png" alt="厚边强调卡片" loading="lazy">
+                <span class="gallery-stack-label">侧条卡片</span>
+              </a>
+              <a href="/antipattern-examples/cardocalypse.html" class="gallery-stack-card">
+                <img src="antipattern-images/cardocalypse.png" alt="卡片套卡片" loading="lazy">
+                <span class="gallery-stack-label">Cardocalypse</span>
+              </a>
+              <a href="/antipattern-examples/inter-everywhere.html" class="gallery-stack-card">
+                <img src="antipattern-images/inter-everywhere.png" alt="到处都是 Inter 字体" loading="lazy">
+                <span class="gallery-stack-label">Inter 到处都是</span>
+              </a>
+              <a href="/antipattern-examples/layout-templates.html" class="gallery-stack-card">
+                <img src="antipattern-images/layout-templates.png" alt="模板化布局" loading="lazy">
+                <span class="gallery-stack-label">模板式布局</span>
+              </a>
+              <a href="/antipattern-examples/bad-contrast.html" class="gallery-stack-card">
+                <img src="antipattern-images/bad-contrast.png" alt="低对比度文本" loading="lazy">
+                <span class="gallery-stack-label">糟糕对比度</span>
+              </a>
+            </div>
+            <a href="/visual-mode#try-it-live" class="gallery-stack-link">查看完整案例库 &rarr;</a>
+          </div>
+        </div>
+
+        <div class="antidote-footer" data-reveal>
+          <a href="https://github.com/pbakaus/impeccable/issues/new?labels=pattern&title=Pattern%20suggestion%3A%20" class="antidote-suggest-link">提交反模式建议 &rarr;</a>
+        </div>
       </div>
     </section>
 
-
-    <!-- 5. INSTALL -->
-    <section class="platforms-section" id="downloads">
+    <!-- 04. VISUAL MODE - Browser overlay -->
+    <section class="visual-mode-section" id="visual-mode">
       <div class="section-header" data-reveal>
         <span class="section-number">04</span>
-        <h2 class="section-title">安装</h2>
-        <p class="section-subtitle">两步上手 Impeccable。</p>
+        <h2 class="section-title">可视模式</h2>
+      </div>
+      <div class="visual-mode-content">
+        <p class="section-lead" data-reveal>直接在页面上高亮设计问题，不需要截图，也不用靠猜。Impeccable 的覆盖层会明确告诉你哪里有问题、问题是什么。</p>
+
+        <div class="visual-mode-demo" data-reveal>
+          <div class="visual-mode-preview">
+            <div class="visual-mode-preview-header">
+              <span class="visual-mode-preview-dot red"></span>
+              <span class="visual-mode-preview-dot yellow"></span>
+              <span class="visual-mode-preview-dot green"></span>
+              <span class="visual-mode-preview-title">实时检测覆盖层</span>
+            </div>
+            <iframe src="/antipattern-examples/visual-mode-demo.html" class="visual-mode-iframe" loading="lazy" title="反模式检测覆盖层演示"></iframe>
+          </div>
+          <div class="visual-mode-details">
+            <div class="visual-mode-feature">
+              <span class="visual-mode-feature-label">25 条确定性规则</span>
+              <p>不需要 LLM。单靠模式匹配就能抓出紫色渐变、过度使用的字体、卡片嵌套、低对比度等问题。</p>
+            </div>
+            <div class="visual-mode-feature">
+              <span class="visual-mode-feature-label">三种使用方式</span>
+              <p>你可以在任意网站上用 <strong>Chrome 扩展</strong>，也可以在 AI 设计评审时通过 <code>/critique</code> 嵌入使用，或者直接运行 <code>npx impeccable live</code> 独立启用。</p>
+            </div>
+            <a href="https://chromewebstore.google.com/detail/impeccable/bdkgmiklpdmaojlpflclinlofgjfpabf" class="detection-callout" target="_blank" rel="noopener">
+              <img src="assets/extension-detection.png" alt="Impeccable Chrome 扩展面板，列出检测到的反模式" class="detection-callout-image" loading="lazy" width="600" height="508">
+              <div class="detection-callout-inner">
+                <span class="detection-eyebrow">现已可用</span>
+                <span class="detection-callout-title">Chrome 扩展</span>
+                <span class="detection-cmd">前往 Chrome Web Store 安装 &rarr;</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05. GET STARTED -->
+    <section class="platforms-section" id="downloads">
+      <div class="section-header" data-reveal>
+        <span class="section-number">05</span>
+        <h2 class="section-title">开始使用</h2>
       </div>
 
-      <div class="install-steps">
-        <!-- Step 1: Install -->
-        <div class="install-step" data-reveal>
-          <div class="install-step-header">
-            <span class="install-step-number">1</span>
-            <div class="install-step-meta">
-              <h3 class="install-step-title">安装技能</h3>
-              <p class="install-step-desc">一条命令，覆盖多个 provider。</p>
-            </div>
-          </div>
+      <!-- Row 1: Primary install (full width, white card with internal 2-col split) -->
+      <div class="install-row-primary" data-reveal>
+        <div class="install-primary-main">
+          <h3 class="install-path-title"><span class="install-path-step">1</span>安装技能包 <span class="install-path-badge">推荐</span></h3>
+          <p class="install-path-desc">18 个命令，实时把你的 AI 拉向更好的设计结果。这是最完整的 Impeccable 使用方式。</p>
 
-          <!-- Primary: npx command -->
-          <div class="install-terminal">
+          <div class="install-path-terminal">
             <div class="glass-terminal">
               <div class="terminal-header">
                 <span class="terminal-dot red"></span>
                 <span class="terminal-dot yellow"></span>
                 <span class="terminal-dot green"></span>
-                <span class="terminal-title">install</span>
               </div>
               <div class="terminal-body">
                 <div class="install-terminal-row">
@@ -255,111 +353,192 @@
                       </svg>
                     </button>
                   </div>
-                  <span class="install-terminal-note">支持 Cursor、Claude Code、Gemini CLI、Codex CLI 等工具，并会自动识别你的 AI harness。</span>
+                  <span class="install-terminal-note">支持 Cursor、Claude Code、Gemini CLI、Codex CLI 等多种工具。</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Alternatives (collapsible) -->
-          <details class="install-alternatives">
-            <summary class="install-alternatives-toggle">其他安装方式</summary>
-            <div class="install-alternatives-content">
-              <div class="install-alt-method">
-                <span class="install-alt-label">Claude Code 插件</span>
-                <div class="install-terminal-cmd">
-                  <span class="terminal-prompt">$</span>
-                  <code>/plugin marketplace add pbakaus/impeccable</code>
-                  <button class="copy-btn" aria-label="复制命令" data-copy="/plugin marketplace add pbakaus/impeccable">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                      <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
-                    </svg>
-                  </button>
-                </div>
-                <span class="install-alt-note">然后打开 <code>/plugin</code>，在 Discover 标签页中完成安装</span>
-              </div>
-              <div class="install-alt-divider"></div>
-              <div class="install-alt-method">
-                <span class="install-alt-label">手动下载</span>
-                <span class="install-alt-note">包含所有 provider 目录。解压到项目根目录即可。</span>
-                <div class="install-prefix-options">
-                  <label class="install-prefix-option" data-prefix="default">
-                    <input type="radio" name="prefix-choice" value="default" checked />
-                    <div class="install-prefix-option-content">
-                      <span class="install-prefix-option-label">默认名称</span>
-                      <span class="install-prefix-option-examples"><code>/polish</code> <code>/audit</code> <code>/typeset</code></span>
-                    </div>
-                  </label>
-                  <div class="install-prefix-option-wrap">
-                    <label class="install-prefix-option" data-prefix="prefixed">
-                      <input type="radio" name="prefix-choice" value="prefixed" />
-                      <div class="install-prefix-option-content">
-                      <span class="install-prefix-option-label">带 <code>/i-</code> 前缀</span>
-                        <span class="install-prefix-option-examples"><code>/i-polish</code> <code>/i-audit</code> <code>/i-typeset</code></span>
-                      </div>
-                    </label>
-                    <span class="install-prefix-reason">可避免和内置命令或其他 skill 包发生命名冲突</span>
-                  </div>
-                </div>
-                <div class="install-alt-download">
-                  <button class="btn btn-primary" data-bundle="universal" aria-label="下载通用 zip" id="download-zip-btn">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-                    </svg>
-                    <span>下载通用 ZIP</span>
-                  </button>
-                </div>
-                <input type="checkbox" id="prefix-toggle" class="sr-only" />
-              </div>
-            </div>
-          </details>
+          <div class="install-path-next">
+            然后运行 <code><span class="install-path-slash">/</span>impeccable teach</code>，为项目建立设计上下文。
+          </div>
         </div>
 
-        <!-- Step 2: Subscribe -->
-        <div class="install-step" data-reveal>
-          <div class="install-step-header">
-            <span class="install-step-number">2</span>
-            <div class="install-step-meta">
-              <h3 class="install-step-title">保持更新</h3>
-              <p class="install-step-desc">接收新技能、模式更新和设计建议。</p>
+        <!-- Other install methods -->
+        <div class="install-primary-alts">
+          <span class="install-alts-label">其他安装方式</span>
+
+          <div class="install-alt-method">
+            <span class="install-alt-label">Claude Code plugin</span>
+            <div class="install-terminal-cmd">
+              <span class="terminal-prompt">$</span>
+              <code>/plugin marketplace add pbakaus/impeccable</code>
+              <button class="copy-btn" aria-label="复制命令" data-copy="/plugin marketplace add pbakaus/impeccable">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                </svg>
+              </button>
             </div>
+            <span class="install-alt-note">然后在 Claude Code 里打开 <code>/plugin</code></span>
           </div>
-          <div class="install-subscribe">
-            <iframe src="https://impeccablestyle.substack.com/embed" width="100%" height="150" style="border: 1px solid #e8e4df; border-radius: 8px; background: white;" frameborder="0" scrolling="no"></iframe>
+
+          <div class="install-alt-method">
+            <span class="install-alt-label">手动下载 <span class="install-alt-sublabel">覆盖全部 11 个 provider</span></span>
+            <div class="install-zip-links">
+              <button class="install-zip-link" data-bundle="universal" aria-label="下载默认命令名的通用 zip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+                <span class="install-zip-link-name">默认版 zip</span>
+                <span class="install-zip-link-examples"><code>/polish</code> <code>/audit</code></span>
+              </button>
+              <button class="install-zip-link" data-bundle="universal-prefixed" aria-label="下载带前缀命令名的通用 zip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+                <span class="install-zip-link-name">前缀版 zip</span>
+                <span class="install-zip-link-examples"><code>/i-polish</code> <code>/i-audit</code></span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <p class="download-tip" data-reveal>建议把 <a href="/cheatsheet">命令速查表</a>留在手边随时查阅。更新技能时可执行 <code>npx skills update</code>。</p>
+      <!-- Steps 2-4: vertical accordion, mutually exclusive (only one open at a time) -->
+      <div class="install-accordion" data-reveal>
+        <!-- Step 2: CLI -->
+        <details name="install-steps" class="install-step">
+          <summary class="install-step-summary">
+            <h3 class="install-path-title"><span class="install-path-step">2</span>安装 CLI <span class="install-path-badge install-path-badge-muted">Beta</span></h3>
+            <svg class="install-step-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </summary>
+          <div class="install-step-body">
+            <p class="install-path-desc">直接在终端里扫描文件、目录或在线 URL，识别界面反模式。它能检查渐变文字、AI 常见配色、卡片嵌套、低对比度，以及更多覆盖 HTML、CSS、JSX/TSX、Vue、Svelte 的规则。可用于 CI、pre-commit 或一次性审查，防止 AI slop 混进生产环境。</p>
+
+            <div class="install-cmd-block">
+              <div class="install-cmd-line">
+                <span class="terminal-prompt">$</span>
+                <code>npm i -g impeccable</code>
+                <button class="copy-btn" aria-label="复制命令" data-copy="npm i -g impeccable">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="install-cmd-note">也可以不安装，直接运行 <code>npx impeccable detect src/</code>。</span>
+            </div>
+
+            <p class="install-path-link"><a href="https://www.npmjs.com/package/impeccable" target="_blank" rel="noopener">前往 npm 查看完整命令说明 &rarr;</a></p>
+          </div>
+        </details>
+
+        <!-- Step 3: Browser extension -->
+        <details name="install-steps" class="install-step">
+          <summary class="install-step-summary">
+            <h3 class="install-path-title"><span class="install-path-step">3</span>浏览器扩展</h3>
+            <svg class="install-step-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </summary>
+          <div class="install-step-body">
+            <p class="install-path-desc">在任意页面点击工具栏图标，所有反模式都会直接在原位被高亮出来：渐变文字、紫色系配色、卡片嵌套、过小正文等都会一目了然。适用于 localhost、预发、生产环境，甚至别人的网站。特别适合做竞品观察、PR 可视化评审，或者单纯用更挑剔的眼光浏览网页。</p>
+            <p class="install-path-link"><a href="https://chromewebstore.google.com/detail/impeccable/bdkgmiklpdmaojlpflclinlofgjfpabf" target="_blank" rel="noopener">前往 Chrome Web Store 安装 &rarr;</a></p>
+          </div>
+        </details>
+
+        <!-- Step 4: Stay updated -->
+        <details name="install-steps" class="install-step">
+          <summary class="install-step-summary">
+            <h3 class="install-path-title"><span class="install-path-step">4</span>保持更新</h3>
+            <svg class="install-step-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </summary>
+          <div class="install-step-body">
+            <p class="install-path-desc">持续获取最新技能定义，并跟进新的命令、反模式规则，以及 Impeccable 背后的设计思路。</p>
+
+            <div class="install-cmd-block">
+              <div class="install-cmd-line">
+                <span class="terminal-prompt">$</span>
+                <code>npx impeccable skills update</code>
+                <button class="copy-btn" aria-label="复制命令" data-copy="npx impeccable skills update">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="install-cmd-note">定期运行一次，就能拉取最新技能定义。</span>
+            </div>
+
+            <div class="install-updated-subscribe">
+              <iframe class="install-updated-substack" src="https://impeccablestyle.substack.com/embed" width="100%" height="130" frameborder="0" scrolling="no"></iframe>
+              <a href="https://x.com/impeccable_ai" class="install-updated-x" target="_blank" rel="noopener">
+                <svg class="install-updated-x-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                <span class="install-updated-x-label">关注 X</span>
+                <span class="install-updated-x-handle">@impeccable_ai</span>
+              </a>
+            </div>
+          </div>
+        </details>
+      </div>
     </section>
 
+    <!-- 5+6. CHANGELOG + FAQ (side-by-side on desktop) -->
+    <div class="changelog-faq-row">
     <!-- 5. CHANGELOG -->
     <section class="changelog-section" id="changelog">
       <div class="section-header" data-reveal>
-        <span class="section-number">05</span>
-        <h2 class="section-title">更新内容</h2>
+        <span class="section-number">06</span>
+        <h2 class="section-title">最新更新</h2>
       </div>
 
       <div class="changelog-list" data-reveal>
         <div class="changelog-entry">
           <div class="changelog-version-header">
-            <span class="changelog-version">v1.6.0</span>
-            <span class="changelog-date">2026 年 3 月 24 日</span>
+            <span class="changelog-version">v2.1</span>
+            <span class="changelog-date">2026 年 4 月 9 日</span>
           </div>
           <ul class="changelog-items">
-            <li>新增 provider：<strong>Trae</strong>（中国版与国际版）</li>
-            <li><code>/critique</code> 现在会依据尼尔森 10 条可用性启发式打分，并结合 persona 原型和认知负荷评估</li>
-            <li><code>/audit</code> 现在会对 5 个维度进行评分，并给出 P0-P3 严重级别和结构化行动方案</li>
-            <li>优化了 skill 描述，提升 agent 自动发现能力</li>
-            <li>修复了会破坏 GitHub 预览和 Codex 加载的无效 YAML frontmatter（<a href="https://github.com/pbakaus/impeccable/issues/67">#67</a>）</li>
-            <li>Codex CLI 现在使用正确的 <code>$</code> 前缀引用命令</li>
+            <li><strong>从 21 个命令收敛到 18 个。</strong>清除了重叠与歧义：<code>/arrange</code> 更名为 <code>/layout</code>，<code>/normalize</code> 合并进 <code>/polish</code>（设计系统对齐现在属于最终打磨的一部分），<code>/onboard</code> 合并进 <code>/harden</code>（空状态与首次使用体验本来就是生产可用性的一部分），而 <code>/extract</code> 则变成了 <code>/impeccable extract</code>（与 craft、teach 并列的子模式）。剩下的每个命令职责都更清晰。</li>
+            <li><strong>废弃技能自动清理。</strong>更新后首次加载时，技能会自动识别并清掉被重命名或合并后残留的旧文件，不再需要手动处理。</li>
+          </ul>
+        </div>
+
+        <div class="changelog-entry">
+          <div class="changelog-version-header">
+            <span class="changelog-version">v2.0</span>
+            <span class="changelog-date">2026 年 4 月 8 日</span>
+          </div>
+          <ul class="changelog-items">
+            <li><strong>将 <code>frontend-design</code> 更名为 <code>impeccable</code>。</strong>核心 skill 现在与项目同名，teach 子命令也从 <code>/teach-impeccable</code> 迁移到 <code>/impeccable teach</code>。一个 skill，一个命名空间。</li>
+            <li><strong>基于数据的技能重写。</strong>核心 skill 现在通过内部评估框架反复测试同一份 brief 在“加载技能”和“未加载技能”两种情况下的输出差异，衡量结果是否会塌缩成单一审美。结果是字体与色彩的多样性显著提升，整体设计质量更强，对 Codex 的支持也明显增强。最大突破来自一套“反吸引子”流程，它会强制模型先列出并否决自身的默认偏好后再做选择。这套方法已在 15 个细分场景下用 gpt-5.4 与 Qwen 3.6 Plus 验证。</li>
+            <li><strong>反模式检测引擎。</strong>覆盖排版、色彩、布局、动效与质量的 25 条确定性规则，支持 oklch、oklab、lch、lab 等颜色格式，也能识别边框简写里的 CSS 变量、渐变文字以及只含 emoji 的节点。</li>
+            <li><strong>CLI：<code>npx impeccable detect</code>。</strong>可扫描 HTML、CSS、JSX/TSX、Vue、Svelte 与 CSS-in-JS。支持框架识别、多文件导入跟踪、基于 Puppeteer 的在线 URL 扫描、适合 CI 的 JSON 输出，以及面对超大代码库时使用的 <code>--fast</code> 正则模式。</li>
+            <li><strong>Chrome DevTools 扩展。</strong>一键检测任意页面：你自己的、本地预发、生产环境，甚至别人的网站。它会读取实时计算样式，在交互面板里展示问题，并直接在页面上高亮对应元素。</li>
+            <li><strong><code>/critique</code> 变得更有杀伤力。</strong>Persona 子 Agent 并行评审、基于 Nielsen 启发式评分、自动运行检测器，并打开实时浏览器覆盖层，让你能在页面里逐条走查。</li>
+            <li><strong>Impeccable 的新建构路径。</strong><code>/shape</code> 会先围绕目标、用户和任务进行结构化发现式访谈，再在写代码前生成设计简报；<code>/impeccable craft</code> 会把这份简报直接串进完整实现流程，让你交付的是经过设计的功能，而不是条件反射式的卡片布局。</li>
+            <li><strong>全新的文档站。</strong>现在有顶层的 <a href="/skills">文档</a>、<a href="/anti-patterns">反模式</a> 和 <a href="/visual-mode">可视模式</a> 栏目，包含 18 个技能页面、前后对比 demo、内嵌 canonical SKILL.md、2 篇<a href="/tutorials">教程</a>，以及 38 张带可视化示例的规则卡片。</li>
+            <li><strong>新增 Rovo Dev。</strong>支持的 AI 工具总数来到 11 个。</li>
           </ul>
         </div>
 
         <details class="changelog-older">
           <summary class="changelog-older-toggle">查看更早版本</summary>
           <div class="changelog-older-entries">
+            <div class="changelog-entry">
+              <div class="changelog-version-header">
+                <span class="changelog-version">v1.6.0</span>
+                <span class="changelog-date">2026 年 3 月 18 日</span>
+              </div>
+              <ul class="changelog-items">
+                <li>新增 provider：<strong>Trae</strong>（中国版与国际版）</li>
+                <li><code>/critique</code> 现在会基于 Nielsen 的 10 条启发式进行评分，并加入 persona 原型测试与认知负荷评估</li>
+                <li><code>/audit</code> 现在会从 5 个维度打分，并输出带 P0-P3 严重级别的结构化行动建议</li>
+                <li>优化技能描述，提升 Agent 自动发现能力</li>
+                <li>修复会导致 GitHub 预览和 Codex 加载异常的 YAML frontmatter 问题（<a href="https://github.com/pbakaus/impeccable/issues/67">#67</a>）</li>
+                <li>Codex CLI 现在对命令引用统一使用正确的 <code>$</code> 前缀</li>
+              </ul>
+            </div>
+
             <div class="changelog-entry">
               <div class="changelog-version-header">
                 <span class="changelog-version">v1.5.1</span>
@@ -376,9 +555,9 @@
                 <span class="changelog-date">2026 年 3 月 16 日</span>
               </div>
               <ul class="changelog-items">
-                <li>新增 3 个命令：<code>/typeset</code>（修排版）、<code>/arrange</code>（修布局与间距）、<code>/overdrive</code>（技术表达极强的视觉效果，Beta）</li>
-                <li>技能现在会通过 <code>.impeccable.md</code> 自动读取设计上下文，执行一次 <code>/teach-impeccable</code> 后所有技能都可受益</li>
-                <li>支持命令深链接（如 <code>#cmd-overdrive</code>）</li>
+                <li>新增 3 个 skill：<code>/typeset</code>（修正排版）、<code>/arrange</code>（修正布局与间距）、<code>/overdrive</code>（更有技术野心的效果，beta）</li>
+                <li>所有 skills 现在都会通过 <code>.impeccable.md</code> 自动读取设计上下文。先运行一次 <code>/teach-impeccable</code>，后续都能受益</li>
+                <li>支持命令深链（如 <code>#cmd-overdrive</code>）</li>
               </ul>
             </div>
 
@@ -401,8 +580,8 @@
               </div>
               <ul class="changelog-items">
                 <li>新增 Kiro 支持（<code>.kiro/skills/</code>）</li>
-                <li>恢复前缀切换，可下载带 <code>i-</code> 前缀的 bundle 以避免命名冲突</li>
-                <li>audit 与 critique 现在只会推荐真实已安装的命令</li>
+                <li>恢复前缀切换：可下载带 <code>i-</code> 前缀的 bundle，避免命名冲突</li>
+                <li>Audit 与 critique 现在只会推荐真实已安装的命令</li>
               </ul>
             </div>
 
@@ -412,11 +591,11 @@
                 <span class="changelog-date">2026 年 3 月 4 日</span>
               </div>
               <ul class="changelog-items">
-                <li>统一 skills 架构，命令现已作为带有 <code>user-invocable: true</code> 的 skills 提供</li>
+                <li>统一 skills 架构：命令现在也是带 <code>user-invocable: true</code> 的 skill</li>
                 <li>新增 VS Code Copilot 与 Google Antigravity 支持（<code>.agents/skills/</code>）</li>
-                <li>新的安装流程：优先使用 <code>npx skills add</code>，通用 ZIP 作为兜底方案</li>
-                <li>新增包含多个 provider 目录的通用 ZIP</li>
-                <li>将 <code>/simplify</code> 重命名为 <code>/distill</code>，避免与 Claude Code 冲突</li>
+                <li>更新安装流程：默认使用 <code>npx skills add</code>，通用 ZIP 作为后备方案</li>
+                <li>新增包含全部 5 个 provider 目录的通用 ZIP</li>
+                <li>将 <code>/simplify</code> 更名为 <code>/distill</code>，避免与 Claude Code 冲突</li>
               </ul>
             </div>
 
@@ -441,7 +620,7 @@
     <!-- 6. FAQ -->
     <section class="faq-section" id="faq">
       <div class="section-header" data-reveal>
-        <span class="section-number">06</span>
+        <span class="section-number">07</span>
         <h2 class="section-title">常见问题</h2>
       </div>
 
@@ -449,30 +628,31 @@
         <details class="faq-item">
           <summary class="faq-question">下载后的文件应该放在哪里？</summary>
           <div class="faq-answer">
-            <p>最简单的方法是执行 <code>npx skills add pbakaus/impeccable</code>，它会自动识别你的 AI 工具并把文件放到正确位置。</p>
-            <p>如果你下载的是 <strong>通用 ZIP</strong>，请将它解压到<strong>项目根目录</strong>（和 <code>package.json</code> 或 <code>src/</code> 同级）。它会生成各工具所需的隐藏目录，例如 <code>.cursor/</code>、<code>.claude/</code>、<code>.gemini/</code>、<code>.codex/</code> 和 <code>.agents/</code>。</p>
-            <p>项目级安装优先级更高，也更方便你把 skills 纳入版本控制。</p>
+            <p>最简单的方式是运行 <code>npx skills add pbakaus/impeccable</code>，它会自动识别你的 AI 工具，并把文件放到正确位置。</p>
+            <p>如果你下载的是 <strong>通用 ZIP</strong>，请把它解压到<strong>项目根目录</strong>（也就是和 <code>package.json</code> 或 <code>src/</code> 同级的位置）。它会为各个支持的工具创建对应的隐藏目录：<code>.cursor/</code>、<code>.claude/</code>、<code>.gemini/</code>、<code>.codex/</code> 和 <code>.agents/</code>。</p>
+            <p>项目级安装优先级更高，也更适合把技能一起纳入版本控制。</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">如何更新到最新版本？</summary>
           <div class="faq-answer">
+            <p>在项目根目录运行 <code>npx impeccable skills update</code>。它会下载最新技能定义、清理废弃文件，并保留你当前使用的命令前缀。</p>
             <ul>
-              <li><strong>所有工具：</strong><code>npx skills update</code>（也可以先运行 <code>npx skills check</code> 看看有什么变化）</li>
-              <li><strong>Claude Code 插件：</strong>打开 <code>/plugin</code>，进入 Discover 标签页后在那里更新</li>
-              <li><strong>手动 ZIP：</strong>重新下载上面的最新 ZIP，覆盖解压到项目根目录即可</li>
+              <li><strong>替代方式：</strong><code>npx skills add pbakaus/impeccable</code> 会从头重新安装一遍。</li>
+              <li><strong>Claude Code 插件：</strong>打开 <code>/plugin</code>，进入 Discover 标签页。</li>
+              <li><strong>手动 ZIP：</strong>从上方下载后，解压到项目根目录。</li>
             </ul>
-            <p>由 <code>/teach-impeccable</code> 创建的 <code>.impeccable.md</code> 设计上下文文件不会被覆盖，所以你的项目上下文会在更新后继续保留。</p>
+            <p>你的 <code>.impeccable.md</code> 上下文文件不会被覆盖。</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">命令或技能没有显示，怎么办？</summary>
           <div class="faq-answer">
-            <p><strong>对于命令：</strong>在你的 AI 工具里输入 <code>/</code>，查看是否出现 <code>/audit</code>、<code>/polish</code> 等命令。如果没有，请先确认文件位置是否正确。</p>
-            <p><strong>对于技能：</strong>技能会在相关场景下自动触发。想验证是否生效，可以在提示词中明确写上 “use the frontend-design skill”，这样模型会显式识别并应用它。</p>
-            <p><strong>工具特定设置：</strong></p>
+            <p><strong>对于命令：</strong>在你的 AI 工具里输入 <code>/</code>，看看 <code>/audit</code>、<code>/polish</code> 这类命令有没有出现。如果没有，先确认文件是否放在了正确位置。</p>
+            <p><strong>对于 skills：</strong>当场景匹配时，skills 会自动生效。想验证的话，可以在提示词里明确写上“use the impeccable skill”，强制模型显式确认并应用它。</p>
+            <p><strong>不同工具的额外设置：</strong></p>
             <ul>
               <li><strong>Cursor：</strong>需要切到 Nightly 频道，并在 Settings → Rules 中启用 Agent Skills</li>
               <li><strong>Gemini CLI：</strong>需要安装 <code>@google/gemini-cli@preview</code>，并通过 <code>/settings</code> 启用 Skills</li>
@@ -488,30 +668,32 @@
               <li><strong>Claude Code：</strong> <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">官方文档</a></li>
               <li><strong>Cursor：</strong> <a href="https://docs.cursor.com" target="_blank" rel="noopener">Cursor 文档</a></li>
               <li><strong>Gemini CLI：</strong> <a href="https://geminicli.com/docs/" target="_blank" rel="noopener">Gemini CLI 文档</a></li>
-              <li><strong>Codex CLI:</strong> <a href="https://github.com/openai/codex" target="_blank" rel="noopener">Codex GitHub</a></li>
+              <li><strong>Codex CLI：</strong> <a href="https://github.com/openai/codex" target="_blank" rel="noopener">Codex GitHub</a></li>
             </ul>
             <p>等你熟悉了基础提示词和代码生成流程，再回来试试 Impeccable，会更容易发挥它的价值。</p>
           </div>
         </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Impeccable 免费吗？</summary>
+          <div class="faq-answer">
+            <p>是的。skills、commands、CLI 和检测引擎全部采用 <strong>Apache 2.0</strong> 许可，完全开源，所有人都可以免费使用。</p>
+          </div>
+        </details>
       </div>
     </section>
+    </div><!-- /.changelog-faq-row -->
 
-    <!-- SUPPORT & CONSULTING -->
+    <!-- PARTNERSHIPS -->
     <section class="consulting-section" id="consulting">
       <div class="consulting-content" data-reveal>
         <div class="consulting-text">
-          <h2 class="consulting-title">与我合作</h2>
-          <p class="consulting-desc">Paul Bakaus 主要帮助团队推进 AI 转型：提升开发者能力、建立 AI-native 工作流、把产品真正交付上线。专长方向包括开发者体验、设计系统与全栈架构。</p>
+          <h2 class="consulting-title">合作咨询</h2>
+          <p class="consulting-desc">Impeccable 由 <a href="https://renaissance-geek.ai" target="_blank" rel="noopener">Renaissance Geek</a> 打造。我也会与企业团队合作，提供大规模落地、定制集成，以及面向设计师和开发者的培训支持。如果你是前沿实验室、设计工具公司，或希望提升 AI 生成设计质量的企业，欢迎联系。</p>
         </div>
         <div class="consulting-actions">
-          <a href="mailto:paul@paulbakaus.com" class="btn btn-primary">
-            <span>联系原作者</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-          <a href="https://buy.stripe.com/aFa3cwfsEe3G25R6i48Ra03" class="btn btn-secondary" target="_blank" rel="noopener">
-            <span>打赏支持</span>
+          <a href="mailto:paul@renaissance-geek.ai" class="btn btn-primary">
+            <span>联系合作</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
@@ -522,41 +704,26 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-content">
-      <div class="footer-brand">
-        <span class="footer-logo">Impeccable</span>
-      </div>
-      <div class="footer-links">
+    <div class="footer-row">
+      <span class="footer-logo">Impeccable</span>
+      <nav class="footer-links" aria-label="页脚导航">
+        <a href="#antidote">反模式</a>
+        <a href="/visual-mode">可视模式</a>
+        <a href="#language">命令</a>
         <a href="/cheatsheet">速查表</a>
         <a href="/privacy">隐私说明</a>
         <a href="https://github.com/pbakaus/impeccable">GitHub</a>
-      </div>
-    </div>
-    <div class="footer-author">
-      <span class="footer-author-label">原作者：<a href="https://x.com/pbakaus" target="_blank" rel="noopener">Paul Bakaus</a></span>
-      <div class="footer-author-links">
-        <a href="https://x.com/pbakaus" class="footer-social-link" aria-label="在 X 关注" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      </nav>
+      <div class="footer-credit">
+        <span>由 <a href="https://x.com/pbakaus" target="_blank" rel="noopener">Paul Bakaus</a> 创建</span>
+        <a href="https://x.com/pbakaus" class="footer-social-link" aria-label="在 X 上关注" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
           </svg>
         </a>
-        <a href="https://linkedin.com/in/paulbakaus" class="footer-social-link" aria-label="在 LinkedIn 连接" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <a href="https://linkedin.com/in/paulbakaus" class="footer-social-link" aria-label="在 LinkedIn 上联系" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </a>
-        <span class="footer-author-divider"></span>
-        <a href="https://www.paulbakaus.com" class="footer-newsletter" target="_blank" rel="noopener">
-          Blog
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-        <span class="footer-author-divider"></span>
-        <a href="https://impeccablestyle.substack.com" class="footer-newsletter" target="_blank" rel="noopener">
-          Newsletter
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </a>
       </div>

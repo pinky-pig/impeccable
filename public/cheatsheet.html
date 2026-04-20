@@ -12,14 +12,13 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impeccable Style 中文版命令速查表</title>
-  <meta name="description" content="Impeccable Style 中文版全部 20 个命令的快速参考，适合打印留存和日常查阅。">
-  <link rel="canonical" href="https://www.impeccable.cn/cheatsheet">
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="728f2b18-ab02-4357-abfd-97c937e68377"></script>
+  <title>Impeccable 命令速查表</title>
+  <meta name="description" content="18 个 Impeccable 命令的快速参考。为 AI 编程工具中的设计协作准备的可打印速查表。">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/sub-pages.css">
   <style>
     :root {
       --font-body: 'Instrument Sans', system-ui, sans-serif;
@@ -40,19 +39,25 @@
       }
     }
 
-    * { box-sizing: border-box; margin: 0; }
-
     body {
       font-family: var(--font-body);
       background: var(--color-paper);
       color: var(--color-ink);
       line-height: 1.5;
-      padding: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
     }
 
-    header {
+    .cheatsheet-page-header,
+    main,
+    footer {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .cheatsheet-page-header {
+      margin-top: 2rem;
       margin-bottom: 2rem;
       padding-bottom: 1.5rem;
       border-bottom: 1px solid var(--color-mist);
@@ -67,18 +72,6 @@
     .subtitle {
       color: var(--color-ash);
       font-size: 0.875rem;
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-top: 0.75rem;
-      font-size: 0.8125rem;
-      color: var(--color-accent);
-      text-decoration: none;
-    }
-
-    .back-link:hover {
-      text-decoration: underline;
     }
 
     .category {
@@ -154,8 +147,11 @@
     }
 
     @media print {
-      body { padding: 1rem; max-width: none; }
-      .back-link { display: none; }
+      body { padding: 1rem; }
+      .site-header { display: none; }
+      .cheatsheet-page-header,
+      main,
+      footer { max-width: none; padding-left: 0; padding-right: 0; }
       footer { display: none; }
       .command { page-break-inside: avoid; }
     }
@@ -168,12 +164,32 @@
     }
   </style>
 </head>
-<body>
-  <header>
-    <h1>Impeccable 命令</h1>
-    <p class="subtitle">20 个设计命令的快速参考</p>
-    <a href="/" class="back-link">&larr; 返回首页</a>
+<body class="sub-page">
+  <!-- site-header v1 -->
+  <header class="site-header" data-site-header>
+    <a href="/" class="site-header-brand" aria-label="Impeccable 首页">
+      <svg class="site-header-brand-logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1a1a1a"/><text x="16" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="500" fill="#f5f3ef" text-anchor="middle">/</text></svg>
+      <span class="site-header-brand-name">Impeccable</span>
+    </a>
+    <div class="site-header-right">
+      <nav class="site-header-nav" aria-label="主导航">
+        <a href="/" data-nav="home">首页</a>
+        <a href="/skills" data-nav="docs">文档</a>
+        <a href="/anti-patterns" data-nav="anti-patterns">反模式</a>
+        <a href="/visual-mode" data-nav="visual-mode">可视模式</a>
+      </nav>
+      <a href="https://github.com/pbakaus/impeccable" class="site-header-github" target="_blank" rel="noopener" aria-label="Impeccable GitHub 仓库，18k stars">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <span class="site-header-github-label">18k</span>
+        <svg class="site-header-github-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.76 6.36L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.24-.91L12 2z"/></svg>
+      </a>
+    </div>
   </header>
+
+  <div class="cheatsheet-page-header">
+    <h1>Impeccable 命令速查表</h1>
+    <p class="subtitle">18 个设计命令的快速参考</p>
+  </div>
 
   <main id="commands-container">
     <p style="color: var(--color-ash);">正在加载命令……</p>
@@ -196,10 +212,9 @@
     const categoryOrder = ['diagnostic', 'quality', 'intensity', 'adaptation', 'enhancement', 'system'];
 
     const commandCategories = {
-      'teach-impeccable': 'system',
+      'impeccable': 'system',
       'audit': 'diagnostic',
       'critique': 'diagnostic',
-      'normalize': 'quality',
       'polish': 'quality',
       'optimize': 'quality',
       'harden': 'quality',
@@ -210,35 +225,30 @@
       'animate': 'enhancement',
       'colorize': 'enhancement',
       'delight': 'enhancement',
-      'extract': 'system',
       'adapt': 'adaptation',
-      'onboard': 'enhancement',
       'typeset': 'enhancement',
-      'arrange': 'enhancement',
+      'layout': 'enhancement',
       'overdrive': 'enhancement'
     };
 
     const commandRelationships = {
-      'teach-impeccable': { flow: '一次性收集项目设计上下文' },
-      'audit': { leadsTo: ['normalize', 'harden', 'optimize', 'adapt', 'clarify'], flow: '技术质量审计' },
-      'critique': { leadsTo: ['polish', 'distill', 'bolder', 'quieter', 'typeset', 'arrange'], flow: 'UX 与设计评审' },
-      'normalize': { combinesWith: ['clarify', 'adapt'], flow: '对齐设计系统' },
-      'polish': { flow: '上线前的最终打磨' },
+      'impeccable': { flow: '一次性建立项目设计上下文' },
+      'audit': { leadsTo: ['harden', 'optimize', 'adapt', 'clarify'], flow: '技术质量审计' },
+      'critique': { leadsTo: ['polish', 'distill', 'bolder', 'quieter', 'typeset', 'layout'], flow: 'UX 与设计评审' },
+      'polish': { flow: '最终打磨与设计系统对齐' },
       'optimize': { flow: '性能优化' },
-      'harden': { combinesWith: ['optimize'], flow: '错误处理与边界场景加固' },
-      'clarify': { combinesWith: ['normalize', 'adapt'], flow: '改善 UX 文案' },
-      'quieter': { pairs: 'bolder', flow: '降低设计攻击性' },
-      'bolder': { pairs: 'quieter', flow: '增强平淡设计的冲击力' },
-      'distill': { combinesWith: ['quieter', 'normalize'], flow: '提炼到本质' },
-      'animate': { combinesWith: ['delight'], flow: '加入动效' },
+      'harden': { combinesWith: ['optimize'], flow: '处理边界情况、引导与错误状态' },
+      'clarify': { combinesWith: ['polish', 'adapt'], flow: '优化 UX 文案' },
+      'quieter': { pairs: 'bolder', flow: '收敛过于激进的设计' },
+      'bolder': { pairs: 'quieter', flow: '强化偏保守的设计' },
+      'distill': { combinesWith: ['quieter', 'polish'], flow: '提炼到本质' },
+      'animate': { combinesWith: ['delight'], flow: '加入有目的的动效' },
       'colorize': { combinesWith: ['bolder', 'delight'], flow: '加入策略性色彩' },
-      'delight': { combinesWith: ['bolder', 'animate'], flow: '加入个性与趣味' },
-      'extract': { flow: '提取设计系统元素' },
-      'adapt': { combinesWith: ['normalize', 'clarify'], flow: '面向不同设备与场景调整' },
-      'onboard': { combinesWith: ['clarify', 'delight'], flow: '优化引导与空状态' },
-      'typeset': { combinesWith: ['bolder', 'normalize'], flow: '修正排版' },
-      'arrange': { combinesWith: ['distill', 'adapt'], flow: '修正布局与间距' },
-      'overdrive': { combinesWith: ['animate', 'delight'], flow: '追求技术表达极强的视觉效果' }
+      'delight': { combinesWith: ['bolder', 'animate'], flow: '增加个性与愉悦感' },
+      'adapt': { combinesWith: ['polish', 'clarify'], flow: '适配不同设备与使用场景' },
+      'typeset': { combinesWith: ['bolder', 'polish'], flow: '修正排版与层级' },
+      'layout': { combinesWith: ['distill', 'adapt'], flow: '优化布局与间距' },
+      'overdrive': { combinesWith: ['animate', 'delight'], flow: '实现更有技术野心的效果' }
     };
 
     async function loadCommands() {
@@ -246,7 +256,7 @@
         const response = await fetch('/api/commands');
         const commands = await response.json();
 
-        // Group by category
+        // 按类别分组
         const grouped = {};
         commands.forEach(cmd => {
           const cat = commandCategories[cmd.id] || 'other';
@@ -254,7 +264,7 @@
           grouped[cat].push(cmd);
         });
 
-        // Render
+        // 渲染
         const container = document.getElementById('commands-container');
         let html = '';
 
@@ -294,7 +304,7 @@
 
         container.innerHTML = html;
       } catch (error) {
-        console.error('Error loading commands:', error);
+        console.error('命令加载失败：', error);
         document.getElementById('commands-container').innerHTML =
           '<p style="color: red;">命令加载失败，请刷新页面重试。</p>';
       }

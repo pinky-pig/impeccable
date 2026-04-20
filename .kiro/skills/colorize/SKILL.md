@@ -1,13 +1,14 @@
 ---
 name: colorize
 description: 为过于单调或缺乏视觉兴趣的界面加入策略性色彩，让它更有吸引力和表达力。适用于设计发灰、沉闷、缺少温度、需要更多色彩或希望拥有更鲜明配色的场景。
+version: 2.1.1
 ---
 
 Strategically introduce color to designs that are too monochromatic, gray, or lacking in visual warmth and personality.
 
 ## MANDATORY PREPARATION
 
-Invoke /frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run /teach-impeccable first. Additionally gather: existing brand colors.
+Invoke /impeccable — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run /impeccable teach first. Additionally gather: existing brand colors.
 
 ---
 

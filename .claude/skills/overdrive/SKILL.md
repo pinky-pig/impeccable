@@ -1,6 +1,7 @@
 ---
 name: overdrive
 description: 用更具技术野心的实现把界面推到常规上限之外，例如 shaders、弹簧物理、滚动驱动揭示和 60fps 动画。适用于用户想做出令人惊艳、全力拉满、或明显不同寻常效果的场景。
+version: 2.1.1
 user-invocable: true
 argument-hint: "[target]"
 ---
@@ -16,7 +17,7 @@ Push an interface past conventional limits. This isn't just about visual effects
 
 ## MANDATORY PREPARATION
 
-Invoke /frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run /teach-impeccable first.
+Invoke /impeccable — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run /impeccable teach first.
 
 **EXTRA IMPORTANT FOR THIS SKILL**: Context determines what "extraordinary" means. A particle system on a creative portfolio is impressive. The same particle system on a settings page is embarrassing. But a settings page with instant optimistic saves and animated state transitions? That's extraordinary too. Understand the project's personality and goals before deciding what's appropriate.
 

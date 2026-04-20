@@ -1,13 +1,14 @@
 ---
 name: distill
 description: 通过移除不必要的复杂性，把设计提炼到本质。优秀设计应当简洁、有力、干净。适用于简化、去杂讯、减少元素或让界面更聚焦的场景。
+version: 2.1.1
 ---
 
 Remove unnecessary complexity from designs, revealing the essential elements and creating clarity through ruthless simplification.
 
 ## MANDATORY PREPARATION
 
-Invoke /frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run /teach-impeccable first.
+Invoke /impeccable — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run /impeccable teach first.
 
 ---
 

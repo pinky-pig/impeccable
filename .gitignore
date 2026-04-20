@@ -15,6 +15,7 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+.claude/projects/
 
 # Environment
 .env
@@ -23,8 +24,17 @@ Thumbs.db
 # Cloudflare
 .wrangler/
 
+# Extension build artifacts
+extension/detector/
+
 # User design context
 .impeccable.md
 
-# Local synced provider directory
-.rovodev/
+# Evals (private, commercial)
+evals/
+
+# Generated sub-pages (built from source/skills + content/site at build time)
+public/skills/
+public/anti-patterns/
+public/tutorials/
+public/visual-mode/

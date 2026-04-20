@@ -1,6 +1,7 @@
 ---
 name: harden
-description: 通过更好的错误处理、国际化支持、文本溢出处理和边界场景管理来增强界面韧性，使其更稳健、更适合生产环境。适用于加固、上线前补强、边界处理、错误状态补齐或修复溢出与 i18n 问题。
+description: 让界面具备生产可用性：补齐错误处理、空状态、首次使用流程、i18n、文本溢出与边界场景管理。适用于用户要求 harden、上线前补强、处理边界情况、补错误状态、设计空状态、优化引导流程或修复溢出与国际化问题的场景。
+version: 2.1.1
 argument-hint: "[target]"
 ---
 
@@ -222,6 +223,40 @@ t('items', { count }) // Handles complex plural rules
 - Fallbacks for unsupported CSS
 - Feature detection (not browser detection)
 - Test in target browsers
+
+### Onboarding & First-Run Experience
+
+Production-ready features work for first-time users, not just power users. Design the paths that get new users to value:
+
+**Empty states**: Every zero-data screen needs:
+- What will appear here (description or illustration)
+- Why it matters to the user
+- Clear CTA to create the first item or start from a template
+- Visual interest (not just blank space with "No items yet")
+
+Empty state types to handle:
+- **First use**: emphasize value, provide templates
+- **User cleared**: light touch, easy to recreate
+- **No results**: suggest a different query, offer to clear filters
+- **No permissions**: explain why, how to get access
+
+**First-run experience**: Get users to their "aha moment" as quickly as possible.
+- Show, don't tell -- working examples over descriptions
+- Progressive disclosure -- teach one thing at a time, not everything upfront
+- Make onboarding optional -- let experienced users skip
+- Provide smart defaults so required setup is minimal
+
+**Feature discovery**: Teach features when users need them, not upfront.
+- Contextual tooltips at point of use (brief, dismissable, one-time)
+- Badges or indicators on new or unused features
+- Celebrate activation events quietly (a toast, not a modal)
+
+**NEVER**:
+- Force long onboarding before users can touch the product
+- Show the same tooltip repeatedly (track and respect dismissals)
+- Block the entire UI during a guided tour
+- Create separate tutorial modes disconnected from the real product
+- Design empty states that just say "No items" with no next action
 
 ### Input Validation & Sanitization
 

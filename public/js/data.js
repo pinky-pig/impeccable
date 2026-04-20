@@ -1,36 +1,47 @@
 // ============================================
-// DATA: Skill focus areas, command processes, relationships
+// 数据：技能关注点、命令流程与关系
 // ============================================
 
 // 已完成并可公开使用的项目
 // 其他项目将显示“即将推出”
 export const readySkills = [
-  'frontend-design'  // Consolidated skill with all design domains
+  'impeccable'  // 整合后的核心技能，覆盖全部设计维度
 ];
 
 export const readyCommands = [
-  'normalize'  // First command to be fully completed
+  'layout'  // 首个完整收敛的新命令
 ];
 
-// Commands marked as beta — shown with a badge in the UI
+// 标记为 beta 的命令会在界面里显示徽标
 export const betaCommands = [
   'overdrive'
 ];
 
-// Consolidated frontend-design skill with reference domains
+// 整合后的 impeccable 技能及其参考维度
 export const skillFocusAreas = {
-  'frontend-design': [
-    { area: '排版', detail: '比例、节奏、层级、表达力' },
-    { area: '色彩与对比', detail: '可访问性、系统化、主题化' },
-    { area: '空间设计', detail: '布局、间距、构图' },
-    { area: '响应式', detail: '流式布局、触控目标' },
-    { area: '交互', detail: '状态、反馈、可感知性' },
-    { area: '动效', detail: '微交互、转场' },
-    { area: 'UX 文案', detail: '清晰度、语气、错误信息' }
+  'impeccable': [
+    { area: 'Typography', detail: '比例、节奏、层级与表达' },
+    { area: 'Color & Contrast', detail: '可访问性、系统化与主题设计' },
+    { area: 'Spatial Design', detail: '布局、间距与构图' },
+    { area: 'Responsive', detail: '流式布局与触控目标' },
+    { area: 'Interaction', detail: '状态、反馈与可感知性' },
+    { area: 'Motion', detail: '微交互与过渡动效' },
+    { area: 'UX Writing', detail: '清晰度、语气与错误提示' }
   ]
 };
 
-// Reference domains within the frontend-design skill
+// 各维度准则数量（根据参考文件校验）
+export const dimensionGuidelineCounts = {
+  'Typography': 33,
+  'Color & Contrast': 29,
+  'Spatial Design': 27,
+  'Motion': 32,
+  'Interaction': 36,
+  'Responsive': 23,
+  'UX Writing': 32
+};
+
+// impeccable 技能内部引用的设计维度
 export const skillReferenceDomains = [
   'typography',
   'color-and-contrast',
@@ -42,79 +53,88 @@ export const skillReferenceDomains = [
 ];
 
 export const commandProcessSteps = {
-  'teach-impeccable': ['收集', '澄清', '整理', '保存'],
-  'audit': ['扫描', '记录', '排序', '建议'],
-  'critique': ['评估', '批注', '排序', '建议'],
-  'normalize': ['分析', '识别', '对齐', '验证'],
-  'polish': ['检查', '打磨', '验证'],
-  'optimize': ['分析', '定位', '优化', '测量'],
-  'harden': ['测试', '处理', '覆盖', '校验'],
-  'clarify': ['阅读', '简化', '改写', '测试'],
-  'quieter': ['分析', '收敛', '精修'],
-  'bolder': ['分析', '增强', '放大'],
-  'distill': ['审视', '删减', '提炼'],
-  'animate': ['识别', '设计', '实现', '润色'],
-  'colorize': ['分析', '制定策略', '应用', '平衡'],
-  'delight': ['识别', '设计', '实现'],
-  'extract': ['识别', '抽象', '整理'],
-  'adapt': ['分析', '调整', '优化'],
-  'onboard': ['梳理', '设计', '引导'],
-  'typeset': ['评估', '选择', '定标', '精修'],
-  'arrange': ['评估', '网格化', '节奏化', '平衡'],
-  'overdrive': ['评估', '选择', '构建', '润色']
+  'shape': ['Interview', 'Synthesize', 'Brief', 'Confirm'],
+  'impeccable craft': ['Shape', 'Reference', 'Build', 'Iterate'],
+  'impeccable': ['Direct', 'Design', 'Build', 'Refine'],
+  'overdrive': ['Assess', 'Choose', 'Build', 'Polish'],
+  'critique': ['Evaluate', 'Critique', 'Prioritize', 'Suggest'],
+  'audit': ['Scan', 'Document', 'Prioritize', 'Recommend'],
+  'typeset': ['Assess', 'Select', 'Scale', 'Refine'],
+  'layout': ['Assess', 'Grid', 'Rhythm', 'Balance'],
+  'colorize': ['Analyze', 'Strategy', 'Apply', 'Balance'],
+  'animate': ['Identify', 'Design', 'Implement', 'Polish'],
+  'delight': ['Identify', 'Design', 'Implement'],
+  'bolder': ['Analyze', 'Amplify', 'Impact'],
+  'quieter': ['Analyze', 'Reduce', 'Refine'],
+  'distill': ['Audit', 'Remove', 'Clarify'],
+  'clarify': ['Read', 'Simplify', 'Improve', 'Test'],
+  'adapt': ['Analyze', 'Adjust', 'Optimize'],
+  'polish': ['Discover', 'Review', 'Refine', 'Verify'],
+  'optimize': ['Profile', 'Identify', 'Improve', 'Measure'],
+  'harden': ['Test', 'Handle', 'Onboard', 'Validate'],
+  'impeccable teach': ['Explore', 'Interview', 'Synthesize', 'Save'],
+  'impeccable extract': ['Identify', 'Abstract', 'Migrate', 'Document']
 };
 
 export const commandCategories = {
-  'teach-impeccable': 'system',
-  'audit': 'diagnostic',
-  'critique': 'diagnostic',
-  'normalize': 'quality',
-  'polish': 'quality',
-  'optimize': 'quality',
-  'harden': 'quality',
-  'clarify': 'adaptation',
-  'quieter': 'intensity',
-  'bolder': 'intensity',
-  'distill': 'adaptation',
-  'animate': 'enhancement',
-  'colorize': 'enhancement',
-  'delight': 'enhancement',
-  'extract': 'system',
-  'adapt': 'adaptation',
-  'onboard': 'enhancement',
-  'typeset': 'enhancement',
-  'arrange': 'enhancement',
-  'overdrive': 'enhancement'
+  // CREATE - build something new
+  'shape': 'create',
+  'impeccable craft': 'create',
+  'impeccable': 'create',
+  // EVALUATE - review and assess
+  'critique': 'evaluate',
+  'audit': 'evaluate',
+  // REFINE - improve existing design
+  'typeset': 'refine',
+  'layout': 'refine',
+  'colorize': 'refine',
+  'animate': 'refine',
+  'delight': 'refine',
+  'bolder': 'refine',
+  'quieter': 'refine',
+  'overdrive': 'refine',
+  // SIMPLIFY - reduce and clarify
+  'distill': 'simplify',
+  'clarify': 'simplify',
+  'adapt': 'simplify',
+  // HARDEN - production-ready
+  'polish': 'harden',
+  'optimize': 'harden',
+  'harden': 'harden',
+  // SYSTEM - setup and tooling
+  'impeccable teach': 'system',
+  'impeccable extract': 'system'
 };
 
-// Skill relationships - now consolidated into frontend-design skill
-// The frontend-design skill contains all domains as reference files
+// 技能关系：现在整合进 impeccable
+// impeccable 技能以内嵌参考文件的方式承载所有设计维度
 export const skillRelationships = {
-  'frontend-design': {
-    description: '具备渐进式参考加载机制的综合设计智能',
+  'impeccable': {
+    description: '带渐进式参考加载机制的完整设计智能',
     referenceDomains: ['typography', 'color-and-contrast', 'spatial-design', 'responsive-design', 'interaction-design', 'motion-design', 'ux-writing']
   }
 };
 
 export const commandRelationships = {
-  'teach-impeccable': { flow: '初始化：一次性收集项目设计上下文' },
-  'audit': { leadsTo: ['normalize', 'harden', 'optimize', 'adapt', 'clarify'], flow: '诊断：技术质量审计' },
-  'critique': { leadsTo: ['polish', 'distill', 'bolder', 'quieter', 'typeset', 'arrange'], flow: '诊断：UX 与设计评审' },
-  'normalize': { combinesWith: ['clarify', 'adapt'], flow: '质量：对齐设计系统' },
-  'polish': { flow: '质量：上线前最终润色' },
-  'optimize': { flow: '质量：性能优化' },
-  'harden': { combinesWith: ['optimize'], flow: '质量：错误处理与边界场景加固' },
-  'clarify': { combinesWith: ['normalize', 'adapt'], flow: '适配：改善 UX 文案' },
-  'quieter': { pairs: 'bolder', flow: '强度：降低视觉攻击性' },
-  'bolder': { pairs: 'quieter', flow: '强度：增强平淡设计的冲击力' },
-  'distill': { combinesWith: ['quieter', 'normalize'], flow: '适配：提炼到本质' },
-  'animate': { combinesWith: ['delight'], flow: '增强：加入动效' },
-  'colorize': { combinesWith: ['bolder', 'delight'], flow: '增强：加入策略性色彩' },
-  'delight': { combinesWith: ['bolder', 'animate'], flow: '增强：加入个性与趣味' },
-  'extract': { flow: '系统：提取设计系统元素' },
-  'adapt': { combinesWith: ['normalize', 'clarify'], flow: '适配：面向不同设备与场景调整' },
-  'onboard': { combinesWith: ['clarify', 'delight'], flow: '增强：优化引导与空状态' },
-  'typeset': { combinesWith: ['bolder', 'normalize'], flow: '增强：修正排版' },
-  'arrange': { combinesWith: ['distill', 'adapt'], flow: '增强：修正布局与间距' },
-  'overdrive': { combinesWith: ['animate', 'delight'], flow: '增强：追求技术表达极强的视觉效果' }
+  'shape': { flow: 'Create：通过结构化发现来规划 UX 与 UI' },
+  'impeccable craft': { flow: 'Create：完整的 shape 到 build 流程，并带可视化迭代' },
+  'impeccable': { flow: 'Create：加载完整设计智能后的自由设计' },
+  'overdrive': { combinesWith: ['animate', 'delight'], flow: 'Refine：实现更有技术野心的效果' },
+  'critique': { leadsTo: ['polish', 'distill', 'bolder', 'quieter', 'typeset', 'layout'], flow: 'Evaluate：带评分的 UX 与设计评审' },
+  'audit': { leadsTo: ['harden', 'optimize', 'adapt', 'clarify'], flow: 'Evaluate：技术质量审计' },
+  'typeset': { combinesWith: ['bolder', 'polish'], flow: 'Refine：修正排版与字体层级' },
+  'layout': { combinesWith: ['distill', 'adapt'], flow: 'Refine：优化布局与间距' },
+  'colorize': { combinesWith: ['bolder', 'delight'], flow: 'Refine：加入策略性色彩' },
+  'animate': { combinesWith: ['delight'], flow: 'Refine：加入有目的的动效' },
+  'delight': { combinesWith: ['bolder', 'animate'], flow: 'Refine：增加个性与愉悦感' },
+  'bolder': { pairs: 'quieter', flow: 'Refine：强化偏保守的设计' },
+  'quieter': { pairs: 'bolder', flow: 'Refine：收敛过于激进的设计' },
+  'distill': { combinesWith: ['quieter', 'polish'], flow: 'Simplify：提炼到本质' },
+  'clarify': { combinesWith: ['polish', 'adapt'], flow: 'Simplify：优化 UX 文案' },
+  'adapt': { combinesWith: ['polish', 'clarify'], flow: 'Simplify：适配不同使用场景' },
+  'polish': { flow: 'Harden：最终打磨并对齐设计系统' },
+  'optimize': { flow: 'Harden：性能优化' },
+  'harden': { combinesWith: ['optimize'], flow: 'Harden：处理边界情况、引导与错误状态' },
+  'impeccable teach': { flow: 'System：一次性建立项目设计上下文' },
+  'impeccable extract': { flow: 'System：抽取设计系统组件与 tokens' }
 };
