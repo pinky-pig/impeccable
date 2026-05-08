@@ -16,12 +16,12 @@ const categoryColors = {
 };
 
 const categoryLabels = {
-	create: 'Create',
-	evaluate: 'Evaluate',
-	refine: 'Refine',
-	simplify: 'Simplify',
-	harden: 'Harden',
-	system: 'System'
+	create: '创造',
+	evaluate: '评估',
+	refine: '打磨',
+	simplify: '简化',
+	harden: '加固',
+	system: '系统'
 };
 
 const commandSymbols = {
@@ -134,12 +134,12 @@ export class PeriodicTable {
 		// Build relationships line. Command names are shown bare (no slash)
 		// because they're names, not invocations — the invocation is /impeccable <name>.
 		let relParts = [];
-		if (pairs.length > 0) relParts.push(`pairs with ${pairs.join(', ')}`);
-		if (combinesWith.length > 0) relParts.push(`+ ${combinesWith.join(', ')}`);
-		if (leadsTo.length > 0) relParts.push(`then ${leadsTo.join(', ')}`);
+		if (pairs.length > 0) relParts.push(`可配合 ${pairs.join('、')}`);
+		if (combinesWith.length > 0) relParts.push(`可结合 ${combinesWith.join('、')}`);
+		if (leadsTo.length > 0) relParts.push(`后续可接 ${leadsTo.join('、')}`);
 
 		// Strip category prefix from flow for cleaner display
-		const flow = (rel.flow || '').replace(/^[^:]+:\s*/, '');
+		const flow = (rel.flow || '').replace(/^[^:：]+[:：]\s*/, '');
 
 		const tooltip = document.createElement('div');
 		tooltip.className = 'ptable-tooltip';
@@ -230,7 +230,7 @@ export class PeriodicTable {
 			: cmd.startsWith('impeccable ')
 				? `/${cmd}`
 				: `/impeccable ${cmd}`;
-		el.setAttribute('aria-label', `${invocation} command - ${categoryLabels[category]}`);
+		el.setAttribute('aria-label', `${invocation} 命令 - ${categoryLabels[category]}`);
 		el.style.cssText = `
 			width: 56px;
 			height: 64px;

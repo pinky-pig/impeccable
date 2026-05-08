@@ -27,8 +27,8 @@ export default {
         </div>
       </div>
       <div style="padding: 12px; background: #fef3c7; border: 1px solid #fcd34d; border-radius: 6px;">
-        <div style="font-size: 0.8125rem; font-weight: 600; color: #92400e; margin-bottom: 4px;">Delete this project?</div>
-        <div style="font-size: 0.75rem; color: #854d0e; line-height: 1.5;">This will permanently delete 23 files. You can't undo this.</div>
+        <div style="font-size: 0.8125rem; font-weight: 600; color: #92400e; margin-bottom: 4px;">要删除这个项目吗？</div>
+        <div style="font-size: 0.75rem; color: #854d0e; line-height: 1.5;">这会永久删除 23 个文件，操作后无法撤销。</div>
       </div>
       <button style="padding: 10px; background: var(--color-ink); color: var(--color-paper); border: none; border-radius: 6px; font-size: 0.8125rem; font-weight: 500;">保存并继续 →</button>
     </div>

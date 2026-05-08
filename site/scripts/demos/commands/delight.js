@@ -24,7 +24,7 @@ export default {
         <span style="animation: confettiFall 1s ease-out 0.25s both; font-size: 16px;">🎊</span>
       </div>
       <div style="text-align: center; animation: celebratePop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;">
-        <div style="font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent); margin-bottom: 8px; font-weight: 600;">Milestone unlocked!</div>
+        <div style="font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent); margin-bottom: 8px; font-weight: 600;">里程碑已解锁！</div>
         <div style="font-family: var(--font-display); font-size: 3.5rem; font-weight: 300; font-style: italic; color: var(--color-ink); line-height: 1;">100</div>
         <div style="font-size: 0.875rem; color: var(--color-ash); margin-top: 4px;">项任务已完成</div>
       </div>

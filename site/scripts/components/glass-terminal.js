@@ -58,12 +58,12 @@ let magazineState = {
 
 const categoryOrder = ['diagnostic', 'quality', 'intensity', 'adaptation', 'enhancement', 'system'];
 const categoryLabels = {
-    'create': 'Create',
-    'evaluate': 'Evaluate',
-    'refine': 'Refine',
-    'simplify': 'Simplify',
-    'harden': 'Harden',
-    'system': 'System'
+    'create': '创造',
+    'evaluate': '评估',
+    'refine': '打磨',
+    'simplify': '简化',
+    'harden': '加固',
+    'system': '系统'
 };
 
 function renderDesktopLayout(container, commands) {
@@ -79,8 +79,8 @@ function renderDesktopLayout(container, commands) {
 
     const categoryOrder = ['create', 'evaluate', 'refine', 'simplify', 'harden', 'system'];
     const categoryLabelsShort = {
-        'create': 'Create', 'evaluate': 'Evaluate', 'refine': 'Refine',
-        'simplify': 'Simplify', 'harden': 'Harden', 'system': 'System'
+        'create': '创造', 'evaluate': '评估', 'refine': '打磨',
+        'simplify': '简化', 'harden': '加固', 'system': '系统'
     };
     // Preferred order within each category (unlisted commands append at end)
     const categoryCommandOrder = {
@@ -175,21 +175,21 @@ function renderSpread(cmd, index, isActive) {
             flowHTML = `
                 <div class="spread-flow">
                     <span class="spread-flow-icon">&#8596;</span>
-                    <span class="spread-flow-label">pairs with</span>
+                    <span class="spread-flow-label">可配合</span>
                     <span class="spread-flow-cmd">/${relationship.pairs}</span>
                 </div>`;
         } else if (relationship.leadsTo && relationship.leadsTo.length > 0) {
             flowHTML = `
                 <div class="spread-flow">
                     <span class="spread-flow-icon">&#8594;</span>
-                    <span class="spread-flow-label">leads to</span>
+                    <span class="spread-flow-label">后续可接</span>
                     ${relationship.leadsTo.map(c => `<span class="spread-flow-cmd">/${c}</span>`).join(' ')}
                 </div>`;
         } else if (relationship.combinesWith && relationship.combinesWith.length > 0) {
             flowHTML = `
                 <div class="spread-flow">
                     <span class="spread-flow-icon">+</span>
-                    <span class="spread-flow-label">combines with</span>
+                    <span class="spread-flow-label">可结合</span>
                     ${relationship.combinesWith.map(c => `<span class="spread-flow-cmd">/${c}</span>`).join(' ')}
                 </div>`;
         }
@@ -499,9 +499,11 @@ function renderMobileLayout(container, commands) {
         // because the invocation is /impeccable <name>, not /<name>.
         if (relationship) {
             if (relationship.pairs) {
-                relationshipHTML = `<div class="mobile-cmd-rel">↔ pairs with <code>${relationship.pairs}</code></div>`;
+                relationshipHTML = `<div class="mobile-cmd-rel">↔ 可配合 <code>${relationship.pairs}</code></div>`;
             } else if (relationship.leadsTo && relationship.leadsTo.length > 0) {
-                relationshipHTML = `<div class="mobile-cmd-rel">→ leads to ${relationship.leadsTo.map(c => `<code>${c}</code>`).join(', ')}</div>`;
+                relationshipHTML = `<div class="mobile-cmd-rel">→ 后续可接 ${relationship.leadsTo.map(c => `<code>${c}</code>`).join('、')}</div>`;
+            } else if (relationship.combinesWith && relationship.combinesWith.length > 0) {
+                relationshipHTML = `<div class="mobile-cmd-rel">＋ 可结合 ${relationship.combinesWith.map(c => `<code>${c}</code>`).join('、')}</div>`;
             }
         }
 
@@ -664,4 +666,3 @@ async function updateSourceContent(cmdId) {
         contentEl.innerHTML = '<span class="source-loading">Source not available</span>';
     }
 }
-

@@ -30,7 +30,7 @@ export default {
       <div style="font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-ash); margin-bottom: 16px;">本月</div>
       <div style="margin-bottom: 20px;">
         <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 300; color: var(--color-ink); line-height: 1;">$12,345</div>
-        <div style="font-size: 0.8125rem; color: #22c55e; margin-top: 4px;">↑ 12% from last month</div>
+        <div style="font-size: 0.8125rem; color: #22c55e; margin-top: 4px;">较上月增长 12%</div>
       </div>
       <div style="display: flex; gap: 24px;">
         <div>

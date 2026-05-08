@@ -31,31 +31,31 @@ export function renderCommandDemo(commandId) {
         <div class="demo-container">
           <div class="demo-viewport" style="padding: var(--spacing-lg); font-size: 13px; line-height: 1.6;">
             <div style="display: flex; flex-direction: column; gap: 16px; color: var(--color-ash);">
-              <div style="font-size: 14px; color: var(--color-text); font-weight: 600;">Three ways to use /impeccable</div>
+              <div style="font-size: 14px; color: var(--color-text); font-weight: 600;">/impeccable 的三种用法</div>
               <div style="display: flex; flex-direction: column; gap: 14px;">
                 <div style="display: flex; flex-direction: column; gap: 4px;">
                   <div style="display: flex; gap: 8px; align-items: baseline;">
                     <code style="font-size: 12px; color: var(--spread-accent, var(--color-accent)); font-weight: 600; white-space: nowrap;">/impeccable</code>
-                    <span style="opacity: 0.4; font-size: 11px;">freeform</span>
+                    <span style="opacity: 0.4; font-size: 11px;">自由模式</span>
                   </div>
-                  <span style="padding-left: 0; opacity: 0.8;">Use on any task. Loads full design intelligence, anti-patterns, and reference knowledge into the current context.</span>
+                  <span style="padding-left: 0; opacity: 0.8;">适用于任何设计任务。会把完整的设计智能、反模式规则和参考知识一起加载进当前上下文。</span>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 4px;">
                   <div style="display: flex; gap: 8px; align-items: baseline;">
                     <code style="font-size: 12px; color: var(--spread-accent, var(--color-accent)); font-weight: 600; white-space: nowrap;">/impeccable teach</code>
-                    <span style="opacity: 0.4; font-size: 11px;">one-time setup</span>
+                    <span style="opacity: 0.4; font-size: 11px;">一次性设置</span>
                   </div>
-                  <span style="padding-left: 0; opacity: 0.8;">Scans your codebase, interviews you about brand and audience, then saves a Design Context that all other commands use automatically.</span>
+                  <span style="padding-left: 0; opacity: 0.8;">扫描代码库、询问品牌与受众信息，然后保存设计上下文，供其他命令自动复用。</span>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 4px;">
                   <div style="display: flex; gap: 8px; align-items: baseline;">
                     <code style="font-size: 12px; color: var(--spread-accent, var(--color-accent)); font-weight: 600; white-space: nowrap;">/impeccable craft</code>
-                    <span style="opacity: 0.4; font-size: 11px;">build a feature</span>
+                    <span style="opacity: 0.4; font-size: 11px;">构建功能</span>
                   </div>
-                  <span style="padding-left: 0; opacity: 0.8;">Runs /shape to plan UX first, loads the right references, then builds and iterates visually until the result delights.</span>
+                  <span style="padding-left: 0; opacity: 0.8;">先通过 <code style="font-size: 11px;">/shape</code> 规划 UX，再加载合适参考，并在视觉迭代中完成实现。</span>
                 </div>
               </div>
-              <div style="font-size: 12px; opacity: 0.5; margin-top: 2px; font-style: italic;">Start with <code style="font-size: 11px;">/impeccable teach</code> once per project. Then use the other modes as needed.</div>
+              <div style="font-size: 12px; opacity: 0.5; margin-top: 2px; font-style: italic;">每个项目先运行一次 <code style="font-size: 11px;">/impeccable teach</code>，其余模式再按需使用。</div>
             </div>
           </div>
         </div>
@@ -67,34 +67,34 @@ export function renderCommandDemo(commandId) {
         <div class="demo-container">
           <div class="demo-viewport" style="padding: var(--spacing-lg); font-size: 13px; line-height: 1.6;">
             <div style="display: flex; flex-direction: column; gap: 16px; color: var(--color-ash);">
-              <div style="font-size: 14px; color: var(--color-text); font-weight: 600;">Shape, reference, build, iterate</div>
+              <div style="font-size: 14px; color: var(--color-text); font-weight: 600;">规划、参考、构建、迭代</div>
               <div style="display: flex; flex-direction: column; gap: 14px;">
                 <div style="display: flex; flex-direction: column; gap: 4px;">
                   <div style="display: flex; gap: 8px; align-items: baseline;">
                     <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">1. Shape</span>
                   </div>
-                  <span style="opacity: 0.8;">Runs <code style="font-size: 11px;">/impeccable shape</code> internally to build a design brief from discovery questions. No code yet.</span>
+                  <span style="opacity: 0.8;">内部先运行 <code style="font-size: 11px;">/impeccable shape</code>，通过发现式提问生成设计 brief。此时还不会写代码。</span>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 4px;">
                   <div style="display: flex; gap: 8px; align-items: baseline;">
                     <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">2. Reference</span>
                   </div>
-                  <span style="opacity: 0.8;">Loads the right reference files for the feature (spatial design, typography, motion, color) based on what the brief calls for.</span>
+                  <span style="opacity: 0.8;">根据 brief 需求加载正确的参考文件，比如空间设计、排版、动效与色彩。</span>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 4px;">
                   <div style="display: flex; gap: 8px; align-items: baseline;">
                     <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">3. Build</span>
                   </div>
-                  <span style="opacity: 0.8;">Implements structure, spacing, type, color, states, motion, responsive. Every decision traces back to the brief.</span>
+                  <span style="opacity: 0.8;">实现结构、间距、排版、色彩、状态、动效与响应式。每个决定都回到 brief 里找依据。</span>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 4px;">
                   <div style="display: flex; gap: 8px; align-items: baseline;">
-                    <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">4. Visual iteration</span>
+                    <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">4. 可视化迭代</span>
                   </div>
-                  <span style="opacity: 0.8;">Opens the result in a browser, checks against the brief and anti-pattern list, refines until the polish bar is high.</span>
+                  <span style="opacity: 0.8;">把结果放进浏览器里，对照 brief 和反模式清单持续微调，直到完成度真正够高。</span>
                 </div>
               </div>
-              <div style="font-size: 12px; opacity: 0.5; margin-top: 2px; font-style: italic;">The full shape-then-build flow in one command. Best for brand-new features.</div>
+              <div style="font-size: 12px; opacity: 0.5; margin-top: 2px; font-style: italic;">一个命令打通从 shape 到 build 的完整流程，最适合全新功能。</div>
             </div>
           </div>
         </div>
@@ -106,28 +106,28 @@ export function renderCommandDemo(commandId) {
         <div class="demo-container">
           <div class="demo-viewport" style="padding: var(--spacing-lg); font-size: 13px; line-height: 1.6;">
             <div style="display: flex; flex-direction: column; gap: 16px; color: var(--color-ash);">
-              <div style="font-size: 14px; color: var(--color-text); font-weight: 600;">One-time project setup</div>
+              <div style="font-size: 14px; color: var(--color-text); font-weight: 600;">项目级一次性设置</div>
               <div style="display: flex; flex-direction: column; gap: 14px;">
                 <div style="display: flex; flex-direction: column; gap: 4px;">
                   <div style="display: flex; gap: 8px; align-items: baseline;">
-                    <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">1. Explore</span>
+                    <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">1. 探索</span>
                   </div>
-                  <span style="opacity: 0.8;">Scans the codebase for brand assets, existing design tokens, typography, components, and documentation.</span>
+                  <span style="opacity: 0.8;">扫描代码库里的品牌资产、现有 token、排版、组件与文档。</span>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 4px;">
                   <div style="display: flex; gap: 8px; align-items: baseline;">
-                    <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">2. Interview</span>
+                    <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">2. 访谈</span>
                   </div>
-                  <span style="opacity: 0.8;">Asks about audience, brand personality, aesthetic direction, and accessibility needs. Skips anything it can infer from the code.</span>
+                  <span style="opacity: 0.8;">询问目标受众、品牌人格、审美方向和可访问性要求；凡是能从代码推断出来的，就不会重复问。</span>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 4px;">
                   <div style="display: flex; gap: 8px; align-items: baseline;">
-                    <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">3. Save</span>
+                    <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">3. 保存</span>
                   </div>
-                  <span style="opacity: 0.8;">Writes a <code style="font-size: 11px;">PRODUCT.md</code> file with users, brand, aesthetic direction, and design principles. Every future command reads it automatically.</span>
+                  <span style="opacity: 0.8;">写出包含用户、品牌、审美方向与设计原则的 <code style="font-size: 11px;">PRODUCT.md</code>。后续所有命令都会自动读取。</span>
                 </div>
               </div>
-              <div style="font-size: 12px; opacity: 0.5; margin-top: 2px; font-style: italic;">Run once per project. Then forget it exists.</div>
+              <div style="font-size: 12px; opacity: 0.5; margin-top: 2px; font-style: italic;">每个项目跑一次就够，之后几乎可以忘掉它的存在。</div>
             </div>
           </div>
         </div>
@@ -139,28 +139,28 @@ export function renderCommandDemo(commandId) {
         <div class="demo-container">
           <div class="demo-viewport" style="padding: var(--spacing-lg); font-size: 13px; line-height: 1.6;">
             <div style="display: flex; flex-direction: column; gap: 16px; color: var(--color-ash);">
-              <div style="font-size: 14px; color: var(--color-text); font-weight: 600;">Design before you build</div>
+              <div style="font-size: 14px; color: var(--color-text); font-weight: 600;">先设计，再编码</div>
               <div style="display: flex; flex-direction: column; gap: 14px;">
                 <div style="display: flex; flex-direction: column; gap: 4px;">
                   <div style="display: flex; gap: 8px; align-items: baseline;">
-                    <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">1. Discovery</span>
+                    <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">1. 发现</span>
                   </div>
-                  <span style="opacity: 0.8;">Interviews you about purpose, audience, content, constraints, and anti-goals. Adapts questions based on your answers.</span>
+                  <span style="opacity: 0.8;">围绕目标、受众、内容、约束与反目标做访谈，并根据你的回答动态调整问题。</span>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 4px;">
                   <div style="display: flex; gap: 8px; align-items: baseline;">
-                    <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">2. Design Brief</span>
+                    <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">2. 设计 brief</span>
                   </div>
-                  <span style="opacity: 0.8;">Synthesizes a 9-section brief: feature summary, primary action, design direction, layout strategy, key states, interaction model, content needs, recommended references, and open questions.</span>
+                  <span style="opacity: 0.8;">归纳出一份 9 个部分的 brief：功能摘要、主动作、设计方向、布局策略、关键状态、交互模型、内容需求、建议参考和待确认问题。</span>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 4px;">
                   <div style="display: flex; gap: 8px; align-items: baseline;">
-                    <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">3. Handoff</span>
+                    <span style="color: var(--spread-accent, var(--color-accent)); font-weight: 600; font-size: 12px;">3. 交接</span>
                   </div>
-                  <span style="opacity: 0.8;">The confirmed brief guides <code style="font-size: 11px;">/impeccable craft</code> or any other implementation approach. No code written, just the thinking that makes code good.</span>
+                  <span style="opacity: 0.8;">确认后的 brief 可以直接指导 <code style="font-size: 11px;">/impeccable craft</code> 或任何其他实现流程。这里不写代码，只把让代码变好的思考先做完。</span>
                 </div>
               </div>
-              <div style="font-size: 12px; opacity: 0.5; margin-top: 2px; font-style: italic;">Use standalone or as the first step of <code style="font-size: 11px;">/impeccable craft</code>.</div>
+              <div style="font-size: 12px; opacity: 0.5; margin-top: 2px; font-style: italic;">既可单独使用，也可作为 <code style="font-size: 11px;">/impeccable craft</code> 的第一步。</div>
             </div>
           </div>
         </div>
@@ -279,5 +279,4 @@ export function setupDemoTabs() {
     });
   });
 }
-
 

@@ -16,20 +16,20 @@ const PHASE = {
 const TIMELINE = [
 	{ dt: 400,  action: 'cursor-show' },
 	{ dt: 400,  action: 'cursor-to-target' },
-	{ dt: 900,  action: 'outline-show', caption: 'Hover to pick.' },
+	{ dt: 900,  action: 'outline-show', caption: '悬停即可选择。' },
 	{ dt: 500,  action: 'cursor-click' },
-	{ dt: 200,  action: 'open-ctx', caption: 'Picked. Contextual bar appears.' },
+	{ dt: 200,  action: 'open-ctx', caption: '已选中，出现上下文工具条。' },
 	{ dt: 700,  action: 'cursor-to-input' },
-	{ dt: 300,  action: 'type', text: 'more playful', caption: 'Type a refinement, or skip.' },
-	{ dt: 1200, action: 'draw-stroke', caption: 'Annotate on the page, if you want.' },
+	{ dt: 300,  action: 'type', text: '更有玩心', caption: '输入细化要求，也可以跳过。' },
+	{ dt: 1200, action: 'draw-stroke', caption: '如果需要，也可以直接在页面上标注。' },
 	{ dt: 900,  action: 'cursor-to-go' },
-	{ dt: 300,  action: 'click-go', caption: 'Generating three variants…' },
-	{ dt: 1600, action: 'show-variant', n: 1, caption: 'Variant 1 of 3.' },
-	{ dt: 1400, action: 'show-variant', n: 2, caption: 'Variant 2 of 3.' },
-	{ dt: 1400, action: 'show-variant', n: 3, caption: 'Variant 3 of 3.' },
+	{ dt: 300,  action: 'click-go', caption: '正在生成 3 个变体…' },
+	{ dt: 1600, action: 'show-variant', n: 1, caption: '变体 1 / 3。' },
+	{ dt: 1400, action: 'show-variant', n: 2, caption: '变体 2 / 3。' },
+	{ dt: 1400, action: 'show-variant', n: 3, caption: '变体 3 / 3。' },
 	{ dt: 900,  action: 'cursor-to-accept' },
-	{ dt: 300,  action: 'click-accept', caption: 'Accepted. Written to source.' },
-	{ dt: 1800, action: 'reset', caption: 'Hover to pick.' },
+	{ dt: 300,  action: 'click-accept', caption: '已接受，并写回源码。' },
+	{ dt: 1800, action: 'reset', caption: '悬停即可选择。' },
 ];
 
 export function initLiveDemo() {
@@ -223,7 +223,7 @@ export function initLiveDemo() {
 		positionOutline();
 		outline.classList.add('is-visible');
 		setCtxPhase(PHASE.CYCLING);
-		setCaption('Three variants. Pick the one you want.');
+		setCaption('这里有 3 个变体，选你想要的那个。');
 		return;
 	}
 
