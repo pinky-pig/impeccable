@@ -4,13 +4,13 @@ Documentation for contributors to Impeccable.
 
 ## Architecture
 
-Source skills in `source/skills/` are transformed into provider-specific formats by a config-driven factory. Each provider is defined as a config object in `scripts/lib/transformers/providers.js` -- adding a new provider requires only a new config entry.
+The skill at `skill/` is transformed into provider-specific formats by a config-driven factory. Each provider is defined as a config object in `scripts/lib/transformers/providers.js` -- adding a new provider requires only a new config entry.
 
 For detailed harness capabilities (which frontmatter fields each supports, placeholder systems, directory structures), see [HARNESSES.md](HARNESSES.md).
 
 ## Source Format
 
-### Skills (`source/skills/{name}/SKILL.md`)
+### Skill (`skill/SKILL.md`)
 
 ```yaml
 ---
@@ -68,7 +68,7 @@ source/                          -> dist/
   skills/{name}/SKILL.md           {provider}/{configDir}/skills/{name}/SKILL.md
 ```
 
-Each provider gets its own output directory. Two variants are generated per provider: unprefixed and prefixed (with `i-` prefix for skill names).
+Each provider gets its own output directory.
 
 ## Build System Details
 
@@ -127,10 +127,9 @@ scripts/
 
 - `createTransformer(config)`: Factory that returns a transformer function from a provider config
 - `parseFrontmatter()`: Extracts YAML frontmatter and body from SKILL.md files
-- `readSourceFiles()`: Reads all skill directories from `source/skills/`
+- `readSourceFiles()`: Reads `skill/SKILL.md` plus its `reference/` and `scripts/` siblings
 - `replacePlaceholders()`: Substitutes `{{model}}`, `{{config_file}}`, etc. per provider
 - `generateYamlFrontmatter()`: Serializes objects to YAML frontmatter (auto-quotes values starting with `[` or `{`)
-- `prefixSkillReferences()`: Replaces `/skillname` with `/i-skillname` for prefixed variants
 
 ## Best Practices
 
@@ -155,6 +154,7 @@ scripts/
 - [Kiro Skills](https://kiro.dev/docs/skills/)
 - [OpenCode Skills](https://opencode.ai/docs/skills/)
 - [Pi Skills](https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/skills.md)
+- [Qoder Skills](https://docs.qoder.com/extensions/skills)
 
 ## Repository Structure
 

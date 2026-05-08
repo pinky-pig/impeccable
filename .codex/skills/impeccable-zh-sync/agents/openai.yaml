@@ -1,4 +1,0 @@
-interface:
-  display_name: "Impeccable ZH Sync"
-  short_description: "Sync upstream and refresh the Chinese fork."
-  default_prompt: "Use $impeccable-zh-sync to merge upstream impeccable changes, refresh the Chinese localization, and prepare this repo for deployment."

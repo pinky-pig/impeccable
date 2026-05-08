@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import LegacyPageScripts from '../../components/LegacyPageScripts.astro';
+import '../../styles/sub-pages.css';
+import { loadLegacyPage } from '../../lib/legacy-page.js';
+
+const legacy = loadLegacyPage('visual-mode/index.html');
+---
+
+<Base
+  title={legacy.title || '可视模式 | Impeccable'}
+  description={legacy.description}
+  activeNav="visual-mode"
+  canonicalPath="/visual-mode"
+  bodyClass={legacy.bodyClass || 'sub-page visual-mode-page-body'}
+>
+  <Fragment set:html={legacy.content} />
+  <LegacyPageScripts slot="scripts" />
+</Base>

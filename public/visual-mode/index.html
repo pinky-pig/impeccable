@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>可视模式 | Impeccable</title>
+  <meta name="description" content="直接在页面上查看每条反模式命中位置。Impeccable 的实时检测覆盖层可通过 /critique、npx impeccable live 或 Chrome 扩展使用。">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="canonical" href="https://impeccable.style/visual-mode">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/sub-pages.css">
+  
+</head>
+<body class="sub-page visual-mode-page-body">
+  <a href="#main" class="skip-link">跳到主要内容</a>
+  <!-- site-header v1 -->
+<header class="site-header" data-site-header>
+  <a href="/" class="site-header-brand" aria-label="Impeccable 首页">
+    <svg class="site-header-brand-logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1a1a1a"/><text x="16" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="500" fill="#f5f3ef" text-anchor="middle">/</text></svg>
+    <span class="site-header-brand-name">Impeccable</span>
+  </a>
+  <div class="site-header-right">
+    <nav class="site-header-nav" aria-label="主导航">
+      <a href="/" data-nav="home">首页</a>
+      <a href="/skills" data-nav="docs">文档</a>
+      <a href="/anti-patterns" data-nav="anti-patterns">反模式</a>
+      <a href="/visual-mode" data-nav="visual-mode" aria-current="page">可视模式</a>
+    </nav>
+    <a href="https://github.com/pbakaus/impeccable" class="site-header-github" target="_blank" rel="noopener" aria-label="Impeccable GitHub 仓库，18k stars">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      <span class="site-header-github-label">18k</span>
+      <svg class="site-header-github-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.76 6.36L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.24-.91L12 2z"/></svg>
+    </a>
+  </div>
+</header>
+  <main id="main">
+
+<div class="visual-mode-page">
+  <header class="visual-mode-page-header">
+    <p class="sub-page-eyebrow">实时检测覆盖层</p>
+    <h1 class="sub-page-title">可视模式</h1>
+    <p class="sub-page-lede">把每条反模式直接标在页面上看。你不需要再对着截图或 JSON 倒推具体位置；检测器会给命中的元素画出描边和标签，让你在原位就能判断、修改、复查。</p>
+  </header>
+
+  <section class="visual-mode-demo-wrap" aria-label="可视模式演示">
+    <div class="visual-mode-preview">
+      <div class="visual-mode-preview-header">
+        <span class="visual-mode-preview-dot red"></span>
+        <span class="visual-mode-preview-dot yellow"></span>
+        <span class="visual-mode-preview-dot green"></span>
+        <span class="visual-mode-preview-title">合成示例页上的实时覆盖层</span>
+      </div>
+      <iframe src="/antipattern-examples/visual-mode-demo.html" class="visual-mode-frame" loading="lazy" title="Impeccable 覆盖层演示"></iframe>
+    </div>
+    <p class="visual-mode-demo-caption">悬停或点按任意被框出的元素，就能看到具体触发了哪条规则。</p>
+  </section>
+
+  <section class="visual-mode-methods" aria-label="可视模式的使用方式">
+    <h2 class="visual-mode-methods-title">三种运行方式</h2>
+    <div class="visual-mode-methods-grid">
+      <article class="visual-mode-method">
+        <p class="visual-mode-method-label">集成在 /critique 里</p>
+        <h3 class="visual-mode-method-name"><a href="/skills/critique">/critique</a></h3>
+        <p class="visual-mode-method-desc">设计评审技能在浏览器检查阶段会自动打开覆盖层。你会一边看到确定性检测结果被直接标在页面上，一边让 LLM 独立完成它的启发式评审。</p>
+      </article>
+      <article class="visual-mode-method">
+        <p class="visual-mode-method-label">独立 CLI</p>
+        <h3 class="visual-mode-method-name"><code>npx impeccable live</code></h3>
+        <p class="visual-mode-method-desc">它会启动一个本地服务来提供检测脚本。把脚本通过 <code>&lt;script&gt;</code> 注入任意页面后，你就能看到覆盖层。无论是自己的开发环境、预发地址，还是线上页面，都能用。</p>
+      </article>
+      <article class="visual-mode-method">
+        <p class="visual-mode-method-label">最省事</p>
+        <h3 class="visual-mode-method-name">Chrome 扩展</h3>
+        <p class="visual-mode-method-desc">任意标签页一键开启。<a href="https://chromewebstore.google.com/detail/impeccable/bdkgmiklpdmaojlpflclinlofgjfpabf" target="_blank" rel="noopener">前往 Chrome Web Store 安装 &rarr;</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="visual-mode-gallery" id="try-it-live" aria-label="在合成示例页上体验">
+    <header class="visual-mode-gallery-header">
+      <h2 class="visual-mode-gallery-title">直接上手试</h2>
+      <p class="visual-mode-gallery-lede">这 11 个合成示例页都已经内置检测脚本。点开任意一个，就能在真实页面结构上看到覆盖层运行，再滚动、悬停，看看哪些元素被框出来。</p>
+    </header>
+    <div class="gallery-grid">
+
+      <a class="gallery-card" href="/antipattern-examples/purple-gradients.html">
+        <div class="gallery-card-thumb">
+          <img src="../antipattern-images/purple-gradients.png" alt="紫色渐变泛滥 示例" loading="lazy" width="540" height="540">
+        </div>
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">紫色渐变泛滥</h3>
+          <p class="gallery-card-desc">典型 AI 配色病：紫到蓝的渐变到处都是。按钮、文字、背景、光球，全都在用。像把“做得更炸”误解成唯一目标。</p>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="/antipattern-examples/lazy-cool.html">
+        <div class="gallery-card-thumb">
+          <img src="../antipattern-images/lazy-cool.png" alt="偷懒式“酷感” 示例" loading="lazy" width="540" height="540">
+        </div>
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">偷懒式“酷感”</h3>
+          <p class="gallery-card-desc">玻璃拟态、霓虹发光、模糊光球、整页 monospace。更像黑客马拉松 demo，不像真正要交付的产品。</p>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="/antipattern-examples/lazy-impact.html">
+        <div class="gallery-card-thumb">
+          <img src="../antipattern-images/lazy-impact.png" alt="偷懒式“冲击力” 示例" loading="lazy" width="540" height="540">
+        </div>
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">偷懒式“冲击力”</h3>
+          <p class="gallery-card-desc">拿不准就把一切都动起来：弹跳按钮、晃动图标、渐变文字、漂浮标签。只有动作，没有意义。</p>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="/antipattern-examples/thick-border-cards.html">
+        <div class="gallery-card-thumb">
+          <img src="../antipattern-images/thick-border-cards.png" alt="侧条卡片 示例" loading="lazy" width="540" height="540">
+        </div>
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">侧条卡片</h3>
+          <p class="gallery-card-desc">圆角卡片一侧加一条厚色边，这是 AI 生成 UI 最容易被一眼认出的信号之一。</p>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="/antipattern-examples/cardocalypse.html">
+        <div class="gallery-card-thumb">
+          <img src="../antipattern-images/cardocalypse.png" alt="卡片末日 示例" loading="lazy" width="540" height="540">
+        </div>
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">卡片末日</h3>
+          <p class="gallery-card-desc">卡片套卡片再套卡片，五层嵌套，每层都有自己的 padding 和阴影。</p>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="/antipattern-examples/layout-templates.html">
+        <div class="gallery-card-thumb">
+          <img src="../antipattern-images/layout-templates.png" alt="复制粘贴式布局 示例" loading="lazy" width="540" height="540">
+        </div>
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">复制粘贴式布局</h3>
+          <p class="gallery-card-desc">同一种 hero + 指标 + 功能区模板，换个颜色就再来一版。每个区块都长得一样，就没有任何重点了。</p>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="/antipattern-examples/inter-everywhere.html">
+        <div class="gallery-card-thumb">
+          <img src="../antipattern-images/inter-everywhere.png" alt="到处都是 Inter 示例" loading="lazy" width="540" height="540">
+        </div>
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">到处都是 Inter</h3>
+          <p class="gallery-card-desc">全站只用一套字体：标题、正文、标签、按钮都是它。没有排版层级，没有个性，也没有真正的设计判断。</p>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="/antipattern-examples/massive-icons.html">
+        <div class="gallery-card-thumb">
+          <img src="../antipattern-images/massive-icons.png" alt="巨大图标 示例" loading="lazy" width="540" height="540">
+        </div>
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">巨大图标</h3>
+          <p class="gallery-card-desc">图标容器比它引出的内容还大。当装饰比信息本身更抢眼时，优先级就倒过来了。</p>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="/antipattern-examples/bad-contrast.html">
+        <div class="gallery-card-thumb">
+          <img src="../antipattern-images/bad-contrast.png" alt="糟糕的对比度选择 示例" loading="lazy" width="540" height="540">
+        </div>
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">糟糕的对比度选择</h3>
+          <p class="gallery-card-desc">彩色背景上的灰字、低对比度标签、根本读不清的配色组合。好看和可读，本来不该互相冲突。</p>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="/antipattern-examples/redundant-ux-writing.html">
+        <div class="gallery-card-thumb">
+          <img src="../antipattern-images/redundant-ux-writing.png" alt="冗余 UX 文案 示例" loading="lazy" width="540" height="540">
+        </div>
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">冗余 UX 文案</h3>
+          <p class="gallery-card-desc">标签、副标题、帮助文案、提示文案都在用不同措辞重复同一件事。该说一次的内容，就别说四次。</p>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="/antipattern-examples/modal-abuse.html">
+        <div class="gallery-card-thumb">
+          <img src="../antipattern-images/modal-abuse.png" alt="滥用弹窗 示例" loading="lazy" width="540" height="540">
+        </div>
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">滥用弹窗</h3>
+          <p class="gallery-card-desc">把复杂设置硬塞进弹窗里。如果它需要滚动条和三列布局，那它就该拥有自己的一整页。</p>
+        </div>
+      </a>
+    </div>
+  </section>
+</div>
+  </main>
+  <script>
+    // Copy buttons on rendered code blocks
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-copy]');
+      if (!btn) return;
+      const text = btn.getAttribute('data-copy');
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('is-copied');
+        setTimeout(() => btn.classList.remove('is-copied'), 1500);
+      }).catch(() => {});
+    });
+
+    // Mobile sidebar toggle (shown on narrow viewports, hidden on desktop).
+    document.addEventListener('click', (e) => {
+      const toggle = e.target.closest('.skills-sidebar-toggle');
+      if (!toggle) return;
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+    });
+
+    // Before/after split-compare: drag on touch, hover OR drag on mouse.
+    // Pointer events attach to the padded .split-comparison wrapper so
+    // there is a ~20px invisible buffer around the visible box. The
+    // divider only snaps back when the pointer leaves that outer buffer.
+    (function initSplitCompare() {
+      const wrappers = document.querySelectorAll('.split-comparison');
+      if (wrappers.length === 0) return;
+      const hasHover = matchMedia('(hover: hover)').matches;
+      const DEFAULT_POSITION = 50;
+
+      for (const wrapper of wrappers) {
+        const container = wrapper.querySelector('.split-container');
+        const splitAfter = wrapper.querySelector('.split-after');
+        const splitDivider = wrapper.querySelector('.split-divider');
+        if (!container || !splitAfter || !splitDivider) continue;
+
+        const tanAngle = Math.tan(10 * Math.PI / 180);
+        let skewOffset = 8;
+        const recalcSkew = () => {
+          const r = container.getBoundingClientRect();
+          if (r.width > 0 && r.height > 0) {
+            skewOffset = 50 * r.height * tanAngle / r.width;
+          }
+        };
+        recalcSkew();
+        window.addEventListener('resize', recalcSkew, { passive: true });
+
+        let targetX = DEFAULT_POSITION;
+        let currentX = DEFAULT_POSITION;
+        let rafId = null;
+
+        const paint = (pct) => {
+          const x = Math.max(-skewOffset, Math.min(100 + skewOffset, pct));
+          splitAfter.style.clipPath =
+            `polygon(${x + skewOffset}% 0%, 100% 0%, 100% 100%, ${x - skewOffset}% 100%)`;
+          splitDivider.style.left = `${x}%`;
+        };
+
+        const step = () => {
+          currentX += (targetX - currentX) * 0.2;
+          if (Math.abs(targetX - currentX) < 0.1) {
+            currentX = targetX;
+            rafId = null;
+          } else {
+            rafId = requestAnimationFrame(step);
+          }
+          paint(currentX);
+        };
+
+        const setTarget = (pct) => {
+          targetX = pct;
+          if (rafId === null) rafId = requestAnimationFrame(step);
+        };
+
+        paint(DEFAULT_POSITION);
+
+        // Percentage is always relative to the VISIBLE .split-container,
+        // not the padded .split-comparison wrapper. The pointer event
+        // target is the wrapper but the clip-path math uses the inner box.
+        const pctFromClientX = (clientX) => {
+          const rect = container.getBoundingClientRect();
+          return ((clientX - rect.left) / rect.width) * 100;
+        };
+
+        let hovering = false;
+        let dragging = false;
+
+        wrapper.addEventListener('pointerenter', (e) => {
+          if (hasHover && e.pointerType === 'mouse') {
+            hovering = true;
+          }
+        });
+
+        wrapper.addEventListener('pointerdown', (e) => {
+          dragging = true;
+          wrapper.setPointerCapture(e.pointerId);
+          setTarget(pctFromClientX(e.clientX));
+        });
+
+        wrapper.addEventListener('pointermove', (e) => {
+          if (dragging || hovering) {
+            setTarget(pctFromClientX(e.clientX));
+          }
+        });
+
+        const endDrag = (e) => {
+          if (dragging) {
+            dragging = false;
+            try { wrapper.releasePointerCapture(e.pointerId); } catch {}
+          }
+        };
+
+        wrapper.addEventListener('pointerup', endDrag);
+        wrapper.addEventListener('pointercancel', endDrag);
+
+        wrapper.addEventListener('pointerleave', (e) => {
+          endDrag(e);
+          if (hovering) {
+            hovering = false;
+            setTarget(DEFAULT_POSITION);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

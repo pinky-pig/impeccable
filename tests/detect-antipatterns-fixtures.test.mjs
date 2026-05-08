@@ -10,7 +10,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import {
   detectHtml,
-} from '../src/detect-antipatterns.mjs';
+} from '../cli/engine/detect-antipatterns.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const FIXTURES = path.join(__dirname, 'fixtures', 'antipatterns');
@@ -91,6 +91,58 @@ describe('detectHtml — jsdom fixtures', () => {
     assert.equal(
       twSnippets.length, 1,
       `expected exactly 1 Tailwind bg-black finding (flag column only), got ${twSnippets.length}: ${twSnippets.map(r => r.snippet).join('; ')}`
+    );
+  });
+
+  it('color: styled <a> and <button> with their own background get contrast checks', async () => {
+    // SAFE_TAGS skips <a> and <button> by default to avoid noise on inline links
+    // (text links inside paragraphs). When these elements are styled as buttons
+    // (own opaque background, padding, direct text), the contrast check must run.
+    // Mirrors a real bug from the landing-demo: a pill-style <a> with
+    // warm-charcoal text on near-black bg, ~2:1 contrast, was missed by both
+    // the CLI and browser overlay paths because <a> was categorically skipped.
+    const f = await detectHtml(path.join(FIXTURES, 'color.html'));
+    const pillBtnFlag = f.some(r =>
+      r.antipattern === 'low-contrast' &&
+      /#5b4f44/i.test(r.snippet || '') &&
+      /#1f1a15/i.test(r.snippet || '')
+    );
+    assert.ok(pillBtnFlag, 'expected low-contrast finding for styled <a> pill button');
+    const styledButtonFlag = f.some(r =>
+      r.antipattern === 'low-contrast' &&
+      /#6c7280/i.test(r.snippet || '') &&
+      /#374151/i.test(r.snippet || '')
+    );
+    assert.ok(styledButtonFlag, 'expected low-contrast finding for styled <button>');
+  });
+
+  it('color: inline <a> without own background remains skipped (no regression)', async () => {
+    // The exception for styled buttons must not regress to flagging plain
+    // inline text links — those would create noise on essentially every
+    // page on the web.
+    const f = await detectHtml(path.join(FIXTURES, 'color.html'));
+    const inlineLinkFalsePositive = f.some(r =>
+      r.antipattern === 'low-contrast' &&
+      /#aaaaaa/i.test(r.snippet || '')
+    );
+    assert.equal(
+      inlineLinkFalsePositive, false,
+      'inline <a> without own background must remain skipped'
+    );
+  });
+
+  it('color: styled <a> with good contrast does not flag', async () => {
+    // The detector exception must let the check run, but a properly contrasted
+    // styled button must obviously pass.
+    const f = await detectHtml(path.join(FIXTURES, 'color.html'));
+    const goodPillFalsePositive = f.some(r =>
+      r.antipattern === 'low-contrast' &&
+      /#f5f0e8/i.test(r.snippet || '') &&
+      /#141419/i.test(r.snippet || '')
+    );
+    assert.equal(
+      goodPillFalsePositive, false,
+      'styled <a> with high contrast must not flag'
     );
   });
 
@@ -242,6 +294,80 @@ describe('detectHtml — layout', () => {
     // them awake unexpectedly.
     assert.equal(f.filter(r => r.antipattern === 'monotonous-spacing').length, 0);
     assert.equal(f.filter(r => r.antipattern === 'everything-centered').length, 0);
+  });
+});
+
+describe('detectHtml — italic-serif-display', () => {
+  // Two-column fixture: left col flag, right col pass. Snippet embeds the
+  // heading text in quotes so the test can extract it via /"([^"]+)"/.
+  const SHOULD_FLAG = [
+    'Fraunces 88px italic',
+    'Recoleta 64px italic',
+    'Playfair 72px italic',
+    'Unknown Serif Generic Fallback',
+  ];
+  const SHOULD_PASS = [
+    'Sans Italic Display',
+    'Roman Serif Display',
+    'Italic Serif Pull Quote',
+    // The italic <em> inside the roman h1 is intentionally not detected in v1.
+    // The h1's own text "Inline Em Inside Roman" must not appear flagged.
+    'Inline Em Inside Roman',
+    'Italic Serif at 32px',
+    'h1 Sans-Serif Roman',
+  ];
+
+  it('italic-serif-display: flags only the should-flag column', async () => {
+    const f = await detectHtml(path.join(FIXTURES, 'italic-serif-display.html'));
+    const flagged = new Set();
+    for (const r of f) {
+      if (r.antipattern !== 'italic-serif-display') continue;
+      const m = (r.snippet || '').match(/"([^"]+)"/);
+      if (m) flagged.add(m[1]);
+    }
+
+    for (const text of SHOULD_FLAG) {
+      assert.ok(flagged.has(text), `expected "${text}" to be flagged as italic-serif-display`);
+    }
+    for (const text of SHOULD_PASS) {
+      assert.ok(!flagged.has(text), `"${text}" should NOT be flagged as italic-serif-display`);
+    }
+  });
+});
+
+describe('detectHtml — hero-eyebrow-chip', () => {
+  const SHOULD_FLAG = [
+    'Eyebrow Above Hero',
+    'Span Eyebrow Above Hero',
+    'Pill Chip Above Hero',
+    'Already Uppercase Text',
+  ];
+  const SHOULD_PASS = [
+    'Eyebrow With Normal Tracking',
+    'Body-Sized Heading Below Eyebrow',
+    'Uppercase Caption Far From Hero',
+    'Hero With No Eyebrow',
+    'Heading Above Heading',
+    'Long Uppercase Sentence Above Hero',
+  ];
+
+  it('hero-eyebrow-chip: flags only the should-flag column', async () => {
+    const f = await detectHtml(path.join(FIXTURES, 'hero-eyebrow-chip.html'));
+    const flagged = new Set();
+    for (const r of f) {
+      if (r.antipattern !== 'hero-eyebrow-chip') continue;
+      // Snippet shape: ... above h1 "Heading Text"
+      const matches = [...(r.snippet || '').matchAll(/"([^"]+)"/g)];
+      // Last quoted token is the heading text
+      if (matches.length) flagged.add(matches[matches.length - 1][1]);
+    }
+
+    for (const text of SHOULD_FLAG) {
+      assert.ok(flagged.has(text), `expected "${text}" to be flagged as hero-eyebrow-chip`);
+    }
+    for (const text of SHOULD_PASS) {
+      assert.ok(!flagged.has(text), `"${text}" should NOT be flagged as hero-eyebrow-chip`);
+    }
   });
 });
 

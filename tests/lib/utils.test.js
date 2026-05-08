@@ -10,8 +10,7 @@ import {
   writeFile,
   generateYamlFrontmatter,
   readPatterns,
-  replacePlaceholders,
-  prefixSkillReferences
+  replacePlaceholders
 } from '../../scripts/lib/utils.js';
 
 // Temporary test directory
@@ -90,7 +89,7 @@ Body.`;
     expect(result.frontmatter['user-invocable']).toBe(true);
   });
 
-  test('should parse user-invocable as string true (code behavior)', () => {
+  test('should parse quoted user-invocable boolean as true', () => {
     const content = `---
 name: test-skill
 user-invocable: 'true'
@@ -99,8 +98,19 @@ user-invocable: 'true'
 Body.`;
 
     const result = parseFrontmatter(content);
-    // parseFrontmatter strips YAML quotes, so 'true' becomes boolean true
     expect(result.frontmatter['user-invocable']).toBe(true);
+  });
+
+  test('should keep quoted non-user-invocable booleans as plain strings', () => {
+    const content = `---
+name: test-skill
+description: 'true'
+---
+
+Body.`;
+
+    const result = parseFrontmatter(content);
+    expect(result.frontmatter.description).toBe('true');
   });
 
   test('should parse allowed-tools field', () => {
@@ -165,6 +175,42 @@ describe('generateYamlFrontmatter', () => {
     expect(parsed.frontmatter.name).toBe(original.name);
     expect(parsed.frontmatter.description).toBe(original.description);
     expect(parsed.frontmatter['argument-hint']).toBe('<arg1>');
+  });
+
+  test('should quote strings containing colon-space (breaks plain scalars)', () => {
+    const data = {
+      name: 'impeccable',
+      description: 'Design fluency. Also handles: critique, audit. Commands: craft, polish.'
+    };
+
+    const result = generateYamlFrontmatter(data);
+    // Must be wrapped in quotes so YAML parsers don't mis-read the inner `: ` as a mapping
+    expect(result).toContain('description: "Design fluency. Also handles: critique, audit. Commands: craft, polish."');
+
+    // Roundtrip through our parser should recover the original string intact
+    const parsed = parseFrontmatter(`${result}\n\nbody`);
+    expect(parsed.frontmatter.description).toBe(data.description);
+  });
+
+  test('should quote strings starting with YAML flow indicators', () => {
+    const data = {
+      name: 'test',
+      'argument-hint': '[command] [target]'
+    };
+
+    const result = generateYamlFrontmatter(data);
+    expect(result).toContain('argument-hint: "[command] [target]"');
+  });
+
+  test('should not quote plain strings without special chars', () => {
+    const data = {
+      name: 'simple',
+      description: 'A plain description with no colons or hashes'
+    };
+
+    const result = generateYamlFrontmatter(data);
+    expect(result).toContain('description: A plain description with no colons or hashes');
+    expect(result).not.toContain('"A plain');
   });
 });
 
@@ -329,7 +375,7 @@ describe('readSourceFiles', () => {
     }
   });
 
-  test('should read and parse skill files from directory-based structure', () => {
+  test('should read and parse SKILL.md from skill/', () => {
     const skillContent = `---
 name: test-skill
 description: A test skill
@@ -338,7 +384,7 @@ license: MIT
 
 Skill instructions here.`;
 
-    const skillDir = path.join(testRootDir, 'source/skills/test-skill');
+    const skillDir = path.join(testRootDir, 'skill');
     ensureDir(skillDir);
     fs.writeFileSync(path.join(skillDir, 'SKILL.md'), skillContent);
 
@@ -360,7 +406,26 @@ user-invocable: true
 
 Audit the code.`;
 
-    const skillDir = path.join(testRootDir, 'source/skills/audit');
+    const skillDir = path.join(testRootDir, 'skill');
+    ensureDir(skillDir);
+    fs.writeFileSync(path.join(skillDir, 'SKILL.md'), skillContent);
+
+    const { skills } = readSourceFiles(testRootDir);
+
+    expect(skills).toHaveLength(1);
+    expect(skills[0].userInvocable).toBe(true);
+  });
+
+  test('should read skill with quoted user-invocable flag', () => {
+    const skillContent = `---
+name: audit
+description: Run technical quality checks
+user-invocable: 'true'
+---
+
+Audit the code.`;
+
+    const skillDir = path.join(testRootDir, 'skill');
     ensureDir(skillDir);
     fs.writeFileSync(path.join(skillDir, 'SKILL.md'), skillContent);
 
@@ -378,7 +443,7 @@ description: Impeccable design skill
 
 Impeccable design instructions.`;
 
-    const skillDir = path.join(testRootDir, 'source/skills/impeccable');
+    const skillDir = path.join(testRootDir, 'skill');
     ensureDir(skillDir);
     fs.writeFileSync(path.join(skillDir, 'SKILL.md'), skillContent);
 
@@ -396,41 +461,19 @@ Impeccable design instructions.`;
     expect(refNames).toEqual(['color', 'typography']);
   });
 
-  test('should use filename as name if not in frontmatter', () => {
-    const skillDir = path.join(testRootDir, 'source/skills/my-skill');
+  test('should fall back to "impeccable" when frontmatter has no name', () => {
+    const skillDir = path.join(testRootDir, 'skill');
     ensureDir(skillDir);
     fs.writeFileSync(path.join(skillDir, 'SKILL.md'), 'Just body, no frontmatter.');
 
     const { skills } = readSourceFiles(testRootDir);
 
     expect(skills).toHaveLength(1);
-    expect(skills[0].name).toBe('my-skill');
+    expect(skills[0].name).toBe('impeccable');
   });
 
-  test('should handle empty source directories', () => {
-    ensureDir(path.join(testRootDir, 'source/skills'));
-
-    const { skills } = readSourceFiles(testRootDir);
-
-    expect(skills).toEqual([]);
-  });
-
-  test('should read multiple skills', () => {
-    const skill1Dir = path.join(testRootDir, 'source/skills/skill1');
-    ensureDir(skill1Dir);
-    fs.writeFileSync(path.join(skill1Dir, 'SKILL.md'), '---\nname: skill1\n---\nSkill1');
-
-    const skill2Dir = path.join(testRootDir, 'source/skills/skill2');
-    ensureDir(skill2Dir);
-    fs.writeFileSync(path.join(skill2Dir, 'SKILL.md'), '---\nname: skill2\n---\nSkill2');
-
-    const { skills } = readSourceFiles(testRootDir);
-
-    expect(skills).toHaveLength(2);
-  });
-
-  test('should ignore non-md files in skill directories', () => {
-    const skillDir = path.join(testRootDir, 'source/skills/test-skill');
+  test('should ignore non-md files in skill/reference', () => {
+    const skillDir = path.join(testRootDir, 'skill');
     ensureDir(skillDir);
     fs.writeFileSync(path.join(skillDir, 'SKILL.md'), '---\nname: test-skill\n---\nBody');
 
@@ -446,7 +489,7 @@ Impeccable design instructions.`;
     expect(skills[0].references[0].name).toBe('typography');
   });
 
-  test('should handle missing skills directory', () => {
+  test('should handle missing skill directory', () => {
     const { skills } = readSourceFiles(testRootDir);
     expect(skills).toEqual([]);
   });
@@ -463,7 +506,7 @@ allowed-tools: Bash,Edit
 
 Body content.`;
 
-    const skillDir = path.join(testRootDir, 'source/skills/test-skill');
+    const skillDir = path.join(testRootDir, 'skill');
     ensureDir(skillDir);
     fs.writeFileSync(path.join(skillDir, 'SKILL.md'), skillContent);
 
@@ -508,7 +551,7 @@ name: impeccable
 **DO**: Use consistent spacing scale.
 **DON'T**: Nest cards inside cards.`;
 
-    const skillDir = path.join(testRootDir, 'source/skills/impeccable');
+    const skillDir = path.join(testRootDir, 'skill');
     ensureDir(skillDir);
     fs.writeFileSync(path.join(skillDir, 'SKILL.md'), skillContent);
 
@@ -531,7 +574,7 @@ name: impeccable
 **DO**: Use OKLCH color space.
 **DON'T**: Use pure black.`;
 
-    const skillDir = path.join(testRootDir, 'source/skills/impeccable');
+    const skillDir = path.join(testRootDir, 'skill');
     ensureDir(skillDir);
     fs.writeFileSync(path.join(skillDir, 'SKILL.md'), skillContent);
 
@@ -541,7 +584,7 @@ name: impeccable
   });
 
   test('should handle missing SKILL.md file', () => {
-    ensureDir(path.join(testRootDir, 'source/skills/impeccable'));
+    ensureDir(path.join(testRootDir, 'skill'));
 
     const { patterns, antipatterns } = readPatterns(testRootDir);
 
@@ -563,7 +606,7 @@ name: impeccable
 ### Color & Contrast
 **DO**: Use tinted neutrals.`;
 
-    const skillDir = path.join(testRootDir, 'source/skills/impeccable');
+    const skillDir = path.join(testRootDir, 'skill');
     ensureDir(skillDir);
     fs.writeFileSync(path.join(skillDir, 'SKILL.md'), skillContent);
 
@@ -651,58 +694,3 @@ describe('replacePlaceholders', () => {
   });
 });
 
-describe('prefixSkillReferences', () => {
-  test('should prefix /skillname command references', () => {
-    const result = prefixSkillReferences('Run /audit to check.', 'i-', ['audit', 'polish']);
-    expect(result).toBe('Run /i-audit to check.');
-  });
-
-  test('should prefix "the skillname skill" references', () => {
-    const result = prefixSkillReferences('Use the audit skill for checks.', 'i-', ['audit', 'polish']);
-    expect(result).toBe('Use the i-audit skill for checks.');
-  });
-
-  test('should prefix multiple different references', () => {
-    const result = prefixSkillReferences('Run /audit then /polish. The audit skill is great.', 'i-', ['audit', 'polish']);
-    expect(result).toContain('/i-audit');
-    expect(result).toContain('/i-polish');
-    expect(result).toContain('The i-audit skill');
-  });
-
-  test('should not partially match longer skill names', () => {
-    const result = prefixSkillReferences('Run /teach-impeccable command.', 'i-', ['teach', 'teach-impeccable']);
-    expect(result).toBe('Run /i-teach-impeccable command.');
-  });
-
-  test('should handle case-insensitive "the X skill" matching', () => {
-    const result = prefixSkillReferences('The audit skill is useful.', 'i-', ['audit']);
-    expect(result).toBe('The i-audit skill is useful.');
-  });
-
-  test('should return content unchanged with empty prefix', () => {
-    const result = prefixSkillReferences('Run /audit.', '', ['audit']);
-    expect(result).toBe('Run /audit.');
-  });
-
-  test('should return content unchanged with empty skill names', () => {
-    const result = prefixSkillReferences('Run /audit.', 'i-', []);
-    expect(result).toBe('Run /audit.');
-  });
-
-  test('should not match /skillname inside longer words', () => {
-    const result = prefixSkillReferences('The /auditing process.', 'i-', ['audit']);
-    // 'auditing' starts with 'audit' but has trailing letters — should NOT match
-    expect(result).toBe('The /auditing process.');
-  });
-
-  test('should match /skillname at end of string', () => {
-    const result = prefixSkillReferences('Run /audit', 'i-', ['audit']);
-    expect(result).toBe('Run /i-audit');
-  });
-
-  test('should match /skillname before punctuation', () => {
-    const result = prefixSkillReferences('Try /audit, /polish.', 'i-', ['audit', 'polish']);
-    expect(result).toContain('/i-audit,');
-    expect(result).toContain('/i-polish.');
-  });
-});

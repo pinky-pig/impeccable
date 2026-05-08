@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>/layout | Impeccable</title>
+  <meta name="description" content="修正布局、间距与视觉节奏。">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="canonical" href="https://impeccable.style/skills/layout">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/sub-pages.css">
+  
+</head>
+<body class="sub-page skills-layout-page">
+  <a href="#main" class="skip-link">跳到主要内容</a>
+  <!-- site-header v1 -->
+<header class="site-header" data-site-header>
+  <a href="/" class="site-header-brand" aria-label="Impeccable 首页">
+    <svg class="site-header-brand-logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1a1a1a"/><text x="16" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="500" fill="#f5f3ef" text-anchor="middle">/</text></svg>
+    <span class="site-header-brand-name">Impeccable</span>
+  </a>
+  <div class="site-header-right">
+    <nav class="site-header-nav" aria-label="主导航">
+      <a href="/" data-nav="home">首页</a>
+      <a href="/skills" data-nav="docs" aria-current="page">文档</a>
+      <a href="/anti-patterns" data-nav="anti-patterns">反模式</a>
+      <a href="/visual-mode" data-nav="visual-mode">可视模式</a>
+    </nav>
+    <a href="https://github.com/pbakaus/impeccable" class="site-header-github" target="_blank" rel="noopener" aria-label="Impeccable GitHub 仓库，18k stars">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      <span class="site-header-github-label">18k</span>
+      <svg class="site-header-github-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.76 6.36L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.24-.91L12 2z"/></svg>
+    </a>
+  </div>
+</header>
+  <main id="main">
+
+<div class="skills-layout">
+  
+<aside class="skills-sidebar" aria-label="文档导航">
+  <button class="skills-sidebar-toggle" type="button" aria-expanded="false" aria-controls="skills-sidebar-inner">
+    <span class="skills-sidebar-toggle-label">/layout</span>
+    <svg class="skills-sidebar-toggle-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="skills-sidebar-inner" id="skills-sidebar-inner">
+    <p class="skills-sidebar-label">文档</p>
+
+    <div class="skills-sidebar-group" data-category="tutorials">
+      <p class="skills-sidebar-group-title">教程</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/tutorials/getting-started">快速开始</a></li>
+        <li><a href="/tutorials/critique-with-overlay">用可视覆盖层做 critique</a></li>
+      </ul>
+    </div>
+    <hr class="skills-sidebar-divider">
+
+    <div class="skills-sidebar-group" data-category="create">
+      <p class="skills-sidebar-group-title">创建</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/impeccable">/impeccable</a></li>
+        <li class="skills-sidebar-sub"><a href="/skills/impeccable#craft">/impeccable craft</a></li>
+        <li class="skills-sidebar-sub"><a href="/skills/impeccable#teach">/impeccable teach</a></li>
+        <li class="skills-sidebar-sub"><a href="/skills/impeccable#extract">/impeccable extract</a></li>
+        <li><a href="/skills/shape">/shape</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="evaluate">
+      <p class="skills-sidebar-group-title">评估</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/audit">/audit</a></li>
+        <li><a href="/skills/critique">/critique</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="refine">
+      <p class="skills-sidebar-group-title">打磨</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/animate">/animate</a></li>
+        <li><a href="/skills/bolder">/bolder</a></li>
+        <li><a href="/skills/colorize">/colorize</a></li>
+        <li><a href="/skills/delight">/delight</a></li>
+        <li><a href="/skills/layout" aria-current="page">/layout</a></li>
+        <li><a href="/skills/overdrive">/overdrive</a></li>
+        <li><a href="/skills/quieter">/quieter</a></li>
+        <li><a href="/skills/typeset">/typeset</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="simplify">
+      <p class="skills-sidebar-group-title">简化</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/adapt">/adapt</a></li>
+        <li><a href="/skills/clarify">/clarify</a></li>
+        <li><a href="/skills/distill">/distill</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="harden">
+      <p class="skills-sidebar-group-title">补强</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/harden">/harden</a></li>
+        <li><a href="/skills/optimize">/optimize</a></li>
+        <li><a href="/skills/polish">/polish</a></li>
+      </ul>
+    </div>
+
+  </div>
+</aside>
+  <div class="skills-main">
+
+<article class="skill-detail">
+  <div class="skill-detail-hero skill-detail-hero--has-demo">
+    <header class="skill-detail-header">
+      <p class="skill-detail-eyebrow"><a href="/skills">技能</a> / 打磨</p>
+      <h1 class="skill-detail-title"><span class="skill-detail-title-slash">/</span>layout</h1>
+      <p class="skill-detail-tagline">修正布局、间距与视觉节奏。</p>
+      
+<div class="skill-meta-strip">
+  <span class="skill-meta-chip skill-meta-category" data-category="refine">打磨</span>
+  <span class="skill-meta-chip">可直接调用</span>
+  <span class="skill-meta-chip skill-meta-args">[target]</span>
+</div>
+    </header>
+    
+<section class="skill-demo" aria-label="改前改后对比示例">
+  <div class="split-comparison" data-demo="skill-layout">
+    <p class="skill-demo-eyebrow">拖动或悬停查看对比</p>
+    <div class="split-container">
+      <div class="split-before">
+        <div class="split-content">
+    <div style="width: 100%; max-width: 240px; padding: 16px;">
+      <div style="text-align: center; margin-bottom: 16px;">
+        <div style="font-size: 14px; font-weight: bold; color: #333;">Team Members</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="padding: 16px; background: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 8px; text-align: center;">
+          <div style="width: 32px; height: 32px; background: #ddd; border-radius: 50%; margin: 0 auto 8px;"></div>
+          <div style="font-size: 13px; color: #333;">Alice Chen</div>
+          <div style="font-size: 12px; color: #888;">Designer</div>
+        </div>
+        <div style="padding: 16px; background: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 8px; text-align: center;">
+          <div style="width: 32px; height: 32px; background: #ddd; border-radius: 50%; margin: 0 auto 8px;"></div>
+          <div style="font-size: 13px; color: #333;">Bob Park</div>
+          <div style="font-size: 12px; color: #888;">Engineer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+      </div>
+      <div class="split-after">
+        <div class="split-content">
+    <div style="width: 100%; max-width: 240px; padding: 16px; font-family: 'Instrument Sans', sans-serif;">
+      <div style="font-size: 0.8125rem; font-weight: 600; color: var(--color-ink); margin-bottom: 16px;">Team Members</div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--color-mist);">
+          <div style="width: 28px; height: 28px; background: var(--color-accent); border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 600;">AC</div>
+          <div style="flex: 1;">
+            <div style="font-size: 0.8125rem; font-weight: 500; color: var(--color-ink);">Alice Chen</div>
+            <div style="font-size: 0.6875rem; color: var(--color-ash);">Designer</div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0;">
+          <div style="width: 28px; height: 28px; background: color-mix(in oklch, var(--color-accent) 60%, var(--color-ink)); border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 600;">BP</div>
+          <div style="flex: 1;">
+            <div style="font-size: 0.8125rem; font-weight: 500; color: var(--color-ink);">Bob Park</div>
+            <div style="font-size: 0.6875rem; color: var(--color-ash);">Engineer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      </div>
+      <div class="split-divider"></div>
+    </div>
+    <div class="split-labels">
+      <span class="split-label-item" data-point="before">改前</span>
+      <p class="skill-demo-caption">Equal spacing everywhere → Intentional rhythm and hierarchy</p>
+      <span class="split-label-item" data-point="after">改后</span>
+    </div>
+  </div>
+</section>
+  </div>
+
+  <section class="skill-detail-editorial prose">
+<h2 id="">什么时候使用</h2>
+<p><code>/layout</code> 适合那种“技术上没错，但看起来就是不舒服”的页面。比如所有元素都贴得太满、卡片网格重复得过头、内容横向拉满、层级只靠字号硬撑。</p>
+<p>如果你能感觉到页面“哪里不对”，但一时说不清问题是什么，通常就轮到 <code>/layout</code> 出场了。</p>
+<p>典型触发语包括：“整个页面太挤了”“读起来像一面墙”“我不知道先看哪里”。</p>
+<h2 id="">它是怎么工作的</h2>
+<p>这个技能会从 5 个维度检查布局：</p>
+<ol>
+<li><strong>间距</strong>：间距体系是否一致，还是到处都是随机数。</li>
+<li><strong>视觉层级</strong>：视线能不能在 2 秒内落到最重要的位置。</li>
+<li><strong>网格与结构</strong>：有没有底层结构，还是元素像随便摆上去的。</li>
+<li><strong>节奏</strong>：紧凑与留白有没有形成呼吸感，还是全都一样。</li>
+<li><strong>密度</strong>：是太拥挤，还是空得没有理由，是否匹配内容类型。</li>
+</ol>
+<p>常见修正方式包括：重建间距刻度、打破一板一眼的重复网格、引入不对称构图、把主要动作从普通信息流里拉出来。</p>
+<h2 id="">试一下</h2>
+<div class="code-block-wrap"><pre class="code-block"><code>/layout the settings page</code></pre><button class="code-block-copy" type="button" data-copy="/layout the settings page" aria-label="Copy to clipboard"></button></div>
+<p>常见改动会像这样：</p>
+<ul>
+<li>统一为 8 / 16 / 24 / 48 / 96px 的间距体系</li>
+<li>区块之间保持 48px 间隔，表单内字段组回到 8px 节奏</li>
+<li>主要操作从表单流里抽出来，额外留出 32px 缓冲</li>
+<li>把装饰性边框改成靠间距与分组来表达层级</li>
+<li>重新平衡侧栏与主内容区比例</li>
+</ul>
+<h2 id="">常见误区</h2>
+<ul>
+<li><strong>把 layout 和 distill 混为一谈。</strong> 如果问题是内容太多，先用 <code>/distill</code>；<code>/layout</code> 负责的是“怎么摆”，不是“该不该保留”。</li>
+<li><strong>希望它拯救一个完全没有网格的页面。</strong> 它当然能重建结构，但改动会比你预想的大。</li>
+<li><strong>忽略层级诊断。</strong> 如果技能判断“没有任何内容是主角”，那就不只是间距问题，而是内容决策也需要一起调整。</li>
+</ul>
+
+</section>
+
+  <section class="skill-source-card">
+    <header class="skill-source-card-header">
+      <span class="skill-source-card-label">SKILL.md</span>
+      <span class="skill-source-card-subtitle">这里展示的是 AI harness 实际会读取的原始技能定义。</span>
+    </header>
+    <div class="skill-source-card-body prose">
+<p>Assess and improve layout and spacing that feels monotonous, crowded, or structurally weak — turning generic arrangements into intentional, rhythmic compositions.</p>
+<h2 id="mandatory-preparation">MANDATORY PREPARATION</h2>
+<p>Invoke {{command_prefix}}impeccable — it contains design principles, anti-patterns, and the <strong>Context Gathering Protocol</strong>. Follow the protocol before proceeding — if no design context exists yet, you MUST run {{command_prefix}}impeccable teach first.</p>
+<hr>
+<h2 id="assess-current-layout">Assess Current Layout</h2>
+<p>Analyze what&#39;s weak about the current spatial design:</p>
+<ol>
+<li><p><strong>Spacing</strong>:</p>
+<ul>
+<li>Is spacing consistent or arbitrary? (Random padding/margin values)</li>
+<li>Is all spacing the same? (Equal padding everywhere = no rhythm)</li>
+<li>Are related elements grouped tightly, with generous space between groups?</li>
+</ul>
+</li>
+<li><p><strong>Visual hierarchy</strong>:</p>
+<ul>
+<li>Apply the squint test: blur your (metaphorical) eyes — can you still identify the most important element, second most important, and clear groupings?</li>
+<li>Is hierarchy achieved effectively? (Space and weight alone can be enough — but is the current approach working?)</li>
+<li>Does whitespace guide the eye to what matters?</li>
+</ul>
+</li>
+<li><p><strong>Grid &amp; structure</strong>:</p>
+<ul>
+<li>Is there a clear underlying structure, or does the layout feel random?</li>
+<li>Are identical card grids used everywhere? (Icon + heading + text, repeated endlessly)</li>
+<li>Is everything centered? (Left-aligned with asymmetric layouts feels more designed, but not a hard and fast rule)</li>
+</ul>
+</li>
+<li><p><strong>Rhythm &amp; variety</strong>:</p>
+<ul>
+<li>Does the layout have visual rhythm? (Alternating tight/generous spacing)</li>
+<li>Is every section structured the same way? (Monotonous repetition)</li>
+<li>Are there intentional moments of surprise or emphasis?</li>
+</ul>
+</li>
+<li><p><strong>Density</strong>:</p>
+<ul>
+<li>Is the layout too cramped? (Not enough breathing room)</li>
+<li>Is the layout too sparse? (Excessive whitespace without purpose)</li>
+<li>Does density match the content type? (Data-dense UIs need tighter spacing; marketing pages need more air)</li>
+</ul>
+</li>
+</ol>
+<p><strong>CRITICAL</strong>: Layout problems are often the root cause of interfaces feeling &quot;off&quot; even when colors and fonts are fine. Space is a design material — use it with intention.</p>
+<h2 id="plan-layout-improvements">Plan Layout Improvements</h2>
+<p>Consult the <a href="#reference-spatial-design">spatial design reference</a> from the impeccable skill for detailed guidance on grids, rhythm, and container queries.</p>
+<p>Create a systematic plan:</p>
+<ul>
+<li><strong>Spacing system</strong>: Use a consistent scale — whether that&#39;s a framework&#39;s built-in scale (e.g., Tailwind), rem-based tokens, or a custom system. The specific values matter less than consistency.</li>
+<li><strong>Hierarchy strategy</strong>: How will space communicate importance?</li>
+<li><strong>Layout approach</strong>: What structure fits the content? Flex for 1D, Grid for 2D, named areas for complex page layouts.</li>
+<li><strong>Rhythm</strong>: Where should spacing be tight vs generous?</li>
+</ul>
+<h2 id="improve-layout-systematically">Improve Layout Systematically</h2>
+<h3 id="establish-a-spacing-system">Establish a Spacing System</h3>
+<ul>
+<li>Use a consistent spacing scale — framework scales (Tailwind, etc.), rem-based tokens, or a custom scale all work. What matters is that values come from a defined set, not arbitrary numbers.</li>
+<li>Name tokens semantically if using custom properties: <code>--space-xs</code> through <code>--space-xl</code>, not <code>--spacing-8</code></li>
+<li>Use <code>gap</code> for sibling spacing instead of margins — eliminates margin collapse hacks</li>
+<li>Apply <code>clamp()</code> for fluid spacing that breathes on larger screens</li>
+</ul>
+<h3 id="create-visual-rhythm">Create Visual Rhythm</h3>
+<ul>
+<li><strong>Tight grouping</strong> for related elements (8-12px between siblings)</li>
+<li><strong>Generous separation</strong> between distinct sections (48-96px)</li>
+<li><strong>Varied spacing</strong> within sections — not every row needs the same gap</li>
+<li><strong>Asymmetric compositions</strong> — break the predictable centered-content pattern when it makes sense</li>
+</ul>
+<h3 id="choose-the-right-layout-tool">Choose the Right Layout Tool</h3>
+<ul>
+<li><strong>Use Flexbox for 1D layouts</strong>: Rows of items, nav bars, button groups, card contents, most component internals. Flex is simpler and more appropriate for the majority of layout tasks.</li>
+<li><strong>Use Grid for 2D layouts</strong>: Page-level structure, dashboards, data-dense interfaces, anything where rows AND columns need coordinated control.</li>
+<li><strong>Don&#39;t default to Grid</strong> when Flexbox with <code>flex-wrap</code> would be simpler and more flexible.</li>
+<li>Use <code>repeat(auto-fit, minmax(280px, 1fr))</code> for responsive grids without breakpoints.</li>
+<li>Use named grid areas (<code>grid-template-areas</code>) for complex page layouts — redefine at breakpoints.</li>
+</ul>
+<h3 id="break-card-grid-monotony">Break Card Grid Monotony</h3>
+<ul>
+<li>Don&#39;t default to card grids for everything — spacing and alignment create visual grouping naturally</li>
+<li>Use cards only when content is truly distinct and actionable — never nest cards inside cards</li>
+<li>Vary card sizes, span columns, or mix cards with non-card content to break repetition</li>
+</ul>
+<h3 id="strengthen-visual-hierarchy">Strengthen Visual Hierarchy</h3>
+<ul>
+<li>Use the fewest dimensions needed for clear hierarchy. Space alone can be enough — generous whitespace around an element draws the eye. Some of the most sophisticated designs achieve rhythm with just space and weight. Add color or size contrast only when simpler means aren&#39;t sufficient.</li>
+<li>Be aware of reading flow — in LTR languages, the eye naturally scans top-left to bottom-right, but primary action placement depends on context (e.g., bottom-right in dialogs, top in navigation).</li>
+<li>Create clear content groupings through proximity and separation.</li>
+</ul>
+<h3 id="manage-depth-elevation">Manage Depth &amp; Elevation</h3>
+<ul>
+<li>Create a semantic z-index scale (dropdown → sticky → modal-backdrop → modal → toast → tooltip)</li>
+<li>Build a consistent shadow scale (sm → md → lg → xl) — shadows should be subtle</li>
+<li>Use elevation to reinforce hierarchy, not as decoration</li>
+</ul>
+<h3 id="optical-adjustments">Optical Adjustments</h3>
+<ul>
+<li>If an icon looks visually off-center despite being geometrically centered, nudge it — but only if you&#39;re confident it actually looks wrong. Don&#39;t adjust speculatively.</li>
+</ul>
+<p><strong>NEVER</strong>:</p>
+<ul>
+<li>Use arbitrary spacing values outside your scale</li>
+<li>Make all spacing equal — variety creates hierarchy</li>
+<li>Wrap everything in cards — not everything needs a container</li>
+<li>Nest cards inside cards — use spacing and dividers for hierarchy within</li>
+<li>Use identical card grids everywhere (icon + heading + text, repeated)</li>
+<li>Center everything — left-aligned with asymmetry feels more designed</li>
+<li>Default to the hero metric layout (big number, small label, stats, gradient) as a template. If showing real user data, a prominent metric can work — but it should display actual data, not decorative numbers.</li>
+<li>Default to CSS Grid when Flexbox would be simpler — use the simplest tool for the job</li>
+<li>Use arbitrary z-index values (999, 9999) — build a semantic scale</li>
+</ul>
+<h2 id="verify-layout-improvements">Verify Layout Improvements</h2>
+<ul>
+<li><strong>Squint test</strong>: Can you identify primary, secondary, and groupings with blurred vision?</li>
+<li><strong>Rhythm</strong>: Does the page have a satisfying beat of tight and generous spacing?</li>
+<li><strong>Hierarchy</strong>: Is the most important content obvious within 2 seconds?</li>
+<li><strong>Breathing room</strong>: Does the layout feel comfortable, not cramped or wasteful?</li>
+<li><strong>Consistency</strong>: Is the spacing system applied uniformly?</li>
+<li><strong>Responsiveness</strong>: Does the layout adapt gracefully across screen sizes?</li>
+</ul>
+<p>Remember: Space is the most underused design tool. A layout with the right rhythm and hierarchy can make even simple content feel polished and intentional.</p>
+
+    </div>
+  </section>
+
+  
+</article>
+
+  </div>
+</div>
+  </main>
+  <script>
+    // Copy buttons on rendered code blocks
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-copy]');
+      if (!btn) return;
+      const text = btn.getAttribute('data-copy');
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('is-copied');
+        setTimeout(() => btn.classList.remove('is-copied'), 1500);
+      }).catch(() => {});
+    });
+
+    // Mobile sidebar toggle (shown on narrow viewports, hidden on desktop).
+    document.addEventListener('click', (e) => {
+      const toggle = e.target.closest('.skills-sidebar-toggle');
+      if (!toggle) return;
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+    });
+
+    // Before/after split-compare: drag on touch, hover OR drag on mouse.
+    // Pointer events attach to the padded .split-comparison wrapper so
+    // there is a ~20px invisible buffer around the visible box. The
+    // divider only snaps back when the pointer leaves that outer buffer.
+    (function initSplitCompare() {
+      const wrappers = document.querySelectorAll('.split-comparison');
+      if (wrappers.length === 0) return;
+      const hasHover = matchMedia('(hover: hover)').matches;
+      const DEFAULT_POSITION = 50;
+
+      for (const wrapper of wrappers) {
+        const container = wrapper.querySelector('.split-container');
+        const splitAfter = wrapper.querySelector('.split-after');
+        const splitDivider = wrapper.querySelector('.split-divider');
+        if (!container || !splitAfter || !splitDivider) continue;
+
+        const tanAngle = Math.tan(10 * Math.PI / 180);
+        let skewOffset = 8;
+        const recalcSkew = () => {
+          const r = container.getBoundingClientRect();
+          if (r.width > 0 && r.height > 0) {
+            skewOffset = 50 * r.height * tanAngle / r.width;
+          }
+        };
+        recalcSkew();
+        window.addEventListener('resize', recalcSkew, { passive: true });
+
+        let targetX = DEFAULT_POSITION;
+        let currentX = DEFAULT_POSITION;
+        let rafId = null;
+
+        const paint = (pct) => {
+          const x = Math.max(-skewOffset, Math.min(100 + skewOffset, pct));
+          splitAfter.style.clipPath =
+            `polygon(${x + skewOffset}% 0%, 100% 0%, 100% 100%, ${x - skewOffset}% 100%)`;
+          splitDivider.style.left = `${x}%`;
+        };
+
+        const step = () => {
+          currentX += (targetX - currentX) * 0.2;
+          if (Math.abs(targetX - currentX) < 0.1) {
+            currentX = targetX;
+            rafId = null;
+          } else {
+            rafId = requestAnimationFrame(step);
+          }
+          paint(currentX);
+        };
+
+        const setTarget = (pct) => {
+          targetX = pct;
+          if (rafId === null) rafId = requestAnimationFrame(step);
+        };
+
+        paint(DEFAULT_POSITION);
+
+        // Percentage is always relative to the VISIBLE .split-container,
+        // not the padded .split-comparison wrapper. The pointer event
+        // target is the wrapper but the clip-path math uses the inner box.
+        const pctFromClientX = (clientX) => {
+          const rect = container.getBoundingClientRect();
+          return ((clientX - rect.left) / rect.width) * 100;
+        };
+
+        let hovering = false;
+        let dragging = false;
+
+        wrapper.addEventListener('pointerenter', (e) => {
+          if (hasHover && e.pointerType === 'mouse') {
+            hovering = true;
+          }
+        });
+
+        wrapper.addEventListener('pointerdown', (e) => {
+          dragging = true;
+          wrapper.setPointerCapture(e.pointerId);
+          setTarget(pctFromClientX(e.clientX));
+        });
+
+        wrapper.addEventListener('pointermove', (e) => {
+          if (dragging || hovering) {
+            setTarget(pctFromClientX(e.clientX));
+          }
+        });
+
+        const endDrag = (e) => {
+          if (dragging) {
+            dragging = false;
+            try { wrapper.releasePointerCapture(e.pointerId); } catch {}
+          }
+        };
+
+        wrapper.addEventListener('pointerup', endDrag);
+        wrapper.addEventListener('pointercancel', endDrag);
+
+        wrapper.addEventListener('pointerleave', (e) => {
+          endDrag(e);
+          if (hovering) {
+            hovering = false;
+            setTarget(DEFAULT_POSITION);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

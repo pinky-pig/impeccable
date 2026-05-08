@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import LegacyPageScripts from '../../components/LegacyPageScripts.astro';
+import '../../styles/sub-pages.css';
+import { loadLegacyPage } from '../../lib/legacy-page.js';
+
+const legacy = loadLegacyPage('skills/index.html');
+---
+
+<Base
+  title={legacy.title || '文档 | Impeccable'}
+  description={legacy.description}
+  activeNav="docs"
+  canonicalPath="/skills"
+  bodyClass={legacy.bodyClass || 'sub-page skills-layout-page'}
+>
+  <Fragment set:html={legacy.content} />
+  <LegacyPageScripts slot="scripts" />
+</Base>

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>/optimize | Impeccable</title>
+  <meta name="description" content="从首屏、交互、渲染到包体积，系统性找出 UI 为什么慢。">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="canonical" href="https://impeccable.style/skills/optimize">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/sub-pages.css">
+  
+</head>
+<body class="sub-page skills-layout-page">
+  <a href="#main" class="skip-link">跳到主要内容</a>
+  <!-- site-header v1 -->
+<header class="site-header" data-site-header>
+  <a href="/" class="site-header-brand" aria-label="Impeccable 首页">
+    <svg class="site-header-brand-logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1a1a1a"/><text x="16" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="500" fill="#f5f3ef" text-anchor="middle">/</text></svg>
+    <span class="site-header-brand-name">Impeccable</span>
+  </a>
+  <div class="site-header-right">
+    <nav class="site-header-nav" aria-label="主导航">
+      <a href="/" data-nav="home">首页</a>
+      <a href="/skills" data-nav="docs" aria-current="page">文档</a>
+      <a href="/anti-patterns" data-nav="anti-patterns">反模式</a>
+      <a href="/visual-mode" data-nav="visual-mode">可视模式</a>
+    </nav>
+    <a href="https://github.com/pbakaus/impeccable" class="site-header-github" target="_blank" rel="noopener" aria-label="Impeccable GitHub 仓库，18k stars">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      <span class="site-header-github-label">18k</span>
+      <svg class="site-header-github-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.76 6.36L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.24-.91L12 2z"/></svg>
+    </a>
+  </div>
+</header>
+  <main id="main">
+
+<div class="skills-layout">
+  
+<aside class="skills-sidebar" aria-label="文档导航">
+  <button class="skills-sidebar-toggle" type="button" aria-expanded="false" aria-controls="skills-sidebar-inner">
+    <span class="skills-sidebar-toggle-label">/optimize</span>
+    <svg class="skills-sidebar-toggle-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="skills-sidebar-inner" id="skills-sidebar-inner">
+    <p class="skills-sidebar-label">文档</p>
+
+    <div class="skills-sidebar-group" data-category="tutorials">
+      <p class="skills-sidebar-group-title">教程</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/tutorials/getting-started">快速开始</a></li>
+        <li><a href="/tutorials/critique-with-overlay">用可视覆盖层做 critique</a></li>
+      </ul>
+    </div>
+    <hr class="skills-sidebar-divider">
+
+    <div class="skills-sidebar-group" data-category="create">
+      <p class="skills-sidebar-group-title">创建</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/impeccable">/impeccable</a></li>
+        <li class="skills-sidebar-sub"><a href="/skills/impeccable#craft">/impeccable craft</a></li>
+        <li class="skills-sidebar-sub"><a href="/skills/impeccable#teach">/impeccable teach</a></li>
+        <li class="skills-sidebar-sub"><a href="/skills/impeccable#extract">/impeccable extract</a></li>
+        <li><a href="/skills/shape">/shape</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="evaluate">
+      <p class="skills-sidebar-group-title">评估</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/audit">/audit</a></li>
+        <li><a href="/skills/critique">/critique</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="refine">
+      <p class="skills-sidebar-group-title">打磨</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/animate">/animate</a></li>
+        <li><a href="/skills/bolder">/bolder</a></li>
+        <li><a href="/skills/colorize">/colorize</a></li>
+        <li><a href="/skills/delight">/delight</a></li>
+        <li><a href="/skills/layout">/layout</a></li>
+        <li><a href="/skills/overdrive">/overdrive</a></li>
+        <li><a href="/skills/quieter">/quieter</a></li>
+        <li><a href="/skills/typeset">/typeset</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="simplify">
+      <p class="skills-sidebar-group-title">简化</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/adapt">/adapt</a></li>
+        <li><a href="/skills/clarify">/clarify</a></li>
+        <li><a href="/skills/distill">/distill</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="harden">
+      <p class="skills-sidebar-group-title">补强</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/harden">/harden</a></li>
+        <li><a href="/skills/optimize" aria-current="page">/optimize</a></li>
+        <li><a href="/skills/polish">/polish</a></li>
+      </ul>
+    </div>
+
+  </div>
+</aside>
+  <div class="skills-main">
+
+<article class="skill-detail">
+  <div class="skill-detail-hero skill-detail-hero--has-demo">
+    <header class="skill-detail-header">
+      <p class="skill-detail-eyebrow"><a href="/skills">技能</a> / 补强</p>
+      <h1 class="skill-detail-title"><span class="skill-detail-title-slash">/</span>optimize</h1>
+      <p class="skill-detail-tagline">从首屏、交互、渲染到包体积，系统性找出 UI 为什么慢。</p>
+      
+<div class="skill-meta-strip">
+  <span class="skill-meta-chip skill-meta-category" data-category="harden">补强</span>
+  <span class="skill-meta-chip">可直接调用</span>
+  <span class="skill-meta-chip skill-meta-args">[target]</span>
+</div>
+    </header>
+    
+<section class="skill-demo" aria-label="改前改后对比示例">
+  <div class="split-comparison" data-demo="skill-optimize">
+    <p class="skill-demo-eyebrow">拖动或悬停查看对比</p>
+    <div class="split-container">
+      <div class="split-before">
+        <div class="split-content">
+    <div style="width: 100%; max-width: 260px; display: flex; flex-direction: column; gap: 8px;">
+      <div style="padding: 12px; background: #f5f5f5; border-radius: 6px;">
+        <div style="font-size: 11px; color: #999; margin-bottom: 4px;">BUNDLE SIZE</div>
+        <div style="height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden;">
+          <div style="width: 95%; height: 100%; background: linear-gradient(90deg, #ff6b6b, #ee5a5a);"></div>
+        </div>
+        <div style="font-size: 12px; color: #ff6b6b; margin-top: 4px; font-weight: 600;">847 KB</div>
+      </div>
+      <div style="padding: 12px; background: #f5f5f5; border-radius: 6px;">
+        <div style="font-size: 11px; color: #999; margin-bottom: 4px;">RENDER TIME</div>
+        <div style="height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden;">
+          <div style="width: 80%; height: 100%; background: linear-gradient(90deg, #ffa726, #ff9800);"></div>
+        </div>
+        <div style="font-size: 12px; color: #ff9800; margin-top: 4px; font-weight: 600;">2.4s</div>
+      </div>
+      <div style="padding: 12px; background: #f5f5f5; border-radius: 6px;">
+        <div style="font-size: 11px; color: #999; margin-bottom: 4px;">LAYOUT SHIFTS</div>
+        <div style="height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden;">
+          <div style="width: 60%; height: 100%; background: linear-gradient(90deg, #ffa726, #ff9800);"></div>
+        </div>
+        <div style="font-size: 12px; color: #ff9800; margin-top: 4px; font-weight: 600;">CLS: 0.18</div>
+      </div>
+    </div>
+  </div>
+      </div>
+      <div class="split-after">
+        <div class="split-content">
+    <div style="width: 100%; max-width: 260px; display: flex; flex-direction: column; gap: 8px;">
+      <div style="padding: 12px; background: var(--color-paper); border: 1px solid var(--color-mist); border-radius: 6px;">
+        <div style="font-size: 11px; color: var(--color-ash); margin-bottom: 4px;">BUNDLE SIZE</div>
+        <div style="height: 8px; background: var(--color-mist); border-radius: 4px; overflow: hidden;">
+          <div style="width: 25%; height: 100%; background: linear-gradient(90deg, #22c55e, #16a34a);"></div>
+        </div>
+        <div style="font-size: 12px; color: #22c55e; margin-top: 4px; font-weight: 600;">124 KB <span style="color: var(--color-ash); font-weight: 400;">（-85%）</span></div>
+      </div>
+      <div style="padding: 12px; background: var(--color-paper); border: 1px solid var(--color-mist); border-radius: 6px;">
+        <div style="font-size: 11px; color: var(--color-ash); margin-bottom: 4px;">RENDER TIME</div>
+        <div style="height: 8px; background: var(--color-mist); border-radius: 4px; overflow: hidden;">
+          <div style="width: 15%; height: 100%; background: linear-gradient(90deg, #22c55e, #16a34a);"></div>
+        </div>
+        <div style="font-size: 12px; color: #22c55e; margin-top: 4px; font-weight: 600;">0.3s <span style="color: var(--color-ash); font-weight: 400;">（-88%）</span></div>
+      </div>
+      <div style="padding: 12px; background: var(--color-paper); border: 1px solid var(--color-mist); border-radius: 6px;">
+        <div style="font-size: 11px; color: var(--color-ash); margin-bottom: 4px;">LAYOUT SHIFTS</div>
+        <div style="height: 8px; background: var(--color-mist); border-radius: 4px; overflow: hidden;">
+          <div style="width: 5%; height: 100%; background: linear-gradient(90deg, #22c55e, #16a34a);"></div>
+        </div>
+        <div style="font-size: 12px; color: #22c55e; margin-top: 4px; font-weight: 600;">CLS: 0.02 <span style="color: var(--color-ash); font-weight: 400;">（优秀）</span></div>
+      </div>
+    </div>
+  </div>
+      </div>
+      <div class="split-divider"></div>
+    </div>
+    <div class="split-labels">
+      <span class="split-label-item" data-point="before">改前</span>
+      <p class="skill-demo-caption">笨重缓慢的界面 → 轻量高性能体验</p>
+      <span class="split-label-item" data-point="after">改后</span>
+    </div>
+  </div>
+</section>
+  </div>
+
+  <section class="skill-detail-editorial prose">
+<h2 id="">什么时候使用</h2>
+<p><code>/optimize</code> 适合一切“用户已经开始感觉到慢”的场景。首屏迟迟不出、滚动卡、图像慢半拍、交互按下去有延迟、打包结果越来越重，这些都说明该认真看性能了。</p>
+<p>但它不适合“凭感觉想顺手优化一下”。如果 LCP、INP、本地体感都已经很好，那此刻也许更应该把时间放回设计质量本身。</p>
+<h2 id="">它是怎么工作的</h2>
+<p>它会沿着五个性能方向逐项定位问题：</p>
+<ol>
+<li><strong>加载与 Web Vitals</strong>：LCP、INP、CLS 到底被谁拖慢了。</li>
+<li><strong>渲染过程</strong>：有没有不必要的重渲染、同步布局读取、昂贵循环。</li>
+<li><strong>动画策略</strong>：是否在动布局属性，是否真的做到了只动 transform 和 opacity。</li>
+<li><strong>图像与资源</strong>：图片尺寸、格式、懒加载、预加载、字体加载是否合理。</li>
+<li><strong>包体积</strong>：依赖是否过重、路由是否切分、有没有废代码继续被打进包里。</li>
+</ol>
+<p>最重要的是，它强调“前后对照”。没有基线，就没有真正的优化结论。</p>
+<h2 id="">试一下</h2>
+<div class="code-block-wrap"><pre class="code-block"><code>/optimize the homepage</code></pre><button class="code-block-copy" type="button" data-copy="/optimize the homepage" aria-label="Copy to clipboard"></button></div>
+<p>理想结果通常会像：</p>
+<ul>
+<li>LCP 从 3.2s 降到 1.4s</li>
+<li>INP 从 240ms 降到 90ms</li>
+<li>CLS 从 0.18 降到 0.02</li>
+<li>Bundle 从 340KB 降到 180KB</li>
+</ul>
+<p>同时配上每一项变化具体来自哪里。</p>
+<h2 id="">常见误区</h2>
+<ul>
+<li><strong>没量就优化。</strong> 先测，再改。</li>
+<li><strong>追求小数点级别提升。</strong> 不值得的优化会吞掉大量时间。</li>
+<li><strong>改完不复测。</strong> 你以为变快了，实际可能只是把问题换了位置。</li>
+</ul>
+
+</section>
+
+  <section class="skill-source-card">
+    <header class="skill-source-card-header">
+      <span class="skill-source-card-label">SKILL.md</span>
+      <span class="skill-source-card-subtitle">这里展示的是 AI harness 实际会读取的原始技能定义。</span>
+    </header>
+    <div class="skill-source-card-body prose">
+<p>Identify and fix performance issues to create faster, smoother user experiences.</p>
+<h2 id="assess-performance-issues">Assess Performance Issues</h2>
+<p>Understand current performance and identify problems:</p>
+<ol>
+<li><p><strong>Measure current state</strong>:</p>
+<ul>
+<li><strong>Core Web Vitals</strong>: LCP, FID/INP, CLS scores</li>
+<li><strong>Load time</strong>: Time to interactive, first contentful paint</li>
+<li><strong>Bundle size</strong>: JavaScript, CSS, image sizes</li>
+<li><strong>Runtime performance</strong>: Frame rate, memory usage, CPU usage</li>
+<li><strong>Network</strong>: Request count, payload sizes, waterfall</li>
+</ul>
+</li>
+<li><p><strong>Identify bottlenecks</strong>:</p>
+<ul>
+<li>What&#39;s slow? (Initial load? Interactions? Animations?)</li>
+<li>What&#39;s causing it? (Large images? Expensive JavaScript? Layout thrashing?)</li>
+<li>How bad is it? (Perceivable? Annoying? Blocking?)</li>
+<li>Who&#39;s affected? (All users? Mobile only? Slow connections?)</li>
+</ul>
+</li>
+</ol>
+<p><strong>CRITICAL</strong>: Measure before and after. Premature optimization wastes time. Optimize what actually matters.</p>
+<h2 id="optimization-strategy">Optimization Strategy</h2>
+<p>Create systematic improvement plan:</p>
+<h3 id="loading-performance">Loading Performance</h3>
+<p><strong>Optimize Images</strong>:</p>
+<ul>
+<li>Use modern formats (WebP, AVIF)</li>
+<li>Proper sizing (don&#39;t load 3000px image for 300px display)</li>
+<li>Lazy loading for below-fold images</li>
+<li>Responsive images (<code>srcset</code>, <code>picture</code> element)</li>
+<li>Compress images (80-85% quality is usually imperceptible)</li>
+<li>Use CDN for faster delivery</li>
+</ul>
+<div class="code-block-wrap"><pre class="code-block code-block--html"><code>&lt;img 
+  src=&quot;hero.webp&quot;
+  srcset=&quot;hero-400.webp 400w, hero-800.webp 800w, hero-1200.webp 1200w&quot;
+  sizes=&quot;(max-width: 400px) 400px, (max-width: 800px) 800px, 1200px&quot;
+  loading=&quot;lazy&quot;
+  alt=&quot;Hero image&quot;
+/&gt;</code></pre><button class="code-block-copy" type="button" data-copy="<img 
+  src=&quot;hero.webp&quot;
+  srcset=&quot;hero-400.webp 400w, hero-800.webp 800w, hero-1200.webp 1200w&quot;
+  sizes=&quot;(max-width: 400px) 400px, (max-width: 800px) 800px, 1200px&quot;
+  loading=&quot;lazy&quot;
+  alt=&quot;Hero image&quot;
+/>" aria-label="Copy to clipboard"></button></div>
+<p><strong>Reduce JavaScript Bundle</strong>:</p>
+<ul>
+<li>Code splitting (route-based, component-based)</li>
+<li>Tree shaking (remove unused code)</li>
+<li>Remove unused dependencies</li>
+<li>Lazy load non-critical code</li>
+<li>Use dynamic imports for large components</li>
+</ul>
+<div class="code-block-wrap"><pre class="code-block code-block--javascript"><code>// Lazy load heavy component
+const HeavyChart = lazy(() =&gt; import(&#39;./HeavyChart&#39;));</code></pre><button class="code-block-copy" type="button" data-copy="// Lazy load heavy component
+const HeavyChart = lazy(() => import('./HeavyChart'));" aria-label="Copy to clipboard"></button></div>
+<p><strong>Optimize CSS</strong>:</p>
+<ul>
+<li>Remove unused CSS</li>
+<li>Critical CSS inline, rest async</li>
+<li>Minimize CSS files</li>
+<li>Use CSS containment for independent regions</li>
+</ul>
+<p><strong>Optimize Fonts</strong>:</p>
+<ul>
+<li>Use <code>font-display: swap</code> or <code>optional</code></li>
+<li>Subset fonts (only characters you need)</li>
+<li>Preload critical fonts</li>
+<li>Use system fonts when appropriate</li>
+<li>Limit font weights loaded</li>
+</ul>
+<div class="code-block-wrap"><pre class="code-block code-block--css"><code>@font-face {
+  font-family: &#39;CustomFont&#39;;
+  src: url(&#39;/fonts/custom.woff2&#39;) format(&#39;woff2&#39;);
+  font-display: swap; /* Show fallback immediately */
+  unicode-range: U+0020-007F; /* Basic Latin only */
+}</code></pre><button class="code-block-copy" type="button" data-copy="@font-face {
+  font-family: 'CustomFont';
+  src: url('/fonts/custom.woff2') format('woff2');
+  font-display: swap; /* Show fallback immediately */
+  unicode-range: U+0020-007F; /* Basic Latin only */
+}" aria-label="Copy to clipboard"></button></div>
+<p><strong>Optimize Loading Strategy</strong>:</p>
+<ul>
+<li>Critical resources first (async/defer non-critical)</li>
+<li>Preload critical assets</li>
+<li>Prefetch likely next pages</li>
+<li>Service worker for offline/caching</li>
+<li>HTTP/2 or HTTP/3 for multiplexing</li>
+</ul>
+<h3 id="rendering-performance">Rendering Performance</h3>
+<p><strong>Avoid Layout Thrashing</strong>:</p>
+<div class="code-block-wrap"><pre class="code-block code-block--javascript"><code>// ❌ Bad: Alternating reads and writes (causes reflows)
+elements.forEach(el =&gt; {
+  const height = el.offsetHeight; // Read (forces layout)
+  el.style.height = height * 2; // Write
+});
+
+// ✅ Good: Batch reads, then batch writes
+const heights = elements.map(el =&gt; el.offsetHeight); // All reads
+elements.forEach((el, i) =&gt; {
+  el.style.height = heights[i] * 2; // All writes
+});</code></pre><button class="code-block-copy" type="button" data-copy="// ❌ Bad: Alternating reads and writes (causes reflows)
+elements.forEach(el => {
+  const height = el.offsetHeight; // Read (forces layout)
+  el.style.height = height * 2; // Write
+});
+
+// ✅ Good: Batch reads, then batch writes
+const heights = elements.map(el => el.offsetHeight); // All reads
+elements.forEach((el, i) => {
+  el.style.height = heights[i] * 2; // All writes
+});" aria-label="Copy to clipboard"></button></div>
+<p><strong>Optimize Rendering</strong>:</p>
+<ul>
+<li>Use CSS <code>contain</code> property for independent regions</li>
+<li>Minimize DOM depth (flatter is faster)</li>
+<li>Reduce DOM size (fewer elements)</li>
+<li>Use <code>content-visibility: auto</code> for long lists</li>
+<li>Virtual scrolling for very long lists (react-window, react-virtualized)</li>
+</ul>
+<p><strong>Reduce Paint &amp; Composite</strong>:</p>
+<ul>
+<li>Use <code>transform</code> and <code>opacity</code> for animations (GPU-accelerated)</li>
+<li>Avoid animating layout properties (width, height, top, left)</li>
+<li>Use <code>will-change</code> sparingly for known expensive operations</li>
+<li>Minimize paint areas (smaller is faster)</li>
+</ul>
+<h3 id="animation-performance">Animation Performance</h3>
+<p><strong>GPU Acceleration</strong>:</p>
+<div class="code-block-wrap"><pre class="code-block code-block--css"><code>/* ✅ GPU-accelerated (fast) */
+.animated {
+  transform: translateX(100px);
+  opacity: 0.5;
+}
+
+/* ❌ CPU-bound (slow) */
+.animated {
+  left: 100px;
+  width: 300px;
+}</code></pre><button class="code-block-copy" type="button" data-copy="/* ✅ GPU-accelerated (fast) */
+.animated {
+  transform: translateX(100px);
+  opacity: 0.5;
+}
+
+/* ❌ CPU-bound (slow) */
+.animated {
+  left: 100px;
+  width: 300px;
+}" aria-label="Copy to clipboard"></button></div>
+<p><strong>Smooth 60fps</strong>:</p>
+<ul>
+<li>Target 16ms per frame (60fps)</li>
+<li>Use <code>requestAnimationFrame</code> for JS animations</li>
+<li>Debounce/throttle scroll handlers</li>
+<li>Use CSS animations when possible</li>
+<li>Avoid long-running JavaScript during animations</li>
+</ul>
+<p><strong>Intersection Observer</strong>:</p>
+<div class="code-block-wrap"><pre class="code-block code-block--javascript"><code>// Efficiently detect when elements enter viewport
+const observer = new IntersectionObserver((entries) =&gt; {
+  entries.forEach(entry =&gt; {
+    if (entry.isIntersecting) {
+      // Element is visible, lazy load or animate
+    }
+  });
+});</code></pre><button class="code-block-copy" type="button" data-copy="// Efficiently detect when elements enter viewport
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Element is visible, lazy load or animate
+    }
+  });
+});" aria-label="Copy to clipboard"></button></div>
+<h3 id="reactframework-optimization">React/Framework Optimization</h3>
+<p><strong>React-specific</strong>:</p>
+<ul>
+<li>Use <code>memo()</code> for expensive components</li>
+<li><code>useMemo()</code> and <code>useCallback()</code> for expensive computations</li>
+<li>Virtualize long lists</li>
+<li>Code split routes</li>
+<li>Avoid inline function creation in render</li>
+<li>Use React DevTools Profiler</li>
+</ul>
+<p><strong>Framework-agnostic</strong>:</p>
+<ul>
+<li>Minimize re-renders</li>
+<li>Debounce expensive operations</li>
+<li>Memoize computed values</li>
+<li>Lazy load routes and components</li>
+</ul>
+<h3 id="network-optimization">Network Optimization</h3>
+<p><strong>Reduce Requests</strong>:</p>
+<ul>
+<li>Combine small files</li>
+<li>Use SVG sprites for icons</li>
+<li>Inline small critical assets</li>
+<li>Remove unused third-party scripts</li>
+</ul>
+<p><strong>Optimize APIs</strong>:</p>
+<ul>
+<li>Use pagination (don&#39;t load everything)</li>
+<li>GraphQL to request only needed fields</li>
+<li>Response compression (gzip, brotli)</li>
+<li>HTTP caching headers</li>
+<li>CDN for static assets</li>
+</ul>
+<p><strong>Optimize for Slow Connections</strong>:</p>
+<ul>
+<li>Adaptive loading based on connection (navigator.connection)</li>
+<li>Optimistic UI updates</li>
+<li>Request prioritization</li>
+<li>Progressive enhancement</li>
+</ul>
+<h2 id="core-web-vitals-optimization">Core Web Vitals Optimization</h2>
+<h3 id="largest-contentful-paint-lcp-25s">Largest Contentful Paint (LCP &lt; 2.5s)</h3>
+<ul>
+<li>Optimize hero images</li>
+<li>Inline critical CSS</li>
+<li>Preload key resources</li>
+<li>Use CDN</li>
+<li>Server-side rendering</li>
+</ul>
+<h3 id="first-input-delay-fid-100ms-inp-200ms">First Input Delay (FID &lt; 100ms) / INP (&lt; 200ms)</h3>
+<ul>
+<li>Break up long tasks</li>
+<li>Defer non-critical JavaScript</li>
+<li>Use web workers for heavy computation</li>
+<li>Reduce JavaScript execution time</li>
+</ul>
+<h3 id="cumulative-layout-shift-cls-01">Cumulative Layout Shift (CLS &lt; 0.1)</h3>
+<ul>
+<li>Set dimensions on images and videos</li>
+<li>Don&#39;t inject content above existing content</li>
+<li>Use <code>aspect-ratio</code> CSS property</li>
+<li>Reserve space for ads/embeds</li>
+<li>Avoid animations that cause layout shifts</li>
+</ul>
+<div class="code-block-wrap"><pre class="code-block code-block--css"><code>/* Reserve space for image */
+.image-container {
+  aspect-ratio: 16 / 9;
+}</code></pre><button class="code-block-copy" type="button" data-copy="/* Reserve space for image */
+.image-container {
+  aspect-ratio: 16 / 9;
+}" aria-label="Copy to clipboard"></button></div>
+<h2 id="performance-monitoring">Performance Monitoring</h2>
+<p><strong>Tools to use</strong>:</p>
+<ul>
+<li>Chrome DevTools (Lighthouse, Performance panel)</li>
+<li>WebPageTest</li>
+<li>Core Web Vitals (Chrome UX Report)</li>
+<li>Bundle analyzers (webpack-bundle-analyzer)</li>
+<li>Performance monitoring (Sentry, DataDog, New Relic)</li>
+</ul>
+<p><strong>Key metrics</strong>:</p>
+<ul>
+<li>LCP, FID/INP, CLS (Core Web Vitals)</li>
+<li>Time to Interactive (TTI)</li>
+<li>First Contentful Paint (FCP)</li>
+<li>Total Blocking Time (TBT)</li>
+<li>Bundle size</li>
+<li>Request count</li>
+</ul>
+<p><strong>IMPORTANT</strong>: Measure on real devices with real network conditions. Desktop Chrome with fast connection isn&#39;t representative.</p>
+<p><strong>NEVER</strong>:</p>
+<ul>
+<li>Optimize without measuring (premature optimization)</li>
+<li>Sacrifice accessibility for performance</li>
+<li>Break functionality while optimizing</li>
+<li>Use <code>will-change</code> everywhere (creates new layers, uses memory)</li>
+<li>Lazy load above-fold content</li>
+<li>Optimize micro-optimizations while ignoring major issues (optimize the biggest bottleneck first)</li>
+<li>Forget about mobile performance (often slower devices, slower connections)</li>
+</ul>
+<h2 id="verify-improvements">Verify Improvements</h2>
+<p>Test that optimizations worked:</p>
+<ul>
+<li><strong>Before/after metrics</strong>: Compare Lighthouse scores</li>
+<li><strong>Real user monitoring</strong>: Track improvements for real users</li>
+<li><strong>Different devices</strong>: Test on low-end Android, not just flagship iPhone</li>
+<li><strong>Slow connections</strong>: Throttle to 3G, test experience</li>
+<li><strong>No regressions</strong>: Ensure functionality still works</li>
+<li><strong>User perception</strong>: Does it <em>feel</em> faster?</li>
+</ul>
+<p>Remember: Performance is a feature. Fast experiences feel more responsive, more polished, more professional. Optimize systematically, measure ruthlessly, and prioritize user-perceived performance.</p>
+
+    </div>
+  </section>
+
+  
+</article>
+
+  </div>
+</div>
+  </main>
+  <script>
+    // Copy buttons on rendered code blocks
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-copy]');
+      if (!btn) return;
+      const text = btn.getAttribute('data-copy');
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('is-copied');
+        setTimeout(() => btn.classList.remove('is-copied'), 1500);
+      }).catch(() => {});
+    });
+
+    // Mobile sidebar toggle (shown on narrow viewports, hidden on desktop).
+    document.addEventListener('click', (e) => {
+      const toggle = e.target.closest('.skills-sidebar-toggle');
+      if (!toggle) return;
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+    });
+
+    // Before/after split-compare: drag on touch, hover OR drag on mouse.
+    // Pointer events attach to the padded .split-comparison wrapper so
+    // there is a ~20px invisible buffer around the visible box. The
+    // divider only snaps back when the pointer leaves that outer buffer.
+    (function initSplitCompare() {
+      const wrappers = document.querySelectorAll('.split-comparison');
+      if (wrappers.length === 0) return;
+      const hasHover = matchMedia('(hover: hover)').matches;
+      const DEFAULT_POSITION = 50;
+
+      for (const wrapper of wrappers) {
+        const container = wrapper.querySelector('.split-container');
+        const splitAfter = wrapper.querySelector('.split-after');
+        const splitDivider = wrapper.querySelector('.split-divider');
+        if (!container || !splitAfter || !splitDivider) continue;
+
+        const tanAngle = Math.tan(10 * Math.PI / 180);
+        let skewOffset = 8;
+        const recalcSkew = () => {
+          const r = container.getBoundingClientRect();
+          if (r.width > 0 && r.height > 0) {
+            skewOffset = 50 * r.height * tanAngle / r.width;
+          }
+        };
+        recalcSkew();
+        window.addEventListener('resize', recalcSkew, { passive: true });
+
+        let targetX = DEFAULT_POSITION;
+        let currentX = DEFAULT_POSITION;
+        let rafId = null;
+
+        const paint = (pct) => {
+          const x = Math.max(-skewOffset, Math.min(100 + skewOffset, pct));
+          splitAfter.style.clipPath =
+            `polygon(${x + skewOffset}% 0%, 100% 0%, 100% 100%, ${x - skewOffset}% 100%)`;
+          splitDivider.style.left = `${x}%`;
+        };
+
+        const step = () => {
+          currentX += (targetX - currentX) * 0.2;
+          if (Math.abs(targetX - currentX) < 0.1) {
+            currentX = targetX;
+            rafId = null;
+          } else {
+            rafId = requestAnimationFrame(step);
+          }
+          paint(currentX);
+        };
+
+        const setTarget = (pct) => {
+          targetX = pct;
+          if (rafId === null) rafId = requestAnimationFrame(step);
+        };
+
+        paint(DEFAULT_POSITION);
+
+        // Percentage is always relative to the VISIBLE .split-container,
+        // not the padded .split-comparison wrapper. The pointer event
+        // target is the wrapper but the clip-path math uses the inner box.
+        const pctFromClientX = (clientX) => {
+          const rect = container.getBoundingClientRect();
+          return ((clientX - rect.left) / rect.width) * 100;
+        };
+
+        let hovering = false;
+        let dragging = false;
+
+        wrapper.addEventListener('pointerenter', (e) => {
+          if (hasHover && e.pointerType === 'mouse') {
+            hovering = true;
+          }
+        });
+
+        wrapper.addEventListener('pointerdown', (e) => {
+          dragging = true;
+          wrapper.setPointerCapture(e.pointerId);
+          setTarget(pctFromClientX(e.clientX));
+        });
+
+        wrapper.addEventListener('pointermove', (e) => {
+          if (dragging || hovering) {
+            setTarget(pctFromClientX(e.clientX));
+          }
+        });
+
+        const endDrag = (e) => {
+          if (dragging) {
+            dragging = false;
+            try { wrapper.releasePointerCapture(e.pointerId); } catch {}
+          }
+        };
+
+        wrapper.addEventListener('pointerup', endDrag);
+        wrapper.addEventListener('pointercancel', endDrag);
+
+        wrapper.addEventListener('pointerleave', (e) => {
+          endDrag(e);
+          if (hovering) {
+            hovering = false;
+            setTarget(DEFAULT_POSITION);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

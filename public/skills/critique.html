@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>/critique | Impeccable</title>
+  <meta name="description" content="带评分、角色测试与自动检测的设计评审。">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="canonical" href="https://impeccable.style/skills/critique">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/sub-pages.css">
+  
+</head>
+<body class="sub-page skills-layout-page">
+  <a href="#main" class="skip-link">跳到主要内容</a>
+  <!-- site-header v1 -->
+<header class="site-header" data-site-header>
+  <a href="/" class="site-header-brand" aria-label="Impeccable 首页">
+    <svg class="site-header-brand-logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1a1a1a"/><text x="16" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="500" fill="#f5f3ef" text-anchor="middle">/</text></svg>
+    <span class="site-header-brand-name">Impeccable</span>
+  </a>
+  <div class="site-header-right">
+    <nav class="site-header-nav" aria-label="主导航">
+      <a href="/" data-nav="home">首页</a>
+      <a href="/skills" data-nav="docs" aria-current="page">文档</a>
+      <a href="/anti-patterns" data-nav="anti-patterns">反模式</a>
+      <a href="/visual-mode" data-nav="visual-mode">可视模式</a>
+    </nav>
+    <a href="https://github.com/pbakaus/impeccable" class="site-header-github" target="_blank" rel="noopener" aria-label="Impeccable GitHub 仓库，18k stars">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      <span class="site-header-github-label">18k</span>
+      <svg class="site-header-github-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.76 6.36L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.24-.91L12 2z"/></svg>
+    </a>
+  </div>
+</header>
+  <main id="main">
+
+<div class="skills-layout">
+  
+<aside class="skills-sidebar" aria-label="文档导航">
+  <button class="skills-sidebar-toggle" type="button" aria-expanded="false" aria-controls="skills-sidebar-inner">
+    <span class="skills-sidebar-toggle-label">/critique</span>
+    <svg class="skills-sidebar-toggle-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="skills-sidebar-inner" id="skills-sidebar-inner">
+    <p class="skills-sidebar-label">文档</p>
+
+    <div class="skills-sidebar-group" data-category="tutorials">
+      <p class="skills-sidebar-group-title">教程</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/tutorials/getting-started">快速开始</a></li>
+        <li><a href="/tutorials/critique-with-overlay">用可视覆盖层做 critique</a></li>
+      </ul>
+    </div>
+    <hr class="skills-sidebar-divider">
+
+    <div class="skills-sidebar-group" data-category="create">
+      <p class="skills-sidebar-group-title">创建</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/impeccable">/impeccable</a></li>
+        <li class="skills-sidebar-sub"><a href="/skills/impeccable#craft">/impeccable craft</a></li>
+        <li class="skills-sidebar-sub"><a href="/skills/impeccable#teach">/impeccable teach</a></li>
+        <li class="skills-sidebar-sub"><a href="/skills/impeccable#extract">/impeccable extract</a></li>
+        <li><a href="/skills/shape">/shape</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="evaluate">
+      <p class="skills-sidebar-group-title">评估</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/audit">/audit</a></li>
+        <li><a href="/skills/critique" aria-current="page">/critique</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="refine">
+      <p class="skills-sidebar-group-title">打磨</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/animate">/animate</a></li>
+        <li><a href="/skills/bolder">/bolder</a></li>
+        <li><a href="/skills/colorize">/colorize</a></li>
+        <li><a href="/skills/delight">/delight</a></li>
+        <li><a href="/skills/layout">/layout</a></li>
+        <li><a href="/skills/overdrive">/overdrive</a></li>
+        <li><a href="/skills/quieter">/quieter</a></li>
+        <li><a href="/skills/typeset">/typeset</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="simplify">
+      <p class="skills-sidebar-group-title">简化</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/adapt">/adapt</a></li>
+        <li><a href="/skills/clarify">/clarify</a></li>
+        <li><a href="/skills/distill">/distill</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="harden">
+      <p class="skills-sidebar-group-title">补强</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/harden">/harden</a></li>
+        <li><a href="/skills/optimize">/optimize</a></li>
+        <li><a href="/skills/polish">/polish</a></li>
+      </ul>
+    </div>
+
+  </div>
+</aside>
+  <div class="skills-main">
+
+<article class="skill-detail">
+  <div class="skill-detail-hero skill-detail-hero--has-demo">
+    <header class="skill-detail-header">
+      <p class="skill-detail-eyebrow"><a href="/skills">技能</a> / 评估</p>
+      <h1 class="skill-detail-title"><span class="skill-detail-title-slash">/</span>critique</h1>
+      <p class="skill-detail-tagline">带评分、角色测试与自动检测的设计评审。</p>
+      
+<div class="skill-meta-strip">
+  <span class="skill-meta-chip skill-meta-category" data-category="evaluate">评估</span>
+  <span class="skill-meta-chip">可直接调用</span>
+  <span class="skill-meta-chip skill-meta-args">[area (feature, page, component...)]</span>
+</div>
+    </header>
+    
+<section class="skill-demo" aria-label="改前改后对比示例">
+  <div class="split-comparison" data-demo="skill-critique">
+    <p class="skill-demo-eyebrow">拖动或悬停查看对比</p>
+    <div class="split-container">
+      <div class="split-before">
+        <div class="split-content">
+    <div style="display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 260px; padding: 12px; background: #fafafa; border-radius: 6px;">
+      <div style="font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.5px;">控制台</div>
+      <div style="font-size: 11px; color: #666;">欢迎来到控制台，你可以在这里管理各种内容。</div>
+      <div style="display: flex; gap: 6px;">
+        <button style="flex: 1; padding: 8px; font-size: 11px; background: #4F46E5; color: white; border: none; border-radius: 4px; font-weight: 500;">创建</button>
+        <button style="flex: 1; padding: 8px; font-size: 11px; background: #4F46E5; color: white; border: none; border-radius: 4px; font-weight: 500;">导入</button>
+        <button style="flex: 1; padding: 8px; font-size: 11px; background: #4F46E5; color: white; border: none; border-radius: 4px; font-weight: 500;">导出</button>
+        <button style="flex: 1; padding: 8px; font-size: 11px; background: #4F46E5; color: white; border: none; border-radius: 4px; font-weight: 500;">设置</button>
+      </div>
+      <div style="padding: 10px; background: white; border: 1px solid #e5e5e5; border-radius: 4px;">
+        <div style="font-size: 10px; color: #999;">最近活动</div>
+        <div style="font-size: 10px; color: #999; margin-top: 4px;">当前没有可展示的内容</div>
+      </div>
+    </div>
+  </div>
+      </div>
+      <div class="split-after">
+        <div class="split-content">
+    <div style="display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 280px; padding: 12px; background: #fafafa; border-radius: 6px;">
+      <div style="position: relative;">
+        <div style="font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.5px;">控制台</div>
+        <div style="position: absolute; top: -6px; right: -4px; background: #7c3aed; color: white; font-size: 8px; padding: 2px 5px; border-radius: 6px; font-weight: 600;">层级</div>
+      </div>
+      <div style="font-size: 11px; color: #666; background: #fef3c7; padding: 4px 6px; border-radius: 3px; position: relative;">
+        欢迎来到控制台，你可以在这里管理各种内容。
+        <div style="position: absolute; top: -6px; right: -4px; background: #d97706; color: white; font-size: 8px; padding: 2px 5px; border-radius: 6px; font-weight: 600;">冗余</div>
+      </div>
+      <div style="display: flex; gap: 6px; background: #fee2e2; padding: 6px; border-radius: 4px; position: relative;">
+        <div style="position: absolute; top: -6px; right: -4px; background: #dc2626; color: white; font-size: 8px; padding: 2px 5px; border-radius: 6px; font-weight: 600;">无主操作</div>
+        <button style="flex: 1; padding: 8px; font-size: 11px; background: #4F46E5; color: white; border: none; border-radius: 4px; font-weight: 500;">创建</button>
+        <button style="flex: 1; padding: 8px; font-size: 11px; background: #4F46E5; color: white; border: none; border-radius: 4px; font-weight: 500;">导入</button>
+        <button style="flex: 1; padding: 8px; font-size: 11px; background: #4F46E5; color: white; border: none; border-radius: 4px; font-weight: 500;">导出</button>
+        <button style="flex: 1; padding: 8px; font-size: 11px; background: #4F46E5; color: white; border: none; border-radius: 4px; font-weight: 500;">设置</button>
+      </div>
+      <div style="padding: 10px; background: white; border: 1px solid #fca5a5; border-radius: 4px; position: relative;">
+        <div style="position: absolute; top: -6px; right: -4px; background: #dc2626; color: white; font-size: 8px; padding: 2px 5px; border-radius: 6px; font-weight: 600;">死胡同</div>
+        <div style="font-size: 10px; color: #999;">最近活动</div>
+        <div style="font-size: 10px; color: #999; margin-top: 4px;">当前没有可展示的内容</div>
+      </div>
+    </div>
+  </div>
+      </div>
+      <div class="split-divider"></div>
+    </div>
+    <div class="split-labels">
+      <span class="split-label-item" data-point="before">改前</span>
+      <p class="skill-demo-caption">混乱设计 → 被定位并说明的 UX 问题</p>
+      <span class="split-label-item" data-point="after">改后</span>
+    </div>
+  </div>
+</section>
+  </div>
+
+  <section class="skill-detail-editorial prose">
+<h2 id="">什么时候使用</h2>
+<p>当你已经把页面做出来，想听一句诚实的“它到底好不好”时，就用 <code>/critique</code>。它关心的不只是“能不能用”，而是“有没有判断、是否清晰、会不会一眼看起来像 AI slop”。</p>
+<p>它会基于 Nielsen 的 10 条启发式评分，检查认知负荷，用 persona 视角走查流程，并把结果与 25 条自动检测规则交叉验证。</p>
+<h2 id="">它是怎么工作的</h2>
+<p><code>/critique</code> 会并行运行两个彼此独立的评估，避免互相污染判断：</p>
+<p>第一部分是 <strong>LLM 设计评审</strong>。模型会读你的源码，在可用时亲自打开页面，从 impeccable 的完整 DO / DON&#39;T 体系出发做判断，同时给出启发式评分、认知负荷结论、情绪旅程观察以及 AI slop 诊断。</p>
+<p>第二部分是 <strong>自动检测器</strong>，也就是 <code>npx impeccable detect</code>。它会确定性地抓出渐变文字、紫色系配色、侧边厚色条、卡片嵌套、行宽过长等典型痕迹。</p>
+<p>最后这两份结果会合并成一份优先级明确的报告：哪些地方做得对，最该修的 3 到 5 个问题是什么，以及在上线前你必须回答哪些关键问题。</p>
+<h2 id="">试一下</h2>
+<div class="code-block-wrap"><pre class="code-block"><code>/critique the homepage hero</code></pre><button class="code-block-copy" type="button" data-copy="/critique the homepage hero" aria-label="Copy to clipboard"></button></div>
+<p>你通常会拿到这样的结果结构：</p>
+<ul>
+<li><strong>AI slop verdict</strong>：通过 / 不通过，以及具体触发点</li>
+<li><strong>Heuristic scores</strong>：10 项评分，范围 0 到 4</li>
+<li><strong>Cognitive load</strong>：8 项检查里失败了多少项</li>
+<li><strong>Priority issues</strong>：最影响体验的几个问题，每条都包含 what / why / fix</li>
+<li><strong>Questions to answer</strong>：那些界面本身没法替你决定的高杠杆问题</li>
+</ul>
+<p>拿到结果后，通常再配合 <code>/polish</code> 或 <code>/distill</code> 去执行修正最有效。</p>
+<h2 id="">常见误区</h2>
+<ul>
+<li><strong>对半成品运行 critique。</strong> 它适合已经完成主要实现的页面。一个还堆着 TODO 的页面得分低，不等于它真的差。</li>
+<li><strong>忽略报告最后的问题。</strong> 很多时候，那些问题本身就是最值得优先解决的设计决定。</li>
+<li><strong>把评分当成绩单。</strong> 这些数字是诊断工具，不是学校排名。关键是它有没有指出真正重要的问题。</li>
+</ul>
+
+</section>
+
+  <section class="skill-source-card">
+    <header class="skill-source-card-header">
+      <span class="skill-source-card-label">SKILL.md</span>
+      <span class="skill-source-card-subtitle">这里展示的是 AI harness 实际会读取的原始技能定义。</span>
+    </header>
+    <div class="skill-source-card-body prose">
+<h2 id="steps">STEPS</h2>
+<h3 id="step-1-preparation">Step 1: Preparation</h3>
+<p>Invoke {{command_prefix}}impeccable, which contains design principles, anti-patterns, and the <strong>Context Gathering Protocol</strong>. Follow the protocol before proceeding. If no design context exists yet, you MUST run {{command_prefix}}impeccable teach first. Additionally gather: what the interface is trying to accomplish.</p>
+<h3 id="step-2-gather-assessments">Step 2: Gather Assessments</h3>
+<p>Launch two independent assessments. <strong>Neither must see the other&#39;s output</strong> to avoid bias.</p>
+<p>You SHOULD delegate each assessment to a separate sub-agent for independence. Use your environment&#39;s agent spawning mechanism (e.g., Claude Code&#39;s <code>Agent</code> tool, or Codex&#39;s subagent spawning). Sub-agents should return their findings as structured text. Do NOT output findings to the user yet.</p>
+<p>If sub-agents are not available in the current environment, complete each assessment sequentially, writing findings to internal notes before proceeding.</p>
+<p><strong>Tab isolation</strong>: When browser automation is available, each assessment MUST create its own new tab. Never reuse an existing tab, even if one is already open at the correct URL. This prevents the two assessments from interfering with each other&#39;s page state.</p>
+<h4 id="assessment-a-llm-design-review">Assessment A: LLM Design Review</h4>
+<p>Read the relevant source files (HTML, CSS, JS/TS) and, if browser automation is available, visually inspect the live page. <strong>Create a new tab</strong> for this; do not reuse existing tabs. After navigation, label the tab by setting the document title:</p>
+<div class="code-block-wrap"><pre class="code-block code-block--javascript"><code>document.title = &#39;[LLM] &#39; + document.title;</code></pre><button class="code-block-copy" type="button" data-copy="document.title = '[LLM] ' + document.title;" aria-label="Copy to clipboard"></button></div>
+<p>Think like a design director. Evaluate:</p>
+<p><strong>AI Slop Detection (CRITICAL)</strong>: Does this look like every other AI-generated interface? Review against ALL <strong>DON&#39;T</strong> guidelines in the impeccable skill. Check for AI color palette, gradient text, dark glows, glassmorphism, hero metric layouts, identical card grids, generic fonts, and all other tells. <strong>The test</strong>: If someone said &quot;AI made this,&quot; would you believe them immediately?</p>
+<p><strong>Holistic Design Review</strong>: visual hierarchy (eye flow, primary action clarity), information architecture (structure, grouping, cognitive load), emotional resonance (does it match brand and audience?), discoverability (are interactive elements obvious?), composition (balance, whitespace, rhythm), typography (hierarchy, readability, font choices), color (purposeful use, cohesion, accessibility), states &amp; edge cases (empty, loading, error, success), microcopy (clarity, tone, helpfulness).</p>
+<p><strong>Cognitive Load</strong> (consult <a href="#reference-cognitive-load">cognitive-load</a>):</p>
+<ul>
+<li>Run the 8-item cognitive load checklist. Report failure count: 0-1 = low (good), 2-3 = moderate, 4+ = critical.</li>
+<li>Count visible options at each decision point. If &gt;4, flag it.</li>
+<li>Check for progressive disclosure: is complexity revealed only when needed?</li>
+</ul>
+<p><strong>Emotional Journey</strong>:</p>
+<ul>
+<li>What emotion does this interface evoke? Is that intentional?</li>
+<li><strong>Peak-end rule</strong>: Is the most intense moment positive? Does the experience end well?</li>
+<li><strong>Emotional valleys</strong>: Check for anxiety spikes at high-stakes moments (payment, delete, commit). Are there design interventions (progress indicators, reassurance copy, undo options)?</li>
+</ul>
+<p><strong>Nielsen&#39;s Heuristics</strong> (consult <a href="#reference-heuristics-scoring">heuristics-scoring</a>):
+Score each of the 10 heuristics 0-4. This scoring will be presented in the report.</p>
+<p>Return structured findings covering: AI slop verdict, heuristic scores, cognitive load assessment, what&#39;s working (2-3 items), priority issues (3-5 with what/why/fix), minor observations, and provocative questions.</p>
+<h4 id="assessment-b-automated-detection">Assessment B: Automated Detection</h4>
+<p>Run the bundled deterministic detector, which flags 25 specific patterns (AI slop tells + general design quality).</p>
+<p><strong>CLI scan</strong>:</p>
+<div class="code-block-wrap"><pre class="code-block code-block--bash"><code>npx impeccable --json [--fast] [target]</code></pre><button class="code-block-copy" type="button" data-copy="npx impeccable --json [--fast] [target]" aria-label="Copy to clipboard"></button></div>
+<ul>
+<li>Pass HTML/JSX/TSX/Vue/Svelte files or directories as <code>[target]</code> (anything with markup). Do not pass CSS-only files.</li>
+<li>For URLs, skip the CLI scan (it requires Puppeteer). Use browser visualization instead.</li>
+<li>For large directories (200+ scannable files), use <code>--fast</code> (regex-only, skips jsdom)</li>
+<li>For 500+ files, narrow scope or ask the user</li>
+<li>Exit code 0 = clean, 2 = findings</li>
+</ul>
+<p><strong>Browser visualization</strong> (when browser automation tools are available AND the target is a viewable page):</p>
+<p>The overlay is a <strong>visual aid for the user</strong>. It highlights issues directly in their browser. Do NOT scroll through the page to screenshot overlays. Instead, read the console output to get the results programmatically.</p>
+<ol>
+<li><strong>Start the live detection server</strong>:<div class="code-block-wrap"><pre class="code-block code-block--bash"><code>npx impeccable live &amp;</code></pre><button class="code-block-copy" type="button" data-copy="npx impeccable live &" aria-label="Copy to clipboard"></button></div>
+Note the port printed to stdout (auto-assigned). Use <code>--port=PORT</code> to fix it.</li>
+<li><strong>Create a new tab</strong> and navigate to the page (use dev server URL for local files, or direct URL). Do not reuse existing tabs.</li>
+<li><strong>Label the tab</strong> via <code>javascript_tool</code> so the user can distinguish it:<div class="code-block-wrap"><pre class="code-block code-block--javascript"><code>document.title = &#39;[Human] &#39; + document.title;</code></pre><button class="code-block-copy" type="button" data-copy="document.title = '[Human] ' + document.title;" aria-label="Copy to clipboard"></button></div>
+</li>
+<li><strong>Scroll to top</strong> to ensure the page is scrolled to the very top before injection</li>
+<li><strong>Inject</strong> via <code>javascript_tool</code> (replace PORT with the port from step 1):<div class="code-block-wrap"><pre class="code-block code-block--javascript"><code>const s = document.createElement(&#39;script&#39;); s.src = &#39;http://localhost:PORT/detect.js&#39;; document.head.appendChild(s);</code></pre><button class="code-block-copy" type="button" data-copy="const s = document.createElement('script'); s.src = 'http://localhost:PORT/detect.js'; document.head.appendChild(s);" aria-label="Copy to clipboard"></button></div>
+</li>
+<li>Wait 2-3 seconds for the detector to render overlays</li>
+<li><strong>Read results from console</strong> using <code>read_console_messages</code> with pattern <code>impeccable</code>. The detector logs all findings with the <code>[impeccable]</code> prefix. Do NOT scroll through the page to take screenshots of the overlays.</li>
+<li><strong>Cleanup</strong>: Stop the live server when done:<div class="code-block-wrap"><pre class="code-block code-block--bash"><code>npx impeccable live stop</code></pre><button class="code-block-copy" type="button" data-copy="npx impeccable live stop" aria-label="Copy to clipboard"></button></div>
+</li>
+</ol>
+<p>For multi-view targets, inject on 3-5 representative pages. If injection fails, continue with CLI results only.</p>
+<p>Return: CLI findings (JSON), browser console findings (if applicable), and any false positives noted.</p>
+<h3 id="step-3-generate-combined-critique-report">Step 3: Generate Combined Critique Report</h3>
+<p>Synthesize both assessments into a single report. Do NOT simply concatenate. Weave the findings together, noting where the LLM review and detector agree, where the detector caught issues the LLM missed, and where detector findings are false positives.</p>
+<p>Structure your feedback as a design director would:</p>
+<h4 id="design-health-score">Design Health Score</h4>
+<blockquote>
+<p><em>Consult <a href="#reference-heuristics-scoring">heuristics-scoring</a></em></p>
+</blockquote>
+<p>Present the Nielsen&#39;s 10 heuristics scores as a table:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Heuristic</th>
+<th>Score</th>
+<th>Key Issue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Visibility of System Status</td>
+<td>?</td>
+<td>[specific finding or &quot;n/a&quot; if solid]</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Match System / Real World</td>
+<td>?</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>User Control and Freedom</td>
+<td>?</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Consistency and Standards</td>
+<td>?</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Error Prevention</td>
+<td>?</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Recognition Rather Than Recall</td>
+<td>?</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Flexibility and Efficiency</td>
+<td>?</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Aesthetic and Minimalist Design</td>
+<td>?</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Error Recovery</td>
+<td>?</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Help and Documentation</td>
+<td>?</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>??/40</strong></td>
+<td><strong>[Rating band]</strong></td>
+</tr>
+</tbody></table>
+<p>Be honest with scores. A 4 means genuinely excellent. Most real interfaces score 20-32.</p>
+<h4 id="anti-patterns-verdict">Anti-Patterns Verdict</h4>
+<p><strong>Start here.</strong> Does this look AI-generated?</p>
+<p><strong>LLM assessment</strong>: Your own evaluation of AI slop tells. Cover overall aesthetic feel, layout sameness, generic composition, missed opportunities for personality.</p>
+<p><strong>Deterministic scan</strong>: Summarize what the automated detector found, with counts and file locations. Note any additional issues the detector caught that you missed, and flag any false positives.</p>
+<p><strong>Visual overlays</strong> (if browser was used): Tell the user that overlays are now visible in the <strong>[Human]</strong> tab in their browser, highlighting the detected issues. Summarize what the console output reported.</p>
+<h4 id="overall-impression">Overall Impression</h4>
+<p>A brief gut reaction: what works, what doesn&#39;t, and the single biggest opportunity.</p>
+<h4 id="whats-working">What&#39;s Working</h4>
+<p>Highlight 2-3 things done well. Be specific about why they work.</p>
+<h4 id="priority-issues">Priority Issues</h4>
+<p>The 3-5 most impactful design problems, ordered by importance.</p>
+<p>For each issue, tag with <strong>P0-P3 severity</strong> (consult <a href="#reference-heuristics-scoring">heuristics-scoring</a> for severity definitions):</p>
+<ul>
+<li><strong>[P?] What</strong>: Name the problem clearly</li>
+<li><strong>Why it matters</strong>: How this hurts users or undermines goals</li>
+<li><strong>Fix</strong>: What to do about it (be concrete)</li>
+<li><strong>Suggested command</strong>: Which command could address this (from: {{available_commands}})</li>
+</ul>
+<h4 id="persona-red-flags">Persona Red Flags</h4>
+<blockquote>
+<p><em>Consult <a href="#reference-personas">personas</a></em></p>
+</blockquote>
+<p>Auto-select 2-3 personas most relevant to this interface type (use the selection table in the reference). If <code>{{config_file}}</code> contains a <code>## Design Context</code> section from <code>impeccable teach</code>, also generate 1-2 project-specific personas from the audience/brand info.</p>
+<p>For each selected persona, walk through the primary user action and list specific red flags found:</p>
+<p><strong>Alex (Power User)</strong>: No keyboard shortcuts detected. Form requires 8 clicks for primary action. Forced modal onboarding. High abandonment risk.</p>
+<p><strong>Jordan (First-Timer)</strong>: Icon-only nav in sidebar. Technical jargon in error messages (&quot;404 Not Found&quot;). No visible help. Will abandon at step 2.</p>
+<p>Be specific. Name the exact elements and interactions that fail each persona. Don&#39;t write generic persona descriptions; write what broke for them.</p>
+<h4 id="minor-observations">Minor Observations</h4>
+<p>Quick notes on smaller issues worth addressing.</p>
+<h4 id="questions-to-consider">Questions to Consider</h4>
+<p>Provocative questions that might unlock better solutions:</p>
+<ul>
+<li>&quot;What if the primary action were more prominent?&quot;</li>
+<li>&quot;Does this need to feel this complex?&quot;</li>
+<li>&quot;What would a confident version of this look like?&quot;</li>
+</ul>
+<p><strong>Remember</strong>:</p>
+<ul>
+<li>Be direct. Vague feedback wastes everyone&#39;s time.</li>
+<li>Be specific. &quot;The submit button,&quot; not &quot;some elements.&quot;</li>
+<li>Say what&#39;s wrong AND why it matters to users.</li>
+<li>Give concrete suggestions, not just &quot;consider exploring...&quot;</li>
+<li>Prioritize ruthlessly. If everything is important, nothing is.</li>
+<li>Don&#39;t soften criticism. Developers need honest feedback to ship great design.</li>
+</ul>
+<h3 id="step-4-ask-the-user">Step 4: Ask the User</h3>
+<p><strong>After presenting findings</strong>, use targeted questions based on what was actually found. {{ask_instruction}} These answers will shape the action plan.</p>
+<p>Ask questions along these lines (adapt to the specific findings; do NOT ask generic questions):</p>
+<ol>
+<li><p><strong>Priority direction</strong>: Based on the issues found, ask which category matters most to the user right now. For example: &quot;I found problems with visual hierarchy, color usage, and information overload. Which area should we tackle first?&quot; Offer the top 2-3 issue categories as options.</p>
+</li>
+<li><p><strong>Design intent</strong>: If the critique found a tonal mismatch, ask whether it was intentional. For example: &quot;The interface feels clinical and corporate. Is that the intended tone, or should it feel warmer/bolder/more playful?&quot; Offer 2-3 tonal directions as options based on what would fix the issues found.</p>
+</li>
+<li><p><strong>Scope</strong>: Ask how much the user wants to take on. For example: &quot;I found N issues. Want to address everything, or focus on the top 3?&quot; Offer scope options like &quot;Top 3 only&quot;, &quot;All issues&quot;, &quot;Critical issues only&quot;.</p>
+</li>
+<li><p><strong>Constraints</strong> (optional; only ask if relevant): If the findings touch many areas, ask if anything is off-limits. For example: &quot;Should any sections stay as-is?&quot; This prevents the plan from touching things the user considers done.</p>
+</li>
+</ol>
+<p><strong>Rules for questions</strong>:</p>
+<ul>
+<li>Every question must reference specific findings from the report. Never ask generic &quot;who is your audience?&quot; questions.</li>
+<li>Keep it to 2-4 questions maximum. Respect the user&#39;s time.</li>
+<li>Offer concrete options, not open-ended prompts.</li>
+<li>If findings are straightforward (e.g., only 1-2 clear issues), skip questions and go directly to Step 5.</li>
+</ul>
+<h3 id="step-5-recommended-actions">Step 5: Recommended Actions</h3>
+<p><strong>After receiving the user&#39;s answers</strong>, present a prioritized action summary reflecting the user&#39;s priorities and scope from Step 4.</p>
+<h4 id="action-summary">Action Summary</h4>
+<p>List recommended commands in priority order, based on the user&#39;s answers:</p>
+<ol>
+<li><strong><code>{{command_prefix}}command-name</code></strong>: Brief description of what to fix (specific context from critique findings)</li>
+<li><strong><code>{{command_prefix}}command-name</code></strong>: Brief description (specific context)
+...</li>
+</ol>
+<p><strong>Rules for recommendations</strong>:</p>
+<ul>
+<li>Only recommend commands from: {{available_commands}}</li>
+<li>Order by the user&#39;s stated priorities first, then by impact</li>
+<li>Each item&#39;s description should carry enough context that the command knows what to focus on</li>
+<li>Map each Priority Issue to the appropriate command</li>
+<li>Skip commands that would address zero issues</li>
+<li>If the user chose a limited scope, only include items within that scope</li>
+<li>If the user marked areas as off-limits, exclude commands that would touch those areas</li>
+<li>End with <code>{{command_prefix}}polish</code> as the final step if any fixes were recommended</li>
+</ul>
+<p>After presenting the summary, tell the user:</p>
+<blockquote>
+<p>You can ask me to run these one at a time, all at once, or in any order you prefer.</p>
+<p>Re-run <code>{{command_prefix}}critique</code> after fixes to see your score improve.</p>
+</blockquote>
+
+    </div>
+  </section>
+
+  
+<section class="skill-references" aria-label="参考资料">
+  <h2 class="skill-references-heading">延伸参考</h2>
+  
+<details class="skill-reference" id="reference-heuristics-scoring">
+  <summary><span class="skill-reference-label">参考</span><span class="skill-reference-title">Heuristics Scoring</span></summary>
+  <div class="prose skill-reference-body">
+<h1 id="heuristics-scoring-guide">Heuristics Scoring Guide</h1>
+<p>Score each of Nielsen&#39;s 10 Usability Heuristics on a 0–4 scale. Be honest — a 4 means genuinely excellent, not &quot;good enough.&quot;</p>
+<h2 id="nielsens-10-heuristics">Nielsen&#39;s 10 Heuristics</h2>
+<h3 id="1-visibility-of-system-status">1. Visibility of System Status</h3>
+<p>Keep users informed about what&#39;s happening through timely, appropriate feedback.</p>
+<p><strong>Check for</strong>:</p>
+<ul>
+<li>Loading indicators during async operations</li>
+<li>Confirmation of user actions (save, submit, delete)</li>
+<li>Progress indicators for multi-step processes</li>
+<li>Current location in navigation (breadcrumbs, active states)</li>
+<li>Form validation feedback (inline, not just on submit)</li>
+</ul>
+<p><strong>Scoring</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Criteria</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>No feedback — user is guessing what happened</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Rare feedback — most actions produce no visible response</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Partial — some states communicated, major gaps remain</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Good — most operations give clear feedback, minor gaps</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Excellent — every action confirms, progress is always visible</td>
+</tr>
+</tbody></table>
+<h3 id="2-match-between-system-and-real-world">2. Match Between System and Real World</h3>
+<p>Speak the user&#39;s language. Follow real-world conventions. Information appears in natural, logical order.</p>
+<p><strong>Check for</strong>:</p>
+<ul>
+<li>Familiar terminology (no unexplained jargon)</li>
+<li>Logical information order matching user expectations</li>
+<li>Recognizable icons and metaphors</li>
+<li>Domain-appropriate language for the target audience</li>
+<li>Natural reading flow (left-to-right, top-to-bottom priority)</li>
+</ul>
+<p><strong>Scoring</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Criteria</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>Pure tech jargon, alien to users</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Mostly confusing — requires domain expertise to navigate</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Mixed — some plain language, some jargon leaks through</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Mostly natural — occasional term needs context</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Speaks the user&#39;s language fluently throughout</td>
+</tr>
+</tbody></table>
+<h3 id="3-user-control-and-freedom">3. User Control and Freedom</h3>
+<p>Users need a clear &quot;emergency exit&quot; from unwanted states without extended dialogue.</p>
+<p><strong>Check for</strong>:</p>
+<ul>
+<li>Undo/redo functionality</li>
+<li>Cancel buttons on forms and modals</li>
+<li>Clear navigation back to safety (home, previous)</li>
+<li>Easy way to clear filters, search, selections</li>
+<li>Escape from long or multi-step processes</li>
+</ul>
+<p><strong>Scoring</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Criteria</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>Users get trapped — no way out without refreshing</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Difficult exits — must find obscure paths to escape</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Some exits — main flows have escape, edge cases don&#39;t</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Good control — users can exit and undo most actions</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Full control — undo, cancel, back, and escape everywhere</td>
+</tr>
+</tbody></table>
+<h3 id="4-consistency-and-standards">4. Consistency and Standards</h3>
+<p>Users shouldn&#39;t wonder whether different words, situations, or actions mean the same thing.</p>
+<p><strong>Check for</strong>:</p>
+<ul>
+<li>Consistent terminology throughout the interface</li>
+<li>Same actions produce same results everywhere</li>
+<li>Platform conventions followed (standard UI patterns)</li>
+<li>Visual consistency (colors, typography, spacing, components)</li>
+<li>Consistent interaction patterns (same gesture = same behavior)</li>
+</ul>
+<p><strong>Scoring</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Criteria</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>Inconsistent everywhere — feels like different products stitched together</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Many inconsistencies — similar things look/behave differently</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Partially consistent — main flows match, details diverge</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Mostly consistent — occasional deviation, nothing confusing</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Fully consistent — cohesive system, predictable behavior</td>
+</tr>
+</tbody></table>
+<h3 id="5-error-prevention">5. Error Prevention</h3>
+<p>Better than good error messages is a design that prevents problems in the first place.</p>
+<p><strong>Check for</strong>:</p>
+<ul>
+<li>Confirmation before destructive actions (delete, overwrite)</li>
+<li>Constraints preventing invalid input (date pickers, dropdowns)</li>
+<li>Smart defaults that reduce errors</li>
+<li>Clear labels that prevent misunderstanding</li>
+<li>Autosave and draft recovery</li>
+</ul>
+<p><strong>Scoring</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Criteria</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>Errors easy to make — no guardrails anywhere</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Few safeguards — some inputs validated, most aren&#39;t</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Partial prevention — common errors caught, edge cases slip</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Good prevention — most error paths blocked proactively</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Excellent — errors nearly impossible through smart constraints</td>
+</tr>
+</tbody></table>
+<h3 id="6-recognition-rather-than-recall">6. Recognition Rather Than Recall</h3>
+<p>Minimize memory load. Make objects, actions, and options visible or easily retrievable.</p>
+<p><strong>Check for</strong>:</p>
+<ul>
+<li>Visible options (not buried in hidden menus)</li>
+<li>Contextual help when needed (tooltips, inline hints)</li>
+<li>Recent items and history</li>
+<li>Autocomplete and suggestions</li>
+<li>Labels on icons (not icon-only navigation)</li>
+</ul>
+<p><strong>Scoring</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Criteria</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>Heavy memorization — users must remember paths and commands</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Mostly recall — many hidden features, few visible cues</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Some aids — main actions visible, secondary features hidden</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Good recognition — most things discoverable, few memory demands</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Everything discoverable — users never need to memorize</td>
+</tr>
+</tbody></table>
+<h3 id="7-flexibility-and-efficiency-of-use">7. Flexibility and Efficiency of Use</h3>
+<p>Accelerators — invisible to novices — speed up expert interaction.</p>
+<p><strong>Check for</strong>:</p>
+<ul>
+<li>Keyboard shortcuts for common actions</li>
+<li>Customizable interface elements</li>
+<li>Recent items and favorites</li>
+<li>Bulk/batch actions</li>
+<li>Power user features that don&#39;t complicate the basics</li>
+</ul>
+<p><strong>Scoring</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Criteria</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>One rigid path — no shortcuts or alternatives</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Limited flexibility — few alternatives to the main path</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Some shortcuts — basic keyboard support, limited bulk actions</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Good accelerators — keyboard nav, some customization</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Highly flexible — multiple paths, power features, customizable</td>
+</tr>
+</tbody></table>
+<h3 id="8-aesthetic-and-minimalist-design">8. Aesthetic and Minimalist Design</h3>
+<p>Interfaces should not contain irrelevant or rarely needed information. Every element should serve a purpose.</p>
+<p><strong>Check for</strong>:</p>
+<ul>
+<li>Only necessary information visible at each step</li>
+<li>Clear visual hierarchy directing attention</li>
+<li>Purposeful use of color and emphasis</li>
+<li>No decorative clutter competing for attention</li>
+<li>Focused, uncluttered layouts</li>
+</ul>
+<p><strong>Scoring</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Criteria</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>Overwhelming — everything competes for attention equally</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Cluttered — too much noise, hard to find what matters</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Some clutter — main content clear, periphery noisy</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Mostly clean — focused design, minor visual noise</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Perfectly minimal — every element earns its pixel</td>
+</tr>
+</tbody></table>
+<h3 id="9-help-users-recognize-diagnose-and-recover-from-errors">9. Help Users Recognize, Diagnose, and Recover from Errors</h3>
+<p>Error messages should use plain language, precisely indicate the problem, and constructively suggest a solution.</p>
+<p><strong>Check for</strong>:</p>
+<ul>
+<li>Plain language error messages (no error codes for users)</li>
+<li>Specific problem identification (&quot;Email is missing @&quot; not &quot;Invalid input&quot;)</li>
+<li>Actionable recovery suggestions</li>
+<li>Errors displayed near the source of the problem</li>
+<li>Non-blocking error handling (don&#39;t wipe the form)</li>
+</ul>
+<p><strong>Scoring</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Criteria</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>Cryptic errors — codes, jargon, or no message at all</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Vague errors — &quot;Something went wrong&quot; with no guidance</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Clear but unhelpful — names the problem but not the fix</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Clear with suggestions — identifies problem and offers next steps</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Perfect recovery — pinpoints issue, suggests fix, preserves user work</td>
+</tr>
+</tbody></table>
+<h3 id="10-help-and-documentation">10. Help and Documentation</h3>
+<p>Even if the system is usable without docs, help should be easy to find, task-focused, and concise.</p>
+<p><strong>Check for</strong>:</p>
+<ul>
+<li>Searchable help or documentation</li>
+<li>Contextual help (tooltips, inline hints, guided tours)</li>
+<li>Task-focused organization (not feature-organized)</li>
+<li>Concise, scannable content</li>
+<li>Easy access without leaving current context</li>
+</ul>
+<p><strong>Scoring</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Criteria</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>No help available anywhere</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Help exists but hard to find or irrelevant</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Basic help — FAQ or docs exist, not contextual</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Good documentation — searchable, mostly task-focused</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Excellent contextual help — right info at the right moment</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="score-summary">Score Summary</h2>
+<p><strong>Total possible</strong>: 40 points (10 heuristics × 4 max)</p>
+<table>
+<thead>
+<tr>
+<th>Score Range</th>
+<th>Rating</th>
+<th>What It Means</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>36–40</td>
+<td>Excellent</td>
+<td>Minor polish only — ship it</td>
+</tr>
+<tr>
+<td>28–35</td>
+<td>Good</td>
+<td>Address weak areas, solid foundation</td>
+</tr>
+<tr>
+<td>20–27</td>
+<td>Acceptable</td>
+<td>Significant improvements needed before users are happy</td>
+</tr>
+<tr>
+<td>12–19</td>
+<td>Poor</td>
+<td>Major UX overhaul required — core experience broken</td>
+</tr>
+<tr>
+<td>0–11</td>
+<td>Critical</td>
+<td>Redesign needed — unusable in current state</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="issue-severity-p0p3">Issue Severity (P0–P3)</h2>
+<p>Tag each individual issue found during scoring with a priority level:</p>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Name</th>
+<th>Description</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>P0</strong></td>
+<td>Blocking</td>
+<td>Prevents task completion entirely</td>
+<td>Fix immediately — this is a showstopper</td>
+</tr>
+<tr>
+<td><strong>P1</strong></td>
+<td>Major</td>
+<td>Causes significant difficulty or confusion</td>
+<td>Fix before release</td>
+</tr>
+<tr>
+<td><strong>P2</strong></td>
+<td>Minor</td>
+<td>Annoyance, but workaround exists</td>
+<td>Fix in next pass</td>
+</tr>
+<tr>
+<td><strong>P3</strong></td>
+<td>Polish</td>
+<td>Nice-to-fix, no real user impact</td>
+<td>Fix if time permits</td>
+</tr>
+</tbody></table>
+<p><strong>Tip</strong>: If you&#39;re unsure between two levels, ask: &quot;Would a user contact support about this?&quot; If yes, it&#39;s at least P1.</p>
+
+  </div>
+</details>
+
+<details class="skill-reference" id="reference-personas">
+  <summary><span class="skill-reference-label">参考</span><span class="skill-reference-title">Personas</span></summary>
+  <div class="prose skill-reference-body">
+<h1 id="persona-based-design-testing">Persona-Based Design Testing</h1>
+<p>Test the interface through the eyes of 5 distinct user archetypes. Each persona exposes different failure modes that a single &quot;design director&quot; perspective would miss.</p>
+<p><strong>How to use</strong>: Select 2–3 personas most relevant to the interface being critiqued. Walk through the primary user action as each persona. Report specific red flags — not generic concerns.</p>
+<hr>
+<h2 id="1-impatient-power-user-alex">1. Impatient Power User — &quot;Alex&quot;</h2>
+<p><strong>Profile</strong>: Expert with similar products. Expects efficiency, hates hand-holding. Will find shortcuts or leave.</p>
+<p><strong>Behaviors</strong>:</p>
+<ul>
+<li>Skips all onboarding and instructions</li>
+<li>Looks for keyboard shortcuts immediately</li>
+<li>Tries to bulk-select, batch-edit, and automate</li>
+<li>Gets frustrated by required steps that feel unnecessary</li>
+<li>Abandons if anything feels slow or patronizing</li>
+</ul>
+<p><strong>Test Questions</strong>:</p>
+<ul>
+<li>Can Alex complete the core task in under 60 seconds?</li>
+<li>Are there keyboard shortcuts for common actions?</li>
+<li>Can onboarding be skipped entirely?</li>
+<li>Do modals have keyboard dismiss (Esc)?</li>
+<li>Is there a &quot;power user&quot; path (shortcuts, bulk actions)?</li>
+</ul>
+<p><strong>Red Flags</strong> (report these specifically):</p>
+<ul>
+<li>Forced tutorials or unskippable onboarding</li>
+<li>No keyboard navigation for primary actions</li>
+<li>Slow animations that can&#39;t be skipped</li>
+<li>One-item-at-a-time workflows where batch would be natural</li>
+<li>Redundant confirmation steps for low-risk actions</li>
+</ul>
+<hr>
+<h2 id="2-confused-first-timer-jordan">2. Confused First-Timer — &quot;Jordan&quot;</h2>
+<p><strong>Profile</strong>: Never used this type of product. Needs guidance at every step. Will abandon rather than figure it out.</p>
+<p><strong>Behaviors</strong>:</p>
+<ul>
+<li>Reads all instructions carefully</li>
+<li>Hesitates before clicking anything unfamiliar</li>
+<li>Looks for help or support constantly</li>
+<li>Misunderstands jargon and abbreviations</li>
+<li>Takes the most literal interpretation of any label</li>
+</ul>
+<p><strong>Test Questions</strong>:</p>
+<ul>
+<li>Is the first action obviously clear within 5 seconds?</li>
+<li>Are all icons labeled with text?</li>
+<li>Is there contextual help at decision points?</li>
+<li>Does terminology assume prior knowledge?</li>
+<li>Is there a clear &quot;back&quot; or &quot;undo&quot; at every step?</li>
+</ul>
+<p><strong>Red Flags</strong> (report these specifically):</p>
+<ul>
+<li>Icon-only navigation with no labels</li>
+<li>Technical jargon without explanation</li>
+<li>No visible help option or guidance</li>
+<li>Ambiguous next steps after completing an action</li>
+<li>No confirmation that an action succeeded</li>
+</ul>
+<hr>
+<h2 id="3-accessibility-dependent-user-sam">3. Accessibility-Dependent User — &quot;Sam&quot;</h2>
+<p><strong>Profile</strong>: Uses screen reader (VoiceOver/NVDA), keyboard-only navigation. May have low vision, motor impairment, or cognitive differences.</p>
+<p><strong>Behaviors</strong>:</p>
+<ul>
+<li>Tabs through the interface linearly</li>
+<li>Relies on ARIA labels and heading structure</li>
+<li>Cannot see hover states or visual-only indicators</li>
+<li>Needs adequate color contrast (4.5:1 minimum)</li>
+<li>May use browser zoom up to 200%</li>
+</ul>
+<p><strong>Test Questions</strong>:</p>
+<ul>
+<li>Can the entire primary flow be completed keyboard-only?</li>
+<li>Are all interactive elements focusable with visible focus indicators?</li>
+<li>Do images have meaningful alt text?</li>
+<li>Is color contrast WCAG AA compliant (4.5:1 for text)?</li>
+<li>Does the screen reader announce state changes (loading, success, errors)?</li>
+</ul>
+<p><strong>Red Flags</strong> (report these specifically):</p>
+<ul>
+<li>Click-only interactions with no keyboard alternative</li>
+<li>Missing or invisible focus indicators</li>
+<li>Meaning conveyed by color alone (red = error, green = success)</li>
+<li>Unlabeled form fields or buttons</li>
+<li>Time-limited actions without extension option</li>
+<li>Custom components that break screen reader flow</li>
+</ul>
+<hr>
+<h2 id="4-deliberate-stress-tester-riley">4. Deliberate Stress Tester — &quot;Riley&quot;</h2>
+<p><strong>Profile</strong>: Methodical user who pushes interfaces beyond the happy path. Tests edge cases, tries unexpected inputs, and probes for gaps in the experience.</p>
+<p><strong>Behaviors</strong>:</p>
+<ul>
+<li>Tests edge cases intentionally (empty states, long strings, special characters)</li>
+<li>Submits forms with unexpected data (emoji, RTL text, very long values)</li>
+<li>Tries to break workflows by navigating backwards, refreshing mid-flow, or opening in multiple tabs</li>
+<li>Looks for inconsistencies between what the UI promises and what actually happens</li>
+<li>Documents problems methodically</li>
+</ul>
+<p><strong>Test Questions</strong>:</p>
+<ul>
+<li>What happens at the edges (0 items, 1000 items, very long text)?</li>
+<li>Do error states recover gracefully or leave the UI in a broken state?</li>
+<li>What happens on refresh mid-workflow? Is state preserved?</li>
+<li>Are there features that appear to work but produce broken results?</li>
+<li>How does the UI handle unexpected input (emoji, special chars, paste from Excel)?</li>
+</ul>
+<p><strong>Red Flags</strong> (report these specifically):</p>
+<ul>
+<li>Features that appear to work but silently fail or produce wrong results</li>
+<li>Error handling that exposes technical details or leaves UI in a broken state</li>
+<li>Empty states that show nothing useful (&quot;No results&quot; with no guidance)</li>
+<li>Workflows that lose user data on refresh or navigation</li>
+<li>Inconsistent behavior between similar interactions in different parts of the UI</li>
+</ul>
+<hr>
+<h2 id="5-distracted-mobile-user-casey">5. Distracted Mobile User — &quot;Casey&quot;</h2>
+<p><strong>Profile</strong>: Using phone one-handed on the go. Frequently interrupted. Possibly on a slow connection.</p>
+<p><strong>Behaviors</strong>:</p>
+<ul>
+<li>Uses thumb only — prefers bottom-of-screen actions</li>
+<li>Gets interrupted mid-flow and returns later</li>
+<li>Switches between apps frequently</li>
+<li>Has limited attention span and low patience</li>
+<li>Types as little as possible, prefers taps and selections</li>
+</ul>
+<p><strong>Test Questions</strong>:</p>
+<ul>
+<li>Are primary actions in the thumb zone (bottom half of screen)?</li>
+<li>Is state preserved if the user leaves and returns?</li>
+<li>Does it work on slow connections (3G)?</li>
+<li>Can forms leverage autocomplete and smart defaults?</li>
+<li>Are touch targets at least 44×44pt?</li>
+</ul>
+<p><strong>Red Flags</strong> (report these specifically):</p>
+<ul>
+<li>Important actions positioned at the top of the screen (unreachable by thumb)</li>
+<li>No state persistence — progress lost on tab switch or interruption</li>
+<li>Large text inputs required where selection would work</li>
+<li>Heavy assets loading on every page (no lazy loading)</li>
+<li>Tiny tap targets or targets too close together</li>
+</ul>
+<hr>
+<h2 id="selecting-personas">Selecting Personas</h2>
+<p>Choose personas based on the interface type:</p>
+<table>
+<thead>
+<tr>
+<th>Interface Type</th>
+<th>Primary Personas</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Landing page / marketing</td>
+<td>Jordan, Riley, Casey</td>
+<td>First impressions, trust, mobile</td>
+</tr>
+<tr>
+<td>Dashboard / admin</td>
+<td>Alex, Sam</td>
+<td>Power users, accessibility</td>
+</tr>
+<tr>
+<td>E-commerce / checkout</td>
+<td>Casey, Riley, Jordan</td>
+<td>Mobile, edge cases, clarity</td>
+</tr>
+<tr>
+<td>Onboarding flow</td>
+<td>Jordan, Casey</td>
+<td>Confusion, interruption</td>
+</tr>
+<tr>
+<td>Data-heavy / analytics</td>
+<td>Alex, Sam</td>
+<td>Efficiency, keyboard nav</td>
+</tr>
+<tr>
+<td>Form-heavy / wizard</td>
+<td>Jordan, Sam, Casey</td>
+<td>Clarity, accessibility, mobile</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="project-specific-personas">Project-Specific Personas</h2>
+<p>If <code>{{config_file}}</code> contains a <code>## Design Context</code> section (generated by <code>impeccable teach</code>), derive 1–2 additional personas from the audience and brand information:</p>
+<ol>
+<li>Read the target audience description</li>
+<li>Identify the primary user archetype not covered by the 5 predefined personas</li>
+<li>Create a persona following this template:</li>
+</ol>
+<div class="code-block-wrap"><pre class="code-block"><code>### [Role] — &quot;[Name]&quot;
+
+**Profile**: [2-3 key characteristics derived from Design Context]
+
+**Behaviors**: [3-4 specific behaviors based on the described audience]
+
+**Red Flags**: [3-4 things that would alienate this specific user type]</code></pre><button class="code-block-copy" type="button" data-copy="### [Role] — &quot;[Name]&quot;
+
+**Profile**: [2-3 key characteristics derived from Design Context]
+
+**Behaviors**: [3-4 specific behaviors based on the described audience]
+
+**Red Flags**: [3-4 things that would alienate this specific user type]" aria-label="Copy to clipboard"></button></div>
+<p>Only generate project-specific personas when real Design Context data is available. Don&#39;t invent audience details — use the 5 predefined personas when no context exists.</p>
+
+  </div>
+</details>
+
+<details class="skill-reference" id="reference-cognitive-load">
+  <summary><span class="skill-reference-label">参考</span><span class="skill-reference-title">Cognitive Load</span></summary>
+  <div class="prose skill-reference-body">
+<h1 id="cognitive-load-assessment">Cognitive Load Assessment</h1>
+<p>Cognitive load is the total mental effort required to use an interface. Overloaded users make mistakes, get frustrated, and leave. This reference helps identify and fix cognitive overload.</p>
+<hr>
+<h2 id="three-types-of-cognitive-load">Three Types of Cognitive Load</h2>
+<h3 id="intrinsic-load-the-task-itself">Intrinsic Load — The Task Itself</h3>
+<p>Complexity inherent to what the user is trying to do. You can&#39;t eliminate this, but you can structure it.</p>
+<p><strong>Manage it by</strong>:</p>
+<ul>
+<li>Breaking complex tasks into discrete steps</li>
+<li>Providing scaffolding (templates, defaults, examples)</li>
+<li>Progressive disclosure — show what&#39;s needed now, hide the rest</li>
+<li>Grouping related decisions together</li>
+</ul>
+<h3 id="extraneous-load-bad-design">Extraneous Load — Bad Design</h3>
+<p>Mental effort caused by poor design choices. <strong>Eliminate this ruthlessly</strong> — it&#39;s pure waste.</p>
+<p><strong>Common sources</strong>:</p>
+<ul>
+<li>Confusing navigation that requires mental mapping</li>
+<li>Unclear labels that force users to guess meaning</li>
+<li>Visual clutter competing for attention</li>
+<li>Inconsistent patterns that prevent learning</li>
+<li>Unnecessary steps between user intent and result</li>
+</ul>
+<h3 id="germane-load-learning-effort">Germane Load — Learning Effort</h3>
+<p>Mental effort spent building understanding. This is <em>good</em> cognitive load — it leads to mastery.</p>
+<p><strong>Support it by</strong>:</p>
+<ul>
+<li>Progressive disclosure that reveals complexity gradually</li>
+<li>Consistent patterns that reward learning</li>
+<li>Feedback that confirms correct understanding</li>
+<li>Onboarding that teaches through action, not walls of text</li>
+</ul>
+<hr>
+<h2 id="cognitive-load-checklist">Cognitive Load Checklist</h2>
+<p>Evaluate the interface against these 8 items:</p>
+<ul>
+<li><input disabled="" type="checkbox"> <strong>Single focus</strong>: Can the user complete their primary task without distraction from competing elements?</li>
+<li><input disabled="" type="checkbox"> <strong>Chunking</strong>: Is information presented in digestible groups (≤4 items per group)?</li>
+<li><input disabled="" type="checkbox"> <strong>Grouping</strong>: Are related items visually grouped together (proximity, borders, shared background)?</li>
+<li><input disabled="" type="checkbox"> <strong>Visual hierarchy</strong>: Is it immediately clear what&#39;s most important on the screen?</li>
+<li><input disabled="" type="checkbox"> <strong>One thing at a time</strong>: Can the user focus on a single decision before moving to the next?</li>
+<li><input disabled="" type="checkbox"> <strong>Minimal choices</strong>: Are decisions simplified (≤4 visible options at any decision point)?</li>
+<li><input disabled="" type="checkbox"> <strong>Working memory</strong>: Does the user need to remember information from a previous screen to act on the current one?</li>
+<li><input disabled="" type="checkbox"> <strong>Progressive disclosure</strong>: Is complexity revealed only when the user needs it?</li>
+</ul>
+<p><strong>Scoring</strong>: Count the failed items. 0–1 failures = low cognitive load (good). 2–3 = moderate (address soon). 4+ = high cognitive load (critical fix needed).</p>
+<hr>
+<h2 id="the-working-memory-rule">The Working Memory Rule</h2>
+<p><strong>Humans can hold ≤4 items in working memory at once</strong> (Miller&#39;s Law revised by Cowan, 2001).</p>
+<p>At any decision point, count the number of distinct options, actions, or pieces of information a user must simultaneously consider:</p>
+<ul>
+<li><strong>≤4 items</strong>: Within working memory limits — manageable</li>
+<li><strong>5–7 items</strong>: Pushing the boundary — consider grouping or progressive disclosure</li>
+<li><strong>8+ items</strong>: Overloaded — users will skip, misclick, or abandon</li>
+</ul>
+<p><strong>Practical applications</strong>:</p>
+<ul>
+<li>Navigation menus: ≤5 top-level items (group the rest under clear categories)</li>
+<li>Form sections: ≤4 fields visible per group before a visual break</li>
+<li>Action buttons: 1 primary, 1–2 secondary, group the rest in a menu</li>
+<li>Dashboard widgets: ≤4 key metrics visible without scrolling</li>
+<li>Pricing tiers: ≤3 options (more causes analysis paralysis)</li>
+</ul>
+<hr>
+<h2 id="common-cognitive-load-violations">Common Cognitive Load Violations</h2>
+<h3 id="1-the-wall-of-options">1. The Wall of Options</h3>
+<p><strong>Problem</strong>: Presenting 10+ choices at once with no hierarchy.
+<strong>Fix</strong>: Group into categories, highlight recommended, use progressive disclosure.</p>
+<h3 id="2-the-memory-bridge">2. The Memory Bridge</h3>
+<p><strong>Problem</strong>: User must remember info from step 1 to complete step 3.
+<strong>Fix</strong>: Keep relevant context visible, or repeat it where it&#39;s needed.</p>
+<h3 id="3-the-hidden-navigation">3. The Hidden Navigation</h3>
+<p><strong>Problem</strong>: User must build a mental map of where things are.
+<strong>Fix</strong>: Always show current location (breadcrumbs, active states, progress indicators).</p>
+<h3 id="4-the-jargon-barrier">4. The Jargon Barrier</h3>
+<p><strong>Problem</strong>: Technical or domain language forces translation effort.
+<strong>Fix</strong>: Use plain language. If domain terms are unavoidable, define them inline.</p>
+<h3 id="5-the-visual-noise-floor">5. The Visual Noise Floor</h3>
+<p><strong>Problem</strong>: Every element has the same visual weight — nothing stands out.
+<strong>Fix</strong>: Establish clear hierarchy: one primary element, 2–3 secondary, everything else muted.</p>
+<h3 id="6-the-inconsistent-pattern">6. The Inconsistent Pattern</h3>
+<p><strong>Problem</strong>: Similar actions work differently in different places.
+<strong>Fix</strong>: Standardize interaction patterns. Same type of action = same type of UI.</p>
+<h3 id="7-the-multi-task-demand">7. The Multi-Task Demand</h3>
+<p><strong>Problem</strong>: Interface requires processing multiple simultaneous inputs (reading + deciding + navigating).
+<strong>Fix</strong>: Sequence the steps. Let the user do one thing at a time.</p>
+<h3 id="8-the-context-switch">8. The Context Switch</h3>
+<p><strong>Problem</strong>: User must jump between screens/tabs/modals to gather info for a single decision.
+<strong>Fix</strong>: Co-locate the information needed for each decision. Reduce back-and-forth.</p>
+
+  </div>
+</details>
+</section>
+</article>
+
+  </div>
+</div>
+  </main>
+  <script>
+    // Copy buttons on rendered code blocks
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-copy]');
+      if (!btn) return;
+      const text = btn.getAttribute('data-copy');
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('is-copied');
+        setTimeout(() => btn.classList.remove('is-copied'), 1500);
+      }).catch(() => {});
+    });
+
+    // Mobile sidebar toggle (shown on narrow viewports, hidden on desktop).
+    document.addEventListener('click', (e) => {
+      const toggle = e.target.closest('.skills-sidebar-toggle');
+      if (!toggle) return;
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+    });
+
+    // Before/after split-compare: drag on touch, hover OR drag on mouse.
+    // Pointer events attach to the padded .split-comparison wrapper so
+    // there is a ~20px invisible buffer around the visible box. The
+    // divider only snaps back when the pointer leaves that outer buffer.
+    (function initSplitCompare() {
+      const wrappers = document.querySelectorAll('.split-comparison');
+      if (wrappers.length === 0) return;
+      const hasHover = matchMedia('(hover: hover)').matches;
+      const DEFAULT_POSITION = 50;
+
+      for (const wrapper of wrappers) {
+        const container = wrapper.querySelector('.split-container');
+        const splitAfter = wrapper.querySelector('.split-after');
+        const splitDivider = wrapper.querySelector('.split-divider');
+        if (!container || !splitAfter || !splitDivider) continue;
+
+        const tanAngle = Math.tan(10 * Math.PI / 180);
+        let skewOffset = 8;
+        const recalcSkew = () => {
+          const r = container.getBoundingClientRect();
+          if (r.width > 0 && r.height > 0) {
+            skewOffset = 50 * r.height * tanAngle / r.width;
+          }
+        };
+        recalcSkew();
+        window.addEventListener('resize', recalcSkew, { passive: true });
+
+        let targetX = DEFAULT_POSITION;
+        let currentX = DEFAULT_POSITION;
+        let rafId = null;
+
+        const paint = (pct) => {
+          const x = Math.max(-skewOffset, Math.min(100 + skewOffset, pct));
+          splitAfter.style.clipPath =
+            `polygon(${x + skewOffset}% 0%, 100% 0%, 100% 100%, ${x - skewOffset}% 100%)`;
+          splitDivider.style.left = `${x}%`;
+        };
+
+        const step = () => {
+          currentX += (targetX - currentX) * 0.2;
+          if (Math.abs(targetX - currentX) < 0.1) {
+            currentX = targetX;
+            rafId = null;
+          } else {
+            rafId = requestAnimationFrame(step);
+          }
+          paint(currentX);
+        };
+
+        const setTarget = (pct) => {
+          targetX = pct;
+          if (rafId === null) rafId = requestAnimationFrame(step);
+        };
+
+        paint(DEFAULT_POSITION);
+
+        // Percentage is always relative to the VISIBLE .split-container,
+        // not the padded .split-comparison wrapper. The pointer event
+        // target is the wrapper but the clip-path math uses the inner box.
+        const pctFromClientX = (clientX) => {
+          const rect = container.getBoundingClientRect();
+          return ((clientX - rect.left) / rect.width) * 100;
+        };
+
+        let hovering = false;
+        let dragging = false;
+
+        wrapper.addEventListener('pointerenter', (e) => {
+          if (hasHover && e.pointerType === 'mouse') {
+            hovering = true;
+          }
+        });
+
+        wrapper.addEventListener('pointerdown', (e) => {
+          dragging = true;
+          wrapper.setPointerCapture(e.pointerId);
+          setTarget(pctFromClientX(e.clientX));
+        });
+
+        wrapper.addEventListener('pointermove', (e) => {
+          if (dragging || hovering) {
+            setTarget(pctFromClientX(e.clientX));
+          }
+        });
+
+        const endDrag = (e) => {
+          if (dragging) {
+            dragging = false;
+            try { wrapper.releasePointerCapture(e.pointerId); } catch {}
+          }
+        };
+
+        wrapper.addEventListener('pointerup', endDrag);
+        wrapper.addEventListener('pointercancel', endDrag);
+
+        wrapper.addEventListener('pointerleave', (e) => {
+          endDrag(e);
+          if (hovering) {
+            hovering = false;
+            setTarget(DEFAULT_POSITION);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

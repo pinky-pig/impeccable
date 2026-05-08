@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>快速开始 | 教程 | Impeccable</title>
+  <meta name="description" content="安装 Impeccable，先运行一次 /impeccable teach 建立项目上下文，再对已有页面跑一次 /polish。这是最快看到 Impeccable 会改变什么的路径。">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="canonical" href="https://impeccable.style/tutorials/getting-started">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/sub-pages.css">
+  
+</head>
+<body class="sub-page skills-layout-page tutorials-page">
+  <a href="#main" class="skip-link">跳到主要内容</a>
+  <!-- site-header v1 -->
+<header class="site-header" data-site-header>
+  <a href="/" class="site-header-brand" aria-label="Impeccable 首页">
+    <svg class="site-header-brand-logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1a1a1a"/><text x="16" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="500" fill="#f5f3ef" text-anchor="middle">/</text></svg>
+    <span class="site-header-brand-name">Impeccable</span>
+  </a>
+  <div class="site-header-right">
+    <nav class="site-header-nav" aria-label="主导航">
+      <a href="/" data-nav="home">首页</a>
+      <a href="/skills" data-nav="docs" aria-current="page">文档</a>
+      <a href="/anti-patterns" data-nav="anti-patterns">反模式</a>
+      <a href="/visual-mode" data-nav="visual-mode">可视模式</a>
+    </nav>
+    <a href="https://github.com/pbakaus/impeccable" class="site-header-github" target="_blank" rel="noopener" aria-label="Impeccable GitHub 仓库，18k stars">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      <span class="site-header-github-label">18k</span>
+      <svg class="site-header-github-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.76 6.36L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.24-.91L12 2z"/></svg>
+    </a>
+  </div>
+</header>
+  <main id="main">
+
+<div class="skills-layout">
+  
+<aside class="skills-sidebar" aria-label="文档导航">
+  <button class="skills-sidebar-toggle" type="button" aria-expanded="false" aria-controls="skills-sidebar-inner">
+    <span class="skills-sidebar-toggle-label">快速开始</span>
+    <svg class="skills-sidebar-toggle-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="skills-sidebar-inner" id="skills-sidebar-inner">
+    <p class="skills-sidebar-label">文档</p>
+
+    <div class="skills-sidebar-group" data-category="tutorials">
+      <p class="skills-sidebar-group-title">教程</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/tutorials/getting-started" aria-current="page">快速开始</a></li>
+        <li><a href="/tutorials/critique-with-overlay">用可视覆盖层做 critique</a></li>
+      </ul>
+    </div>
+    <hr class="skills-sidebar-divider">
+
+    <div class="skills-sidebar-group" data-category="create">
+      <p class="skills-sidebar-group-title">创建</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/impeccable">/impeccable</a></li>
+        <li class="skills-sidebar-sub"><a href="/skills/impeccable#craft">/impeccable craft</a></li>
+        <li class="skills-sidebar-sub"><a href="/skills/impeccable#teach">/impeccable teach</a></li>
+        <li class="skills-sidebar-sub"><a href="/skills/impeccable#extract">/impeccable extract</a></li>
+        <li><a href="/skills/shape">/shape</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="evaluate">
+      <p class="skills-sidebar-group-title">评估</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/audit">/audit</a></li>
+        <li><a href="/skills/critique">/critique</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="refine">
+      <p class="skills-sidebar-group-title">打磨</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/animate">/animate</a></li>
+        <li><a href="/skills/bolder">/bolder</a></li>
+        <li><a href="/skills/colorize">/colorize</a></li>
+        <li><a href="/skills/delight">/delight</a></li>
+        <li><a href="/skills/layout">/layout</a></li>
+        <li><a href="/skills/overdrive">/overdrive</a></li>
+        <li><a href="/skills/quieter">/quieter</a></li>
+        <li><a href="/skills/typeset">/typeset</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="simplify">
+      <p class="skills-sidebar-group-title">简化</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/adapt">/adapt</a></li>
+        <li><a href="/skills/clarify">/clarify</a></li>
+        <li><a href="/skills/distill">/distill</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="harden">
+      <p class="skills-sidebar-group-title">补强</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/harden">/harden</a></li>
+        <li><a href="/skills/optimize">/optimize</a></li>
+        <li><a href="/skills/polish">/polish</a></li>
+      </ul>
+    </div>
+
+  </div>
+</aside>
+  <div class="skills-main">
+
+<article class="tutorial-detail">
+  <header class="tutorial-detail-header">
+    <p class="skill-detail-eyebrow"><a href="/tutorials">教程</a> / 01</p>
+    <h1 class="tutorial-detail-title">快速开始</h1>
+    <p class="tutorial-detail-tagline">从零开始，五分钟跑完你的第一次 /polish。</p>
+  </header>
+
+  <section class="tutorial-detail-body prose">
+<h2 id="">你将得到什么</h2>
+<p>完成这篇教程后，你会在项目里安装好 Impeccable，生成一份记录品牌与受众的 <code>.impeccable.md</code>，并亲手跑完一次 <code>/polish</code>。整个过程大约五分钟。</p>
+<h2 id="">准备条件</h2>
+<ul>
+<li>任意一款支持的 AI 编程工具：Claude Code、Cursor、Gemini CLI、Codex CLI 等。</li>
+<li>一个至少已经有一个 HTML 或组件文件的项目，方便你直接拿来优化。</li>
+</ul>
+<h2 id="1">第 1 步：安装</h2>
+<p>在项目根目录运行：</p>
+<div class="code-block-wrap"><pre class="code-block"><code>npx skills add pbakaus/impeccable</code></pre><button class="code-block-copy" type="button" data-copy="npx skills add pbakaus/impeccable" aria-label="Copy to clipboard"></button></div>
+<p>它会自动识别你的工具，并把 skill 文件写进正确位置（例如 <code>.claude/skills/</code>、<code>.cursor/skills/</code>）。重新加载工具后，输入 <code>/</code>，你应该能看到 <code>/impeccable</code>、<code>/polish</code>、<code>/critique</code> 等命令。</p>
+<h2 id="2-impeccable">第 2 步：先让 Impeccable 了解你的项目</h2>
+<p>这是最关键的一步。没有上下文的设计，几乎一定会滑向模板化输出。<code>/impeccable teach</code> 会进行一轮简短的发现式访谈，并在项目根目录写出 <code>.impeccable.md</code>。</p>
+<p>运行：</p>
+<div class="code-block-wrap"><pre class="code-block"><code>/impeccable teach</code></pre><button class="code-block-copy" type="button" data-copy="/impeccable teach" aria-label="Copy to clipboard"></button></div>
+<p>它通常会问这些问题：</p>
+<ul>
+<li>这个产品是给谁用的？越具体越好。</li>
+<li>品牌语气用三个词怎么形容？</li>
+<li>你希望界面带来什么感觉？</li>
+<li>有没有喜欢的参考？有没有明确不想像的东西？</li>
+</ul>
+<p>回答结束后，打开 <code>.impeccable.md</code> 看一遍，不对劲的地方直接改。那份文件属于你自己。</p>
+<h2 id="3">第 3 步：打磨一个已经存在的页面</h2>
+<p>选一个现成页面，比如 about、pricing、settings，运行：</p>
+<div class="code-block-wrap"><pre class="code-block"><code>/polish the pricing page</code></pre><button class="code-block-copy" type="button" data-copy="/polish the pricing page" aria-label="Copy to clipboard"></button></div>
+<p>这个命令会沿着对齐、间距、排版、色彩、状态、动效和文案做有针对性的细修，而不是把整页推翻重做。</p>
+<p>一次典型的 polish 可能长这样：</p>
+<div class="code-block-wrap"><pre class="code-block"><code>视觉对齐：修正 3 个脱离网格的元素
+排版：收紧 h1 字距，处理特性列表里的孤行
+色彩：把一个硬编码十六进制值改成 --color-accent token
+交互：为 FAQ 项补齐 hover 状态
+动效：把弹窗进入改为 220ms ease-out-quart
+文案：移除残留的 Lorem 占位文本</code></pre><button class="code-block-copy" type="button" data-copy="视觉对齐：修正 3 个脱离网格的元素
+排版：收紧 h1 字距，处理特性列表里的孤行
+色彩：把一个硬编码十六进制值改成 --color-accent token
+交互：为 FAQ 项补齐 hover 状态
+动效：把弹窗进入改为 220ms ease-out-quart
+文案：移除残留的 Lorem 占位文本" aria-label="Copy to clipboard"></button></div>
+<p>看完 diff，如果你不认同某个改动，就直接问模型为什么这样改；仍然不认同时，回退它即可。</p>
+<h2 id="">接下来可以试什么</h2>
+<ul>
+<li><code>/critique the landing page</code>：获得完整设计评审、评分与检测结果。</li>
+<li><code>/audit the checkout</code>：在上线前从无障碍、性能、主题与响应式角度检查实现质量。</li>
+<li><code>/impeccable craft a pricing page for enterprise customers</code>：体验从发现到实现的一整条流程。</li>
+</ul>
+<h2 id="">常见问题</h2>
+<ul>
+<li><strong>提示“没有设计上下文”。</strong> 说明你跳过了第 2 步，先运行 <code>/impeccable teach</code>。</li>
+<li><strong>命令没有出现在工具里。</strong> 重载一下工具；如果还没有，检查安装目录是不是写对了。</li>
+<li><strong>某次 polish 改掉了你喜欢的内容。</strong> 直接说出来。撤销那个改动，再告诉模型具体哪一处不要动即可。</li>
+</ul>
+
+  </section>
+</article>
+  </div>
+</div>
+  </main>
+  <script>
+    // Copy buttons on rendered code blocks
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-copy]');
+      if (!btn) return;
+      const text = btn.getAttribute('data-copy');
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('is-copied');
+        setTimeout(() => btn.classList.remove('is-copied'), 1500);
+      }).catch(() => {});
+    });
+
+    // Mobile sidebar toggle (shown on narrow viewports, hidden on desktop).
+    document.addEventListener('click', (e) => {
+      const toggle = e.target.closest('.skills-sidebar-toggle');
+      if (!toggle) return;
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+    });
+
+    // Before/after split-compare: drag on touch, hover OR drag on mouse.
+    // Pointer events attach to the padded .split-comparison wrapper so
+    // there is a ~20px invisible buffer around the visible box. The
+    // divider only snaps back when the pointer leaves that outer buffer.
+    (function initSplitCompare() {
+      const wrappers = document.querySelectorAll('.split-comparison');
+      if (wrappers.length === 0) return;
+      const hasHover = matchMedia('(hover: hover)').matches;
+      const DEFAULT_POSITION = 50;
+
+      for (const wrapper of wrappers) {
+        const container = wrapper.querySelector('.split-container');
+        const splitAfter = wrapper.querySelector('.split-after');
+        const splitDivider = wrapper.querySelector('.split-divider');
+        if (!container || !splitAfter || !splitDivider) continue;
+
+        const tanAngle = Math.tan(10 * Math.PI / 180);
+        let skewOffset = 8;
+        const recalcSkew = () => {
+          const r = container.getBoundingClientRect();
+          if (r.width > 0 && r.height > 0) {
+            skewOffset = 50 * r.height * tanAngle / r.width;
+          }
+        };
+        recalcSkew();
+        window.addEventListener('resize', recalcSkew, { passive: true });
+
+        let targetX = DEFAULT_POSITION;
+        let currentX = DEFAULT_POSITION;
+        let rafId = null;
+
+        const paint = (pct) => {
+          const x = Math.max(-skewOffset, Math.min(100 + skewOffset, pct));
+          splitAfter.style.clipPath =
+            `polygon(${x + skewOffset}% 0%, 100% 0%, 100% 100%, ${x - skewOffset}% 100%)`;
+          splitDivider.style.left = `${x}%`;
+        };
+
+        const step = () => {
+          currentX += (targetX - currentX) * 0.2;
+          if (Math.abs(targetX - currentX) < 0.1) {
+            currentX = targetX;
+            rafId = null;
+          } else {
+            rafId = requestAnimationFrame(step);
+          }
+          paint(currentX);
+        };
+
+        const setTarget = (pct) => {
+          targetX = pct;
+          if (rafId === null) rafId = requestAnimationFrame(step);
+        };
+
+        paint(DEFAULT_POSITION);
+
+        // Percentage is always relative to the VISIBLE .split-container,
+        // not the padded .split-comparison wrapper. The pointer event
+        // target is the wrapper but the clip-path math uses the inner box.
+        const pctFromClientX = (clientX) => {
+          const rect = container.getBoundingClientRect();
+          return ((clientX - rect.left) / rect.width) * 100;
+        };
+
+        let hovering = false;
+        let dragging = false;
+
+        wrapper.addEventListener('pointerenter', (e) => {
+          if (hasHover && e.pointerType === 'mouse') {
+            hovering = true;
+          }
+        });
+
+        wrapper.addEventListener('pointerdown', (e) => {
+          dragging = true;
+          wrapper.setPointerCapture(e.pointerId);
+          setTarget(pctFromClientX(e.clientX));
+        });
+
+        wrapper.addEventListener('pointermove', (e) => {
+          if (dragging || hovering) {
+            setTarget(pctFromClientX(e.clientX));
+          }
+        });
+
+        const endDrag = (e) => {
+          if (dragging) {
+            dragging = false;
+            try { wrapper.releasePointerCapture(e.pointerId); } catch {}
+          }
+        };
+
+        wrapper.addEventListener('pointerup', endDrag);
+        wrapper.addEventListener('pointercancel', endDrag);
+
+        wrapper.addEventListener('pointerleave', (e) => {
+          endDrag(e);
+          if (hovering) {
+            hovering = false;
+            setTarget(DEFAULT_POSITION);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

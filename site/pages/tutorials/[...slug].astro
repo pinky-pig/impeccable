@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import LegacyPageScripts from '../../components/LegacyPageScripts.astro';
+import '../../styles/sub-pages.css';
+import { loadLegacyPage, listLegacyPages } from '../../lib/legacy-page.js';
+
+export function getStaticPaths() {
+  return listLegacyPages('tutorials').map((slug) => ({
+    params: { slug },
+    props: { legacy: loadLegacyPage(`tutorials/${slug}.html`) },
+  }));
+}
+
+const slug = Array.isArray(Astro.params.slug)
+  ? Astro.params.slug.join('/')
+  : Astro.params.slug;
+const { legacy } = Astro.props;
+---
+
+<Base
+  title={legacy.title}
+  description={legacy.description}
+  activeNav="docs"
+  canonicalPath={`/tutorials/${slug}`}
+  bodyClass={legacy.bodyClass || 'sub-page'}
+>
+  <Fragment set:html={legacy.content} />
+  <LegacyPageScripts slot="scripts" />
+</Base>

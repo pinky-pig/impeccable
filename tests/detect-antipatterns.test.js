@@ -8,10 +8,10 @@ import {
   walkDir, SCANNABLE_EXTENSIONS,
   buildImportGraph, resolveImport,
   detectFrameworkConfig, isPortListening, FRAMEWORK_CONFIGS,
-} from '../src/detect-antipatterns.mjs';
+} from '../cli/engine/detect-antipatterns.mjs';
 
 const FIXTURES = path.join(import.meta.dir, 'fixtures', 'antipatterns');
-const SCRIPT = path.join(import.meta.dir, '..', 'src', 'detect-antipatterns.mjs');
+const SCRIPT = path.join(import.meta.dir, '..', 'cli', 'engine', 'detect-antipatterns.mjs');
 
 
 // ---------------------------------------------------------------------------
@@ -140,8 +140,18 @@ describe('detectText — overused fonts', () => {
     expect(f.some(r => r.antipattern === 'overused-font')).toBe(true);
   });
 
+  test('detects Fraunces (current AI-default monoculture)', () => {
+    const f = detectText("h1 { font-family: 'Fraunces', Georgia, serif; }", 'test.css');
+    expect(f.some(r => r.antipattern === 'overused-font')).toBe(true);
+  });
+
+  test('detects Geist (Vercel-default monoculture)', () => {
+    const f = detectText("body { font-family: 'Geist', sans-serif; }", 'test.css');
+    expect(f.some(r => r.antipattern === 'overused-font')).toBe(true);
+  });
+
   test('does not flag distinctive fonts', () => {
-    const f = detectText("body { font-family: 'Instrument Sans', sans-serif; }", 'test.css');
+    const f = detectText("body { font-family: 'Karla', sans-serif; }", 'test.css');
     expect(f.filter(r => r.antipattern === 'overused-font')).toHaveLength(0);
   });
 });

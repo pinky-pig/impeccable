@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>反模式 | Impeccable</title>
+  <meta name="description" content="37 条规则，覆盖 AI 生成界面的常见露馅痕迹与通用质量问题，可用于 npx impeccable detect 与浏览器扩展。">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="canonical" href="https://impeccable.style/anti-patterns">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/sub-pages.css">
+  
+</head>
+<body class="sub-page skills-layout-page anti-patterns-page">
+  <a href="#main" class="skip-link">跳到主要内容</a>
+  <!-- site-header v1 -->
+<header class="site-header" data-site-header>
+  <a href="/" class="site-header-brand" aria-label="Impeccable 首页">
+    <svg class="site-header-brand-logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1a1a1a"/><text x="16" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="500" fill="#f5f3ef" text-anchor="middle">/</text></svg>
+    <span class="site-header-brand-name">Impeccable</span>
+  </a>
+  <div class="site-header-right">
+    <nav class="site-header-nav" aria-label="主导航">
+      <a href="/" data-nav="home">首页</a>
+      <a href="/skills" data-nav="docs">文档</a>
+      <a href="/anti-patterns" data-nav="anti-patterns" aria-current="page">反模式</a>
+      <a href="/visual-mode" data-nav="visual-mode">可视模式</a>
+    </nav>
+    <a href="https://github.com/pbakaus/impeccable" class="site-header-github" target="_blank" rel="noopener" aria-label="Impeccable GitHub 仓库，18k stars">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      <span class="site-header-github-label">18k</span>
+      <svg class="site-header-github-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.76 6.36L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.24-.91L12 2z"/></svg>
+    </a>
+  </div>
+</header>
+  <main id="main">
+
+<div class="skills-layout">
+  
+<aside class="skills-sidebar anti-patterns-sidebar" aria-label="反模式章节">
+  <button class="skills-sidebar-toggle" type="button" aria-expanded="false" aria-controls="anti-patterns-sidebar-inner">
+    <span class="skills-sidebar-toggle-label">章节</span>
+    <svg class="skills-sidebar-toggle-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="skills-sidebar-inner" id="anti-patterns-sidebar-inner">
+    <p class="skills-sidebar-label">章节</p>
+    <div class="skills-sidebar-group">
+      <ul class="skills-sidebar-list anti-patterns-sidebar-list">
+        <li><a href="#section-visual-details"><span>视觉细节</span><span class="anti-patterns-sidebar-count">6</span></a></li>
+        <li><a href="#section-typography"><span>排版</span><span class="anti-patterns-sidebar-count">6</span></a></li>
+        <li><a href="#section-color-contrast"><span>色彩与对比</span><span class="anti-patterns-sidebar-count">6</span></a></li>
+        <li><a href="#section-layout-space"><span>布局与空间</span><span class="anti-patterns-sidebar-count">7</span></a></li>
+        <li><a href="#section-motion"><span>动效</span><span class="anti-patterns-sidebar-count">2</span></a></li>
+        <li><a href="#section-interaction"><span>交互</span><span class="anti-patterns-sidebar-count">2</span></a></li>
+        <li><a href="#section-responsive"><span>响应式</span><span class="anti-patterns-sidebar-count">1</span></a></li>
+        <li><a href="#section-general-quality"><span>通用质量</span><span class="anti-patterns-sidebar-count">7</span></a></li>
+      </ul>
+    </div>
+  </div>
+</aside>
+  <div class="skills-main">
+
+<div class="anti-patterns-content">
+  <header class="anti-patterns-header">
+    <p class="sub-page-eyebrow">37 条规则</p>
+    <h1 class="sub-page-title">反模式</h1>
+    <p class="sub-page-lede">这里收录了 <a href="/skills/impeccable">/impeccable</a> 会明确反对的完整模式清单。其中 25 条能被确定性检测器直接抓到，可通过 <code>npx impeccable detect</code> 或浏览器扩展运行；另外 12 条只能在 <a href="/skills/critique">/critique</a> 的 LLM 设计评审阶段识别。想看它们直接叠加在真实页面上的效果，可以去试试 <a href="/visual-mode">可视模式</a>。</p>
+  </header>
+
+  <details class="anti-patterns-legend">
+    <summary class="anti-patterns-legend-summary">
+      <span class="anti-patterns-legend-title">怎么看这页</span>
+      <svg class="anti-patterns-legend-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </summary>
+    <div class="anti-patterns-legend-body">
+      <p><strong>AI slop</strong> 规则会指出 AI 生成界面最容易露馅的外显痕迹；<strong>质量</strong> 规则则覆盖那些并非 AI 专属、但同样会伤害设计质量的常见错误。每条规则还会标出它是怎么被发现的：</p>
+      <dl class="anti-patterns-legend-layers">
+        <div><dt><span class="rule-card-layer" data-layer="cli">CLI</span></dt><dd>确定性检测。直接用 <code>npx impeccable detect</code> 扫文件即可，不需要浏览器。</dd></div>
+        <div><dt><span class="rule-card-layer" data-layer="browser">浏览器</span></dt><dd>同样是确定性检测，但必须依赖真实浏览器布局。通常通过浏览器扩展或 Puppeteer 运行，而不是纯 CLI。</dd></div>
+        <div><dt><span class="rule-card-layer" data-layer="llm">仅 LLM</span></dt><dd>没有确定性检测器可抓，只能在 <a href="/skills/critique">/critique</a> 的 LLM 设计评审阶段发现。</dd></div>
+      </dl>
+    </div>
+  </details>
+
+  <div class="anti-patterns-sections">
+
+    <section class="anti-patterns-section" id="section-visual-details">
+      <header class="anti-patterns-section-header">
+        <h2 class="anti-patterns-section-title">视觉细节</h2>
+        <p class="anti-patterns-section-count">6 条规则</p>
+      </header>
+      <div class="rule-card-grid">
+
+    <article class="rule-card" id="rule-glassmorphism" data-layer="llm">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="position: relative; width: 100%; height: 100%; background: linear-gradient(135deg, oklch(70% 0.22 265), oklch(70% 0.25 340)); border-radius: 10px; overflow: hidden; display: flex; align-items: center; justify-content: center;"><div style="background: rgba(255,255,255,0.25); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.4); border-radius: 10px; padding: 14px 18px; color: #fff; font-family: system-ui, sans-serif; font-size: 12px; font-weight: 600; box-shadow: 0 8px 30px rgba(0,0,0,0.12);">磨砂玻璃卡片</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="llm" title="任何确定性检测器都抓不到，只能由 /critique 的 LLM 设计评审阶段发现。">仅 LLM</span>
+        </div>
+        <h3 class="rule-card-name">到处都是玻璃拟态</h3>
+        <p class="rule-card-desc">模糊、玻璃卡片和发光边框如果只是为了装饰，而不是为了解决真实的层级问题，就只会显得套路化。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#visual-details">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-side-tab" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="background: #fff; border: 1px solid #e8e4df; border-left: 4px solid oklch(60% 0.22 265); border-radius: 6px; padding: 14px 16px; width: 220px; font-family: system-ui, sans-serif; font-size: 13px; color: #111;"><div style="font-weight: 600; margin-bottom: 4px;">提示标题</div><div style="color: #666; font-size: 12px;">单侧出现厚重彩色边条。</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">卡片侧边重色条</h3>
+        <p class="rule-card-desc">卡片一侧挂着粗重的彩色边条，这是最容易暴露 AI 生成痕迹的视觉信号之一。要么改成更克制的强调方式，要么干脆删掉。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#visual-details">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-border-accent-on-rounded" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="background: #fff; border: 2px solid oklch(60% 0.22 290); border-radius: 16px; padding: 14px 18px; width: 220px; font-family: system-ui, sans-serif; font-size: 13px; color: #111;"><div style="font-weight: 600;">圆角卡片</div><div style="color: #666; font-size: 12px;">厚边框会和圆角互相打架。</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">圆角元素上的强调色粗边</h3>
+        <p class="rule-card-desc">在圆角卡片上再加一圈厚重强调边，会和圆角本身互相打架。要么去掉粗边，要么不要再保留这种圆角处理。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#visual-details">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-generic-drop-shadows" data-layer="llm">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="display: flex; gap: 10px;"><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 10px; width: 70px; height: 70px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);"></div><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 10px; width: 70px; height: 70px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);"></div><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 10px; width: 70px; height: 70px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);"></div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="llm" title="任何确定性检测器都抓不到，只能由 /critique 的 LLM 设计评审阶段发现。">仅 LLM</span>
+        </div>
+        <h3 class="rule-card-name">圆角矩形配通用投影</h3>
+        <p class="rule-card-desc">这是网页里最安全、也最容易被忘掉的形状组合之一，几乎任何 AI 都能吐出这一版。要么更克制，要么更有判断，不要停在模板中间。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#visual-details">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-sparkline-decoration" data-layer="llm">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 8px; padding: 14px 16px; width: 220px; font-family: system-ui, sans-serif;"><div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;"><div><div style="font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 0.08em;">营收</div><div style="font-size: 20px; font-weight: 700; color: #111;">¥42.1k</div></div><svg width="60" height="28" viewBox="0 0 60 28" style="flex-shrink: 0;"><polyline points="0,20 10,18 20,22 30,10 40,14 50,6 60,12" stroke="oklch(62% 0.22 265)" stroke-width="2" fill="none"/></svg></div><div style="font-size: 10px; color: #888;">看着像图表，其实没传递多少信息。</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="llm" title="任何确定性检测器都抓不到，只能由 /critique 的 LLM 设计评审阶段发现。">仅 LLM</span>
+        </div>
+        <h3 class="rule-card-name">把 sparkline 当装饰</h3>
+        <p class="rule-card-desc">小火花线看起来像是“有数据支撑”，但很多时候根本没有传递有效信息。真在意数据，就给它应有的空间。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#visual-details">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-modal-reflex" data-layer="llm">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="position: relative; width: 100%; height: 100%; background: #f5f3ef; border-radius: 8px; overflow: hidden;"><div style="position: absolute; inset: 0; background: rgba(0,0,0,0.35);"></div><div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; border-radius: 8px; padding: 14px 18px; width: 200px; font-family: system-ui, sans-serif; box-shadow: 0 20px 60px rgba(0,0,0,0.2);"><div style="font-size: 13px; font-weight: 600; color: #111; margin-bottom: 4px;">确定要继续吗？</div><div style="font-size: 11px; color: #666; margin-bottom: 8px;">真的、真的要这样做？</div><div style="display: flex; gap: 6px; justify-content: flex-end;"><div style="background: #eee; color: #555; padding: 4px 8px; border-radius: 4px; font-size: 10px;">取消</div><div style="background: oklch(60% 0.22 265); color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 10px;">确定</div></div></div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="llm" title="任何确定性检测器都抓不到，只能由 /critique 的 LLM 设计评审阶段发现。">仅 LLM</span>
+        </div>
+        <h3 class="rule-card-name">条件反射式地用弹窗</h3>
+        <p class="rule-card-desc">弹窗会打断用户，把它当默认解法其实是一种偷懒。只有在确实没有更合适承载位置时，才值得用。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#visual-details">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+      </div>
+    </section>
+    <section class="anti-patterns-section" id="section-typography">
+      <header class="anti-patterns-section-header">
+        <h2 class="anti-patterns-section-title">排版</h2>
+        <p class="anti-patterns-section-count">6 条规则</p>
+      </header>
+      <div class="rule-card-grid">
+
+    <article class="rule-card" id="rule-monospace-as-technical" data-layer="llm">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: 'Courier New', monospace; color: #111;"><div style="font-size: 18px; font-weight: 700; margin-bottom: 6px;">TECHNICAL_TOOL</div><div style="font-size: 11px; color: #555;">Mono for "developer" vibes. Lazy.</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="llm" title="任何确定性检测器都抓不到，只能由 /critique 的 LLM 设计评审阶段发现。">仅 LLM</span>
+        </div>
+        <h3 class="rule-card-name">把等宽字体当成“技术感”速记</h3>
+        <p class="rule-card-desc">靠等宽字体硬造“开发者 / 技术味”，本质上是在偷懒。真正的技术气质，应该通过更有判断的排版选择来建立。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#typography">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-flat-type-hierarchy" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif; color: #111; line-height: 1.3;"><div style="font-size: 17px; font-weight: 600;">Heading</div><div style="font-size: 16px; font-weight: 500; margin: 2px 0;">Subheading</div><div style="font-size: 15px; color: #555;">Body text at almost the same size.</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">排版层级过平</h3>
+        <p class="rule-card-desc">字号彼此挨得太近，视觉层级不够明确。减少层级数量、拉大对比，级差最好至少做到 1.25 倍左右。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#typography">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-single-font" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif; font-size: 14px; color: #111;"><div style="font-size: 19px; font-weight: 600; margin-bottom: 6px;">标题和正文同一字体</div><div style="color: #555;">整页都一个字样，没有反差，也没有层级。</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">整页只用一套字体</h3>
+        <p class="rule-card-desc">整页从标题到正文都只用同一个字体家族，排版层级自然会变平。用一套更有性格的展示字体搭配稳健正文，才更容易建立层次。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#typography">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-icon-tile-stack" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif; color: #111;"><div style="width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, oklch(62% 0.22 265), oklch(70% 0.20 320)); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff; margin-bottom: 10px;">✦</div><div style="font-size: 14px; font-weight: 600; margin-bottom: 2px;">功能名称</div><div style="font-size: 12px; color: #666;">标题上方再堆一个圆角图标砖块。</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">标题上方堆一个图标砖块</h3>
+        <p class="rule-card-desc">标题上方放一个圆角小图标砖块，是 AI 功能卡片最通用的模板之一。试试图标与标题并排，或让图标直接跟着内容流动，而不是再单独套个盒子。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#typography">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-overused-font" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: Inter, system-ui, sans-serif; font-size: 15px; color: #111; line-height: 1.4;"><div style="font-weight: 600; margin-bottom: 4px;">又一个 Inter 标题</div><div style="color: #555; font-size: 13px;">很多 SaaS 首页都长这样。</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">被用滥的字体</h3>
+        <p class="rule-card-desc">Inter、Roboto、Open Sans、Lato、Montserrat、Arial 已经被成千上万的网站重复使用。换一套更有辨识度的字体，才能让界面真正长出个性。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#typography">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-all-caps-body" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif; color: #111; font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.5;">整段全大写会严重拖慢阅读，因为单词轮廓被抹平了。</div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="quality">质量</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">整段正文全大写</h3>
+        <p class="rule-card-desc">大段全大写正文会显著拖慢阅读，因为单词形状被抹平了。全大写更适合短标签和少量标题，不适合长正文。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#typography">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+      </div>
+    </section>
+    <section class="anti-patterns-section" id="section-color-contrast">
+      <header class="anti-patterns-section-header">
+        <h2 class="anti-patterns-section-title">色彩与对比</h2>
+        <p class="anti-patterns-section-count">6 条规则</p>
+      </header>
+      <div class="rule-card-grid">
+
+    <article class="rule-card" id="rule-ai-color-palette" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="display: flex; gap: 6px;"><div style="width: 44px; height: 44px; border-radius: 6px; background: oklch(60% 0.22 265);"></div><div style="width: 44px; height: 44px; border-radius: 6px; background: oklch(62% 0.25 300);"></div><div style="width: 44px; height: 44px; border-radius: 6px; background: oklch(64% 0.25 340);"></div><div style="width: 44px; height: 44px; border-radius: 6px; background: oklch(70% 0.20 200);"></div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">AI 式配色盘</h3>
+        <p class="rule-card-desc">紫罗兰渐变加深色底上的青蓝高亮，是最容易被认出的 AI 生成配色。配色应该更有判断，而不是沿用默认模板。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#color-contrast">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-dark-mode-default" data-layer="llm">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="background: #0f1117; padding: 18px; border-radius: 8px; font-family: system-ui, sans-serif;"><div style="color: #e5e7eb; font-size: 14px; font-weight: 600; margin-bottom: 4px;">默认暗色</div><div style="color: #9ca3af; font-size: 11px;">默认上暗色，本质上是在回避设计判断。</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="llm" title="任何确定性检测器都抓不到，只能由 /critique 的 LLM 设计评审阶段发现。">仅 LLM</span>
+        </div>
+        <h3 class="rule-card-name">为了“保险”默认上暗色模式</h3>
+        <p class="rule-card-desc">为了显得更酷而默认暗色，和为了求稳而默认浅色，其实都是在逃避真正的设计决定。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#color-contrast">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-dark-glow" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="background: #0a0b14; padding: 18px 20px; border-radius: 10px; font-family: system-ui, sans-serif;"><div style="color: oklch(78% 0.22 280); text-shadow: 0 0 12px oklch(78% 0.22 280 / 0.7); font-size: 16px; font-weight: 600;">Neon on dark</div><div style="color: oklch(60% 0.12 260); font-size: 12px; margin-top: 4px;">Cyberpunk-by-default slop.</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">发光强调的默认暗色模式</h3>
+        <p class="rule-card-desc">深色背景配彩色发光阴影，是 AI 最常给出的“酷炫”默认值。要么把光感做得更克制、更有目的，要么就别为了耍帅硬上暗色。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#color-contrast">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-gradient-text" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif;"><div style="font-size: 28px; font-weight: 700; background: linear-gradient(135deg, oklch(65% 0.25 320), oklch(60% 0.25 265)); -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1.1;">构建未来</div><div style="font-size: 12px; color: #888; margin-top: 4px;">渐变字会明显削弱扫读效率。</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">渐变文字</h3>
+        <p class="rule-card-desc">渐变文字更多是装饰，而不是信息表达，尤其放在标题和指标上时，是非常典型的 AI 味信号。正文与标题优先使用纯色文字。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#color-contrast">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-gray-on-color" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="background: oklch(60% 0.20 265); padding: 16px 18px; border-radius: 6px; font-family: system-ui, sans-serif;"><div style="color: #9ca3af; font-size: 13px;">Gray text on a colored background. Washed out and hard to read.</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="quality">质量</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">彩底上的灰字</h3>
+        <p class="rule-card-desc">彩色背景上的灰字很容易发灰、发虚。更好的做法是使用背景色的深色变体，或者直接用白色 / 近白色来拉开对比。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#color-contrast">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-pure-black-white" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="background: #ffffff; padding: 16px 18px; color: #000000; font-family: system-ui, sans-serif; font-size: 14px;"><div style="font-weight: 600; margin-bottom: 4px;">Pure black on pure white</div><div style="font-size: 12px; color: #000;">Neither exists in nature. Always tint.</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="quality">质量</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">纯黑背景</h3>
+        <p class="rule-card-desc">纯 #000000 作为背景会显得生硬且不自然。稍微往品牌色方向带一点色相，会比完全无色的黑更精致。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#color-contrast">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+      </div>
+    </section>
+    <section class="anti-patterns-section" id="section-layout-space">
+      <header class="anti-patterns-section-header">
+        <h2 class="anti-patterns-section-title">布局与空间</h2>
+        <p class="anti-patterns-section-count">7 条规则</p>
+      </header>
+      <div class="rule-card-grid">
+
+    <article class="rule-card" id="rule-hero-metric-layout" data-layer="llm">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif; text-align: left;"><div style="font-size: 42px; font-weight: 800; background: linear-gradient(135deg, oklch(65% 0.25 265), oklch(65% 0.25 340)); -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1;">10M+</div><div style="font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px;">Active users</div><div style="display: flex; gap: 14px; margin-top: 10px; font-size: 10px; color: #555;"><span><strong>99.9%</strong> uptime</span><span><strong>200ms</strong> p50</span></div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="llm" title="任何确定性检测器都抓不到，只能由 /critique 的 LLM 设计评审阶段发现。">仅 LLM</span>
+        </div>
+        <h3 class="rule-card-name">Hero 指标模板</h3>
+        <p class="rule-card-desc">大数字、小标签、三条补充指标、再加一抹渐变强调，这种模板几乎哪里都见过，也因此很难再让人信服。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#layout-space">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-everything-centered" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif; text-align: center; color: #111;"><div style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Centered headline</div><div style="font-size: 12px; color: #555; margin-bottom: 10px;">Everything centered by default.</div><div style="display: inline-block; background: #111; color: #fff; padding: 6px 14px; border-radius: 6px; font-size: 12px;">Call to action</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">什么都居中</h3>
+        <p class="rule-card-desc">所有文字都默认居中，看起来很像模板。大多数场景下，左对齐配合不对称构图会更像认真设计过；居中应只留给少数 hero 区和 CTA。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#layout-space">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-everything-in-cards" data-layer="llm">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 8px; padding: 10px;"><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 6px; padding: 8px; font-family: system-ui, sans-serif; font-size: 12px; color: #111;"><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 4px; padding: 6px;">Title</div></div><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 6px; padding: 8px; margin-top: 6px; font-family: system-ui, sans-serif; font-size: 11px; color: #555;">Card around every single thing.</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="llm" title="任何确定性检测器都抓不到，只能由 /critique 的 LLM 设计评审阶段发现。">仅 LLM</span>
+        </div>
+        <h3 class="rule-card-name">什么都往卡片里塞</h3>
+        <p class="rule-card-desc">不是每一块内容都需要一个带边框的卡片。很多时候，间距和对齐就足以建立分组关系，没必要把页面塞满盒子。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#layout-space">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-nested-cards" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="background: #f5f3ef; border: 1px solid #e0dcd4; border-radius: 10px; padding: 10px;"><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 8px; padding: 10px;"><div style="background: #f5f3ef; border: 1px solid #e8e4df; border-radius: 6px; padding: 8px; font-size: 12px; font-family: system-ui, sans-serif; color: #555;">Card inside card inside card.</div></div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">卡片套卡片</h3>
+        <p class="rule-card-desc">卡片里再套卡片，会制造噪音和过度层级。优先用间距、排版和分隔关系来组织内容，而不是不断往里套容器。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#layout-space">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-identical-card-grids" data-layer="llm">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-family: system-ui, sans-serif;"><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 6px; padding: 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;"><div style="width: 18px; height: 18px; background: oklch(62% 0.20 265); border-radius: 4px;"></div><div style="font-size: 10px; font-weight: 600; color: #111;">Feature</div><div style="font-size: 9px; color: #888;">Short copy.</div></div><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 6px; padding: 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;"><div style="width: 18px; height: 18px; background: oklch(62% 0.20 265); border-radius: 4px;"></div><div style="font-size: 10px; font-weight: 600; color: #111;">Feature</div><div style="font-size: 9px; color: #888;">Short copy.</div></div><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 6px; padding: 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;"><div style="width: 18px; height: 18px; background: oklch(62% 0.20 265); border-radius: 4px;"></div><div style="font-size: 10px; font-weight: 600; color: #111;">Feature</div><div style="font-size: 9px; color: #888;">Short copy.</div></div><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 6px; padding: 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;"><div style="width: 18px; height: 18px; background: oklch(62% 0.20 265); border-radius: 4px;"></div><div style="font-size: 10px; font-weight: 600; color: #111;">Feature</div><div style="font-size: 9px; color: #888;">Short copy.</div></div><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 6px; padding: 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;"><div style="width: 18px; height: 18px; background: oklch(62% 0.20 265); border-radius: 4px;"></div><div style="font-size: 10px; font-weight: 600; color: #111;">Feature</div><div style="font-size: 9px; color: #888;">Short copy.</div></div><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 6px; padding: 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;"><div style="width: 18px; height: 18px; background: oklch(62% 0.20 265); border-radius: 4px;"></div><div style="font-size: 10px; font-weight: 600; color: #111;">Feature</div><div style="font-size: 9px; color: #888;">Short copy.</div></div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="llm" title="任何确定性检测器都抓不到，只能由 /critique 的 LLM 设计评审阶段发现。">仅 LLM</span>
+        </div>
+        <h3 class="rule-card-name">清一色卡片网格</h3>
+        <p class="rule-card-desc">同尺寸卡片里重复摆着图标、标题、说明文，这是 AI 首页最爱输出的默认排布之一。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#layout-space">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-monotonous-spacing" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;"><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 6px; height: 48px;"></div><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 6px; height: 48px;"></div><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 6px; height: 48px;"></div><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 6px; height: 48px;"></div><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 6px; height: 48px;"></div><div style="background: #fff; border: 1px solid #e8e4df; border-radius: 6px; height: 48px;"></div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">间距单调无节奏</h3>
+        <p class="rule-card-desc">整页到处都用同一个间距值，没有节奏，也没有层次。相关内容应该更紧，区块之间则应该更松，靠变化建立呼吸感。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#layout-space">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-line-length" data-layer="browser">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif; font-size: 13px; color: #111; line-height: 1.55; max-width: 100%;">单行一旦超过大约 75 个字符，视线回扫距离就会太长，阅读会明显更累。</div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="quality">质量</span>
+          <span class="rule-card-layer" data-layer="browser" title="同样是确定性检测，但需要真实浏览器布局。通过浏览器扩展或 Puppeteer 运行，不是普通 CLI 模式。">浏览器</span>
+        </div>
+        <h3 class="rule-card-name">行宽过长</h3>
+        <p class="rule-card-desc">单行文字超过大约 80 个字符时，可读性会明显下降，视线回扫更容易丢行。正文容器通常应该限制在 65ch 到 75ch 左右。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#layout-space">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+      </div>
+    </section>
+    <section class="anti-patterns-section" id="section-motion">
+      <header class="anti-patterns-section-header">
+        <h2 class="anti-patterns-section-title">动效</h2>
+        <p class="anti-patterns-section-count">2 条规则</p>
+      </header>
+      <div class="rule-card-grid">
+
+    <article class="rule-card" id="rule-bounce-easing" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif; color: #111; display: flex; align-items: center; gap: 10px;"><div style="width: 36px; height: 36px; border-radius: 50%; background: oklch(65% 0.22 265); animation: bouncey 0.9s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;"></div><div style="font-size: 12px; color: #555;">Bounce + elastic easing feels dated.</div><style>@keyframes bouncey { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }</style></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="slop">AI slop</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">弹跳或橡皮筋缓动</h3>
+        <p class="rule-card-desc">弹跳和橡皮筋式缓动很容易显得廉价又过时。真实世界的运动更接近平顺减速，优先用指数类 ease-out-quart / quint / expo。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#motion">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-layout-transition" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif; color: #111; display: flex; align-items: center; gap: 10px;"><div style="background: oklch(65% 0.22 265); border-radius: 6px; animation: janky 1.2s ease-in-out infinite; width: 60px; height: 30px;"></div><div style="font-size: 12px; color: #555;">Animating width/height causes layout jank.</div><style>@keyframes janky { 0%,100% { width: 60px; } 50% { width: 120px; } }</style></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="quality">质量</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">直接动画布局属性</h3>
+        <p class="rule-card-desc">直接动画 width、height、padding、margin 容易触发布局抖动和卡顿。优先用 transform 与 opacity，做高度展开时可改用 grid-template-rows。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#motion">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+      </div>
+    </section>
+    <section class="anti-patterns-section" id="section-interaction">
+      <header class="anti-patterns-section-header">
+        <h2 class="anti-patterns-section-title">交互</h2>
+        <p class="anti-patterns-section-count">2 条规则</p>
+      </header>
+      <div class="rule-card-grid">
+
+    <article class="rule-card" id="rule-redundant-headers" data-layer="llm">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif; color: #111; max-width: 230px;"><div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">概览</div><div style="font-size: 11px; color: #555; line-height: 1.5;">这一段是概览区，用来继续解释前面那个“概览”标题。</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="quality">质量</span>
+          <span class="rule-card-layer" data-layer="llm" title="任何确定性检测器都抓不到，只能由 /critique 的 LLM 设计评审阶段发现。">仅 LLM</span>
+        </div>
+        <h3 class="rule-card-name">信息重复</h3>
+        <p class="rule-card-desc">开头重复标题，分区标签又重复页面标题，卡片内容再把自己的 caption 说一遍。让每个词都真正承担作用，而不是互相复述。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#interaction">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-every-button-primary" data-layer="llm">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="display: flex; flex-direction: column; gap: 6px; font-family: system-ui, sans-serif;"><div style="display: flex; gap: 6px;"><button style="background: oklch(60% 0.22 265); color: #fff; border: none; border-radius: 5px; padding: 6px 12px; font-size: 11px; font-weight: 600;">保存</button><button style="background: oklch(60% 0.22 265); color: #fff; border: none; border-radius: 5px; padding: 6px 12px; font-size: 11px; font-weight: 600;">取消</button><button style="background: oklch(60% 0.22 265); color: #fff; border: none; border-radius: 5px; padding: 6px 12px; font-size: 11px; font-weight: 600;">删除</button></div><div style="font-size: 10px; color: #888;">每个动作都在大喊自己最重要。</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="quality">质量</span>
+          <span class="rule-card-layer" data-layer="llm" title="任何确定性检测器都抓不到，只能由 /critique 的 LLM 设计评审阶段发现。">仅 LLM</span>
+        </div>
+        <h3 class="rule-card-name">所有按钮都像主按钮</h3>
+        <p class="rule-card-desc">当每个按钮看起来都一样重要时，真正的主动作反而会消失。需要通过幽灵按钮、文本链接和次级样式把优先级拉开。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#interaction">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+      </div>
+    </section>
+    <section class="anti-patterns-section" id="section-responsive">
+      <header class="anti-patterns-section-header">
+        <h2 class="anti-patterns-section-title">响应式</h2>
+        <p class="anti-patterns-section-count">1 条规则</p>
+      </header>
+      <div class="rule-card-grid">
+
+    <article class="rule-card" id="rule-mobile-amputation" data-layer="llm">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif;"><div style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: #fff; border: 1px solid #e8e4df; border-radius: 6px; margin-bottom: 4px; font-size: 12px; color: #999; text-decoration: line-through;"><span>导出 CSV</span></div><div style="font-size: 10px; color: #888; margin-top: 4px;">“移动端暂不支持”。</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="quality">质量</span>
+          <span class="rule-card-layer" data-layer="llm" title="任何确定性检测器都抓不到，只能由 /critique 的 LLM 设计评审阶段发现。">仅 LLM</span>
+        </div>
+        <h3 class="rule-card-name">在移动端阉割功能</h3>
+        <p class="rule-card-desc">因为实现麻烦，就在移动端把关键功能藏掉或砍掉，这不是适配，而是倒退。应该为新场景重做交互，而不是直接删能力。</p>
+        <a class="rule-card-skill-link" href="/skills/impeccable#responsive">去 /impeccable 看对应原则</a>
+      </div>
+    </article>
+      </div>
+    </section>
+    <section class="anti-patterns-section" id="section-general-quality">
+      <header class="anti-patterns-section-header">
+        <h2 class="anti-patterns-section-title">通用质量</h2>
+        <p class="anti-patterns-section-count">7 条规则</p>
+      </header>
+      <div class="rule-card-grid">
+
+    <article class="rule-card" id="rule-justified-text" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif; font-size: 12px; color: #111; text-align: justify; max-width: 230px; line-height: 1.5;">Justified text on screens creates rivers of whitespace because browsers can't hyphenate well. Leave this for print.</div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="quality">质量</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">两端对齐正文</h3>
+        <p class="rule-card-desc">网页正文做两端对齐、却没有断词处理时，词间距会拉得忽宽忽窄，形成“白河”。正文默认用左对齐；如果必须两端对齐，也要配合 hyphens: auto。</p>
+        
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-cramped-padding" data-layer="browser">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif;"><button style="background: #111; color: #fff; border: none; border-radius: 4px; padding: 2px 6px; font-size: 13px; font-weight: 500;">Buy now</button> <span style="color: #555; font-size: 12px; margin-left: 8px;">2px vertical padding.</span></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="quality">质量</span>
+          <span class="rule-card-layer" data-layer="browser" title="同样是确定性检测，但需要真实浏览器布局。通过浏览器扩展或 Puppeteer 运行，不是普通 CLI 模式。">浏览器</span>
+        </div>
+        <h3 class="rule-card-name">内边距过小</h3>
+        <p class="rule-card-desc">文字离容器边缘太近，会显得局促。带边框或彩底的容器，通常至少需要 8px，理想状态是 12 到 16px 的内边距。</p>
+        
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-low-contrast" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="background: #fff; padding: 16px 18px; font-family: system-ui, sans-serif;"><div style="color: #d4d4d4; font-size: 13px;">Light gray text on a white background. 1.6:1 contrast, fails WCAG.</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="quality">质量</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">文字对比度过低</h3>
+        <p class="rule-card-desc">文字没有达到 WCAG AA 的对比度要求（正文 4.5:1，大字 3:1）。需要进一步拉开文字与背景之间的明度差。</p>
+        
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-skipped-heading" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif; color: #111;"><h1 style="font-size: 20px; font-weight: 700; margin: 0 0 4px;">Page title (h1)</h1><h3 style="font-size: 13px; font-weight: 600; margin: 0; color: #555;">Subsection (h3), skipped h2</h3></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="quality">质量</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">标题层级跳号</h3>
+        <p class="rule-card-desc">标题层级不该跳号，比如 h1 后面直接接 h3。屏幕阅读器会依赖标题层级导航，跳级会破坏文档结构。</p>
+        
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-wide-tracking" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif; font-size: 13px; color: #111; letter-spacing: 0.22em; max-width: 230px; line-height: 1.6;">Wide tracking on body text slows reading by breaking up natural character groupings.</div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="quality">质量</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">正文字符间距过宽</h3>
+        <p class="rule-card-desc">正文字符间距一旦超过 0.05em，就会打散自然的字词分组，阅读速度也会被拖慢。大字距更适合短促的全大写标签。</p>
+        
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-tiny-text" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif; color: #111;"><div style="font-size: 15px; margin-bottom: 6px;">Regular body text</div><div style="font-size: 9px; color: #555;">And then fine print at 9 pixels that no one will ever read.</div></div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="quality">质量</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">正文过小</h3>
+        <p class="rule-card-desc">正文低于 12px 时会很难读，尤其在高分屏上更明显。正文至少应有 14px，理想状态通常是 16px。</p>
+        
+      </div>
+    </article>
+
+    <article class="rule-card" id="rule-tight-leading" data-layer="cli">
+      <div class="rule-card-visual" aria-hidden="true"><div class="rule-card-visual-inner"><div style="font-family: system-ui, sans-serif; font-size: 13px; color: #111; line-height: 1.0; max-width: 220px;">Tight leading makes multi-line body text feel crammed and hard for the eye to track between lines.</div></div></div>
+      <div class="rule-card-body">
+        <div class="rule-card-head">
+          <span class="rule-card-category" data-category="quality">质量</span>
+          <span class="rule-card-layer" data-layer="cli" title="确定性检测。可直接通过 `npx impeccable detect` 扫描文件，不需要浏览器。">CLI</span>
+        </div>
+        <h3 class="rule-card-name">行高过紧</h3>
+        <p class="rule-card-desc">行高低于字号的 1.3 倍时，多行文字会明显难读。正文通常应该放在 1.5 到 1.7 之间，让行与行之间有足够呼吸感。</p>
+        
+      </div>
+    </article>
+      </div>
+    </section>
+  </div>
+</div>
+  </div>
+</div>
+  </main>
+  <script>
+    // Copy buttons on rendered code blocks
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-copy]');
+      if (!btn) return;
+      const text = btn.getAttribute('data-copy');
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('is-copied');
+        setTimeout(() => btn.classList.remove('is-copied'), 1500);
+      }).catch(() => {});
+    });
+
+    // Mobile sidebar toggle (shown on narrow viewports, hidden on desktop).
+    document.addEventListener('click', (e) => {
+      const toggle = e.target.closest('.skills-sidebar-toggle');
+      if (!toggle) return;
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+    });
+
+    // Before/after split-compare: drag on touch, hover OR drag on mouse.
+    // Pointer events attach to the padded .split-comparison wrapper so
+    // there is a ~20px invisible buffer around the visible box. The
+    // divider only snaps back when the pointer leaves that outer buffer.
+    (function initSplitCompare() {
+      const wrappers = document.querySelectorAll('.split-comparison');
+      if (wrappers.length === 0) return;
+      const hasHover = matchMedia('(hover: hover)').matches;
+      const DEFAULT_POSITION = 50;
+
+      for (const wrapper of wrappers) {
+        const container = wrapper.querySelector('.split-container');
+        const splitAfter = wrapper.querySelector('.split-after');
+        const splitDivider = wrapper.querySelector('.split-divider');
+        if (!container || !splitAfter || !splitDivider) continue;
+
+        const tanAngle = Math.tan(10 * Math.PI / 180);
+        let skewOffset = 8;
+        const recalcSkew = () => {
+          const r = container.getBoundingClientRect();
+          if (r.width > 0 && r.height > 0) {
+            skewOffset = 50 * r.height * tanAngle / r.width;
+          }
+        };
+        recalcSkew();
+        window.addEventListener('resize', recalcSkew, { passive: true });
+
+        let targetX = DEFAULT_POSITION;
+        let currentX = DEFAULT_POSITION;
+        let rafId = null;
+
+        const paint = (pct) => {
+          const x = Math.max(-skewOffset, Math.min(100 + skewOffset, pct));
+          splitAfter.style.clipPath =
+            `polygon(${x + skewOffset}% 0%, 100% 0%, 100% 100%, ${x - skewOffset}% 100%)`;
+          splitDivider.style.left = `${x}%`;
+        };
+
+        const step = () => {
+          currentX += (targetX - currentX) * 0.2;
+          if (Math.abs(targetX - currentX) < 0.1) {
+            currentX = targetX;
+            rafId = null;
+          } else {
+            rafId = requestAnimationFrame(step);
+          }
+          paint(currentX);
+        };
+
+        const setTarget = (pct) => {
+          targetX = pct;
+          if (rafId === null) rafId = requestAnimationFrame(step);
+        };
+
+        paint(DEFAULT_POSITION);
+
+        // Percentage is always relative to the VISIBLE .split-container,
+        // not the padded .split-comparison wrapper. The pointer event
+        // target is the wrapper but the clip-path math uses the inner box.
+        const pctFromClientX = (clientX) => {
+          const rect = container.getBoundingClientRect();
+          return ((clientX - rect.left) / rect.width) * 100;
+        };
+
+        let hovering = false;
+        let dragging = false;
+
+        wrapper.addEventListener('pointerenter', (e) => {
+          if (hasHover && e.pointerType === 'mouse') {
+            hovering = true;
+          }
+        });
+
+        wrapper.addEventListener('pointerdown', (e) => {
+          dragging = true;
+          wrapper.setPointerCapture(e.pointerId);
+          setTarget(pctFromClientX(e.clientX));
+        });
+
+        wrapper.addEventListener('pointermove', (e) => {
+          if (dragging || hovering) {
+            setTarget(pctFromClientX(e.clientX));
+          }
+        });
+
+        const endDrag = (e) => {
+          if (dragging) {
+            dragging = false;
+            try { wrapper.releasePointerCapture(e.pointerId); } catch {}
+          }
+        };
+
+        wrapper.addEventListener('pointerup', endDrag);
+        wrapper.addEventListener('pointercancel', endDrag);
+
+        wrapper.addEventListener('pointerleave', (e) => {
+          endDrag(e);
+          if (hovering) {
+            hovering = false;
+            setTarget(DEFAULT_POSITION);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

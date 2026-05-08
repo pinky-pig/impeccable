@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用可视覆盖层做 critique | 教程 | Impeccable</title>
+  <meta name="description" content="运行一轮完整的设计 critique，把 LLM 评估、自动检测与实时浏览器覆盖层结合起来，这样你能直接看到页面上到底是哪一个元素触发了哪一条反模式规则。">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="canonical" href="https://impeccable.style/tutorials/critique-with-overlay">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/sub-pages.css">
+  
+</head>
+<body class="sub-page skills-layout-page tutorials-page">
+  <a href="#main" class="skip-link">跳到主要内容</a>
+  <!-- site-header v1 -->
+<header class="site-header" data-site-header>
+  <a href="/" class="site-header-brand" aria-label="Impeccable 首页">
+    <svg class="site-header-brand-logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1a1a1a"/><text x="16" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="500" fill="#f5f3ef" text-anchor="middle">/</text></svg>
+    <span class="site-header-brand-name">Impeccable</span>
+  </a>
+  <div class="site-header-right">
+    <nav class="site-header-nav" aria-label="主导航">
+      <a href="/" data-nav="home">首页</a>
+      <a href="/skills" data-nav="docs" aria-current="page">文档</a>
+      <a href="/anti-patterns" data-nav="anti-patterns">反模式</a>
+      <a href="/visual-mode" data-nav="visual-mode">可视模式</a>
+    </nav>
+    <a href="https://github.com/pbakaus/impeccable" class="site-header-github" target="_blank" rel="noopener" aria-label="Impeccable GitHub 仓库，18k stars">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      <span class="site-header-github-label">18k</span>
+      <svg class="site-header-github-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.76 6.36L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.24-.91L12 2z"/></svg>
+    </a>
+  </div>
+</header>
+  <main id="main">
+
+<div class="skills-layout">
+  
+<aside class="skills-sidebar" aria-label="文档导航">
+  <button class="skills-sidebar-toggle" type="button" aria-expanded="false" aria-controls="skills-sidebar-inner">
+    <span class="skills-sidebar-toggle-label">用可视覆盖层做 critique</span>
+    <svg class="skills-sidebar-toggle-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="skills-sidebar-inner" id="skills-sidebar-inner">
+    <p class="skills-sidebar-label">文档</p>
+
+    <div class="skills-sidebar-group" data-category="tutorials">
+      <p class="skills-sidebar-group-title">教程</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/tutorials/getting-started">快速开始</a></li>
+        <li><a href="/tutorials/critique-with-overlay" aria-current="page">用可视覆盖层做 critique</a></li>
+      </ul>
+    </div>
+    <hr class="skills-sidebar-divider">
+
+    <div class="skills-sidebar-group" data-category="create">
+      <p class="skills-sidebar-group-title">创建</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/impeccable">/impeccable</a></li>
+        <li class="skills-sidebar-sub"><a href="/skills/impeccable#craft">/impeccable craft</a></li>
+        <li class="skills-sidebar-sub"><a href="/skills/impeccable#teach">/impeccable teach</a></li>
+        <li class="skills-sidebar-sub"><a href="/skills/impeccable#extract">/impeccable extract</a></li>
+        <li><a href="/skills/shape">/shape</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="evaluate">
+      <p class="skills-sidebar-group-title">评估</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/audit">/audit</a></li>
+        <li><a href="/skills/critique">/critique</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="refine">
+      <p class="skills-sidebar-group-title">打磨</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/animate">/animate</a></li>
+        <li><a href="/skills/bolder">/bolder</a></li>
+        <li><a href="/skills/colorize">/colorize</a></li>
+        <li><a href="/skills/delight">/delight</a></li>
+        <li><a href="/skills/layout">/layout</a></li>
+        <li><a href="/skills/overdrive">/overdrive</a></li>
+        <li><a href="/skills/quieter">/quieter</a></li>
+        <li><a href="/skills/typeset">/typeset</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="simplify">
+      <p class="skills-sidebar-group-title">简化</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/adapt">/adapt</a></li>
+        <li><a href="/skills/clarify">/clarify</a></li>
+        <li><a href="/skills/distill">/distill</a></li>
+      </ul>
+    </div>
+
+    <div class="skills-sidebar-group" data-category="harden">
+      <p class="skills-sidebar-group-title">补强</p>
+      <ul class="skills-sidebar-list">
+        <li><a href="/skills/harden">/harden</a></li>
+        <li><a href="/skills/optimize">/optimize</a></li>
+        <li><a href="/skills/polish">/polish</a></li>
+      </ul>
+    </div>
+
+  </div>
+</aside>
+  <div class="skills-main">
+
+<article class="tutorial-detail">
+  <header class="tutorial-detail-header">
+    <p class="skill-detail-eyebrow"><a href="/tutorials">教程</a> / 02</p>
+    <h1 class="tutorial-detail-title">用可视覆盖层做 critique</h1>
+    <p class="tutorial-detail-tagline">把 /critique 和浏览器覆盖层结合起来，用“可见证据”评审真实页面。</p>
+  </header>
+
+  <section class="tutorial-detail-body prose">
+<h2 id="">你将得到什么</h2>
+<p>你会对浏览器里的真实页面跑一遍完整的设计评审，并且让每一条反模式直接高亮在触发它的元素上。没有截图对照，也不用靠段落描述猜是哪块出了问题。</p>
+<p>整个过程大约十分钟。</p>
+<h2 id="">准备条件</h2>
+<ul>
+<li>项目里已经安装 Impeccable（如果还没有，可以先看 <a href="/tutorials/getting-started">快速开始</a>）。</li>
+<li>你的 AI 工具有浏览器自动化能力，比如带 Chrome 扩展的 Claude Code。</li>
+<li>一个你想评审的页面，无论是本地地址还是线上页面都可以。</li>
+</ul>
+<h2 id="1-critique">第 1 步：运行 /critique</h2>
+<p>在工具里执行：</p>
+<div class="code-block-wrap"><pre class="code-block"><code>/critique the pricing page at localhost:3000/pricing</code></pre><button class="code-block-copy" type="button" data-copy="/critique the pricing page at localhost:3000/pricing" aria-label="Copy to clipboard"></button></div>
+<p>这个命令会并行启动两套独立评估。</p>
+<h3 id="llm">LLM 评估会做什么</h3>
+<p>它会读取你的源码，在有浏览器自动化时打开页面，并基于 impeccable 的完整 DO / DON&#39;T 体系做设计评审。过程中会输出 Nielsen 启发式评分、认知负荷检查，以及与你 <code>.impeccable.md</code> 中品牌语气是否一致的判断。</p>
+<p>它会把自己打开的浏览器标签页标成 <code>[LLM]</code>，方便你区分。</p>
+<h3 id="">自动检测器会做什么</h3>
+<p>另一条评估链会运行 <code>npx impeccable detect</code>。这部分是确定性的：25 条具体规则，要么命中，要么不命中。</p>
+<p>渐变文字、紫色配色、侧条卡片、卡片嵌套、正文太小、低对比度等问题，都会以 JSON 结果返回。</p>
+<h2 id="2">第 2 步：打开可视覆盖层</h2>
+<p>Impeccable 自带可视模式，会把检测到的反模式直接描在页面上。你会看到每个问题元素周围出现轮廓和标签，鼠标移上去还能看完整解释。</p>
+<p>使用它有三种方式：</p>
+<ol>
+<li><strong>Chrome 扩展</strong>：最简单，打开任意页面后点击工具栏图标即可。</li>
+<li><strong>在 <code>/critique</code> 里自动打开</strong>：技能会在浏览器评估阶段打开一个带 <code>[Human]</code> 标签的页面，并自动启用检测。</li>
+<li><strong>独立 CLI</strong>：运行 <code>npx impeccable live</code>，把脚本注入到任何页面里。</li>
+</ol>
+<p>这篇教程里，最省事的方式就是直接用 Chrome 扩展或 <code>/critique</code> 自带的 <code>[Human]</code> 标签页。</p>
+<h2 id="3">第 3 步：把两份结果合并起来看</h2>
+<p>回到 AI 工具里，你会拿到一份整合后的报告。结构通常像这样：</p>
+<div class="code-block-wrap"><pre class="code-block"><code>AI slop verdict：FAIL
+Heuristic scores：10 项评分
+Cognitive load：8 项里失败 3 项
+Priority issues：最该修的 3 到 5 个问题
+Questions to answer：上线前必须回答的问题</code></pre><button class="code-block-copy" type="button" data-copy="AI slop verdict：FAIL
+Heuristic scores：10 项评分
+Cognitive load：8 项里失败 3 项
+Priority issues：最该修的 3 到 5 个问题
+Questions to answer：上线前必须回答的问题" aria-label="Copy to clipboard"></button></div>
+<p>重点不是分数本身，而是：LLM 判断和检测器哪里一致，哪里互补，哪里出现了你需要自己拍板的分歧。</p>
+<h2 id="4">第 4 步：带着覆盖层改代码</h2>
+<p>最有效的方式是把覆盖层一直开着：</p>
+<ol>
+<li>一个标签页保持覆盖层可见。</li>
+<li>在代码里修问题，或让模型按优先级去修。</li>
+<li>刷新页面，覆盖层会重新扫描，已经修好的问题会直接消失。</li>
+</ol>
+<p>这也是它最有价值的地方：你能立刻确认“这次修正到底有没有真的解决规则层面的问题”。</p>
+<h2 id="5-critique">第 5 步：修完后再跑一遍 /critique</h2>
+<p>把优先级最高的问题修完后，再执行一次 <code>/critique</code>。理想目标通常是：</p>
+<ul>
+<li>AI slop verdict 变干净</li>
+<li>启发式平均分至少在 3.5 左右</li>
+<li>认知负荷失败项降到 2 以下</li>
+</ul>
+<p>如果某条规则仍然命中，要么继续修，要么在充分理由下写 suppression 说明，但后者请尽量少用。</p>
+<h2 id="">接下来可以试什么</h2>
+<ul>
+<li><code>/audit the same page</code>：检查 critique 不负责的实现层问题，例如无障碍与性能。</li>
+<li><code>/polish</code>：当问题已经被清干净，只剩最后一轮质感打磨时使用。</li>
+<li><code>/distill</code>：如果 critique 提示“太忙、太满、认知负荷高”，优先用它。</li>
+</ul>
+<h2 id="">常见问题</h2>
+<ul>
+<li><strong>覆盖层没报问题，但 critique 说页面仍有问题。</strong> 很正常。检测器抓的是确定性模式，critique 还能覆盖需要设计判断的部分。</li>
+<li><strong>LLM 评估和检测器意见不同。</strong> 这也正常。一个是主观判断，一个是确定规则。你需要结合具体语境做决定。</li>
+<li><strong>覆盖层影响了页面布局。</strong> 这种情况少见，但并非不可能。优先用 Chrome 扩展，或者退回 CLI + 手动修复的方式。</li>
+</ul>
+
+  </section>
+</article>
+  </div>
+</div>
+  </main>
+  <script>
+    // Copy buttons on rendered code blocks
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-copy]');
+      if (!btn) return;
+      const text = btn.getAttribute('data-copy');
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('is-copied');
+        setTimeout(() => btn.classList.remove('is-copied'), 1500);
+      }).catch(() => {});
+    });
+
+    // Mobile sidebar toggle (shown on narrow viewports, hidden on desktop).
+    document.addEventListener('click', (e) => {
+      const toggle = e.target.closest('.skills-sidebar-toggle');
+      if (!toggle) return;
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+    });
+
+    // Before/after split-compare: drag on touch, hover OR drag on mouse.
+    // Pointer events attach to the padded .split-comparison wrapper so
+    // there is a ~20px invisible buffer around the visible box. The
+    // divider only snaps back when the pointer leaves that outer buffer.
+    (function initSplitCompare() {
+      const wrappers = document.querySelectorAll('.split-comparison');
+      if (wrappers.length === 0) return;
+      const hasHover = matchMedia('(hover: hover)').matches;
+      const DEFAULT_POSITION = 50;
+
+      for (const wrapper of wrappers) {
+        const container = wrapper.querySelector('.split-container');
+        const splitAfter = wrapper.querySelector('.split-after');
+        const splitDivider = wrapper.querySelector('.split-divider');
+        if (!container || !splitAfter || !splitDivider) continue;
+
+        const tanAngle = Math.tan(10 * Math.PI / 180);
+        let skewOffset = 8;
+        const recalcSkew = () => {
+          const r = container.getBoundingClientRect();
+          if (r.width > 0 && r.height > 0) {
+            skewOffset = 50 * r.height * tanAngle / r.width;
+          }
+        };
+        recalcSkew();
+        window.addEventListener('resize', recalcSkew, { passive: true });
+
+        let targetX = DEFAULT_POSITION;
+        let currentX = DEFAULT_POSITION;
+        let rafId = null;
+
+        const paint = (pct) => {
+          const x = Math.max(-skewOffset, Math.min(100 + skewOffset, pct));
+          splitAfter.style.clipPath =
+            `polygon(${x + skewOffset}% 0%, 100% 0%, 100% 100%, ${x - skewOffset}% 100%)`;
+          splitDivider.style.left = `${x}%`;
+        };
+
+        const step = () => {
+          currentX += (targetX - currentX) * 0.2;
+          if (Math.abs(targetX - currentX) < 0.1) {
+            currentX = targetX;
+            rafId = null;
+          } else {
+            rafId = requestAnimationFrame(step);
+          }
+          paint(currentX);
+        };
+
+        const setTarget = (pct) => {
+          targetX = pct;
+          if (rafId === null) rafId = requestAnimationFrame(step);
+        };
+
+        paint(DEFAULT_POSITION);
+
+        // Percentage is always relative to the VISIBLE .split-container,
+        // not the padded .split-comparison wrapper. The pointer event
+        // target is the wrapper but the clip-path math uses the inner box.
+        const pctFromClientX = (clientX) => {
+          const rect = container.getBoundingClientRect();
+          return ((clientX - rect.left) / rect.width) * 100;
+        };
+
+        let hovering = false;
+        let dragging = false;
+
+        wrapper.addEventListener('pointerenter', (e) => {
+          if (hasHover && e.pointerType === 'mouse') {
+            hovering = true;
+          }
+        });
+
+        wrapper.addEventListener('pointerdown', (e) => {
+          dragging = true;
+          wrapper.setPointerCapture(e.pointerId);
+          setTarget(pctFromClientX(e.clientX));
+        });
+
+        wrapper.addEventListener('pointermove', (e) => {
+          if (dragging || hovering) {
+            setTarget(pctFromClientX(e.clientX));
+          }
+        });
+
+        const endDrag = (e) => {
+          if (dragging) {
+            dragging = false;
+            try { wrapper.releasePointerCapture(e.pointerId); } catch {}
+          }
+        };
+
+        wrapper.addEventListener('pointerup', endDrag);
+        wrapper.addEventListener('pointercancel', endDrag);
+
+        wrapper.addEventListener('pointerleave', (e) => {
+          endDrag(e);
+          if (hovering) {
+            hovering = false;
+            setTarget(DEFAULT_POSITION);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

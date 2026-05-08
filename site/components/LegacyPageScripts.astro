@@ -1,0 +1,19 @@
+<script is:inline>
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-copy]');
+    if (!btn) return;
+    const text = btn.getAttribute('data-copy');
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.classList.add('is-copied');
+      setTimeout(() => btn.classList.remove('is-copied'), 1500);
+    }).catch(() => {});
+  });
+
+  document.addEventListener('click', (e) => {
+    const toggle = e.target.closest('.skills-sidebar-toggle');
+    if (!toggle) return;
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+  });
+</script>

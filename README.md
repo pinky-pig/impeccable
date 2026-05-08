@@ -1,95 +1,80 @@
 # Impeccable
 
-The vocabulary you didn't know you needed. 1 skill, 18 commands, and curated anti-patterns for impeccable frontend design.
+The vocabulary you didn't know you needed. 1 skill, 23 commands, and curated anti-patterns for impeccable frontend design.
 
 > **Quick start:** Visit [impeccable.style](https://impeccable.style) to download ready-to-use bundles.
 
 ## Why Impeccable?
 
-Anthropic created [frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design), a skill that guides Claude toward better UI design. Impeccable builds on that foundation with deeper expertise and more control.
+Anthropic's [frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design) was the first widely-used design skill for Claude. Impeccable started from there.
 
-Every LLM learned from the same generic templates. Without guidance, you get the same predictable mistakes: Inter font, purple gradients, cards nested in cards, gray text on colored backgrounds.
+Every model trained on the same SaaS templates. Skip the guidance and you get the same handful of tells on every project: Inter for everything, purple-to-blue gradients, cards nested in cards, gray text on colored backgrounds, the rounded-square icon tile above every heading.
 
-Impeccable fights that bias with:
-- **An expanded skill** with 7 domain-specific reference files ([view source](source/skills/impeccable/))
-- **18 steering commands** to audit, review, polish, distill, animate, and more
-- **Curated anti-patterns** that explicitly tell the AI what NOT to do
+Impeccable adds:
+- **7 domain reference files** ([view source](skill/)). Typography, color, motion, spatial, interaction, responsive, UX writing. Load on every command, alongside a brand-vs-product register that adjusts the defaults.
+- **23 commands.** A shared design vocabulary with your AI: `polish`, `audit`, `critique`, `distill`, `animate`, `bolder`, `quieter`, and more.
+- **27 deterministic anti-pattern rules** plus a 12-rule LLM critique pass. CLI and browser extension run the deterministic ones with no LLM and no API key. Each is tied to specific design guidance the skill teaches against.
 
 ## What's Included
 
 ### The Skill: impeccable
 
-A comprehensive design skill with 7 domain-specific references ([view skill](source/skills/impeccable/SKILL.md)):
+A comprehensive design skill with 7 domain-specific references ([view skill](skill/SKILL.md)):
 
 | Reference | Covers |
 |-----------|--------|
-| [typography](source/skills/impeccable/reference/typography.md) | Type systems, font pairing, modular scales, OpenType |
-| [color-and-contrast](source/skills/impeccable/reference/color-and-contrast.md) | OKLCH, tinted neutrals, dark mode, accessibility |
-| [spatial-design](source/skills/impeccable/reference/spatial-design.md) | Spacing systems, grids, visual hierarchy |
-| [motion-design](source/skills/impeccable/reference/motion-design.md) | Easing curves, staggering, reduced motion |
-| [interaction-design](source/skills/impeccable/reference/interaction-design.md) | Forms, focus states, loading patterns |
-| [responsive-design](source/skills/impeccable/reference/responsive-design.md) | Mobile-first, fluid design, container queries |
-| [ux-writing](source/skills/impeccable/reference/ux-writing.md) | Button labels, error messages, empty states |
+| [typography](skill/reference/typography.md) | Type systems, font pairing, modular scales, OpenType |
+| [color-and-contrast](skill/reference/color-and-contrast.md) | OKLCH, tinted neutrals, dark mode, accessibility |
+| [spatial-design](skill/reference/spatial-design.md) | Spacing systems, grids, visual hierarchy |
+| [motion-design](skill/reference/motion-design.md) | Easing curves, staggering, reduced motion |
+| [interaction-design](skill/reference/interaction-design.md) | Forms, focus states, loading patterns |
+| [responsive-design](skill/reference/responsive-design.md) | Mobile-first, fluid design, container queries |
+| [ux-writing](skill/reference/ux-writing.md) | Button labels, error messages, empty states |
 
-### 18 Commands
+### 23 Commands
+
+All commands are accessed through `/impeccable`:
 
 | Command | What it does |
 |---------|--------------|
-| `/impeccable teach` | One-time setup: gather design context, save to config |
 | `/impeccable craft` | Full shape-then-build flow with visual iteration |
+| `/impeccable teach` | One-time setup: gather design context, write root PRODUCT.md and DESIGN.md |
+| `/impeccable document` | Generate root DESIGN.md from existing project code |
 | `/impeccable extract` | Pull reusable components and tokens into the design system |
-| `/audit` | Run technical quality checks (a11y, performance, responsive) |
-| `/critique` | UX design review: hierarchy, clarity, emotional resonance |
-| `/polish` | Final pass, design system alignment, and shipping readiness |
-| `/distill` | Strip to essence |
-| `/clarify` | Improve unclear UX copy |
-| `/optimize` | Performance improvements |
-| `/harden` | Error handling, onboarding, i18n, edge cases |
-| `/animate` | Add purposeful motion |
-| `/colorize` | Introduce strategic color |
-| `/bolder` | Amplify boring designs |
-| `/quieter` | Tone down overly bold designs |
-| `/delight` | Add moments of joy |
-| `/adapt` | Adapt for different devices |
-| `/typeset` | Fix font choices, hierarchy, sizing |
-| `/layout` | Fix layout, spacing, visual rhythm |
-| `/overdrive` | Add technically extraordinary effects |
+| `/impeccable shape` | Plan UX/UI before writing code |
+| `/impeccable critique` | UX design review: hierarchy, clarity, emotional resonance |
+| `/impeccable audit` | Run technical quality checks (a11y, performance, responsive) |
+| `/impeccable polish` | Final pass, design system alignment, and shipping readiness |
+| `/impeccable bolder` | Amplify boring designs |
+| `/impeccable quieter` | Tone down overly bold designs |
+| `/impeccable distill` | Strip to essence |
+| `/impeccable harden` | Error handling, i18n, text overflow, edge cases |
+| `/impeccable onboard` | First-run flows, empty states, activation paths |
+| `/impeccable animate` | Add purposeful motion |
+| `/impeccable colorize` | Introduce strategic color |
+| `/impeccable typeset` | Fix font choices, hierarchy, sizing |
+| `/impeccable layout` | Fix layout, spacing, visual rhythm |
+| `/impeccable delight` | Add moments of joy |
+| `/impeccable overdrive` | Add technically extraordinary effects |
+| `/impeccable clarify` | Improve unclear UX copy |
+| `/impeccable adapt` | Adapt for different devices |
+| `/impeccable optimize` | Performance improvements |
+| `/impeccable live` | Visual variant mode: iterate on elements in the browser |
+
+Use `/impeccable pin <command>` to create standalone shortcuts (e.g., `pin audit` creates `/audit`).
 
 #### Usage Examples
 
-**`/audit`** - Run quality checks, get a report (no edits)
 ```
-/audit blog              # Audit blog hub + post pages
-/audit dashboard         # Check dashboard components
-/audit checkout flow     # Focus on checkout UX
+/impeccable audit blog           # Audit blog hub + post pages
+/impeccable critique landing     # UX design review
+/impeccable polish settings      # Final pass before shipping
+/impeccable harden checkout      # Add error handling + edge cases
 ```
-*When to use:* Before making changes, to understand what needs fixing.
 
-**`/normalize`** - Align with design system
+Or use `/impeccable` directly with a description:
 ```
-/normalize blog          # Apply design tokens, fix spacing
-/normalize buttons       # Standardize button styles
-```
-*When to use:* After audit, to fix inconsistencies.
-
-**`/critique`** - UX design review
-```
-/critique landing page   # Review landing page UX
-/critique onboarding     # Check onboarding flow
-```
-*When to use:* When you want design feedback, not technical fixes.
-
-**`/polish`** - Final pass before shipping
-```
-/polish feature modal    # Clean up modal before release
-/polish settings page    # Final review of settings UI
-```
-*When to use:* Last step before deploying to production.
-
-**Combining commands:**
-```
-/audit /normalize /polish blog    # Full workflow: audit → fix → polish
-/critique /harden checkout        # UX review + add error handling
+/impeccable redo this hero section
 ```
 
 ### Anti-Patterns
@@ -158,7 +143,17 @@ cp -r dist/gemini/.gemini your-project/
 
 **Codex CLI:**
 ```bash
-cp -r dist/codex/.codex/* ~/.codex/
+# Project-local
+cp -r dist/agents/.agents your-project/
+
+# Or user-wide
+mkdir -p ~/.agents/skills
+cp -r dist/agents/.agents/skills/* ~/.agents/skills/
+```
+
+**GitHub Copilot:**
+```bash
+cp -r dist/github/.github your-project/
 ```
 
 **Trae:**
@@ -185,6 +180,15 @@ cp -r dist/rovo-dev/.rovodev your-project/
 cp -r dist/rovo-dev/.rovodev/skills/* ~/.rovodev/skills/
 ```
 
+**Qoder:**
+```bash
+# Project-specific
+cp -r dist/qoder/.qoder your-project/
+
+# Or global (applies to all projects)
+cp -r dist/qoder/.qoder/skills/* ~/.qoder/skills/
+```
+
 ## Usage
 
 Once installed, use commands in your AI harness:
@@ -203,7 +207,7 @@ Most commands accept an optional argument to focus on a specific area:
 /polish checkout-form
 ```
 
-**Note:** Codex CLI uses a different syntax: `/prompts:audit`, `/prompts:polish`, etc.
+**Note:** Codex uses skills here, not `/prompts:` commands. Open `/skills` or type `$impeccable`. Repo-local installs live in `.agents/skills/`; user-wide installs live in `~/.agents/skills/`. GitHub Copilot uses `.github/skills/`. Restart the tool if a newly installed skill does not appear.
 
 ## CLI
 
@@ -230,6 +234,15 @@ The detector catches 24 issues across AI slop (side-tab borders, purple gradient
 - [Kiro](https://kiro.dev)
 - [Trae](https://trae.ai)
 - [Rovo Dev](https://www.atlassian.com/software/rovo)
+- [Qoder](https://qoder.com)
+
+## Community & Ecosystem
+
+Join the community and ecosystem conversations:
+
+- GitHub Discussions: file bugs, request features, and help newcomers.
+- [Impeccable on npm](https://www.npmjs.com/package/impeccable): grab the CLI, follow releases, and star the package.
+- Follow @pbakaus on Twitter for release notes, sample lint reports, and video highlights of new rules.
 
 ## Contributing
 

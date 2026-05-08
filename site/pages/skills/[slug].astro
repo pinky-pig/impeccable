@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import LegacyPageScripts from '../../components/LegacyPageScripts.astro';
+import '../../styles/sub-pages.css';
+import { loadLegacyPage, listLegacyPages } from '../../lib/legacy-page.js';
+
+export function getStaticPaths() {
+  return listLegacyPages('skills').map((slug) => ({
+    params: { slug },
+    props: { legacy: loadLegacyPage(`skills/${slug}.html`) },
+  }));
+}
+
+const { legacy } = Astro.props;
+---
+
+<Base
+  title={legacy.title}
+  description={legacy.description}
+  activeNav="docs"
+  canonicalPath={`/skills/${Astro.params.slug}`}
+  bodyClass={legacy.bodyClass || 'sub-page skills-layout-page'}
+>
+  <Fragment set:html={legacy.content} />
+  <LegacyPageScripts slot="scripts" />
+</Base>
