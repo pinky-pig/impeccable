@@ -1,46 +1,46 @@
 ---
-tagline: "The meticulous final pass between good and great."
+tagline: "好和很好的分界线，往往就在这一轮极细的最后打磨。"
 ---
 
-## When to use it
+## 适用场景
 
-`/impeccable polish` is the last thing you run before shipping. It hunts down the small details that separate a shipped feature from a polished one: half-pixel misalignments, inconsistent spacing, forgotten focus states, loading transitions that flash, copy that drifts in tone. It also aligns the feature with your design system, replacing hard-coded values with tokens, swapping custom components for shared ones, and fixing any drift from established patterns.
+`/impeccable polish` 是你在上线前最后该跑的一条命令。它专门抓那些把“已经能上线”和“真的精致”区分开的小问题：半像素错位、间距不一致、忘了补的 focus 状态、会闪一下的 loading 过渡、语气逐渐跑偏的文案。它也会同时把当前功能重新拉回你的设计系统：把硬编码值替换成 tokens、把自定义组件换成共享组件、修复和既有模式之间的漂移。
 
-Reach for it when the feature is functionally complete, nothing is broken, and something still feels off. Also reach for it when a feature has drifted from the design system and needs to be pulled back in line.
+当一个功能在行为上已经完成、没坏、但你还是觉得“哪里差一点”时，就该跑它。或者，当一个功能已经明显偏离设计系统，也应该用它把它拉回来。
 
-## How it works
+## 工作方式
 
-Polish starts by discovering the design system (tokens, spacing scale, shared components), then works methodically across six dimensions:
+Polish 会先识别设计系统（tokens、间距刻度、共享组件），再沿着六个维度细致扫描：
 
-1. **Visual alignment and spacing**: pixel-perfect grid adherence, consistent spacing scale, optical alignment on icons.
-2. **Typography**: hierarchy consistency, line length, widows and orphans, kerning on headlines.
-3. **Color and contrast**: token usage, theme parity, WCAG ratios, focus indicators.
-4. **Interaction states**: hover, focus, active, disabled, loading, error, success. Every state accounted for.
-5. **Transitions and motion**: smooth easing, no layout jank, respect for `prefers-reduced-motion`.
-6. **Copy**: consistent voice, correct tense, no placeholder strings, no stray TODOs.
+1. **视觉对齐与间距**：是否严格贴合网格、间距刻度是否统一、图标是否做了光学校准。
+2. **排版**：层级是否一致、行长是否合理、有没有 widow / orphan、标题字距是否需要收。
+3. **颜色与对比度**：token 使用、主题一致性、WCAG 比例、focus indicator 是否清晰。
+4. **交互状态**：hover、focus、active、disabled、loading、error、success 是否都齐全。
+5. **过渡与动效**：easing 是否顺、有没有 layout jank、是否遵守 `prefers-reduced-motion`。
+6. **文案**：语气是否一致、时态是否统一、有没有 placeholder 字符串、有没有遗漏的 TODO。
 
-The skill is explicit about one thing: polish is the last step, not the first. If the feature is not functionally complete, polishing it is wasted work.
+它有一个非常明确的前提：polish 是最后一步，不是第一步。如果功能本身还没做完，这时候去 polish，基本等于浪费。
 
-## Try it
+## 试试看
 
-```
+```text
 /impeccable polish the pricing page
 ```
 
-A healthy run looks like:
+一轮健康的 polish 结果通常像这样：
 
+```text
+Visual alignment: 修正 3 个脱离网格的元素（8px baseline）
+Typography: 收紧 h1 字距，修掉 testimonial 最后一行寡行
+Interaction: FAQ 项补上 hover，邮箱输入框补上 focus ring
+Motion: modal 入场更柔和，新增 reduced-motion fallback
+Copy: 删掉一处遗留的 "Lorem ipsum"，统一按钮语气
 ```
-Visual alignment: fixed 3 off-grid elements (8px baseline)
-Typography: tightened h1 kerning, fixed widow on testimonial
-Interaction: added hover state on FAQ items, focus ring on email input
-Motion: softened modal entrance, added reduced-motion fallback
-Copy: removed one "Lorem ipsum" stray, aligned button voice
-```
 
-Five small fixes, no rewrites. That is the shape of a good polish pass.
+五六个小修正，没有大翻新。这才是一次好的 polish pass。
 
-## Pitfalls
+## 常见误区
 
-- **Polishing work that is not done.** If there are TODOs in the code, you are not ready. Run `/impeccable polish` on finished features only.
-- **Treating polish as redesign.** Polish refines what exists. If you find yourself rearchitecting a layout, you needed `/impeccable critique` or `/impeccable layout` instead.
-- **Running `/impeccable polish` without `/impeccable audit` first.** Polish catches feel-based issues. Audit catches measurable ones. Use both.
+- **在还没做完的功能上先 polish。** 如果代码里还有 TODO，你就还没到这一步。`/impeccable polish` 只适合已经完成的功能。
+- **把 polish 当 redesign。** Polish 是细化已有结果。如果你发现自己开始重构布局，那说明你真正需要的是 `/impeccable critique` 或 `/impeccable layout`。
+- **没跑 `/impeccable audit` 就直接 polish。** Polish 擅长抓 feel-based 的问题；audit 擅长抓可量化的问题。两者一起用，判断才完整。

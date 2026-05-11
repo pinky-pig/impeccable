@@ -1,40 +1,40 @@
 ---
-tagline: "Tone down designs that are shouting without losing their intent."
+tagline: "把那些喊得太大声的设计压下来，但不牺牲原本的意图。"
 ---
 
-## When to use it
+## 适用场景
 
-`/impeccable quieter` is the counterweight to `/impeccable bolder`. Reach for it when an interface is visually aggressive, overstimulating, or trying to do too many things at full volume. Neon on dark, gradient text everywhere, 6 accent colors, everything animated, 20px shadows. Use quieter when the design needs to breathe and you want refinement without losing the point of view.
+`/impeccable quieter` 是 `/impeccable bolder` 的反向力。当一个界面过于攻击性、刺激过量，或者试图让每一样东西都全音量出现时，就该用它。暗底霓虹、到处都是渐变字、6 个强调色、所有东西都在动、20px 阴影一起上。只要你想让设计重新喘口气，但又不想把它做回无聊的中性模板，quieter 就合适。
 
-Also useful after `/impeccable bolder` goes a little too far.
+它也很适合用在 `/impeccable bolder` 一不小心推得有点太过之后。
 
-## How it works
+## 工作方式
 
-The skill works by reduction across four axes:
+这条 skill 会沿着四个轴做减法：
 
-1. **Color**: desaturate, lower chroma in OKLCH, pull accents back to a single primary plus muted support. No more than two intentional colors.
-2. **Contrast**: soften extreme darks and lights, pull the range in. Backgrounds move from pure white and pure black to paper and ink.
-3. **Decoration**: remove shadows that are not doing work, drop borders that are not carrying structure, retire gradients that exist for energy rather than hierarchy.
-4. **Motion and effect**: slow animations down, remove anything that auto-plays, drop parallax and blur unless they serve readability.
+1. **Color**：降低饱和度，降低 OKLCH 色度，把强调色收成一个主色加若干低存在感支持色。刻意色彩不要超过两种。
+2. **Contrast**：缓和过深的黑和过亮的白，把对比区间收回来。背景从纯白 / 纯黑退回更像 paper / ink 的状态。
+3. **Decoration**：删除那些不承担结构工作的阴影，撤掉没有必要的边框，淘汰那些只是在“加能量”而不是在建立层级的渐变。
+4. **Motion and effect**：放慢动画、移除自动播放、删掉不服务于可读性的 parallax 和 blur。
 
-The skill preserves the design's intent. If the original had a point of view, the quieter version has the same point of view with more confidence. Refinement, not neutralization.
+它不会抹掉原本的设计意图。如果原版本本来就有明确主张，那么 quieter 应该呈现的是“更成熟、更有把握”的同一个主张，而不是彻底去个性化。
 
-## Try it
+## 试试看
 
-```
+```text
 /impeccable quieter the pricing page
 ```
 
-Typical diff:
+常见 diff：
 
-- Gradient text on the price removed, replaced with solid ink at one weight heavier
-- Three accent colors reduced to one (magenta), the other two become neutral variants
-- Card shadows reduced from `0 20px 40px rgba(0,0,0,0.2)` to `0 1px 0 var(--color-mist)` (a hairline)
-- Background switches from dark gradient to paper with a subtle cream wash at the top
-- Hero animation from 1.2s easeOut with 3 staggered elements to a single 260ms fade-in
+- 价格上的渐变文字被撤掉，改成更重一点的纯色 ink
+- 三个强调色缩成一个主色（比如 magenta），另外两个回落为中性变体
+- 卡片阴影从 `0 20px 40px rgba(0,0,0,0.2)` 收到 `0 1px 0 var(--color-mist)` 这类细线级处理
+- 背景从深色渐变改回 paper，并在顶部只保留一层很轻的 cream wash
+- Hero 动画从 1.2s、3 段 stagger，收成一个 260ms 的淡入
 
-## Pitfalls
+## 常见误区
 
-- **Over-applying.** Quieter can strip personality if you run it on something that was already measured. Use it when the design is too loud, not when it is correctly assertive.
-- **Confusing quieter with distill.** Quieter reduces intensity. Distill removes elements. They are different moves.
-- **Running it in response to a critique that says "too busy".** Busy usually means too many things, not too loud. Try `/impeccable distill` first.
+- **用得太狠。** Quieter 确实可能把个性一起削掉，所以只应该在设计真的太吵时使用，而不是在一个本来就拿捏得住的版本上继续去火。
+- **把 quieter 和 distill 混为一谈。** Quieter 降的是强度，distill 删的是元素。它们是完全不同的动作。
+- **看到 critique 说“too busy”就立刻跑 quieter。** Busy 往往意味着东西太多，不一定是声音太大。那种情况应该先试 `/impeccable distill`。

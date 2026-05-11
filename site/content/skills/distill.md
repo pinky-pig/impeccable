@@ -1,44 +1,44 @@
 ---
-tagline: "Ruthless subtraction. Strip designs to their essence."
+tagline: "毫不留情地做减法。把设计剥到只剩真正重要的部分。"
 ---
 
-## When to use it
+## 适用场景
 
-`/impeccable distill` removes what should not be there. Competing buttons, redundant information, decorative borders, three fonts where one works, six navigation items where three belong. Use it when an interface feels cluttered, busy, or like it is trying to do too much at once.
+`/impeccable distill` 用来删掉那些本来就不该存在的东西：彼此竞争的按钮、重复表达的信息、纯装饰性的边框、明明一种就够却用了三种字体、导航里塞了六项但其实只该留三项。只要一个界面让你觉得拥挤、嘈杂，或者像是同时想做太多事，就该用它。
 
-Reach for it after `/impeccable critique` flags "cognitive load" or "visual noise", or any time a page has grown by accretion and no one has done the editing.
+如果 `/impeccable critique` 已经提示你有 “cognitive load” 或 “visual noise”，那基本就是它的场景。或者更简单一点，只要一个页面是靠不断加东西长出来的，却从来没人认真删过东西，也该跑它。
 
-## How it works
+## 工作方式
 
-The skill starts from one question: what is the single job this interface is trying to do? Everything that does not help that job is on the chopping block.
+这条 skill 的起点只有一个问题：这个界面最核心的工作到底是什么？凡是不帮助这件事的东西，都应该上砧板。
 
-It works in two passes:
+它会分两轮进行：
 
-1. **Assess the complexity sources**. Too many elements, excessive variation, information overload, visual noise, confusing hierarchy, feature creep. Name each one.
-2. **Edit ruthlessly**. Remove what is not essential. Combine what can be combined. Hide what can wait. Consolidate variation into a single treatment. Commit to a single visual language.
+1. **先识别复杂度来源。** 是元素太多、变化过多、信息过载、视觉噪音、层级混乱，还是功能膨胀？一个个点名。
+2. **再毫不留情地编辑。** 该删的删、能并的并、能晚一点出现的先藏起来、重复表达统一成一种做法、整页只保留一种明确视觉语言。
 
-The principle: every element on the page has to justify its existence. Fewer obstacles, not fewer features.
+它遵守的原则是：页面上的每个元素，都要能为自己的存在辩护。目标不是功能更少，而是阻力更少。
 
-## Try it
+## 试试看
 
-```
+```text
 /impeccable distill this dashboard
 ```
 
-Before: four card styles, three button variants, two header treatments, a sidebar with 14 items grouped into 5 sections.
+在运行前，页面也许有四种卡片样式、三种按钮变体、两种标题做法，以及一个被拆成五组共 14 个入口的侧边导航。
 
-After a `/distill` pass, typical changes:
+一轮 `/distill` 之后，常见变化会是：
 
-- Collapse the four card styles into one
-- Pick one button variant, demote the others to text links
-- Unify the headers
-- Group the sidebar into 3 sections, not 5
-- Hide advanced options behind a disclosure
+- 四种卡片统一成一种
+- 只保留一种按钮作为主样式，其他退到文本链接
+- 统一标题处理
+- 侧边导航收成 3 组，而不是 5 组
+- 高级选项折进 disclosure
 
-Fewer things. Each one clearer.
+东西更少，但每一项都更清楚。
 
-## Pitfalls
+## 常见误区
 
-- **Confusing distill with delete.** Distill removes obstacles. It does not remove features users need. If a user relies on something daily, find a way to keep it quietly, not a way to cut it.
-- **Running it too early.** If the feature is still growing, distilling it now means distilling the same thing again next week. Wait until the shape is stable.
-- **Expecting it to replace hierarchy work.** Sometimes the right fix is not removing things, it is arranging them. Reach for `/impeccable layout` when the problem is layout, not quantity.
+- **把 distill 理解成 delete。** Distill 删的是阻力，不是用户真正需要的功能。如果某个功能每天都有人依赖，应该想办法把它安静地保留下来，而不是直接砍掉。
+- **在结构还没稳定时就跑。** 如果这个功能还在持续长内容，现在做蒸馏，下周多半还得再做一次。等形态先稳定下来。
+- **期待它替代层级设计。** 有时候真正的问题不是东西太多，而是东西摆得不对。那种情况更该找 `/impeccable layout`，而不是 distill。

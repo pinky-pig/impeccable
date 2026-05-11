@@ -1,6 +1,6 @@
 /**
- * Command category and relationship data for docs pages.
- * Extracted from scripts/lib/sub-pages-data.js for use in Astro templates.
+ * 文档页面使用的命令分类与关联关系数据。
+ * 从 scripts/lib/sub-pages-data.js 提取，供 Astro 模板复用。
  */
 
 export const SKILL_CATEGORIES: Record<string, string> = {
@@ -33,21 +33,21 @@ export const SKILL_CATEGORIES: Record<string, string> = {
 export const CATEGORY_ORDER = ['create', 'evaluate', 'refine', 'simplify', 'harden', 'system'];
 
 export const CATEGORY_LABELS: Record<string, string> = {
-  create: 'Create',
-  evaluate: 'Evaluate',
-  refine: 'Refine',
-  simplify: 'Simplify',
-  harden: 'Harden',
-  system: 'System',
+  create: '创建',
+  evaluate: '评估',
+  refine: '打磨',
+  simplify: '简化',
+  harden: '强化',
+  system: '系统',
 };
 
 export const CATEGORY_DESCRIPTIONS: Record<string, string> = {
-  create: 'Build something new, from a blank page to a working feature.',
-  evaluate: 'Review what you have. Score it, critique it, find what to fix.',
-  refine: 'Improve one dimension at a time: type, layout, color, motion.',
-  simplify: 'Strip complexity. Remove what does not earn its place.',
-  harden: 'Make it production-ready. Edge cases, performance, polish.',
-  system: 'Setup and tooling. Design system work, extraction, organization.',
+  create: '从空白开始搭建新东西，把想法落成真正可用的功能。',
+  evaluate: '审视当前结果。评分、批评、找出真正需要修的地方。',
+  refine: '一次只改一个维度：排版、布局、色彩、动效。',
+  simplify: '剥离复杂度。删掉那些并没有真正发挥作用的部分。',
+  harden: '把界面推到可上线状态。边界情况、性能与最后的细节补强。',
+  system: '配置与工具链。围绕设计系统的整理、提炼与组织工作。',
 };
 
 export const COMMAND_RELATIONSHIPS: Record<string, {

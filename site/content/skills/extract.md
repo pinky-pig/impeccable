@@ -1,64 +1,64 @@
 ---
-tagline: "Pull reusable components, tokens, and patterns into the design system."
+tagline: "把可复用组件、tokens 和模式抽回设计系统。"
 ---
 
 <div class="docs-viz-hero">
   <div class="docs-viz-flow">
     <div class="docs-viz-flow-step">
       <span class="docs-viz-flow-num">01</span>
-      <span class="docs-viz-flow-name">Discover drift</span>
-      <span class="docs-viz-flow-hint">Repeated hex values, button variants, spacing scales, text styles.</span>
+      <span class="docs-viz-flow-name">发现漂移</span>
+      <span class="docs-viz-flow-hint">重复的十六进制颜色、按钮变体、间距刻度、文本样式。</span>
     </div>
     <div class="docs-viz-flow-step">
       <span class="docs-viz-flow-num">02</span>
-      <span class="docs-viz-flow-name">Propose primitives</span>
-      <span class="docs-viz-flow-hint">Token names, component APIs with variant + size, text styles.</span>
+      <span class="docs-viz-flow-name">提出 primitives</span>
+      <span class="docs-viz-flow-hint">token 命名、带 variant + size 的组件 API、文本样式。</span>
     </div>
     <div class="docs-viz-flow-step docs-viz-flow-step--accent">
       <span class="docs-viz-flow-num">03</span>
-      <span class="docs-viz-flow-name">Migrate call sites</span>
-      <span class="docs-viz-flow-hint">Replace duplicated CSS with the new primitives. No orphan code left behind.</span>
+      <span class="docs-viz-flow-name">迁移调用点</span>
+      <span class="docs-viz-flow-hint">用新的 primitives 替换重复 CSS，不留下孤儿代码。</span>
     </div>
   </div>
-  <p class="docs-viz-caption">The skill only extracts what's used three or more times with the same intent. Two usages are not a pattern, and migration always happens in the same pass.</p>
+  <p class="docs-viz-caption">这条 skill 只会提取那些以同一意图被使用三次以上的东西。两次还不算模式，而且迁移动作一定会在同一轮里完成。</p>
 </div>
 
-## When to use it
+## 适用场景
 
-`/impeccable extract` is for the moment your codebase has accidentally become a design system. Repeated button styles in 12 places. Three variants of the same card. Hex colors scattered throughout. Hand-rolled spacing that accidentally matches a scale. Reach for it when you want to consolidate this drift into reusable primitives.
+`/impeccable extract` 适合那种“代码库不知不觉已经长成设计系统了”的时刻：12 个地方重复写按钮样式，同一张卡片冒出 3 个变体，十六进制颜色散落一地，手搓间距恰好又暗合某套刻度。只要你想把这种漂移收束成真正可复用的 primitives，就该用它。
 
-Use it after a product has shipped enough features to reveal the patterns. Premature extraction creates abstractions that do not match reality.
+最好在产品已经长出足够多功能、重复模式真的显现出来之后再用。提取得太早，只会制造和现实不匹配的抽象层。
 
-## How it works
+## 工作方式
 
-The skill discovers the design system structure first, then identifies extraction opportunities:
+这条 skill 会先识别设计系统的当前结构，再找出真正值得提取的机会：
 
-1. **Tokens**: find repeated literal values (colors, spacing, radii, shadows, font sizes). Propose token names, add to the token system, replace usages.
-2. **Components**: find UI patterns that repeat with minor variation (buttons, cards, inputs, modals). Extract into a single component with variants, migrate callers.
-3. **Composition patterns**: find layout or interaction patterns that repeat (form rows, toolbar groups, empty states). Extract into composition primitives.
-4. **Type styles**: find repeated font-size + weight + line-height combinations. Extract into text styles.
-5. **Animation patterns**: find repeated easing, duration, or keyframe combinations. Extract into motion tokens.
+1. **Tokens**：找出重复出现的字面值（颜色、间距、圆角、阴影、字号），提出 token 名称，补进 token 系统，再回写替换调用。
+2. **Components**：识别带少量变化的重复 UI 模式（按钮、卡片、输入框、modal），提成一个带 variants 的组件，并迁移调用方。
+3. **Composition patterns**：识别那些重复出现的布局或交互模式（表单行、工具栏分组、空状态），抽成组合层 primitives。
+4. **Type styles**：找出重复的字号 + 字重 + 行高组合，提炼成文本样式。
+5. **Animation patterns**：识别重复的 easing、duration 或 keyframe 组合，抽成 motion tokens。
 
-The skill is cautious. It only extracts things used three or more times, with the same intent. It never extracts "because it might be reused later". Premature abstraction is worse than duplication.
+它的原则非常保守：只有那些在同一意图下被使用三次以上的东西，才值得提取。它绝不会因为“以后可能会复用”而提前抽象。过早抽象，比重复代码更糟。
 
-## Try it
+## 试试看
 
-```
+```text
 /impeccable extract the button styles
 ```
 
-Expected output:
+典型输出会像这样：
 
-- Found 14 button instances across 8 files
-- 4 distinct variants: primary (filled accent), secondary (bordered), ghost (text-only), destructive (filled red)
-- All 4 variants use the same size scale (small, default, large)
-- Extracted into `<Button variant="primary" size="default">` with token-driven styles
-- Migrated 14 call sites, removed ~180 lines of duplicated CSS
-- Added 3 missing tokens: `--button-radius`, `--button-padding-y`, `--button-padding-x`
+- 在 8 个文件里找到 14 处按钮实例
+- 识别出 4 个明确变体：primary（实心强调）、secondary（描边）、ghost（纯文本）、destructive（红色实心）
+- 4 个变体共用同一套尺寸刻度（small、default、large）
+- 最终提取成 `<Button variant="primary" size="default">`，并由 tokens 驱动样式
+- 迁移 14 处调用，删掉约 180 行重复 CSS
+- 补上 3 个缺失 token：`--button-radius`、`--button-padding-y`、`--button-padding-x`
 
-## Pitfalls
+## 常见误区
 
-- **Extracting too early.** Two usages are not a pattern. Three might be. Wait until the pattern is obvious.
-- **Over-generalizing.** The extracted component should match the current use cases closely, not anticipate every possible future one. You can always add variants later.
-- **Forgetting the migration.** Extraction without migration leaves the old duplicated code around and creates a third way of doing the same thing. Always migrate in the same pass.
-- **Extracting things that differ in intent.** Two buttons that look similar but serve different purposes (primary action vs link styled as button) should probably stay separate.
+- **提取得太早。** 两次不算模式，三次也许才算。等模式足够明确再出手。
+- **过度泛化。** 抽出来的组件应该紧贴当前真实用例，而不是试图提前容纳所有未来可能。需要更多 variants 时，再加也不迟。
+- **只提取，不迁移。** 只把新东西抽出来，却不把旧调用点迁过去，只会留下第三种做法。提取和迁移必须在同一轮完成。
+- **把“外观相似但意图不同”的东西强行合并。** 两个长得像的按钮，如果一个是主要动作、一个本质上只是链接样式，那它们很可能就不该被并成同一个东西。

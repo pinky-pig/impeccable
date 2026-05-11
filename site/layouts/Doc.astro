@@ -38,13 +38,13 @@ for (const cat of CATEGORY_ORDER) {
   bodyClass="sub-page skills-layout-page"
 >
   <div class="skills-layout">
-    <aside class="skills-sidebar" aria-label="Commands">
+    <aside class="skills-sidebar" aria-label="命令">
       <button class="skills-sidebar-toggle" type="button" aria-expanded="false" aria-controls="skills-sidebar-inner">
-        <span class="skills-sidebar-toggle-label">Commands</span>
+        <span class="skills-sidebar-toggle-label">命令</span>
         <svg class="skills-sidebar-toggle-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="skills-sidebar-inner" id="skills-sidebar-inner">
-        <p class="skills-sidebar-label">Commands</p>
+        <p class="skills-sidebar-label">命令</p>
         {CATEGORY_ORDER.map(cat => (
           <div class="skills-sidebar-group">
             <span class="skills-sidebar-category">{CATEGORY_LABELS[cat]}</span>
@@ -64,8 +64,8 @@ for (const cat of CATEGORY_ORDER) {
 
     <div class="skills-main">
       <div class="skills-detail">
-        <nav class="skills-breadcrumb" aria-label="Breadcrumb">
-          <a href="/docs">Docs</a>
+        <nav class="skills-breadcrumb" aria-label="面包屑">
+          <a href="/docs">文档</a>
           <span aria-hidden="true">/</span>
           <span>{slug}</span>
         </nav>
@@ -82,23 +82,23 @@ for (const cat of CATEGORY_ORDER) {
 
         {(relationships.leadsTo || relationships.pairs || relationships.combinesWith) && (
           <footer class="skills-relationships">
-            <h2 class="skills-relationships-title">Related commands</h2>
+            <h2 class="skills-relationships-title">相关命令</h2>
             <div class="skills-relationships-list">
               {relationships.leadsTo?.map(cmd => (
                 <a href={`/docs/${cmd}`} class="skills-relationship-chip" data-relation="leads-to">
-                  <span class="skills-relationship-label">leads to</span>
+                  <span class="skills-relationship-label">下一步可用</span>
                   <span class="skills-relationship-name">{cmd}</span>
                 </a>
               ))}
               {relationships.pairs && (
                 <a href={`/docs/${relationships.pairs}`} class="skills-relationship-chip" data-relation="pairs">
-                  <span class="skills-relationship-label">pairs with</span>
+                  <span class="skills-relationship-label">搭配使用</span>
                   <span class="skills-relationship-name">{relationships.pairs}</span>
                 </a>
               )}
               {relationships.combinesWith?.map(cmd => (
                 <a href={`/docs/${cmd}`} class="skills-relationship-chip" data-relation="combines">
-                  <span class="skills-relationship-label">combines with</span>
+                  <span class="skills-relationship-label">可结合</span>
                   <span class="skills-relationship-name">{cmd}</span>
                 </a>
               ))}

@@ -1,44 +1,44 @@
 ---
-tagline: "Make interfaces production-ready. Edge cases, i18n, error states, overflow."
+tagline: "把界面补强到真正可上线：边界情况、i18n、错误状态、溢出。"
 ---
 
-## When to use it
+## 适用场景
 
-`/impeccable harden` is for the day your interface meets reality. Real user data is messy: names that are 60 characters long, product titles in German, prices in the billions, 500 errors, offline modes, right-to-left text. Designs that only work with perfect data are not production-ready.
+`/impeccable harden` 适合界面第一次真正撞上现实世界的那一天。真实数据从来不干净：60 个字符的人名、德语产品标题、数十亿级价格、500 错误、离线模式、从右到左的文本。只在理想数据上成立的设计，根本不算 production-ready。
 
-Reach for it before launch, before opening to a new market, or any time a bug report starts with "our user had a really long name and". For first-run flows, empty-state activation, and onboarding design, reach for `/impeccable onboard` instead.
+它很适合在上线前、进入新市场前，或者任何一个 bug report 以“我们的用户名字特别长，然后……”开头时使用。至于首次使用流程、空状态激活和 onboarding 设计，那更适合 `/impeccable onboard`。
 
-## How it works
+## 工作方式
 
-The skill works through four dimensions of real-world resilience:
+这条 skill 会沿着四个维度检查真实世界下的韧性：
 
-1. **Text and data extremes**. Long text, short text, special characters, emoji, RTL, numbers in the billions, 1000-item lists.
-2. **Error scenarios**. Network failures, API 4xx/5xx, validation errors, permission errors, rate limits, concurrent operations.
-3. **Internationalization**. Long translations (German is often 30% longer than English), RTL languages, date and number formats, currency symbols, character sets.
-4. **Device and context**. Touch targets, offline behavior, slow connections, low-power mode.
+1. **文本与数据极端值**：长文本、短文本、特殊字符、emoji、RTL、超大数字、1000 项列表。
+2. **错误场景**：网络失败、API 4xx/5xx、校验失败、权限错误、频率限制、并发操作。
+3. **国际化**：更长的翻译文本（德语通常比英语长 30%）、RTL 语言、日期和数字格式、货币符号、字符集。
+4. **设备与上下文**：触控目标、离线行为、慢网环境、低电量模式。
 
-For each dimension it identifies the failure mode, then applies the concrete fix: overflow handling, informative error UI, i18n-safe layouts, pluralization, sensible fallbacks.
+它会在每个维度里先识别失效模式，再落到具体修法：溢出处理、能说明白问题的错误 UI、对 i18n 友好的布局、正确的复数形式、合理 fallback。
 
-## Try it
+## 试试看
 
-Start with one page and one dimension:
+先只选一页、一个维度开始：
 
-```
+```text
 /impeccable harden the user profile page for long names
 ```
 
-Expected output:
+常见输出：
 
-- `.user-name` now has `text-overflow: ellipsis` with a tooltip for the full value
-- `.bio` switched from fixed height to `max-height` with a "show more" disclosure
-- Added an empty state for users with no bio
-- Added a skeleton loader for the async avatar fetch
-- Tested at name lengths 1, 20, 60, 200 characters
+- `.user-name` 改为 `text-overflow: ellipsis`，并附带完整值 tooltip
+- `.bio` 从固定高度切成 `max-height`，再配一个“展开更多”
+- 没有 bio 的用户新增空状态
+- 异步头像请求增加 skeleton loader
+- 分别用 1、20、60、200 个字符的人名做过测试
 
-Run it per-page, not all at once. The first run is the biggest; subsequent runs find fewer issues as patterns solidify.
+按页面逐个跑，而不是一下扫全站。第一轮收益最大；后面的轮次，随着模式逐渐稳定，找到的问题会越来越少。
 
-## Pitfalls
+## 常见误区
 
-- **Waiting for a bug report.** Harden is preventative. If you find yourself fixing the same class of bug twice, run `/impeccable harden` across the feature.
-- **Treating error and empty states as an afterthought.** Most hardening work is error and empty state UI. Budget time for it, not just a `catch` block.
-- **Skipping i18n because "we are English-only for now".** i18n-safe layouts are still better layouts. Flexible containers, proper text wrapping, generous line-height. None of that hurts English.
+- **等 bug report 来了再补。** Harden 是预防型工作。如果你发现自己在第二次修同一类问题，就该直接对整个功能跑一遍 `/impeccable harden`。
+- **把错误态和空状态当成边角料。** 真正的大头工作，往往就在这些状态上。要给它们留时间，不是只补个 `catch` 块。
+- **因为“现在只有英文”就先不管 i18n。** 兼容 i18n 的布局，本来也会是更好的布局：容器更灵活、换行更合理、行高更宽松。这些做法对英文没有任何坏处。

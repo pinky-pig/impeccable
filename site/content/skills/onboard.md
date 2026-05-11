@@ -1,40 +1,40 @@
 ---
-tagline: "Design first-run experiences, empty states, and paths to value."
+tagline: "设计首次体验、空状态，以及通往价值的那条路径。"
 ---
 
-## When to use it
+## 适用场景
 
-`/impeccable onboard` is for the moments that decide whether a new user sticks around: the first screen, the empty state, the setup flow, the product tour, the "what do I do now" gap. Reach for it when activation is weak, when new users drop off before reaching value, or when your product has empty states that say "no items yet" and stop there.
+`/impeccable onboard` 适合那些决定新用户会不会留下来的关键时刻：第一次打开的界面、空状态、设置流程、产品导览，以及“我现在该做什么”的那段空白。只要激活率偏弱、新用户在触达价值之前就流失，或者你的空状态只会写一句 “no items yet” 然后什么都不做，它就非常值得跑。
 
-## How it works
+## 工作方式
 
-The command starts from one question: what is the aha moment, and how fast can a new user get there. Every design decision points at that moment.
+这条命令从一个问题开始：用户的 aha moment 到底是什么？新用户最快多久能到达它？后续每个设计判断都围绕这个时刻展开。
 
-It works across the surfaces that shape first impressions:
+它会沿着影响第一印象的几个表面持续调整：
 
-1. **First-run experience**: the moments immediately after sign-up. Should the user see a tour, a blank canvas, a filled example, or nothing at all. Pick the approach that matches the product.
-2. **Empty states**: every zero-data screen gets oriented. Where am I, why is this empty, what do I do next, what will it look like once it is full.
-3. **Setup and installation**: required configuration is minimized, defaults are smart, each step explains why it matters.
-4. **Progressive disclosure**: advanced features stay out of the way until they are earned.
-5. **Activation events**: the moment a user first experiences the core value is instrumented and celebrated, quietly.
+1. **首次使用体验**：注册之后用户第一眼看到什么？产品导览、空白画布、带内容的示例，还是干脆什么都不打扰？选最适合产品本身的方式。
+2. **空状态**：每一个零数据页面都应该先把用户定位好：我在哪、为什么这里是空的、下一步该做什么、内容填满以后会长什么样。
+3. **设置与安装**：必须配置的步骤尽量最少，默认值尽量聪明，每一步都解释清楚“为什么需要它”。
+4. **渐进披露**：高级功能不要抢路，等用户先走到核心价值以后再出现。
+5. **激活事件**：用户第一次真正感受到核心价值的那一刻，应该被记录下来，也应该被安静地庆祝一下。
 
-The command resists two common failure modes: over-tutorialized onboarding where users click through a carousel before they can touch anything, and zero-onboarding where users are dropped into an empty app and expected to figure it out.
+这条命令会主动抵抗两类常见失败模式：一种是过度教学式 onboarding，用户还没碰到产品就得先点完一轮 carousel；另一种是零 onboarding，用户被直接扔进一个空应用里，然后系统假设他自己会懂。
 
-## Try it
+## 试试看
 
-```
+```text
 /impeccable onboard the editor
 ```
 
-Typical output:
+典型输出：
 
-- First-run: replaces empty editor with a filled example document the user can modify. Cancel button discards the example, edit replaces the content with the user's work.
-- Empty state on document list: "No documents yet. Create your first, or import from Notion, Google Docs, or Markdown."
-- Setup: reduced from 6 required fields to 1 (workspace name). Everything else has a smart default and can be edited later in settings.
-- Activation: the first time a user saves a document, a quiet toast says "Saved. Your work is in the cloud now." One-time, not repeated.
+- First-run：把空编辑器换成一个可修改的示例文档。取消会丢掉示例，开始编辑则自动替换成用户自己的内容。
+- 文档列表空状态：从 “No documents yet.” 变成 “还没有文档。现在创建第一份，或从 Notion、Google Docs、Markdown 导入。”
+- Setup：必填项从 6 个减到 1 个（workspace name），其余都给智能默认值，并允许之后去设置里再改。
+- Activation：用户第一次保存文档时，弹出一个安静的 toast：“已保存。你的内容现在已经在云端了。” 只出现一次，不反复打扰。
 
-## Pitfalls
+## 常见误区
 
-- **Adding a product tour as the default answer.** Most products do not need a tour. They need a better first screen. Tours are a crutch.
-- **Designing onboarding without defining the aha moment.** If you cannot say in one sentence what the user should feel in the first 60 seconds, go back to `/impeccable shape` first.
-- **Running onboard on a broken flow.** Fix the flow first. Onboarding cannot rescue a product where the core action is broken.
+- **把产品导览当成默认答案。** 大多数产品并不需要先做 tour，它们真正需要的是一个更好的第一屏。Tour 常常只是权宜之计。
+- **在没定义 aha moment 的前提下做 onboarding。** 如果你没法用一句话说出用户前 60 秒最该感受到什么，请先回去跑 `/impeccable shape`。
+- **在核心流程本身已经坏掉时，试图靠 onboard 救回来。** 先修流程，再做 onboarding。Onboarding 不能拯救一个核心动作都走不通的产品。

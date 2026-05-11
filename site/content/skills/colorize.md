@@ -1,38 +1,38 @@
 ---
-tagline: "Add strategic color to monochrome interfaces without going garish."
+tagline: "给过于单色的界面加入有策略的颜色，而不是把它涂得花里胡哨。"
 ---
 
-## When to use it
+## 适用场景
 
-`/impeccable colorize` is the counterweight to "everything is gray". Dashboards that read as a beige wall, forms with no accent, content pages that could be any SaaS product. Reach for it when the interface is functional but emotionally flat, and you want warmth without tipping into the AI color palette (purple-to-pink, cyan neon, dark mode glow).
+`/impeccable colorize` 是“整个界面都是灰的”这一问题的反制。那些像米色墙面一样的 dashboard、毫无强调的表单、换个 logo 就能变成任意 SaaS 的内容页，只要它们功能上没问题、情绪上却过于平，就适合用它。目标是加温度，但不跌进 AI 常见色盘：紫到粉的渐变、青色霓虹、暗色模式光晕。
 
-## How it works
+## 工作方式
 
-The skill starts by reading your brand color if one exists, then decides where color earns its place:
+这条 skill 会先读取你的品牌色（如果已经有），再判断颜色到底应该落在哪些地方：
 
-1. **Primary action** gets the strongest expression of the brand hue.
-2. **Secondary accents** get muted or tinted variants, not a second full color.
-3. **Neutrals** get tinted toward the brand hue at low chroma (around 0.005 to 0.01), which is nearly invisible per pixel but creates subconscious cohesion.
-4. **Content categories** get a limited, intentional accent system, not a rainbow.
+1. **主要动作** 获得品牌色最强的一档表达。
+2. **次级强调** 使用更柔和或更染色的变体，而不是再发明第二种同等级主色。
+3. **中性色** 会轻微朝品牌色相倾斜，色度很低（大约 0.005 到 0.01），像素级几乎察觉不到，但整体会更统一。
+4. **内容分类** 只给一套有限而有意图的强调系统，而不是做成彩虹。
 
-Importantly, it uses OKLCH rather than HSL so that equal lightness steps look equal. As lightness moves toward the extremes, chroma drops automatically. This is how you get color that feels considered instead of computed.
+更关键的是，它使用的是 OKLCH，而不是 HSL。这样相同 lightness 的颜色在视觉上才真的“等亮”；随着明度走向极端，色度也会自然下降。这正是颜色看起来“经过设计”而不是“计算出来”的原因。
 
-## Try it
+## 试试看
 
-```
+```text
 /impeccable colorize the dashboard
 ```
 
-Expected diff:
+预期改动：
 
-- Brand color moved from a hardcoded hex to `--color-accent: oklch(62% 0.18 240)`
-- Neutrals tinted with 0.007 chroma toward the brand hue
-- Primary button gets the full accent, secondary buttons get ink/mist
-- Chart series uses 3 distinct hues, all at matched lightness so no series visually dominates
-- Empty state illustration picks up a soft accent wash
+- 品牌色从硬编码十六进制改成 `--color-accent: oklch(62% 0.18 240)`
+- 中性色整体以 0.007 的低色度轻微偏向品牌色相
+- 主要按钮吃满强调色，次要按钮回落到 ink / mist
+- 图表系列限制为 3 种明确色相，并保持相近明度，避免某一组数据在视觉上不合理抢戏
+- 空状态插画带一层柔和的强调色洗染
 
-## Pitfalls
+## 常见误区
 
-- **Running it without a brand hue.** Colorize needs a starting point. If `PRODUCT.md` does not specify one, it will ask. Do not let it pick from the AI color palette defaults.
-- **Expecting it to fix the AI color palette problem.** If your design already has purple gradients and cyan neon, you need `/impeccable quieter` first, then colorize can rebuild.
-- **Using it on already-colorful interfaces.** That is a `/impeccable quieter` job. Colorize adds, it does not subtract.
+- **在没有品牌色时就直接跑。** Colorize 需要一个起点。如果 `PRODUCT.md` 里没写，它会先问。不要让它从 AI 默认色盘里胡乱选。
+- **希望它帮你修掉已经存在的 AI 色盘。** 如果当前界面已经满是紫色渐变和青色霓虹，你应该先跑 `/impeccable quieter`，把噪音压下去，再让 colorize 重新建立系统。
+- **把它用在已经很多彩的界面上。** 那通常该交给 `/impeccable quieter`。Colorize 负责加，不负责减。

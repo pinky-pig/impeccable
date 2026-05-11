@@ -1,40 +1,40 @@
 ---
-tagline: "Make designs work across screens, devices, and contexts without amputating features."
+tagline: "让设计跨屏、跨设备、跨场景都成立，而不是靠砍功能来适配。"
 ---
 
-## When to use it
+## 适用场景
 
-`/impeccable adapt` is for taking a design built for one context and making it work in another. Mobile from desktop, tablet from mobile, print from web, embedded from standalone, email from dashboard. Reach for it when the source design is solid but falls apart at other breakpoints, on touch, or in a different container.
+`/impeccable adapt` 适合把一个为某种上下文而设计的界面，真正迁移到另一个上下文里继续成立。比如从桌面到手机、从手机到平板、从网页到打印、从独立页到嵌入式、从 dashboard 到邮件。只要原始设计本身是成立的，但一到别的断点、触控环境或容器里就开始散架，就该用它。
 
-Not for building responsive from scratch. For that, start with `/impeccable` and shape the layout responsive-first. Adapt is for the "we never thought about mobile" backfill.
+它不适合从零做响应式。那应该直接从 `/impeccable` 开始，并用响应式优先的方式塑形布局。Adapt 面向的是那种“当时根本没认真想过 mobile”的补课时刻。
 
-## How it works
+## 工作方式
 
-The skill works through four dimensions of contextual fit:
+这条 skill 会沿着四个维度处理上下文适配问题：
 
-1. **Breakpoints and fluid layout**: collapse multi-column to single, adjust clamp ranges, introduce new breakpoints where the design genuinely breaks.
-2. **Touch targets**: minimum 44px hit areas, sufficient spacing between adjacent targets, larger tap zones than visual bounds where needed.
-3. **Navigation patterns**: desktop sidebars become mobile bottom nav or slide-outs, dense toolbars collapse into menus, hover states get touch equivalents.
-4. **Content priority**: decide what must be visible, what can collapse into disclosures, what can be removed entirely for that context.
+1. **Breakpoints 和流式布局**：多列如何收成单列、clamp 范围如何调整、哪些断点是设计真的开始失效时才值得新增。
+2. **触控目标**：最小 44px 点击区、相邻目标之间的间距，以及在必要时扩大视觉边界之外的点击热区。
+3. **导航模式**：桌面侧边栏如何变成移动端底部导航或抽屉，密集工具栏如何折进菜单，hover 状态如何找到触控等价物。
+4. **内容优先级**：哪些必须始终可见，哪些可以折进 disclosure，哪些在这个上下文里真的可以被拿掉。
 
-The non-negotiable rule: adapt, do not amputate. Critical functionality cannot disappear on mobile just because it is inconvenient. Find a way to fit it, redesign the interaction, or reconsider whether it was really critical on desktop.
+唯一不可谈判的原则是：adapt，不是 amputate。关键功能不能因为在 mobile 上不好摆就直接消失。你要么重新设计交互让它塞得进去，要么重新判断它在桌面端到底算不算“关键功能”。
 
-## Try it
+## 试试看
 
-```
+```text
 /impeccable adapt the settings page for mobile
 ```
 
-Expected changes:
+常见结果：
 
-- Three-column grid becomes single column with section headers acting as sticky dividers
-- Sidebar nav moves to a horizontal scroller above the content
-- Toggles gain 8px vertical padding so they meet 44px touch targets
-- Inline help text moves to tap-to-reveal, not hover
-- The "Danger zone" section expands fully on mobile instead of collapsing, because it contains irreversible actions and we want users to see them clearly
+- 三栏网格收成单列，并用分区标题充当 sticky 分隔
+- 侧边导航上移为内容上方的横向滚动条
+- 切换开关上下补 8px 内边距，满足 44px 触控目标
+- 行内帮助文案改为点击展开，而不是 hover 才能看到
+- “Danger zone” 在移动端不再折叠，因为里面是不可逆操作，用户应该一眼就能看清
 
-## Pitfalls
+## 常见误区
 
-- **Amputating features.** If the mobile version hides things the desktop version can do, that is a regression, not an adaptation. Fight for the feature.
-- **Treating mobile as "smaller desktop".** Mobile is a different context: thumbs, interruption, short sessions. Adapt to the context, not to the viewport width.
-- **Skipping `/impeccable harden` afterward.** Responsive layouts reveal edge cases. Run hardening after adapt to catch the ones that only show up at 320px.
+- **靠隐藏功能来适配。** 如果移动端版本把桌面端能做的事藏没了，那是回退，不是适配。该保的功能要想办法保住。
+- **把 mobile 当成缩小版 desktop。** 手机是另一种上下文：拇指操作、容易被打断、使用时间更短。你要适配的是场景，而不只是 viewport 宽度。
+- **做完之后不接 `/impeccable harden`。** 响应式布局特别容易暴露边界情况。adapt 结束后再跑一轮 harden，把那些只会在 320px 下暴露的问题补齐。

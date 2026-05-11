@@ -1,42 +1,42 @@
 ---
-tagline: "Rewrite confusing UX copy so interfaces explain themselves."
+tagline: "把让人费解的 UX 文案改清楚，让界面自己说明自己。"
 ---
 
-## When to use it
+## 适用场景
 
-`/impeccable clarify` is for interface text that makes people stop and think. Confusing labels, ambiguous button copy, error messages that blame the user, tooltips that repeat the label, empty states that say nothing useful. Use it when the problem is not the layout or the color, it is the words.
+`/impeccable clarify` 适合那种“文字让人停下来想一下”的界面：标签含糊、按钮文案模棱两可、错误提示像在责怪用户、tooltip 只是重复标签、空状态什么都没说。只要问题不在布局，也不在颜色，而明显在“字”，就该用它。
 
-Good triggers: "users do not understand this field", "the error message is not helpful", "I cannot write good button copy", "this tooltip is a waste".
+典型触发语包括：“用户看不懂这个字段”“错误提示没帮助”“我不会写按钮文案”“这个 tooltip 纯属浪费”。
 
-## How it works
+## 工作方式
 
-The skill rewrites text across the surfaces where most UX copy problems live:
+这条 skill 会围绕最容易出 UX copy 问题的几个表面重写文字：
 
-1. **Labels and field hints**: direct, specific, say what is expected.
-2. **Button copy**: verb-first, describes the outcome, not the action. "Save changes" not "OK".
-3. **Error messages**: explain what went wrong, whose fault it is, and what to do next. Never blame the user.
-4. **Empty states**: orient the user, explain why the state is empty, offer a next step.
-5. **Tooltips and helper text**: add information the label cannot carry, never restate it.
-6. **Confirmation dialogs**: name the consequences, not the action.
+1. **标签和字段提示**：直接、具体，清楚说明期待输入什么。
+2. **按钮文案**：动词优先，描述结果，而不是只描述动作。比如 “Save changes” 比 “OK” 更清楚。
+3. **错误信息**：解释出了什么问题、责任归谁、下一步该怎么做。永远不要把错甩给用户。
+4. **空状态**：先让用户知道自己在哪、为什么这里是空的、接下来能做什么。
+5. **Tooltip 和 helper text**：补充标签无法承载的信息，绝不只是换个说法重说一遍。
+6. **确认对话框**：描述后果，而不是重复动作本身。
 
-The skill uses the audience and mental state from `PRODUCT.md` to tune voice. Technical audience gets precise language. Consumer audience gets plain speech. Rushed users get short text. Anxious users (payment, delete) get reassurance.
+Clarify 会读取 `PRODUCT.md` 中的受众和心理状态，再决定语气。技术受众需要更精确的话，消费者需要更平实的话；匆忙的人需要更短的句子；焦虑场景（支付、删除）则需要更强的安定感。
 
-## Try it
+## 试试看
 
-```
+```text
 /impeccable clarify the billing form
 ```
 
-Before and after, typical:
+典型前后对比：
 
-- Label "Billing address" → "Address on your card"
-- Placeholder "Enter your VAT ID" → "VAT ID (optional, for business)"
-- Error "Invalid input" → "This card number is 15 digits. You entered 14."
-- Button "Submit" → "Charge $29 and subscribe"
-- Empty state "No transactions yet" → "Your first charge will show up here after your first order."
+- 标签 “Billing address” → “银行卡账单地址”
+- 占位符 “Enter your VAT ID” → “VAT ID（可选，仅企业开票需要）”
+- 错误提示 “Invalid input” → “这张卡号应为 15 位，你当前输入了 14 位。”
+- 按钮 “Submit” → “支付 $29 并完成订阅”
+- 空状态 “No transactions yet” → “你的第一笔扣费完成后，会显示在这里。”
 
-## Pitfalls
+## 常见误区
 
-- **Writing cleverer, not clearer.** Clarify is not for voice upgrades. If the copy is already clear, do not reach for this skill. Use `/impeccable delight` instead when you want personality.
-- **Skipping the audience question.** Clarify needs to know who is reading. If `PRODUCT.md` does not specify audience technical level, the rewrites will be generic.
-- **Running clarify on marketing copy.** Clarify is for functional UX text: labels, errors, instructions. Marketing copy needs a different set of moves and a human writer.
+- **写得更聪明，而不是更清楚。** Clarify 不是做品牌语气升级的。文案如果已经很清楚，就不要为了“更有个性”再跑它；那时更适合 `/impeccable delight`。
+- **跳过受众信息。** Clarify 必须知道是谁在读。如果 `PRODUCT.md` 没写清楚受众技术程度，重写结果就会更泛。
+- **把它用在 marketing copy 上。** Clarify 更适合功能型 UX 文案：标签、报错、说明、引导。真正的营销文案需要另一套动作，也通常需要人类文案参与。

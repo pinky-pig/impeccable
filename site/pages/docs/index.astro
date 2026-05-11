@@ -32,20 +32,20 @@ for (const cat of CATEGORY_ORDER) {
 ---
 
 <Base
-  title="Docs | Impeccable"
-  description="23 commands for design fluency. Browse the full reference for every /impeccable sub-command."
+  title="文档 | Impeccable"
+  description="23 个命令，构成一套可操作的设计语言。浏览每个 /impeccable 子命令的完整参考。"
   activeNav="docs"
   canonicalPath="/docs"
   bodyClass="sub-page skills-layout-page"
 >
   <div class="skills-layout">
-    <aside class="skills-sidebar" aria-label="Commands">
+    <aside class="skills-sidebar" aria-label="命令">
       <button class="skills-sidebar-toggle" type="button" aria-expanded="false" aria-controls="skills-sidebar-inner">
-        <span class="skills-sidebar-toggle-label">Commands</span>
+        <span class="skills-sidebar-toggle-label">命令</span>
         <svg class="skills-sidebar-toggle-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="skills-sidebar-inner" id="skills-sidebar-inner">
-        <p class="skills-sidebar-label">Commands</p>
+        <p class="skills-sidebar-label">命令</p>
         {CATEGORY_ORDER.map(cat => (
           <div class="skills-sidebar-group">
             <span class="skills-sidebar-category">{CATEGORY_LABELS[cat]}</span>
@@ -66,8 +66,8 @@ for (const cat of CATEGORY_ORDER) {
     <div class="skills-main">
       <div class="docs-index">
         <header class="docs-index-header">
-          <h1 class="sub-page-title">Commands</h1>
-          <p class="sub-page-lede">23 commands for design fluency. One skill, six categories, from shaping a new feature to hardening it for production.</p>
+          <h1 class="sub-page-title">命令</h1>
+          <p class="sub-page-lede">23 个命令，组成一套真正可用的设计语言。1 个 skill，6 个类别，从新功能塑形到上线前补强，一路覆盖完整工作流。</p>
         </header>
 
         {CATEGORY_ORDER.map(cat => (

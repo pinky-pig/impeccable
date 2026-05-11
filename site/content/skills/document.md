@@ -1,19 +1,19 @@
 ---
-tagline: "Generate a spec-compliant DESIGN.md that captures your visual system so every AI agent stays on-brand."
+tagline: "生成符合规范的 DESIGN.md，把你的视觉系统固化下来，让每个 AI agent 都能保持同一设计语境。"
 ---
 
 <div class="docs-viz-hero">
   <div class="docs-viz-file">
     <div class="docs-viz-file-header">
       <span class="docs-viz-file-name">DESIGN.md</span>
-      <span class="docs-viz-file-status">Google Stitch format</span>
+      <span class="docs-viz-file-status">Google Stitch 格式</span>
     </div>
     <div class="docs-viz-designmd-section">
       <div class="docs-viz-designmd-head">
         <span class="docs-viz-designmd-num">01</span>
         <span class="docs-viz-designmd-title">Overview</span>
       </div>
-      <p class="docs-viz-designmd-note">Creative North Star: <em>"The Editorial Sanctuary."</em> Quiet type, generous air, one committed accent.</p>
+      <p class="docs-viz-designmd-note">Creative North Star：<em>“The Editorial Sanctuary.”</em> 安静的排版、充足的空气感、一个真正明确的强调色。</p>
     </div>
     <div class="docs-viz-designmd-section">
       <div class="docs-viz-designmd-head">
@@ -42,7 +42,7 @@ tagline: "Generate a spec-compliant DESIGN.md that captures your visual system s
         <span class="docs-viz-designmd-num">04</span>
         <span class="docs-viz-designmd-title">Elevation</span>
       </div>
-      <p class="docs-viz-designmd-note">Flat by default. Shadows appear only as a response to state.</p>
+      <p class="docs-viz-designmd-note">默认保持平面。只有状态变化时才引入阴影。</p>
     </div>
     <div class="docs-viz-designmd-section">
       <div class="docs-viz-designmd-head">
@@ -61,54 +61,54 @@ tagline: "Generate a spec-compliant DESIGN.md that captures your visual system s
         <span class="docs-viz-designmd-title">Do's and Don'ts</span>
       </div>
       <div class="docs-viz-designmd-rules">
-        <span class="docs-viz-designmd-do">Tint neutrals toward the accent hue.</span>
-        <span class="docs-viz-designmd-dont">Gradient text for emphasis.</span>
+        <span class="docs-viz-designmd-do">让中性色轻微染上强调色的色相。</span>
+        <span class="docs-viz-designmd-dont">不要用渐变文字做强调。</span>
       </div>
     </div>
   </div>
-  <p class="docs-viz-caption">The six sections are fixed, in a fixed order, with fixed names. Alongside, <code>DESIGN.json</code> ships as a machine-readable sidecar for the Live Mode design panel.</p>
+  <p class="docs-viz-caption">这六个 section 的顺序和名称都是固定的。除此之外，还会同时产出一份机器可读的 <code>DESIGN.json</code>，供 Live Mode 的设计面板直接消费。</p>
 </div>
 
-## When to use it
+## 适用场景
 
-Run `/impeccable document` once you have enough of a visual system to document: colors, typography, at least a button and a card. The command scans your codebase, extracts the tokens and component patterns it finds, and writes a `DESIGN.md` at the project root that follows the [Google Stitch DESIGN.md format](https://stitch.withgoogle.com/docs/design-md/format/), six sections in a fixed order, interoperable with every other DESIGN.md-aware tool.
+当你的视觉系统已经积累到足够“值得被记录”的程度时，就跑一次 `/impeccable document`：有颜色、有排版，至少已经有按钮和卡片这类基本组件。它会扫描你的代码库，提取其中出现的 tokens 与组件模式，并在项目根目录写出一份遵循 [Google Stitch DESIGN.md format](https://stitch.withgoogle.com/docs/design-md/format/) 的 `DESIGN.md`。这份文件有六个固定 section，顺序固定，其他任何识别 DESIGN.md 的工具都能消费它。
 
-Reach for it when:
+适合使用 document 的时候：
 
-- **You just ran `/impeccable teach`** and `PRODUCT.md` now exists. Document is the matching visual-side file.
-- **A command nudged you toward it.** Live, craft, and polish all read DESIGN.md. If it is missing, the skill suggests running document first.
-- **The design has drifted** from an older DESIGN.md and the file no longer describes the live system.
-- **Before a large redesign**, to capture current state as a reference for the next direction.
+- **你刚跑完 `/impeccable teach`**，现在已经有了 `PRODUCT.md`。Document 正好是它在视觉侧的对应文件。
+- **有其他命令把你引回它。** Live、craft 和 polish 都会读取 DESIGN.md。如果它不存在，skill 通常会建议你先跑 document。
+- **设计已经和旧 DESIGN.md 漂移开了。** 文件不再准确描述线上系统。
+- **在一次大改版之前。** 先把当前状态完整记录下来，作为下一轮方向变化的参照。
 
-For projects with no code yet (fresh `teach` run, nothing built), there is a seed mode: `/impeccable document --seed` asks five quick strategic questions (color strategy, type direction, motion energy, references, anti-references) and writes a scaffold. Re-run in scan mode once there is code.
+如果项目里还没什么代码（例如刚跑完 `teach`，还没做任何实现），也可以用 seed mode：`/impeccable document --seed`。它会问你五个非常快的策略问题（色彩策略、字体方向、动效能量、参考、反参考），先写出一份骨架。等真正有代码以后，再跑一次正常 scan mode 覆盖它。
 
-## How it works
+## 工作方式
 
-The scan pass finds design assets in priority order: CSS custom properties, Tailwind config, CSS-in-JS themes, design token files, component source, the global stylesheet, and finally computed styles from the live rendered output if a browser is available. It auto-extracts everything it can, then asks one grouped question for the parts that need creative input: the **Creative North Star** (a single named metaphor for the whole system, like "The Editorial Sanctuary"), descriptive color names, the elevation philosophy, and the component character.
+扫描阶段会按优先级依次寻找设计资产：CSS custom properties、Tailwind 配置、CSS-in-JS themes、design token 文件、组件源码、全局样式表，最后如果浏览器可用，还会补抓一遍真实渲染后的 computed styles。能自动提取的内容，它都会先尽量提取；剩下那些真正需要创意判断的部分，才会集中问你一次，例如 **Creative North Star**（整个系统的一个命名隐喻，比如 “The Editorial Sanctuary”）、更具描述性的颜色名称、层次哲学，以及组件性格。
 
-Output is a DESIGN.md with exactly six sections: Overview, Colors, Typography, Elevation, Components, Do's and Don'ts. Headers are fixed character-for-character so the file is parseable by other tools. Alongside it, `DESIGN.json` is written as a machine-readable sidecar. That sidecar is what the live-mode design panel uses to render *this project's* actual button, input, nav, and card tiles instead of a generic approximation.
+最终产物是一份严格只有六个 section 的 DESIGN.md：Overview、Colors、Typography、Elevation、Components、Do's and Don'ts。标题名称会逐字符保持固定，这样其他工具才能稳定解析。同一时间，它还会写出一份机器可读的 `DESIGN.json`。Live Mode 设计面板读取的就是这个 sidecar，因此它展示的按钮、输入框、导航和卡片，不会是 generic approximation，而会是**你这个项目真实的设计系统**。
 
-Every other command reads DESIGN.md on invocation. Variants, polishes, audits, and new features inherit the visual system without being told.
+之后每一条命令都会在启动时读取 DESIGN.md。新的变体、打磨、评审乃至新功能构建，都会在不额外提醒的情况下自动继承这套视觉系统。
 
-## Try it
+## 试试看
 
-```
+```text
 /impeccable document
 ```
 
-On a project with tokens already defined, this takes about two minutes: the scan finds your palette and type stack, you pick a North Star from 2 or 3 options, confirm descriptive color names ("Deep Muted Teal-Navy", not "blue-800"), and the file lands at the project root.
+如果项目里已经有 tokens，这个流程通常只需要两分钟左右：扫描会先找到你的色盘和字体栈，你从 2 到 3 个 North Star 选项里挑一个，再确认一下颜色命名（例如 “Deep Muted Teal-Navy”，而不是 “blue-800”），文件就会落到项目根目录。
 
-On a fresh project:
+对于一个全新项目：
 
-```
+```text
 /impeccable document --seed
 ```
 
-Five questions, about five minutes. The file is a scaffold, marked with a `<!-- SEED -->` comment so it is honest about what it is. Re-run without the flag once you have implemented tokens.
+大概五个问题，五分钟左右。产出的文件会带一个 `<!-- SEED -->` 注释，明确说明它目前只是一份骨架。等你真正把 tokens 实现出来，再去掉 flag 重跑一次。
 
-## Pitfalls
+## 常见误区
 
-- **Running it too early.** On a project with no implemented tokens, seed mode is right. Do not fabricate a full spec the code cannot back up. A fake DESIGN.md is worse than no DESIGN.md.
-- **Treating DESIGN.md as documentation for humans only.** It is primarily for the AI. Every other command reads it. The format's forcefulness ("never", "always", Named Rules) is intentional.
-- **Adding a Layout / Motion / Responsive top-level section.** The spec has six sections, in a fixed order, with fixed names. Fold layout or motion content into Overview (philosophy-level rules) or Components (per-component behavior).
-- **Overwriting an existing DESIGN.md silently.** Document always confirms first. If you want to start fresh, rename the existing file out of the way or explicitly tell the skill to overwrite.
+- **跑得太早。** 如果项目里连真正实现的 tokens 都没有，那 seed mode 才是正确用法。不要伪造一份代码根本支撑不起来的完整视觉规范。假的 DESIGN.md 比没有 DESIGN.md 更糟。
+- **把 DESIGN.md 当成人类文档。** 它首先是写给 AI 读的。后续每条命令都会读取它。格式里那些带强约束的措辞（例如 “never”“always” 和具名规则）本来就是故意的。
+- **自己再加一个 Layout / Motion / Responsive 顶级 section。** 规范只认六个 section，名称和顺序都固定。布局或动效类内容应该折到 Overview（理念级规则）或 Components（组件级行为）里。
+- **默默覆盖已有的 DESIGN.md。** Document 总会先确认。如果你真的想重新开始，先把旧文件改名挪开，或者明确告诉它允许 overwrite。

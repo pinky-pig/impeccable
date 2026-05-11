@@ -1,41 +1,41 @@
 ---
-tagline: "Fix layout, spacing, and visual rhythm."
+tagline: "修布局、修间距、修视觉节奏。"
 ---
 
-## When to use it
+## 适用场景
 
-`/impeccable layout` is for pages where nothing is technically wrong but nothing is breathing either. Equal padding everywhere, monotonous card grids, content that runs edge to edge, hierarchy that relies on size alone. Reach for it when a layout "feels off" and you cannot articulate why.
+`/impeccable layout` 适合那种“技术上没错，但就是喘不过气”的页面：到处同样的 padding、单调重复的 card grid、内容从边缘一路顶到边缘、层级只能靠字号硬撑。只要一个布局“看起来不对”，但你又很难准确描述原因，它通常就是这条命令的工作。
 
-Good triggers: "everything feels crowded", "it reads like a wall", "I do not know where to look first".
+典型触发语包括：“一切都太挤了”“像一堵墙”“我不知道第一眼该看哪里”。
 
-## How it works
+## 工作方式
 
-The skill runs through five layout dimensions:
+这条 skill 会沿着五个布局维度过一遍：
 
-1. **Spacing**: is the spacing scale consistent or are there random 13px gaps, are related elements grouped tightly with generous space between groups, is there any rhythm at all.
-2. **Visual hierarchy**: does the eye land on the primary action within 2 seconds, is the hierarchy doing real work or is everything shouting.
-3. **Grid and structure**: is there an underlying grid or is the layout random, are elements aligned to baselines.
-4. **Rhythm**: does the page alternate between tight and generous spacing, or is everything uniform.
-5. **Density**: is the layout cramped or is it wasteful, does density match the content type.
+1. **Spacing**：间距刻度是否一致，还是到处都是随机 13px；相关元素是否收得够紧，组与组之间是否拉得够开；页面有没有节奏。
+2. **Visual hierarchy**：用户能不能在 2 秒内看到主要动作；层级到底在发挥作用，还是所有东西都在大喊。
+3. **Grid and structure**：页面底层是否真的有网格，还是完全随机；元素是否在同一基线上对齐。
+4. **Rhythm**：页面能否在紧与松之间交替，还是所有地方都是同一种密度。
+5. **Density**：到底是太挤，还是太浪费；密度是否匹配当前内容类型。
 
-Fixes usually involve rebuilding the spacing scale, introducing asymmetry, collapsing monotonous grids into a mixed layout with hero and supporting elements, and giving the primary action real space.
+实际修改通常会包括：重建间距刻度、引入不对称、把单调网格拆成主次分明的混合布局，并给主要动作真正留出空间。
 
-## Try it
+## 试试看
 
-```
+```text
 /impeccable layout the settings page
 ```
 
-Typical changes:
+常见变化：
 
-- Spacing scale unified to 8 / 16 / 24 / 48 / 96px
-- Section breaks at 48px, row gaps at 16px, form field groups at 8px
-- Primary actions pulled out of the form flow with 32px buffer
-- Decorative borders removed, replaced with spacing-driven grouping
-- Sidebar and main column proportions rebalanced (280 / flex vs 25 / 75)
+- 间距刻度统一成 8 / 16 / 24 / 48 / 96px
+- section 间距拉到 48px，行间距保持 16px，表单组内部用 8px
+- 主要动作从表单流里抽出来，单独留出 32px 缓冲
+- 移除纯装饰性的边框，改用间距建立分组
+- 重新平衡 sidebar 与主栏比例（280 / flex，而不是僵硬的 25 / 75）
 
-## Pitfalls
+## 常见误区
 
-- **Confusing arrange with distill.** If the problem is too many things, run `/impeccable distill` first. Layout is for arranging what is already the right set.
-- **Expecting it to rescue a broken grid.** If the page has no grid at all, arrange will build one. Just know that the diff is going to be larger than you expect.
-- **Ignoring the hierarchy verdict.** If arrange says "nothing is primary", no amount of spacing work fixes that. You need a content decision, not a layout tweak.
+- **把 arrange 和 distill 搞混。** 如果问题在于“东西太多”，先跑 `/impeccable distill`。Layout 负责摆对，前提是这些东西本来就应该存在。
+- **期待它轻松拯救一张根本没网格的页面。** 如果页面完全没有 grid，那 layout 的确会帮你补一个，但 diff 往往会比你预期大得多。
+- **无视 hierarchy verdict。** 如果 layout 告诉你“没有东西真正是 primary”，那单靠调间距修不好。那已经是内容决策问题，而不是布局 tweak。
