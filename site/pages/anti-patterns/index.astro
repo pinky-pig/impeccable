@@ -1,19 +1,5 @@
 ---
-import Base from '../../layouts/Base.astro';
-import LegacyPageScripts from '../../components/LegacyPageScripts.astro';
-import '../../styles/sub-pages.css';
-import { loadLegacyPage } from '../../lib/legacy-page.js';
-
-const legacy = loadLegacyPage('anti-patterns/index.html');
+import HomePage from '../index.astro';
 ---
 
-<Base
-  title={legacy.title || '反模式 | Impeccable'}
-  description={legacy.description}
-  activeNav="anti-patterns"
-  canonicalPath="/anti-patterns"
-  bodyClass={legacy.bodyClass || 'sub-page skills-layout-page anti-patterns-page'}
->
-  <Fragment set:html={legacy.content} />
-  <LegacyPageScripts slot="scripts" />
-</Base>
+<HomePage />

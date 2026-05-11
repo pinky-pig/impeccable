@@ -1,26 +1,43 @@
 ---
-import Base from '../../layouts/Base.astro';
-import LegacyPageScripts from '../../components/LegacyPageScripts.astro';
-import '../../styles/sub-pages.css';
-import { loadLegacyPage, listLegacyPages } from '../../lib/legacy-page.js';
+import { getCollection, render } from 'astro:content';
+import fs from 'node:fs';
+import path from 'node:path';
+import Doc from '../../layouts/Doc.astro';
+import { SKILL_CATEGORIES } from '../../data/sub-pages-data';
 
-export function getStaticPaths() {
-  return listLegacyPages('skills').map((slug) => ({
-    params: { slug },
-    props: { legacy: loadLegacyPage(`skills/${slug}.html`) },
+export async function getStaticPaths() {
+  const entries = await getCollection('skills');
+  const metadataPath = path.join(process.cwd(), 'skill/scripts/command-metadata.json');
+  const commandMetadata = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
+
+  const allCommands = entries.map((entry) => ({
+    slug: entry.id,
+    category: SKILL_CATEGORIES[entry.id] || 'system',
+  }));
+
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: {
+      entry,
+      metadata: commandMetadata[entry.id] || { description: entry.data.tagline, argumentHint: '' },
+      allCommands,
+    },
   }));
 }
 
-const { legacy } = Astro.props;
+const { entry, metadata, allCommands } = Astro.props;
+const { Content } = await render(entry);
+const slug = entry.id;
+const category = SKILL_CATEGORIES[slug] || 'system';
 ---
 
-<Base
-  title={legacy.title}
-  description={legacy.description}
-  activeNav="docs"
-  canonicalPath={`/skills/${Astro.params.slug}`}
-  bodyClass={legacy.bodyClass || 'sub-page skills-layout-page'}
+<Doc
+  title={slug}
+  description={metadata.description}
+  tagline={entry.data.tagline}
+  slug={slug}
+  category={category}
+  allCommands={allCommands}
 >
-  <Fragment set:html={legacy.content} />
-  <LegacyPageScripts slot="scripts" />
-</Base>
+  <Content />
+</Doc>

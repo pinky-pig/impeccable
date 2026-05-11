@@ -1,29 +1,64 @@
 ---
+import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import LegacyPageScripts from '../../components/LegacyPageScripts.astro';
 import '../../styles/sub-pages.css';
-import { loadLegacyPage, listLegacyPages } from '../../lib/legacy-page.js';
 
-export function getStaticPaths() {
-  return listLegacyPages('tutorials').map((slug) => ({
-    params: { slug },
-    props: { legacy: loadLegacyPage(`tutorials/${slug}.html`) },
+export async function getStaticPaths() {
+  const entries = await getCollection('tutorials');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
   }));
 }
 
 const slug = Array.isArray(Astro.params.slug)
   ? Astro.params.slug.join('/')
   : Astro.params.slug;
-const { legacy } = Astro.props;
+const { entry } = Astro.props;
+const { Content } = await render(entry);
 ---
 
 <Base
-  title={legacy.title}
-  description={legacy.description}
+  title={`${entry.data.title} | 教程 | Impeccable`}
+  description={entry.data.description}
   activeNav="docs"
   canonicalPath={`/tutorials/${slug}`}
-  bodyClass={legacy.bodyClass || 'sub-page'}
+  bodyClass="sub-page"
 >
-  <Fragment set:html={legacy.content} />
-  <LegacyPageScripts slot="scripts" />
+  <div class="tutorial-page">
+    <nav class="skills-breadcrumb" aria-label="面包屑">
+      <a href="/docs">文档</a>
+      <span aria-hidden="true">/</span>
+      <a href="/tutorials">教程</a>
+      <span aria-hidden="true">/</span>
+      <span>{entry.data.title}</span>
+    </nav>
+
+    <header class="sub-page-header">
+      <span class="sub-page-eyebrow">教程</span>
+      <h1 class="sub-page-title">{entry.data.title}</h1>
+      <p class="sub-page-lede">{entry.data.tagline}</p>
+    </header>
+
+    <div class="skills-detail-body docs-body tutorial-body prose">
+      <Content />
+    </div>
+  </div>
+
+  <style>
+    .tutorial-page {
+      max-width: 760px;
+      padding: 2rem 0 4rem;
+    }
+
+    .tutorial-body {
+      max-width: 66ch;
+    }
+
+    @media (max-width: 720px) {
+      .tutorial-page {
+        padding: 1.5rem 0 3rem;
+      }
+    }
+  </style>
 </Base>
