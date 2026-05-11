@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { activeNav } = Astro.props;
+const designingCurrent = activeNav === 'designing' ? 'page' : undefined;
 const docsCurrent = activeNav === 'docs' ? 'page' : undefined;
 const antiPatternsCurrent = activeNav === 'anti-patterns' || activeNav === 'slop' ? 'page' : undefined;
 const visualModeCurrent = activeNav === 'visual-mode' || activeNav === 'live' ? 'page' : undefined;
@@ -17,6 +18,7 @@ const visualModeCurrent = activeNav === 'visual-mode' || activeNav === 'live' ? 
   <div class="site-header-right">
     <nav class="site-header-nav" aria-label="主导航">
       <a href="/" data-nav="home" aria-current={activeNav === 'home' ? 'page' : undefined}>首页</a>
+      <a href="/designing" data-nav="designing" aria-current={designingCurrent}>设计</a>
       <a href="/skills" data-nav="docs" aria-current={docsCurrent}>文档</a>
       <a href="/anti-patterns" data-nav="anti-patterns" aria-current={antiPatternsCurrent}>反模式</a>
       <a href="/visual-mode" data-nav="visual-mode" aria-current={visualModeCurrent}>可视模式</a>
